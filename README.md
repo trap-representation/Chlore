@@ -2,6 +2,8 @@ Sasm
 ----
 This is Sasm - a stack based, assembly-like language.
 
+A formal language specification is extremely important for the development of a language, and Sasm has a standard too. You'll be able to find a draft of the standard on this repository soon.
+
 Design goals:
 - Trust the programmer
 - Keep the language as simple as possible
