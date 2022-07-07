@@ -2,8 +2,6 @@ Sasm
 ----
 This is Sasm - a stack based, assembly-like language.
 
-A formal language specification is extremely important for the development of a language, and Sasm has a standard too. You'll be able to find a draft of the standard on this repository soon.
-
 Design goals:
 - Trust the programmer
 - Keep the language as simple as possible
@@ -34,6 +32,8 @@ A simple Hello World program written in a standard compliant implementation of S
     hlt
 
 1) Check out more examples in the `examples` folder of this repository.
+
+A formal language specification is extremely important for the development of a language, and Sasm has a standard too. You'll be able to find a draft of the standard on this repository soon.
 
 PS: You'll soon be able to find the source of the reference implementation of Sasm that I've been working on on this repository.
 
