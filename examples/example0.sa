@@ -1,0 +1,7 @@
+/ example 0: Exit code
+  This program returns with an exit code of 42
+/
+
+:main
+pushu8 42
+hltr
