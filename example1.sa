@@ -1,0 +1,13 @@
+/ example 1: Hello, World!
+  This program writes "Hello, World" to stdout
+/
+
+import "./lib/import/io.sah"
+
+:string dat str "Hello, World!\n" ;str automatically nul terminates the string
+
+:main
+pushi64 string ptr_data ;the top of the stack now has a pointer to the string
+pushu8 0 pushu8 0 inva
+%std_io_puts!
+hlt
