@@ -25,7 +25,7 @@ In the future MSasm will be able to target:
 - WebAssembly
 - CLR
 
-A simple Hello World program written in a standard compliant implementation of Sasm <sup>1)</sup>:
+A simple Hello World program written in a standard compliant implementation of Sasm:
 
     import "./lib/import/io.sah"   
     :string dat str "Hello, World!\n"
