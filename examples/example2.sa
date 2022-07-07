@@ -1,0 +1,39 @@
+/ example 2: This isn't rocket science
+  This program was made for the "This isn't rocket science" code-golf (code-golf question 91182), though it was never submitted
+/
+
+import "./lib/import/io.sah"
+
+:rocket_top dat str "\n  |\n /_\\\n"
+:rocket_bottom dat str " |_|\n/___\\\n VvV\n"
+:pipe_with_space dat str " |"
+:pipe_with_newline dat str "|\n"
+
+:main
+pushu8 0 pushu8 0 inva
+%std_io_getc!
+pushu8 0 pushu8 2 inva
+pushi64 rocket_top
+%std_io_puts!
+
+:loop
+	dup pushu8 '\n' jeq quit ;check for newline
+	dup pushi8 -1 jeq quit ;check for EOF (need to add a macro for EOF in the standard library)
+	pushi64 pipe_with_space
+	pushu8 0 pushu8 2 inva
+	%std_io_puts!
+	pushu8 0 pushu8 1 inva
+	%std_io_putc!
+	pushi64 pipe_with_newline
+	pushu8 0 pushu8 2 inva
+	%std_io_puts!
+	pushu8 0 pushu8 0 inva
+	%std_io_getc!
+	jmp loop
+
+:quit
+pushu8 0 pushu8 2 inva
+pushi64 rocket_bottom
+%std_io_puts!
+hlt
+
