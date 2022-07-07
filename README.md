@@ -8,7 +8,7 @@ Design goals:
 - Keep the standard library as minimal as possible
 - One pays for only as much as one wants to do
 
-What Sasm doesn't have:
+What Sasm will *never* have:
 - Automatic memory management
 - Implicit safety checks; everything has to be done explicitly by the programmer
 
