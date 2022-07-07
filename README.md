@@ -26,9 +26,9 @@ A simple Hello World program written in a standard compliant implementation of S
     import "./lib/import/io.sah"   
     :string dat str "Hello, World!\n"
     :main
+    pushi64 string ptr_data
     pushu8 0 pushu8 0 inva
-    pushi64 string
-    call std.io.puts
+    call std_io_puts
     hlt
 
 1) Check out more examples in the `examples` folder of this repository.
