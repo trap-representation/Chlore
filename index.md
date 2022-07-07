@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+Sasm
+----
+This is Sasm - a stack based, assembly-like language.
 
-You can use the [editor on GitHub](https://github.com/trap-representation/Sasm/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Most of the modern languages are built with safety in mind. But let's be honest, a compiler can never be perfect; it's not hard for subtle bugs to slip through and cause all sorts of weird stuff.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This is why Sasm does *not* try to be safe at all. It is built with a focus on speed and optimizations in mind, rather than safety.
 
-### Markdown
+Design goals:
+- Trust the programmer
+- Keep the language as simple as possible
+- Keep the standard library as minimal as possible
+- One pays for only as much as one wants to do
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+What Sasm will *never* have:
+- Automatic memory management
+- Implicit safety checks; everything has to be done explicitly by the programmer
 
-```markdown
-Syntax highlighted code block
+The reference implementation of Sasm that I've been working on is called MSasm.
 
-# Header 1
-## Header 2
-### Header 3
+MSasm can currently target:
+- STVM
 
-- Bulleted
-- List
+In the future MSasm will be able to target:
+- WebAssembly
+- CLR
 
-1. Numbered
-2. List
+A simple Hello World program written in a standard compliant implementation of Sasm <sup>1)</sup>:
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/trap-representation/Sasm/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+    import "./lib/import/io.sah"   
+    :string dat str "Hello, World!\n"
+    :main
+    pushi64 string ptr_data
+    pushu8 0 pushu8 0 inva
+    call std_io_puts
+    hlt
