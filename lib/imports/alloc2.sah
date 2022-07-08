@@ -33,7 +33,7 @@ rbs
 rbe
 
 / On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top] bytes on the [top] of the stack.
-  On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
+  On failure: Returns one of EINIT, EINT, EOVF.
               Pushes an unspecified value on the top of the stack.
 /
 
