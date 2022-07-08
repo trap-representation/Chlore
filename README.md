@@ -31,7 +31,7 @@ A simple Hello World program written in a standard compliant implementation of S
     call std_io_puts
     hlt
 
-1) Check out more examples in the `examples` folder of this repository.
+1)Check out more examples in the `examples` folder of this repository.
 
 A formal language specification is extremely important for the development of a language, and Sasm has a (WIP) standard too. You'll be able to find a draft of the standard on this repository soon.
 
