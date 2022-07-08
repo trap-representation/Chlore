@@ -1,0 +1,8 @@
+set true 1
+set false 0
+set NULL I64_MAX
+set stdout 1
+set stdin 0
+set stderr 2
+set max_align_t 16
+set EOF -1
