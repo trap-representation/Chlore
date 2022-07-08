@@ -37,4 +37,4 @@ A formal language specification is extremely important for the development of a 
 
 PS: You'll soon be able to find the source of the reference implementation of Sasm that I've been working on on this repository.
 
-PPS: Check out the Sasm website [here](https://sites.google.com/view/sasm-lang/sasm-home).
+PPS: Check out the Sasm website [here](https://trap-representation.github.io/Sasm/).
