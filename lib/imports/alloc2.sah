@@ -1,0 +1,206 @@
+set EINIT 1
+set EALIGN 2
+set EINT 3
+set EOVF 4
+
+:hidden$std_alloc2_aaseg blks
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_aaseg_f
+	loadf
+	str0
+	-> 2 invoke -> 1
+	& lfr0
+	ret
+blke
+
+:std_alloc2_aaseg! {
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_aaseg_f
+	loadf
+	-> 2 invoke -> 1
+}
+
+rbs
+:hidden$std_alloc2_aaseg_f blks dat str "aaseg" blke
+rbe
+
+:hidden$std_alloc2_aseg blks
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_aseg_f
+	loadf
+	swap
+	-> 1 invoke -> 1
+	swap
+	ret
+blke
+
+:std_alloc2_aseg! {
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_aseg_f
+	loadf
+	-> 1 invoke -> 1
+}
+
+rbs
+:hidden$std_alloc2_aseg_f blks dat str "aseg" blke
+rbe
+
+:hidden$std_alloc2_arseg blks
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_arseg_f
+	loadf
+	str0
+	-> 3 invoke -> 1
+	& lfr0
+	ret
+blke
+
+:std_alloc2_arseg! {
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_arseg_f
+	loadf
+	-> 3 invoke -> 1
+}
+
+rbs
+:hidden$std_alloc2_arseg_f blks dat str "arseg" blke
+rbe
+
+:hidden$std_alloc2_rseg blks
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_rseg_f
+	loadf
+	str0
+	-> 2 invoke -> 1
+	& lfr0
+	ret
+blke
+
+:std_alloc2_rseg! {
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_rseg_f
+	loadf
+	-> 2 invoke -> 1
+}
+
+rbs
+:hidden$std_alloc2_rseg_f blks dat str "rseg" blke
+rbe
+
+:hidden$std_alloc2_flush blks
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_flush_f
+	loadf
+	swap
+	-> 1 invoke
+	ret
+blke
+
+:std_alloc2_flush! {
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_flush_f
+	loadf
+	-> 1 invoke
+}
+
+rbs
+:hidden$std_alloc2_flush_f blks dat str "flush" blke
+rbe
+
+:hidden$std_alloc2_close blks
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_close_f
+	loadf
+	invoke
+	ret
+blke
+
+:std_alloc2_close! {
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_close_f
+	loadf
+	invoke
+}
+
+rbs
+:hidden$std_alloc2_close_f blks dat str "close" blke
+rbe
+
+:hidden$std_alloc2_dump blks
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_dump_f
+	loadf
+	invoke
+	ret
+blke
+
+:std_alloc2_dump! {
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_dump_f
+	loadf
+	invoke
+}
+
+rbs
+:hidden$std_alloc2_dump_f blks dat str "dump" blke
+rbe
+
+:hidden$std_alloc2_init blks
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_init_f
+	loadf
+	invoke
+	ret
+blke
+
+:std_alloc2_init! {
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_init_f
+	loadf
+	invoke
+}
+
+rbs
+:hidden$std_alloc2_init_f blks dat str "init" blke
+rbe
+
+:hidden$std_alloc2_prof blks
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_prof_f
+	loadf
+	invoke
+	ret
+blke
+
+:std_alloc2_prof! {
+	pushi64 std_alloc2
+	loadl
+	pushi64 std_alloc2_prof_f
+	loadf
+	invoke
+}
+
+rbs
+:hidden$std_alloc2_prof_f blks dat str "prof" blke
+rbe
+
+rbs
+:hidden$std_alloc2 dat str "./lib/bin/alloc2.so"
+rbe

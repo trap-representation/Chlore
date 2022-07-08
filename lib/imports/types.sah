@@ -1,0 +1,14 @@
+alias alignof_u8 1
+alias alignof_u16 2
+alias alignof_u32 4
+alias alignof_i8 1
+alias alignof_i16 2
+alias alignof_i32 4
+alias alignof_i64 8
+alias sizeof_u8 1
+alias sizeof_u16 2
+alias sizeof_u32 4
+alias sizeof_i8 1
+alias sizeof_i16 2
+alias sizeof_i32 4
+alias sizeof_i64 8

@@ -1,0 +1,558 @@
+:hidden$std_io_puts blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_puts_f
+	loadf
+	swap
+	-> 1 invoke
+	ret
+blke
+
+:std_io_puts! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_puts_f
+	loadf
+	-> 1 invoke
+}
+
+rbs
+:hidden$std_io_puts_f blks dat str "print_str" blke
+rbe
+
+:hidden$std_io_pute blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_pute_f
+	loadf
+	swap
+	-> 1 invoke
+	ret
+blke
+
+:std_io_pute! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_pute_f
+	loadf
+	-> 1 invoke
+}
+
+rbs
+:hidden$std_io_pute_f blks dat str "print_str_err" blke
+rbe
+
+:hidden$std_io_puti64 blks	
+	pushi64 std_io
+	loadl
+	pushi64 std_io_puti64_f
+	loadf
+	swap
+	-> 1 invoke
+	ret
+blke
+
+:std_io_puti64! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_puti64_f
+	loadf
+	-> 1 invoke
+}
+
+rbs
+:hidden$std_io_puti64_f blks dat str "out_i64" blke
+rbe
+
+:hidden$std_io_puti32 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_puti32_f
+	loadf
+	swap
+	-> 1 invoke
+	ret
+blke
+
+:std_io_puti32! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_puti32_f
+	loadf
+	-> 1 invoke
+}
+
+rbs
+:hidden$std_io_puti32_f blks dat str "out_i32" blke
+rbe
+
+:hidden$std_io_puti16 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_puti16_f
+	loadf
+	swap
+	-> 1 invoke
+	ret
+blke
+
+:std_io_puti16! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_puti16_f
+	loadf
+	-> 1 invoke
+}
+
+rbs
+:hidden$std_io_puti16_f blks dat str "out_i16" blke
+rbe
+
+:hidden$std_io_puti8 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_puti8_f
+	loadf
+	swap
+	-> 1 invoke
+	ret
+blke
+
+:std_io_puti8! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_puti8_f
+	loadf
+	-> 1 invoke
+}
+
+rbs
+:hidden$std_io_puti8_f blks dat str "out_i8" blke
+rbe
+
+:hidden$std_io_putu32 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_putu32_f
+	loadf
+	swap
+	-> 1 invoke
+	ret
+blke
+
+:std_io_putu32! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_putu32_f
+	loadf
+	-> 1 invoke
+}
+
+rbs
+:hidden$std_io_putu32_f blks dat str "out_u32" blke
+rbe
+
+:hidden$std_io_putu16 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_putu16_f
+	loadf
+	swap
+	-> 1 invoke
+	ret
+blke
+
+:std_io_putu16! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_putu16_f
+	loadf
+	-> 1 invoke
+}
+
+rbs
+:hidden$std_io_putu16_f blks dat str "out_u16" blke
+rbe
+
+:hidden$std_io_putu8 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_putu8_f
+	loadf
+	swap
+	-> 1 invoke
+	ret
+blke
+
+:std_io_putu8! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_putu8_f
+	loadf
+	-> 1 invoke
+}
+
+rbs
+:hidden$std_io_putu8_f blks dat str "out_u8" blke
+rbe
+
+:hidden$std_io_putc blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_putc_f
+	loadf
+	swap
+	-> 1 invoke
+	ret
+blke
+
+:std_io_putc! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_putc_f
+	loadf
+	-> 1 invoke
+}
+
+rbs
+:hidden$std_io_putc_f blks dat str "out_char" blke
+rbe
+
+:hidden$std_io_getargv blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_getargv_f
+	loadf
+	str0
+	-> 3 invoke
+	& lfr0
+	ret
+blke
+
+:std_io_getargv! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_getargv_f
+	loadf
+	-> 3 invoke
+}
+
+rbs
+:hidden$std_io_getargv_f blks dat str "get_argv" blke
+rbe
+
+:hidden$std_io_getargc blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_getargc_f
+	loadf
+	invoke -> 1
+	swap
+	ret
+blke
+
+:std_io_getargc! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_getargc_f
+	loadf
+	invoke -> 1
+}
+
+rbs
+:hidden$std_io_getargc_f blks dat str "get_argc" blke
+rbe
+
+:hidden$std_io_openf blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_openf_f
+	loadf
+	str0
+	-> 2 invoke
+	& lfr0
+	ret
+blke
+
+:std_io_openf! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_openf_f
+	loadf
+	-> 2 invoke
+}
+
+rbs
+:hidden$std_io_openf_f blks dat str "open_file" blke
+rbe
+
+:hidden$std_io_readf blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_readf_f
+	loadf
+	str0
+	-> 3 invoke
+	& lfr0
+	ret
+blke
+
+:std_io_readf! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_readf_f
+	loadf
+	-> 3 invoke
+}
+
+rbs
+:hidden$std_io_readf_f blks dat str "read_file" blke
+rbe
+
+:hidden$std_io_writef blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_writef_f
+	loadf
+	str0
+	-> 3 invoke
+	& lfr0
+	ret
+blke
+
+:std_io_writef! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_writef_f
+	loadf
+	-> 3 invoke
+}
+
+rbs
+:hidden$std_io_writef_f blks dat str "write_file" blke
+rbe
+
+:hidden$std_io_gets blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_gets_f
+	loadf
+	str0
+	-> 2 invoke
+	& lfr0
+	ret
+blke
+
+:std_io_gets! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_gets_f
+	loadf
+	-> 2 invoke
+}
+
+rbs
+:hidden$std_io_gets_f blks dat str "scanin_str" blke
+rbe
+
+:hidden$std_io_closef blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_closef_f
+	loadf
+	swap
+	-> 1 invoke
+	ret
+blke
+
+:std_io_closef! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_closef_f
+	loadf
+	-> 1 invoke
+}
+
+rbs
+:hidden$std_io_closef_f blks dat str "close_file" blke
+rbe
+
+:hidden$std_io_getc blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_getc_f
+	loadf
+	invoke -> 1
+	swap
+	ret
+blke
+
+:std_io_getc! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_getc_f
+	loadf
+	invoke -> 1
+}
+
+rbs
+:hidden$std_io_getc_f blks dat str "scanin_char" blke
+rbe
+
+:hidden$std_io_geti64 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_geti64_f
+	loadf
+	invoke -> 1
+	swap
+	ret
+blke
+
+:std_io_geti64! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_geti64_f
+	loadf
+	invoke -> 1
+}
+
+rbs
+:hidden$std_io_geti64_f blks dat str "scanin_i64" blke
+rbe
+
+:hidden$std_io_geti32 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_geti32_f
+	loadf
+	invoke -> 1
+	swap
+	ret
+blke
+
+:std_io_geti32! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_geti32_f
+	loadf
+	invoke -> 1
+}
+
+rbs
+:hidden$std_io_geti32_f blks dat str "scanin_i32" blke
+rbe
+
+:hidden$std_io_geti16 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_geti16_f
+	loadf
+	invoke -> 1
+	swap
+	ret
+blke
+
+:std_io_geti16! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_geti16_f
+	loadf
+	invoke -> 1
+}
+
+rbs
+:hidden$std_io_geti16_f blks dat str "scanin_i16" blke
+rbe
+
+:hidden$std_io_geti8 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_geti8_f
+	loadf
+	invoke -> 1
+	swap
+	ret
+blke
+
+:std_io_geti8! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_geti8_f
+	loadf
+	invoke -> 1
+}
+
+rbs
+:hidden$std_io_geti8_f blks dat str "scanin_i8" blke
+rbe
+
+:hidden$std_io_getu32 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_getu32_f
+	loadf
+	invoke -> 1
+	swap
+	ret
+blke
+
+:std_io_getu32! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_getu32_f
+	loadf
+	invoke -> 1
+}
+
+rbs
+:hidden$std_io_getu32_f blks dat str "scanin_u32" blke
+rbe
+
+:hidden$std_io_getu16 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_getu16_f
+	loadf
+	invoke -> 1
+	swap
+	ret
+blke
+
+:std_io_getu16! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_getu16_f
+	loadf
+	invoke -> 1
+}
+
+rbs
+:hidden$std_io_getu16_f blks dat str "scanin_u16" blke
+rbe
+
+:hidden$std_io_getu8 blks
+	pushi64 std_io
+	loadl
+	pushi64 std_io_getu8_f
+	loadf
+	invoke -> 1
+	swap
+	ret
+blke
+
+:std_io_getu8! {
+	pushi64 std_io
+	loadl
+	pushi64 std_io_getu8_f
+	loadf
+	invoke -> 1
+}
+
+rbs
+:hidden$std_io_getu8_f blks dat str "scanin_u8" blke
+rbe
+
+rbs
+:hidden$std_io blks dat str "./lib/bin/io.so" blke
+rbe

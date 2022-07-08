@@ -1,0 +1,213 @@
+set POINTER_HEAP -9223372036854775808
+set POINTER_DATA 9223372036854775807
+
+:hidden$std_string_strlen blks
+	swap
+	pushi8 0
+	swap dup
+	pushi64 POINTER_HEAP
+	andi64
+	pushi64 POINTER_HEAP
+	jeq std_string_strlen_heap
+	jmp std_string_strlen_data
+
+:hidden$std_string_strlen_heap
+	pushi64 POINTER_DATA andi64
+	:hidden$std_string_strlen_heap_loop
+		dup
+		& lfhu8 jnz std_string_strlen_heap_loop_inc
+	pop swap
+	ret
+
+:hidden$std_string_strlen_heap_loop_inc
+	pushu8 1 addi64
+	swap pushu8 1 addi64
+	swap
+	jmp std_string_strlen_heap
+
+:hidden$std_string_strlen_data
+	pushi64 POINTER_DATA andi64
+	:hidden$std_string_strlen_data_loop
+		dup
+		loadcu8 jnz std_string_strlen_data_loop_inc
+	pop swap
+	ret
+
+:hidden$std_string_strlen_data_loop_inc
+	pushu8 1 addi64
+	swap pushu8 1 addi64
+	swap
+	jmp std_string_strlen_data
+blke
+
+:std_string_strlen! {
+	pushi8 0
+	swap dup
+	call check_pointer
+}
+:hidden$check_pointer
+	str0
+	pushi64 POINTER_HEAP
+	andi64
+	pushi64 POINTER_HEAP
+	jeq std_string_strlen_heap!
+	jmp std_string_strlen_data!
+
+:hidden$std_string_strlen_heap! blks
+	pushi64 POINTER_DATA andi64
+	:hidden$std_string_strlen_heap_loop!
+		dup
+		& lfhu8 jnz std_string_strlen_heap_loop_inc!
+	pop
+	& lfr0 ret
+
+:hidden$std_string_strlen_heap_loop_inc!
+	pushu8 1 addi64
+	swap pushu8 1 addi64
+	swap
+	jmp std_string_strlen_heap!
+blke
+
+:hidden$std_string_strlen_data! blks
+	pushi64 POINTER_DATA andi64
+	:hidden$std_string_strlen_data_loop!
+		dup
+		loadcu8 jnz std_string_strlen_data_loop_inc!
+	pop
+	& lfr0 ret
+
+:hidden$std_string_strlen_data_loop_inc!
+	pushu8 1 addi64
+	swap pushu8 1 addi64
+	swap
+	jmp std_string_strlen_data!
+blke
+
+:hidden$std_string_itos blks
+	str0
+	pushu8 0 str1
+	over pushu8 0 jgt std_string_itos_is_neg
+	:hidden$std_string_itos_continue0
+		swap over
+		pushi64 POINTER_DATA andi64
+		swap over
+		:hidden$std_string_itos_loop
+			over
+			pushu8 10
+			swap remi64
+			pushu8 '0' addi64
+			over
+			sthu8
+			pushu8 1 addi64
+			swap pushu8 10 swap divi64
+			swap
+			over jnz std_string_itos_loop
+		& lfr1 jnz std_string_itos_put_neg
+		:hidden$std_string_itos_continue1
+			pushu8 0 over sthu8
+			swap pop
+			subi64
+			swap
+			call std_string_rev
+	& lfr0 ret
+
+:hidden$std_string_itos_put_neg
+	pushu8 '-' over sthu8
+	pushu8 1 addi64
+	jmp std_string_itos_continue1
+
+:hidden$std_string_itos_is_neg
+	swap
+	noti64 pushu8 1 addi64
+	swap
+	pushu8 1 str1
+	jmp std_string_itos_continue0
+blke
+
+:std_string_itos! {
+	pushu8 0 str1
+	over pushu8 0 jgt std_string_itos_is_neg!
+	call std_string_itos_continue0!_p
+}
+:hidden$std_string_itos_continue0!_p
+	str0
+:hidden$std_string_itos_continue0! blks
+	swap over
+	pushi64 POINTER_DATA andi64
+	swap over
+:hidden$std_string_itos_loop!
+	over
+	pushu8 10
+	swap remi64
+	pushu8 '0' addi64
+	over
+	sthu8
+	pushu8 1 addi64
+	swap pushu8 10 swap divi64
+	swap
+	over jnz std_string_itos_loop!
+& lfr1 jnz std_string_itos_put_neg!
+:hidden$std_string_itos_continue1!
+	pushu8 0 over sthu8
+	swap pop
+	subi64
+	swap
+	call std_string_rev
+	& lfr0 ret
+blke
+
+:hidden$std_string_itos_put_neg! blks
+	pushu8 '-' over sthu8
+	pushu8 1 addi64
+	jmp std_string_itos_continue1!
+
+:hidden$std_string_itos_is_neg!
+	swap
+	noti64 pushu8 1 addi64
+	swap
+	pushu8 1 str1
+	jmp std_string_itos_continue0!
+blke
+
+:hidden$std_string_rev blks
+	str1
+	pushi64 POINTER_DATA andi64
+	swap pushu8 1 swap subi64
+	over addi64
+	swap
+	:hidden$std_string_rev_loop
+		over over jge std_string_rev_loop_end
+		over over & lfhu8 swap & lfhu8
+		pushu8 4 sp subi64 copy sthu8
+		pushu8 4 sp subi64 copy sthu8
+		pushu8 1 addi64
+		swap pushu8 1 swap subi64 swap
+		jmp std_string_rev_loop
+	:hidden$std_string_rev_loop_end
+	pop pop
+	& lfr1
+	ret
+blke
+
+:std_string_rev! {
+	pushi64 POINTER_DATA andi64
+	swap pushu8 1 swap subi64
+	over addi64
+	swap
+	call std_string_rev_loop!_p
+}
+
+:hidden$std_string_rev_loop!_p
+	str1
+:hidden$std_string_rev_loop! blks
+	over over jge std_string_rev_loop_end!
+	over over & lfhu8 swap & lfhu8
+	pushu8 4 sp subi64 copy sthu8
+	pushu8 4 sp subi64 copy sthu8
+	pushu8 1 addi64
+	swap pushu8 1 swap subi64 swap
+	jmp std_string_rev_loop!
+:hidden$std_string_rev_loop_end!
+pop pop
+& lfr1 ret
+blke
