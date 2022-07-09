@@ -1,0 +1,35 @@
+import "./lib/import/io.sah"
+import "./lib/import/alloc2.sah"
+
+:terminate_on_error { & lfr1 panic } ;this macro checks the value returned by a called C function, and if it is non-zero, the program terminates
+;Note however, if this program terminates after the call to `init' and before the call to `close', there will be a memory leak
+
+:hidden$main
+
+pushu8 0 pushu8 0 inva
+call std_alloc2_init
+%terminate_on_error
+
+pushi64 1024 ;we'll allocate a chunk of size 1024 bytes
+pushu8 8 ;aligned to a 8-byte boundary
+pushu8 0 pushu8 0 inva
+call std_alloc2_aaseg
+%terminate_on_error
+
+;the top of the stack now has an (explicit) pointer to the heap
+phtip ;convert that to a "normal" pointer
+dup str2 ;also storing the pointer in register 2 for later
+pushu32 42 ;this is the value that we're going to store in the heap
+swap
+asthu32 ;do an aligned store
+
+& lfr2 ;get the pointer that we had stored in register 2
+& alfhu32 ;do an aligned load from there
+;42 should now be on the top of the stack
+pushu8 1 pushu8 0 inva
+call std_io_putu32
+
+pushu8 0 pushu8 0
+call std_alloc2_close
+
+hlt
