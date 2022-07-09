@@ -2,7 +2,6 @@ set EINIT 1    ;Heap isn't initialized.
 set EALIGN 2   ;Cannot align the memory to the requested alignment.
 set EINT 3     ;One of the internal functions that this library uses to allocate memory has encountered some kind of error. In case of this error, the best option is to terminate the program, or you can also unload and reload the library and reinitialize it. It'll result in a memory leak in both of the cases.
 set EOVF 4     ;The requested amount of memory is more than what's been allocated for the VM.
-set ESUCCESS 0 ;Returned on success.
 
 / On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top-1] bytes, and aligned to a [top] bytes boundary on the [top] of the stack.
   On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
