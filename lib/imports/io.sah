@@ -1,18 +1,38 @@
+;Note: need to document what each of the functions expect
+
 :hidden$std_io_puts blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
-	pushi64 std_io_puts_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
+	pushi64 std_io_puts_f		
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke
 	ret
 blke
 
 :std_io_puts! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_puts_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke
 }
 
@@ -20,21 +40,40 @@ rbs
 :hidden$std_io_puts_f blks dat str "print_str" blke
 rbe
 
+
 :hidden$std_io_pute blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_pute_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke
 	ret
 blke
 
 :std_io_pute! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_pute_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke
 }
 
@@ -42,21 +81,37 @@ rbs
 :hidden$std_io_pute_f blks dat str "print_str_err" blke
 rbe
 
+
 :hidden$std_io_puti64 blks	
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_puti64_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke
 	ret
 blke
 
 :std_io_puti64! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_puti64_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke
 }
 
@@ -64,21 +119,40 @@ rbs
 :hidden$std_io_puti64_f blks dat str "out_i64" blke
 rbe
 
+
 :hidden$std_io_puti32 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_puti32_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke
 	ret
 blke
 
 :std_io_puti32! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_puti32_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke
 }
 
@@ -86,21 +160,40 @@ rbs
 :hidden$std_io_puti32_f blks dat str "out_i32" blke
 rbe
 
+
 :hidden$std_io_puti16 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_puti16_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke
 	ret
 blke
 
 :std_io_puti16! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_puti16_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke
 }
 
@@ -108,21 +201,40 @@ rbs
 :hidden$std_io_puti16_f blks dat str "out_i16" blke
 rbe
 
+
 :hidden$std_io_puti8 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_puti8_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke
 	ret
 blke
 
 :std_io_puti8! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_puti8_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke
 }
 
@@ -130,21 +242,40 @@ rbs
 :hidden$std_io_puti8_f blks dat str "out_i8" blke
 rbe
 
+
 :hidden$std_io_putu32 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_putu32_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke
 	ret
 blke
 
 :std_io_putu32! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_putu32_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke
 }
 
@@ -152,21 +283,40 @@ rbs
 :hidden$std_io_putu32_f blks dat str "out_u32" blke
 rbe
 
+
 :hidden$std_io_putu16 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_putu16_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke
 	ret
 blke
 
 :std_io_putu16! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_putu16_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke
 }
 
@@ -174,21 +324,40 @@ rbs
 :hidden$std_io_putu16_f blks dat str "out_u16" blke
 rbe
 
+
 :hidden$std_io_putu8 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_putu8_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke
 	ret
 blke
 
 :std_io_putu8! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_putu8_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke
 }
 
@@ -196,21 +365,40 @@ rbs
 :hidden$std_io_putu8_f blks dat str "out_u8" blke
 rbe
 
+
 :hidden$std_io_putc blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_putc_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke
 	ret
 blke
 
 :std_io_putc! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_putc_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke
 }
 
@@ -218,11 +406,21 @@ rbs
 :hidden$std_io_putc_f blks dat str "out_char" blke
 rbe
 
+
 :hidden$std_io_getargv blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_getargv_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	str0
 	-> 3 invoke
 	& lfr0
@@ -230,10 +428,19 @@ rbe
 blke
 
 :std_io_getargv! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_getargv_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 3 invoke
 }
 
@@ -241,21 +448,40 @@ rbs
 :hidden$std_io_getargv_f blks dat str "get_argv" blke
 rbe
 
+
 :hidden$std_io_getargc blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_getargc_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 	swap
 	ret
 blke
 
 :std_io_getargc! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_getargc_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 }
 
@@ -263,11 +489,21 @@ rbs
 :hidden$std_io_getargc_f blks dat str "get_argc" blke
 rbe
 
+
 :hidden$std_io_openf blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_openf_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	str0
 	-> 2 invoke
 	& lfr0
@@ -275,10 +511,19 @@ rbe
 blke
 
 :std_io_openf! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_openf_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 2 invoke
 }
 
@@ -286,11 +531,21 @@ rbs
 :hidden$std_io_openf_f blks dat str "open_file" blke
 rbe
 
+
 :hidden$std_io_readf blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_readf_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	str0
 	-> 3 invoke
 	& lfr0
@@ -298,10 +553,19 @@ rbe
 blke
 
 :std_io_readf! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_readf_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 3 invoke
 }
 
@@ -309,11 +573,21 @@ rbs
 :hidden$std_io_readf_f blks dat str "read_file" blke
 rbe
 
+
 :hidden$std_io_writef blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_writef_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	str0
 	-> 3 invoke
 	& lfr0
@@ -321,10 +595,19 @@ rbe
 blke
 
 :std_io_writef! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_writef_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 3 invoke
 }
 
@@ -332,11 +615,21 @@ rbs
 :hidden$std_io_writef_f blks dat str "write_file" blke
 rbe
 
+
 :hidden$std_io_gets blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_gets_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	str0
 	-> 2 invoke
 	& lfr0
@@ -344,10 +637,19 @@ rbe
 blke
 
 :std_io_gets! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_gets_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 2 invoke
 }
 
@@ -355,21 +657,40 @@ rbs
 :hidden$std_io_gets_f blks dat str "scanin_str" blke
 rbe
 
+
 :hidden$std_io_closef blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_closef_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke
 	ret
 blke
 
 :std_io_closef! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_closef_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke
 }
 
@@ -377,21 +698,40 @@ rbs
 :hidden$std_io_closef_f blks dat str "close_file" blke
 rbe
 
+
 :hidden$std_io_getc blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_getc_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 	swap
 	ret
 blke
 
 :std_io_getc! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_getc_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 }
 
@@ -399,21 +739,40 @@ rbs
 :hidden$std_io_getc_f blks dat str "scanin_char" blke
 rbe
 
+
 :hidden$std_io_geti64 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_geti64_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 	swap
 	ret
 blke
 
 :std_io_geti64! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_geti64_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 }
 
@@ -421,21 +780,40 @@ rbs
 :hidden$std_io_geti64_f blks dat str "scanin_i64" blke
 rbe
 
+
 :hidden$std_io_geti32 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_geti32_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 	swap
 	ret
 blke
 
 :std_io_geti32! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_geti32_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 }
 
@@ -443,21 +821,40 @@ rbs
 :hidden$std_io_geti32_f blks dat str "scanin_i32" blke
 rbe
 
+
 :hidden$std_io_geti16 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_geti16_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 	swap
 	ret
 blke
 
 :std_io_geti16! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_geti16_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 }
 
@@ -465,21 +862,40 @@ rbs
 :hidden$std_io_geti16_f blks dat str "scanin_i16" blke
 rbe
 
+
 :hidden$std_io_geti8 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_geti8_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 	swap
 	ret
 blke
 
 :std_io_geti8! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_geti8_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 }
 
@@ -487,21 +903,40 @@ rbs
 :hidden$std_io_geti8_f blks dat str "scanin_i8" blke
 rbe
 
+
 :hidden$std_io_getu32 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_getu32_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 	swap
 	ret
 blke
 
 :std_io_getu32! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_getu32_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 }
 
@@ -509,21 +944,40 @@ rbs
 :hidden$std_io_getu32_f blks dat str "scanin_u32" blke
 rbe
 
+
 :hidden$std_io_getu16 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_getu16_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 	swap
 	ret
 blke
 
 :std_io_getu16! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_getu16_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 }
 
@@ -531,21 +985,40 @@ rbs
 :hidden$std_io_getu16_f blks dat str "scanin_u16" blke
 rbe
 
+
 :hidden$std_io_getu8 blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_getu8_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 	swap
 	ret
 blke
 
 :std_io_getu8! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_io
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_io_getu8_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke -> 1
 }
 
