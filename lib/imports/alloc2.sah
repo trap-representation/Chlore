@@ -9,10 +9,19 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
 /
 
 :hidden$std_alloc2_aaseg blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_aaseg_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	str0
 	-> 2 invoke -> 1
 	& lfr0
@@ -20,10 +29,19 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
 blke
 
 :std_alloc2_aaseg! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_aaseg_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 2 invoke -> 1
 }
 
@@ -37,10 +55,19 @@ rbe
 /
 
 :hidden$std_alloc2_aseg blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_aseg_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke -> 1
 	swap
@@ -48,10 +75,19 @@ rbe
 blke
 
 :std_alloc2_aseg! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_aseg_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke -> 1
 }
 
@@ -65,10 +101,19 @@ rbe
 /
 
 :hidden$std_alloc2_arseg blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_arseg_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	str0
 	-> 3 invoke -> 1
 	& lfr0
@@ -76,10 +121,19 @@ rbe
 blke
 
 :std_alloc2_arseg! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_arseg_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 3 invoke -> 1
 }
 
@@ -93,10 +147,19 @@ rbe
 /
 
 :hidden$std_alloc2_rseg blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_rseg_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	str0
 	-> 2 invoke -> 1
 	& lfr0
@@ -104,10 +167,19 @@ rbe
 blke
 
 :std_alloc2_rseg! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_rseg_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 2 invoke -> 1
 }
 
@@ -120,20 +192,38 @@ rbe
 /
 
 :hidden$std_alloc2_flush blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_flush_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	swap
 	-> 1 invoke
 	ret
 blke
 
 :std_alloc2_flush! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_flush_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	-> 1 invoke
 }
 
@@ -146,19 +236,37 @@ rbe
 /
 
 :hidden$std_alloc2_close blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_close_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke
 	ret
 blke
 
 :std_alloc2_close! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_close_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke
 }
 
@@ -171,19 +279,37 @@ rbe
 /
 
 :hidden$std_alloc2_dump blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_dump_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke
 	ret
 blke
 
 :std_alloc2_dump! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_dump_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke
 }
 
@@ -196,19 +322,37 @@ rbe
 /
 
 :hidden$std_alloc2_init blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_init_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke
 	ret
 blke
 
 :std_alloc2_init! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_init_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke
 }
 
@@ -219,19 +363,37 @@ rbe
 / Writes the cache hits and misses to stdout. /
 
 :hidden$std_alloc2_prof blks
+	$if IS_OBJ 1
+		swap dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_prof_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke
 	ret
 blke
 
 :std_alloc2_prof! {
+	$if IS_OBJ 1
+		dup
+	$fi
 	pushi64 std_alloc2
-	loadl
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadlc
 	pushi64 std_alloc2_prof_f
-	loadf
+	$if IS_OBJ 1
+		addi64
+	$fi
+	loadfc
 	invoke
 }
 
