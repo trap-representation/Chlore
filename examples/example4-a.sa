@@ -12,6 +12,6 @@ aloadobjc ;this will load the object and align it to 8 bytes
 
 ;`aloadobjc' pushes a pointer to the object on the top of the stack
 
-calldobj ;calling the object that we just loaded in
+callobj ;calling the object that we just loaded in
 
 hlt
