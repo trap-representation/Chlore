@@ -1,0 +1,17 @@
+/ example 4-a: Loading objects at runtime
+  This program loads an objects at runtime
+/
+
+:obj_name dat str "./examples/example4-b.sobj"
+
+:main
+
+pushi64 obj_name
+pushu8 8 ;this is the alignment
+aloadobjc ;this will load the object and align it to 8 bytes
+
+;`aloadobjc' pushes a pointer to the object on the top of the stack
+
+calldobj ;calling the object that we just loaded in
+
+hlt

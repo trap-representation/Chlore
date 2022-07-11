@@ -1,0 +1,23 @@
+/ example 4-b: Object
+  This is an object file that can be loaded by or placed in another object/standalone file during run-/compile-time
+/
+
+:addr { & lfr3 addi64 } ;this macro should be applied to pointers that are pointing to stuff that are present in this object
+
+:string dat str "Hello, World!\n"
+
+set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard library functions will simply fail
+import "./lib/import/io.sah"
+
+:oentry
+
+over str3
+
+pushi64 string
+%addr
+
+& lfr3 ;since we're calling a standard library function from an object, and dynamically loading it at runtime, we need to push the base address of the object (since the object can be loaded anywhere during runtime), and the header files will take care of calculating the rest of the addresses that needs to be calculated
+pushu8 0 pushu8 0 inva
+call std_io_puts
+
+hlt
