@@ -1,5 +1,5 @@
 / example 4-a: Loading objects at runtime
-  This program loads an objects at runtime
+  This program loads an object at runtime
 /
 
 :obj_name dat str "./examples/example4-b.sobj"
