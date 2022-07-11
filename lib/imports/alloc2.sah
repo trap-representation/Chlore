@@ -9,16 +9,16 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
 /
 
 :hidden$std_alloc2_aaseg blks
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		swap dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_aaseg_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -29,16 +29,16 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
 blke
 
 :std_alloc2_aaseg! {
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_aaseg_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -55,16 +55,16 @@ rbe
 /
 
 :hidden$std_alloc2_aseg blks
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		swap dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_aseg_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -75,16 +75,16 @@ rbe
 blke
 
 :std_alloc2_aseg! {
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_aseg_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -101,16 +101,16 @@ rbe
 /
 
 :hidden$std_alloc2_arseg blks
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		swap dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_arseg_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -121,16 +121,16 @@ rbe
 blke
 
 :std_alloc2_arseg! {
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_arseg_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -147,16 +147,16 @@ rbe
 /
 
 :hidden$std_alloc2_rseg blks
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		swap dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_rseg_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -167,16 +167,16 @@ rbe
 blke
 
 :std_alloc2_rseg! {
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_rseg_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -192,16 +192,16 @@ rbe
 /
 
 :hidden$std_alloc2_flush blks
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		swap dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_flush_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -211,16 +211,16 @@ rbe
 blke
 
 :std_alloc2_flush! {
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_flush_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -236,16 +236,16 @@ rbe
 /
 
 :hidden$std_alloc2_close blks
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		swap dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_close_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -254,16 +254,16 @@ rbe
 blke
 
 :std_alloc2_close! {
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_close_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -279,16 +279,16 @@ rbe
 /
 
 :hidden$std_alloc2_dump blks
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		swap dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_dump_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -297,16 +297,16 @@ rbe
 blke
 
 :std_alloc2_dump! {
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_dump_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -322,16 +322,16 @@ rbe
 /
 
 :hidden$std_alloc2_init blks
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		swap dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_init_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -340,16 +340,16 @@ rbe
 blke
 
 :std_alloc2_init! {
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_init_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -363,16 +363,16 @@ rbe
 / Writes the cache hits and misses to stdout. /
 
 :hidden$std_alloc2_prof blks
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		swap dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_prof_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
@@ -381,16 +381,16 @@ rbe
 blke
 
 :std_alloc2_prof! {
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		dup
 	$fi
 	pushi64 std_alloc2
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadlc
 	pushi64 std_alloc2_prof_f
-	$if IS_OBJ 1
+	$if IS_DYOBJ 1
 		addi64
 	$fi
 	loadfc
