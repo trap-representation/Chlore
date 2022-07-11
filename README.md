@@ -33,8 +33,8 @@ A simple Hello World program written in a standard compliant implementation of S
 
 1)Check out more examples in the `examples` folder of this repository.
 
-A formal language specification is extremely important for the development of a language, and Sasm has a (WIP) standard too. Check out the `Sasm-standard-drafts` repo where standard drafts are put. Contributions to the standard are welcome too.
+A formal language specification is extremely important for the development of a language, and Sasm has a (WIP) standard too. You'll be able to find a standard draft of this language in this repo in a month or two.
 
-PS: You'll also be able to find the source of the reference implementation of Sasm that I've been working on on this repository soon.
+PS: You'll also be able to find the source of the reference implementation of Sasm that I've been working on in this repository soon.
 
 PPS: Check out the Sasm website [here](https://trap-representation.github.io/Sasm/).
