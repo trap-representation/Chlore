@@ -3,7 +3,6 @@
 /
 
 import "./lib/import/io.sah"
-import "./lib/import/stddef.sah"
 
 :rocket_top dat str "\n  |\n /_\\\n"
 :rocket_bottom dat str " |_|\n/___\\\n VvV\n"
@@ -14,18 +13,18 @@ import "./lib/import/stddef.sah"
 pushu8 0 pushu8 0 inva
 %std_io_getc!
 pushu8 0 pushu8 2 inva
-pushi64 rocket_top
+pushi64 rocket_top ptr_data
 %std_io_puts!
 
 :loop
 	dup pushu8 '\n' jeq quit ;check for newline
-	dup pushi8 EOF jeq quit ;check for EOF
-	pushi64 pipe_with_space
+	dup pushi8 -1 jeq quit ;check for EOF (need to add a macro for EOF in the standard library)
+	pushi64 pipe_with_space ptr_data
 	pushu8 0 pushu8 2 inva
 	%std_io_puts!
 	pushu8 0 pushu8 1 inva
 	%std_io_putc!
-	pushi64 pipe_with_newline
+	pushi64 pipe_with_newline ptr_data
 	pushu8 0 pushu8 2 inva
 	%std_io_puts!
 	pushu8 0 pushu8 0 inva
@@ -34,7 +33,7 @@ pushi64 rocket_top
 
 :quit
 pushu8 0 pushu8 2 inva
-pushi64 rocket_bottom
+pushi64 rocket_bottom ptr_data
 %std_io_puts!
 hlt
 
