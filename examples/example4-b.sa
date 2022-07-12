@@ -14,7 +14,7 @@ import "./lib/import/io.sah"
 over str3
 
 pushi64 string
-%addr
+%addr ptr_data
 
 & lfr3 ;since we're calling a standard library function from an object dynamically loaded at runtime, we need to push the base address of the object (since the object can be loaded anywhere during runtime), and the header files will take care of calculating the rest of the addresses that are needed to be calculated
 pushu8 0 pushu8 0 inva
