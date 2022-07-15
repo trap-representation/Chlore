@@ -19,7 +19,7 @@ MSasm can currently target:
 
 In the future MSasm will be able to target:
 - WebAssembly
-- CLR
+- CIL
 
 A simple Hello World program written in a standard compliant implementation of Sasm <sup>1)</sup>:
 
