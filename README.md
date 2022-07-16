@@ -1,6 +1,6 @@
 Sasm
 ----
-This is Sasm - a stack based, assembly-like language.
+This is Sasm - a stack based, assembly-like language that aims to target a wide variety of virtual machines.
 
 Design goals:
 - Trust the programmer
