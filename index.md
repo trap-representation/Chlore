@@ -47,4 +47,4 @@ The reference implementation of Sasm that I've been working on is called MSasm.
 #### Future plans: ####
 - Build a useful standard library
 - Build a compiler for a higher level-language that will be able to target Sasm
-- Make Sasm self-hosted
+- Make MSasm self-hosted
