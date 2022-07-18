@@ -7,7 +7,7 @@ Most of the modern languages are built with safety in mind. But let's be honest,
 
 This is why Sasm does *not* try to be safe at all. It is built with a focus on speed and optimizations, rather than safety. It's always better to make the programmer aware that they're programming in an unsafe language, rather than give them a false sense of safety.
 
-Apart from this, languages are slowly turning into a bloated mess:
+Languages are slowly turning into a bloated mess:
 - Huge standard libraries with "features" to make programmers' lives easier
 - Package managers built right into the language encouraging the use of third-party libraries (which is one of the main causes of security vulnerabilities in softwares, since programmers don't care to read the source of the library they're using)
 - Some languages don't even have any formal specification
