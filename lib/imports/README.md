@@ -1,4 +1,4 @@
-These are the header files that one can use to call C functions from the standard library.
+These are the header files that one can use to call C functions from the standard library. Some header files however (like `string.h`, for example), don't call C functions at all; instead, they have the implementation of the functions that we're calling written in Sasm itself.
 
 Note: Symbols ending with `!` are macros.
 
