@@ -8,7 +8,7 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
               Pushes an unspecified value on the top of the stack.
 /
 
-:hidden$std_alloc2_aaseg blks
+:hidden$std_alloc2_aaseg (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -26,7 +26,7 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
 	-> 2 invoke -> 1
 	& lfr0
 	ret
-blke
+)
 
 :std_alloc2_aaseg! {
 	$if IS_DYOBJ 1
@@ -46,7 +46,7 @@ blke
 }
 
 rbs
-:hidden$std_alloc2_aaseg_f blks dat str "aaseg" blke
+:hidden$std_alloc2_aaseg_f ( dat str "aaseg" )
 rbe
 
 / On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top] bytes on the [top] of the stack.
@@ -54,7 +54,7 @@ rbe
               Pushes an unspecified value on the top of the stack.
 /
 
-:hidden$std_alloc2_aseg blks
+:hidden$std_alloc2_aseg (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -72,7 +72,7 @@ rbe
 	-> 1 invoke -> 1
 	swap
 	ret
-blke
+)
 
 :std_alloc2_aseg! {
 	$if IS_DYOBJ 1
@@ -92,7 +92,7 @@ blke
 }
 
 rbs
-:hidden$std_alloc2_aseg_f blks dat str "aseg" blke
+:hidden$std_alloc2_aseg_f ( dat str "aseg" )
 rbe
 
 / On success: Flushes the chunk of memory pointed at by the [top-1] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-2] bytes, aligned to a [top] byte boundary, and which retains the contents of the original chunk, on the [top] of the stack.
@@ -100,7 +100,7 @@ rbe
               Pushes an unspecified value on the top of the stack.
 /
 
-:hidden$std_alloc2_arseg blks
+:hidden$std_alloc2_arseg (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -118,7 +118,7 @@ rbe
 	-> 3 invoke -> 1
 	& lfr0
 	ret
-blke
+)
 
 :std_alloc2_arseg! {
 	$if IS_DYOBJ 1
@@ -138,7 +138,7 @@ blke
 }
 
 rbs
-:hidden$std_alloc2_arseg_f blks dat str "arseg" blke
+:hidden$std_alloc2_arseg_f ( dat str "arseg" )
 rbe
 
 / On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-1] bytes, and which retains the contents of the original chunk, on the [top] of the stack.
@@ -146,7 +146,7 @@ rbe
               Pushes an unspecified value on the top of the stack.
 /
 
-:hidden$std_alloc2_rseg blks
+:hidden$std_alloc2_rseg (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -164,7 +164,7 @@ rbe
 	-> 2 invoke -> 1
 	& lfr0
 	ret
-blke
+)
 
 :std_alloc2_rseg! {
 	$if IS_DYOBJ 1
@@ -184,14 +184,14 @@ blke
 }
 
 rbs
-:hidden$std_alloc2_rseg_f blks dat str "rseg" blke
+:hidden$std_alloc2_rseg_f ( dat str "rseg" )
 rbe
 
 / On success: Flushes the chunk of memory pointed at by the [top] of the stack. [top] must be an (explicit) pointer returned by one of `aseg', `aaseg', `rseg', `arseg'.
   On failure: Returns EINIT.
 /
 
-:hidden$std_alloc2_flush blks
+:hidden$std_alloc2_flush (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -208,7 +208,7 @@ rbe
 	swap
 	-> 1 invoke
 	ret
-blke
+)
 
 :std_alloc2_flush! {
 	$if IS_DYOBJ 1
@@ -228,14 +228,14 @@ blke
 }
 
 rbs
-:hidden$std_alloc2_flush_f blks dat str "flush" blke
+:hidden$std_alloc2_flush_f ( dat str "flush" )
 rbe
 
 / On success: Frees up all the additional memory allocated by this library.
   On failure: Returns EINIT.
 /
 
-:hidden$std_alloc2_close blks
+:hidden$std_alloc2_close (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -251,7 +251,7 @@ rbe
 	loadfc
 	invoke
 	ret
-blke
+)
 
 :std_alloc2_close! {
 	$if IS_DYOBJ 1
@@ -271,14 +271,14 @@ blke
 }
 
 rbs
-:hidden$std_alloc2_close_f blks dat str "close" blke
+:hidden$std_alloc2_close_f ( dat str "close" )
 rbe
 
 / On success: Dumps the current VM heap state to stdout.
   On failure: Returns EINIT.
 /
 
-:hidden$std_alloc2_dump blks
+:hidden$std_alloc2_dump (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -294,7 +294,7 @@ rbe
 	loadfc
 	invoke
 	ret
-blke
+)
 
 :std_alloc2_dump! {
 	$if IS_DYOBJ 1
@@ -314,14 +314,14 @@ blke
 }
 
 rbs
-:hidden$std_alloc2_dump_f blks dat str "dump" blke
+:hidden$std_alloc2_dump_f ( dat str "dump" )
 rbe
 
 / On success: Initializes the heap. Must be called before anything in this library is used.
   On failure: Returns EINT.
 /
 
-:hidden$std_alloc2_init blks
+:hidden$std_alloc2_init (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -337,7 +337,7 @@ rbe
 	loadfc
 	invoke
 	ret
-blke
+)
 
 :std_alloc2_init! {
 	$if IS_DYOBJ 1
@@ -357,12 +357,12 @@ blke
 }
 
 rbs
-:hidden$std_alloc2_init_f blks dat str "init" blke
+:hidden$std_alloc2_init_f ( dat str "init" )
 rbe
 
 / Writes the cache hits and misses to stdout. /
 
-:hidden$std_alloc2_prof blks
+:hidden$std_alloc2_prof (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -378,7 +378,7 @@ rbe
 	loadfc
 	invoke
 	ret
-blke
+)
 
 :std_alloc2_prof! {
 	$if IS_DYOBJ 1
@@ -398,7 +398,7 @@ blke
 }
 
 rbs
-:hidden$std_alloc2_prof_f blks dat str "prof" blke
+:hidden$std_alloc2_prof_f ( dat str "prof" )
 rbe
 
 rbs
