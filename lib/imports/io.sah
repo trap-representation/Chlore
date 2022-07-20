@@ -1,6 +1,6 @@
 ;Note: need to document what each of the functions expect
 
-:hidden$std_io_puts blks
+:hidden$std_io_puts (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -17,7 +17,7 @@
 	swap
 	-> 1 invoke
 	ret
-blke
+)
 
 :std_io_puts! {
 	$if IS_DYOBJ 1
@@ -37,11 +37,11 @@ blke
 }
 
 rbs
-:hidden$std_io_puts_f blks dat str "print_str" blke
+:hidden$std_io_puts_f ( dat str "print_str" )
 rbe
 
 
-:hidden$std_io_pute blks
+:hidden$std_io_pute (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -58,7 +58,7 @@ rbe
 	swap
 	-> 1 invoke
 	ret
-blke
+)
 
 :std_io_pute! {
 	$if IS_DYOBJ 1
@@ -78,11 +78,11 @@ blke
 }
 
 rbs
-:hidden$std_io_pute_f blks dat str "print_str_err" blke
+:hidden$std_io_pute_f ( dat str "print_str_err" )
 rbe
 
 
-:hidden$std_io_puti64 blks	
+:hidden$std_io_puti64 (	
 	pushi64 std_io
 	$if IS_DYOBJ 1
 		addi64
@@ -96,7 +96,7 @@ rbe
 	swap
 	-> 1 invoke
 	ret
-blke
+)
 
 :std_io_puti64! {
 	$if IS_DYOBJ 1
@@ -116,11 +116,11 @@ blke
 }
 
 rbs
-:hidden$std_io_puti64_f blks dat str "out_i64" blke
+:hidden$std_io_puti64_f ( dat str "out_i64" )
 rbe
 
 
-:hidden$std_io_puti32 blks
+:hidden$std_io_puti32 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -137,7 +137,7 @@ rbe
 	swap
 	-> 1 invoke
 	ret
-blke
+)
 
 :std_io_puti32! {
 	$if IS_DYOBJ 1
@@ -157,11 +157,11 @@ blke
 }
 
 rbs
-:hidden$std_io_puti32_f blks dat str "out_i32" blke
+:hidden$std_io_puti32_f ( dat str "out_i32" )
 rbe
 
 
-:hidden$std_io_puti16 blks
+:hidden$std_io_puti16 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -178,7 +178,7 @@ rbe
 	swap
 	-> 1 invoke
 	ret
-blke
+)
 
 :std_io_puti16! {
 	$if IS_DYOBJ 1
@@ -198,11 +198,11 @@ blke
 }
 
 rbs
-:hidden$std_io_puti16_f blks dat str "out_i16" blke
+:hidden$std_io_puti16_f ( dat str "out_i16" )
 rbe
 
 
-:hidden$std_io_puti8 blks
+:hidden$std_io_puti8 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -219,7 +219,7 @@ rbe
 	swap
 	-> 1 invoke
 	ret
-blke
+)
 
 :std_io_puti8! {
 	$if IS_DYOBJ 1
@@ -239,11 +239,11 @@ blke
 }
 
 rbs
-:hidden$std_io_puti8_f blks dat str "out_i8" blke
+:hidden$std_io_puti8_f ( dat str "out_i8" )
 rbe
 
 
-:hidden$std_io_putu32 blks
+:hidden$std_io_putu32 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -260,7 +260,7 @@ rbe
 	swap
 	-> 1 invoke
 	ret
-blke
+)
 
 :std_io_putu32! {
 	$if IS_DYOBJ 1
@@ -280,11 +280,11 @@ blke
 }
 
 rbs
-:hidden$std_io_putu32_f blks dat str "out_u32" blke
+:hidden$std_io_putu32_f ( dat str "out_u32" )
 rbe
 
 
-:hidden$std_io_putu16 blks
+:hidden$std_io_putu16 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -301,7 +301,7 @@ rbe
 	swap
 	-> 1 invoke
 	ret
-blke
+)
 
 :std_io_putu16! {
 	$if IS_DYOBJ 1
@@ -321,11 +321,11 @@ blke
 }
 
 rbs
-:hidden$std_io_putu16_f blks dat str "out_u16" blke
+:hidden$std_io_putu16_f ( dat str "out_u16" )
 rbe
 
 
-:hidden$std_io_putu8 blks
+:hidden$std_io_putu8 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -342,7 +342,7 @@ rbe
 	swap
 	-> 1 invoke
 	ret
-blke
+)
 
 :std_io_putu8! {
 	$if IS_DYOBJ 1
@@ -362,11 +362,11 @@ blke
 }
 
 rbs
-:hidden$std_io_putu8_f blks dat str "out_u8" blke
+:hidden$std_io_putu8_f ( dat str "out_u8" )
 rbe
 
 
-:hidden$std_io_putc blks
+:hidden$std_io_putc (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -383,7 +383,7 @@ rbe
 	swap
 	-> 1 invoke
 	ret
-blke
+)
 
 :std_io_putc! {
 	$if IS_DYOBJ 1
@@ -403,11 +403,11 @@ blke
 }
 
 rbs
-:hidden$std_io_putc_f blks dat str "out_char" blke
+:hidden$std_io_putc_f ( dat str "out_char" )
 rbe
 
 
-:hidden$std_io_getargv blks
+:hidden$std_io_getargv (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -425,7 +425,7 @@ rbe
 	-> 3 invoke
 	& lfr0
 	ret
-blke
+)
 
 :std_io_getargv! {
 	$if IS_DYOBJ 1
@@ -445,11 +445,11 @@ blke
 }
 
 rbs
-:hidden$std_io_getargv_f blks dat str "get_argv" blke
+:hidden$std_io_getargv_f ( dat str "get_argv" )
 rbe
 
 
-:hidden$std_io_getargc blks
+:hidden$std_io_getargc (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -466,7 +466,7 @@ rbe
 	invoke -> 1
 	swap
 	ret
-blke
+)
 
 :std_io_getargc! {
 	$if IS_DYOBJ 1
@@ -486,11 +486,11 @@ blke
 }
 
 rbs
-:hidden$std_io_getargc_f blks dat str "get_argc" blke
+:hidden$std_io_getargc_f ( dat str "get_argc" )
 rbe
 
 
-:hidden$std_io_openf blks
+:hidden$std_io_openf (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -508,7 +508,7 @@ rbe
 	-> 2 invoke
 	& lfr0
 	ret
-blke
+)
 
 :std_io_openf! {
 	$if IS_DYOBJ 1
@@ -528,11 +528,11 @@ blke
 }
 
 rbs
-:hidden$std_io_openf_f blks dat str "open_file" blke
+:hidden$std_io_openf_f ( dat str "open_file" )
 rbe
 
 
-:hidden$std_io_readf blks
+:hidden$std_io_readf (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -550,7 +550,7 @@ rbe
 	-> 3 invoke
 	& lfr0
 	ret
-blke
+)
 
 :std_io_readf! {
 	$if IS_DYOBJ 1
@@ -570,11 +570,11 @@ blke
 }
 
 rbs
-:hidden$std_io_readf_f blks dat str "read_file" blke
+:hidden$std_io_readf_f ( dat str "read_file" )
 rbe
 
 
-:hidden$std_io_writef blks
+:hidden$std_io_writef (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -592,7 +592,7 @@ rbe
 	-> 3 invoke
 	& lfr0
 	ret
-blke
+)
 
 :std_io_writef! {
 	$if IS_DYOBJ 1
@@ -612,11 +612,11 @@ blke
 }
 
 rbs
-:hidden$std_io_writef_f blks dat str "write_file" blke
+:hidden$std_io_writef_f ( dat str "write_file" )
 rbe
 
 
-:hidden$std_io_gets blks
+:hidden$std_io_gets (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -634,7 +634,7 @@ rbe
 	-> 2 invoke
 	& lfr0
 	ret
-blke
+)
 
 :std_io_gets! {
 	$if IS_DYOBJ 1
@@ -654,11 +654,11 @@ blke
 }
 
 rbs
-:hidden$std_io_gets_f blks dat str "scanin_str" blke
+:hidden$std_io_gets_f ( dat str "scanin_str" )
 rbe
 
 
-:hidden$std_io_closef blks
+:hidden$std_io_closef (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -675,7 +675,7 @@ rbe
 	swap
 	-> 1 invoke
 	ret
-blke
+)
 
 :std_io_closef! {
 	$if IS_DYOBJ 1
@@ -695,11 +695,11 @@ blke
 }
 
 rbs
-:hidden$std_io_closef_f blks dat str "close_file" blke
+:hidden$std_io_closef_f ( dat str "close_file" )
 rbe
 
 
-:hidden$std_io_getc blks
+:hidden$std_io_getc (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -716,7 +716,7 @@ rbe
 	invoke -> 1
 	swap
 	ret
-blke
+)
 
 :std_io_getc! {
 	$if IS_DYOBJ 1
@@ -736,11 +736,11 @@ blke
 }
 
 rbs
-:hidden$std_io_getc_f blks dat str "scanin_char" blke
+:hidden$std_io_getc_f ( dat str "scanin_char" )
 rbe
 
 
-:hidden$std_io_geti64 blks
+:hidden$std_io_geti64 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -757,7 +757,7 @@ rbe
 	invoke -> 1
 	swap
 	ret
-blke
+)
 
 :std_io_geti64! {
 	$if IS_DYOBJ 1
@@ -777,11 +777,11 @@ blke
 }
 
 rbs
-:hidden$std_io_geti64_f blks dat str "scanin_i64" blke
+:hidden$std_io_geti64_f ( dat str "scanin_i64" )
 rbe
 
 
-:hidden$std_io_geti32 blks
+:hidden$std_io_geti32 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -798,7 +798,7 @@ rbe
 	invoke -> 1
 	swap
 	ret
-blke
+)
 
 :std_io_geti32! {
 	$if IS_DYOBJ 1
@@ -818,11 +818,11 @@ blke
 }
 
 rbs
-:hidden$std_io_geti32_f blks dat str "scanin_i32" blke
+:hidden$std_io_geti32_f ( dat str "scanin_i32" )
 rbe
 
 
-:hidden$std_io_geti16 blks
+:hidden$std_io_geti16 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -839,7 +839,7 @@ rbe
 	invoke -> 1
 	swap
 	ret
-blke
+)
 
 :std_io_geti16! {
 	$if IS_DYOBJ 1
@@ -859,11 +859,11 @@ blke
 }
 
 rbs
-:hidden$std_io_geti16_f blks dat str "scanin_i16" blke
+:hidden$std_io_geti16_f ( dat str "scanin_i16" )
 rbe
 
 
-:hidden$std_io_geti8 blks
+:hidden$std_io_geti8 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -880,7 +880,7 @@ rbe
 	invoke -> 1
 	swap
 	ret
-blke
+)
 
 :std_io_geti8! {
 	$if IS_DYOBJ 1
@@ -900,11 +900,11 @@ blke
 }
 
 rbs
-:hidden$std_io_geti8_f blks dat str "scanin_i8" blke
+:hidden$std_io_geti8_f ( dat str "scanin_i8" )
 rbe
 
 
-:hidden$std_io_getu32 blks
+:hidden$std_io_getu32 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -921,7 +921,7 @@ rbe
 	invoke -> 1
 	swap
 	ret
-blke
+)
 
 :std_io_getu32! {
 	$if IS_DYOBJ 1
@@ -941,11 +941,11 @@ blke
 }
 
 rbs
-:hidden$std_io_getu32_f blks dat str "scanin_u32" blke
+:hidden$std_io_getu32_f ( dat str "scanin_u32" )
 rbe
 
 
-:hidden$std_io_getu16 blks
+:hidden$std_io_getu16 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -962,7 +962,7 @@ rbe
 	invoke -> 1
 	swap
 	ret
-blke
+)
 
 :std_io_getu16! {
 	$if IS_DYOBJ 1
@@ -982,11 +982,11 @@ blke
 }
 
 rbs
-:hidden$std_io_getu16_f blks dat str "scanin_u16" blke
+:hidden$std_io_getu16_f ( dat str "scanin_u16" )
 rbe
 
 
-:hidden$std_io_getu8 blks
+:hidden$std_io_getu8 (
 	$if IS_DYOBJ 1
 		swap dup
 	$fi
@@ -1003,7 +1003,7 @@ rbe
 	invoke -> 1
 	swap
 	ret
-blke
+)
 
 :std_io_getu8! {
 	$if IS_DYOBJ 1
@@ -1023,9 +1023,9 @@ blke
 }
 
 rbs
-:hidden$std_io_getu8_f blks dat str "scanin_u8" blke
+:hidden$std_io_getu8_f ( dat str "scanin_u8" )
 rbe
 
 rbs
-:hidden$std_io blks dat str "./lib/bin/io.so" blke
+:hidden$std_io ( dat str "./lib/bin/io.so" )
 rbe
