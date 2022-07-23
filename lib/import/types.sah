@@ -5,6 +5,9 @@ set alignof_i8 1
 set alignof_i16 2
 set alignof_i32 4
 set alignof_i64 8
+
+;the values of `alignof_<type-specifier><width-specifier>' might change depending on the target
+
 set sizeof_u8 1
 set sizeof_u16 2
 set sizeof_u32 4
