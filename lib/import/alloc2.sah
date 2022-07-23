@@ -10,13 +10,8 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
 
 :hidden$std_alloc2_aaseg (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_alloc2_aaseg_f
 	$if IS_DYOBJ 1
 		addi64
@@ -28,15 +23,7 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
 	ret
 )
 
-:std_alloc2_aaseg! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_alloc2_aaseg {
 	pushi64 std_alloc2_aaseg_f
 	$if IS_DYOBJ 1
 		addi64
@@ -56,13 +43,8 @@ rbe
 
 :hidden$std_alloc2_aseg (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_alloc2_aseg_f
 	$if IS_DYOBJ 1
 		addi64
@@ -74,15 +56,7 @@ rbe
 	ret
 )
 
-:std_alloc2_aseg! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_alloc2_aseg {
 	pushi64 std_alloc2_aseg_f
 	$if IS_DYOBJ 1
 		addi64
@@ -102,13 +76,8 @@ rbe
 
 :hidden$std_alloc2_arseg (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_alloc2_arseg_f
 	$if IS_DYOBJ 1
 		addi64
@@ -120,15 +89,7 @@ rbe
 	ret
 )
 
-:std_alloc2_arseg! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_alloc2_arseg {
 	pushi64 std_alloc2_arseg_f
 	$if IS_DYOBJ 1
 		addi64
@@ -148,13 +109,8 @@ rbe
 
 :hidden$std_alloc2_rseg (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_alloc2_rseg_f
 	$if IS_DYOBJ 1
 		addi64
@@ -166,15 +122,7 @@ rbe
 	ret
 )
 
-:std_alloc2_rseg! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_alloc2_rseg {
 	pushi64 std_alloc2_rseg_f
 	$if IS_DYOBJ 1
 		addi64
@@ -193,13 +141,8 @@ rbe
 
 :hidden$std_alloc2_flush (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_alloc2_flush_f
 	$if IS_DYOBJ 1
 		addi64
@@ -210,15 +153,7 @@ rbe
 	ret
 )
 
-:std_alloc2_flush! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_alloc2_flush {
 	pushi64 std_alloc2_flush_f
 	$if IS_DYOBJ 1
 		addi64
@@ -237,13 +172,8 @@ rbe
 
 :hidden$std_alloc2_close (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_alloc2_close_f
 	$if IS_DYOBJ 1
 		addi64
@@ -253,15 +183,7 @@ rbe
 	ret
 )
 
-:std_alloc2_close! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_alloc2_close {
 	pushi64 std_alloc2_close_f
 	$if IS_DYOBJ 1
 		addi64
@@ -280,13 +202,8 @@ rbe
 
 :hidden$std_alloc2_dump (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_alloc2_dump_f
 	$if IS_DYOBJ 1
 		addi64
@@ -296,15 +213,7 @@ rbe
 	ret
 )
 
-:std_alloc2_dump! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_alloc2_dump {
 	pushi64 std_alloc2_dump_f
 	$if IS_DYOBJ 1
 		addi64
@@ -321,15 +230,10 @@ rbe
   On failure: Returns EINT.
 /
 
-:hidden$std_alloc2_init (
+:hidden$std_alloc2_init_mem (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_alloc2_init_f
 	$if IS_DYOBJ 1
 		addi64
@@ -339,15 +243,7 @@ rbe
 	ret
 )
 
-:std_alloc2_init! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_alloc2_init_mem {
 	pushi64 std_alloc2_init_f
 	$if IS_DYOBJ 1
 		addi64
@@ -364,13 +260,8 @@ rbe
 
 :hidden$std_alloc2_prof (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_alloc2_prof_f
 	$if IS_DYOBJ 1
 		addi64
@@ -380,15 +271,7 @@ rbe
 	ret
 )
 
-:std_alloc2_prof! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_alloc2_prof {
 	pushi64 std_alloc2_prof_f
 	$if IS_DYOBJ 1
 		addi64
@@ -400,6 +283,28 @@ rbe
 rbs
 :hidden$std_alloc2_prof_f ( dat str "prof" )
 rbe
+
+:hidden$std_alloc2_init (
+	unloadl
+	$if IS_DYOBJ 1
+		swap
+	$fi
+	pushi64 std_alloc2
+	$if IS_DYOBJ 1
+		addi64
+	$fi
+	loadlc
+	ret
+)
+
+:std_alloc2_init {
+	unloadl
+	pushi64 std_alloc2
+	$if IS_DYOBJ 1
+		addi64
+	$fi
+	loadlc
+}
 
 rbs
 :hidden$std_alloc2 dat str "./lib/bin/alloc2.so"
