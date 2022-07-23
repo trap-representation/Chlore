@@ -2,15 +2,19 @@
   This program loads an object at runtime
 /
 
-:obj_name dat str "./examples/example4-b.sobj"
+:obj_name dat str "./example4-b.sso"
 
 :main
 
 pushi64 obj_name
 pushu8 8 ;this is the alignment
-aloadobjc ;this will load the object aligned to an 8 byte boundary
+pushu8 0 str0 ;the address of the object will be saved in the 0th object handler
+unloadobj ;unload the object (if any) pointed to by this object handler
+aloadobjc ;this will put the object in the executable code section aligned to an 8 byte boundary
 
-;the top of the stack naw has a pointer to the object that was just loaded in
+
+;GPR 0 hasn't been modified by any instruction yet, so it's safe to use `loidx' without having to reset GPR 0
+loidx ;this will push the address pointed to by the (GPR 0)th object handler on the top of the stack
 
 callobj ;calling the object
 
