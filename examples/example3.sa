@@ -8,14 +8,19 @@ import "./lib/import/alloc2.sah"
 ;Note however, if this program terminates after the call to `init' and before the call to `close', there will be a memory leak
 
 :hidden$main
-
-pushu8 0 pushu8 0 inva
+pushu8 0 str0
 call std_alloc2_init
+
+pushu8 1 str0
+call std_io_init
+
+pushu8 0 pushu8 0 str1 str0
+call std_alloc2_init_mem
 %terminate_on_error
 
 pushi64 1024 ;we'll allocate a chunk of size 1024 bytes
 pushu8 8 ;aligned to a 8-byte boundary
-pushu8 0 pushu8 0 inva
+pushu8 0 pushu8 0 str1 str0
 call std_alloc2_aaseg
 %terminate_on_error
 
@@ -29,10 +34,10 @@ asthu32 ;do an aligned store
 & lfr2 ;get the pointer that we had stored in register 2
 & alfhu32 ;do an aligned load from there
 ;42 should now be on the top of the stack
-pushu8 1 pushu8 0 inva
+pushu8 1 pushu8 0 str1 str0
 call std_io_putu32
 
-pushu8 0 pushu8 0
+pushu8 0 pushu8 0 str1 str0
 call std_alloc2_close
 
 hlt
