@@ -10,30 +10,32 @@ import "./lib/import/io.sah"
 :pipe_with_newline dat str "|\n"
 
 :main
-pushu8 0 pushu8 0 inva
-%std_io_getc!
-pushu8 0 pushu8 2 inva
+pushu8 0 str0
+%std_io_init
+pushu8 0 pushu8 0 str1 str0
+%std_io_getc
+pushu8 0 pushu8 2 str1 str0
 pushi64 rocket_top ptr_data
-%std_io_puts!
+%std_io_puts
 
 :loop
 	dup pushu8 '\n' jeq quit ;check for newline
 	dup pushi8 -1 jeq quit ;check for EOF (need to add a macro for EOF in the standard library)
 	pushi64 pipe_with_space ptr_data
-	pushu8 0 pushu8 2 inva
-	%std_io_puts!
-	pushu8 0 pushu8 1 inva
-	%std_io_putc!
+	pushu8 0 pushu8 2 str1 str0
+	%std_io_puts
+	pushu8 0 pushu8 1 str1 str0
+	%std_io_putc
 	pushi64 pipe_with_newline ptr_data
-	pushu8 0 pushu8 2 inva
-	%std_io_puts!
-	pushu8 0 pushu8 0 inva
-	%std_io_getc!
+	pushu8 0 pushu8 2 str1 str0
+	%std_io_puts
+	pushu8 0 pushu8 0 str1 str0
+	%std_io_getc
 	jmp loop
 
 :quit
-pushu8 0 pushu8 2 inva
+pushu8 0 pushu8 2 str1 str0
 pushi64 rocket_bottom ptr_data
-%std_io_puts!
+%std_io_puts
 hlt
 
