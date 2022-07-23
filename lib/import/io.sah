@@ -1,15 +1,9 @@
-;Note: need to document what each of the functions expect
 
 :hidden$std_io_puts (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
-	pushi64 std_io_puts_f		
+	pushi64 std_io_puts_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
@@ -19,15 +13,7 @@
 	ret
 )
 
-:std_io_puts! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_puts {
 	pushi64 std_io_puts_f
 	$if IS_DYOBJ 1
 		addi64
@@ -43,13 +29,8 @@ rbe
 
 :hidden$std_io_pute (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_pute_f
 	$if IS_DYOBJ 1
 		addi64
@@ -60,15 +41,7 @@ rbe
 	ret
 )
 
-:std_io_pute! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_pute {
 	pushi64 std_io_pute_f
 	$if IS_DYOBJ 1
 		addi64
@@ -83,11 +56,6 @@ rbe
 
 
 :hidden$std_io_puti64 (	
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_puti64_f
 	$if IS_DYOBJ 1
 		addi64
@@ -98,15 +66,7 @@ rbe
 	ret
 )
 
-:std_io_puti64! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_puti64 {
 	pushi64 std_io_puti64_f
 	$if IS_DYOBJ 1
 		addi64
@@ -122,13 +82,8 @@ rbe
 
 :hidden$std_io_puti32 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_puti32_f
 	$if IS_DYOBJ 1
 		addi64
@@ -139,15 +94,7 @@ rbe
 	ret
 )
 
-:std_io_puti32! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_puti32 {
 	pushi64 std_io_puti32_f
 	$if IS_DYOBJ 1
 		addi64
@@ -163,13 +110,8 @@ rbe
 
 :hidden$std_io_puti16 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_puti16_f
 	$if IS_DYOBJ 1
 		addi64
@@ -180,15 +122,7 @@ rbe
 	ret
 )
 
-:std_io_puti16! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_puti16 {
 	pushi64 std_io_puti16_f
 	$if IS_DYOBJ 1
 		addi64
@@ -204,13 +138,8 @@ rbe
 
 :hidden$std_io_puti8 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_puti8_f
 	$if IS_DYOBJ 1
 		addi64
@@ -221,15 +150,7 @@ rbe
 	ret
 )
 
-:std_io_puti8! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_puti8 {
 	pushi64 std_io_puti8_f
 	$if IS_DYOBJ 1
 		addi64
@@ -245,13 +166,8 @@ rbe
 
 :hidden$std_io_putu32 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_putu32_f
 	$if IS_DYOBJ 1
 		addi64
@@ -262,15 +178,7 @@ rbe
 	ret
 )
 
-:std_io_putu32! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_putu32 {
 	pushi64 std_io_putu32_f
 	$if IS_DYOBJ 1
 		addi64
@@ -286,13 +194,8 @@ rbe
 
 :hidden$std_io_putu16 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_putu16_f
 	$if IS_DYOBJ 1
 		addi64
@@ -303,15 +206,7 @@ rbe
 	ret
 )
 
-:std_io_putu16! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_putu16 {
 	pushi64 std_io_putu16_f
 	$if IS_DYOBJ 1
 		addi64
@@ -327,13 +222,8 @@ rbe
 
 :hidden$std_io_putu8 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_putu8_f
 	$if IS_DYOBJ 1
 		addi64
@@ -344,15 +234,7 @@ rbe
 	ret
 )
 
-:std_io_putu8! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_putu8 {
 	pushi64 std_io_putu8_f
 	$if IS_DYOBJ 1
 		addi64
@@ -368,13 +250,8 @@ rbe
 
 :hidden$std_io_putc (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_putc_f
 	$if IS_DYOBJ 1
 		addi64
@@ -385,15 +262,7 @@ rbe
 	ret
 )
 
-:std_io_putc! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_putc {
 	pushi64 std_io_putc_f
 	$if IS_DYOBJ 1
 		addi64
@@ -409,13 +278,8 @@ rbe
 
 :hidden$std_io_getargv (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_getargv_f
 	$if IS_DYOBJ 1
 		addi64
@@ -427,15 +291,7 @@ rbe
 	ret
 )
 
-:std_io_getargv! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_getargv {
 	pushi64 std_io_getargv_f
 	$if IS_DYOBJ 1
 		addi64
@@ -451,13 +307,8 @@ rbe
 
 :hidden$std_io_getargc (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_getargc_f
 	$if IS_DYOBJ 1
 		addi64
@@ -468,15 +319,7 @@ rbe
 	ret
 )
 
-:std_io_getargc! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_getargc {
 	pushi64 std_io_getargc_f
 	$if IS_DYOBJ 1
 		addi64
@@ -492,13 +335,8 @@ rbe
 
 :hidden$std_io_openf (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_openf_f
 	$if IS_DYOBJ 1
 		addi64
@@ -510,15 +348,7 @@ rbe
 	ret
 )
 
-:std_io_openf! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_openf {
 	pushi64 std_io_openf_f
 	$if IS_DYOBJ 1
 		addi64
@@ -534,13 +364,8 @@ rbe
 
 :hidden$std_io_readf (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_readf_f
 	$if IS_DYOBJ 1
 		addi64
@@ -552,15 +377,7 @@ rbe
 	ret
 )
 
-:std_io_readf! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_readf {
 	pushi64 std_io_readf_f
 	$if IS_DYOBJ 1
 		addi64
@@ -576,13 +393,8 @@ rbe
 
 :hidden$std_io_writef (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_writef_f
 	$if IS_DYOBJ 1
 		addi64
@@ -594,15 +406,7 @@ rbe
 	ret
 )
 
-:std_io_writef! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_writef {
 	pushi64 std_io_writef_f
 	$if IS_DYOBJ 1
 		addi64
@@ -618,13 +422,8 @@ rbe
 
 :hidden$std_io_gets (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_gets_f
 	$if IS_DYOBJ 1
 		addi64
@@ -636,15 +435,7 @@ rbe
 	ret
 )
 
-:std_io_gets! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_gets {
 	pushi64 std_io_gets_f
 	$if IS_DYOBJ 1
 		addi64
@@ -660,13 +451,8 @@ rbe
 
 :hidden$std_io_closef (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_closef_f
 	$if IS_DYOBJ 1
 		addi64
@@ -677,15 +463,7 @@ rbe
 	ret
 )
 
-:std_io_closef! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_closef {
 	pushi64 std_io_closef_f
 	$if IS_DYOBJ 1
 		addi64
@@ -701,13 +479,8 @@ rbe
 
 :hidden$std_io_getc (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_getc_f
 	$if IS_DYOBJ 1
 		addi64
@@ -718,15 +491,7 @@ rbe
 	ret
 )
 
-:std_io_getc! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_getc {
 	pushi64 std_io_getc_f
 	$if IS_DYOBJ 1
 		addi64
@@ -742,13 +507,8 @@ rbe
 
 :hidden$std_io_geti64 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_geti64_f
 	$if IS_DYOBJ 1
 		addi64
@@ -759,15 +519,7 @@ rbe
 	ret
 )
 
-:std_io_geti64! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_geti64 {
 	pushi64 std_io_geti64_f
 	$if IS_DYOBJ 1
 		addi64
@@ -783,13 +535,8 @@ rbe
 
 :hidden$std_io_geti32 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_geti32_f
 	$if IS_DYOBJ 1
 		addi64
@@ -800,15 +547,7 @@ rbe
 	ret
 )
 
-:std_io_geti32! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_geti32 {
 	pushi64 std_io_geti32_f
 	$if IS_DYOBJ 1
 		addi64
@@ -824,13 +563,8 @@ rbe
 
 :hidden$std_io_geti16 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_geti16_f
 	$if IS_DYOBJ 1
 		addi64
@@ -841,15 +575,7 @@ rbe
 	ret
 )
 
-:std_io_geti16! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_geti16 {
 	pushi64 std_io_geti16_f
 	$if IS_DYOBJ 1
 		addi64
@@ -865,13 +591,8 @@ rbe
 
 :hidden$std_io_geti8 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_geti8_f
 	$if IS_DYOBJ 1
 		addi64
@@ -882,15 +603,7 @@ rbe
 	ret
 )
 
-:std_io_geti8! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_geti8 {
 	pushi64 std_io_geti8_f
 	$if IS_DYOBJ 1
 		addi64
@@ -906,13 +619,8 @@ rbe
 
 :hidden$std_io_getu32 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_getu32_f
 	$if IS_DYOBJ 1
 		addi64
@@ -923,15 +631,7 @@ rbe
 	ret
 )
 
-:std_io_getu32! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_getu32 {
 	pushi64 std_io_getu32_f
 	$if IS_DYOBJ 1
 		addi64
@@ -947,13 +647,8 @@ rbe
 
 :hidden$std_io_getu16 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_getu16_f
 	$if IS_DYOBJ 1
 		addi64
@@ -964,15 +659,7 @@ rbe
 	ret
 )
 
-:std_io_getu16! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_getu16 {
 	pushi64 std_io_getu16_f
 	$if IS_DYOBJ 1
 		addi64
@@ -988,13 +675,8 @@ rbe
 
 :hidden$std_io_getu8 (
 	$if IS_DYOBJ 1
-		swap dup
+		swap
 	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
 	pushi64 std_io_getu8_f
 	$if IS_DYOBJ 1
 		addi64
@@ -1005,15 +687,7 @@ rbe
 	ret
 )
 
-:std_io_getu8! {
-	$if IS_DYOBJ 1
-		dup
-	$fi
-	pushi64 std_io
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadlc
+:std_io_getu8 {
 	pushi64 std_io_getu8_f
 	$if IS_DYOBJ 1
 		addi64
@@ -1025,6 +699,28 @@ rbe
 rbs
 :hidden$std_io_getu8_f ( dat str "scanin_u8" )
 rbe
+
+:hidden$std_io_init (
+	unloadl
+	$if IS_DYOBJ 1
+		swap
+	$fi
+	pushi64 std_io
+	$if IS_DYOBJ 1
+		addi64
+	$fi
+	loadlc
+	ret
+)
+
+:std_io_init {
+	unloadl
+	pushi64 std_io
+	$if IS_DYOBJ 1
+		addi64
+	$fi
+	loadlc
+}
 
 rbs
 :hidden$std_io ( dat str "./lib/bin/io.so" )
