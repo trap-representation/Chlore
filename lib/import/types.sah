@@ -6,7 +6,7 @@ set ALIGNOF_I16 2
 set ALIGNOF_I32 4
 set ALIGNOF_I64 8
 
-;the values of `ALIGNOF_<type-specifier><width-specifier>' might change depending on the target
+;the values of `ALIGNOF_<type-specifier><width-specifier>' might change depending on the target and implementation
 
 set SIZEOF_U8 1
 set SIZEOF_U16 2
