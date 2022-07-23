@@ -1,8 +1,8 @@
 / example 4-b: Object
-  This is an object file that can be loaded by or placed in another object/standalone file during run-/compile-time
+  This is an object file that can be loaded by or placed in another object||standalone file during run-||compile-time
 /
 
-:addr { & lfr3 addi64 } ;this macro should be applied to pointers that are pointing to stuff that are present in this object
+:abs_addr { & lfr3 addi64 } ;this macro should be applied to pointers that are pointing to stuff that are present in this object. This basically calculates an absolute address from a relative address
 
 :string dat str "Hello, World!\n"
 
@@ -13,11 +13,14 @@ import "./lib/import/io.sah"
 
 over str3
 
-pushi64 string
-%addr ptr_data
+pushi64 string %abs_addr ptr_data
 
-& lfr3 ;since we're calling a standard library function from an object dynamically loaded at runtime, we need to push the base address of the object (since the object can be loaded anywhere during runtime), and the header files will take care of calculating the rest of the addresses that are needed to be calculated
-pushu8 0 pushu8 0 inva
+& lfr3
+pushu8 0 str0
+call std_io_init
+
+& lfr3 ;since we're calling a standard library function from an object dynamically loaded at runtime, we need to push the base abs_address of the object (since the object can be loaded anywhere during runtime), and the header files will take care of calculating the rest of the abs_addresses that are needed to be calculated
+pushu8 0 pushu8 0 str1 str0
 call std_io_puts
 
 hlt
