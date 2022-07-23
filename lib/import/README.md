@@ -5,3 +5,13 @@ While the value of a label can be assigned to the PC with `call`, macros can't b
 For example, to expand the `std_io_puts` macro, do this: `%std_io_puts`.
 
 The `%` expands the macro.
+
+You'll also see that some header files have things like this:
+
+````
+$if SYM 42
+/ ... /
+$fi
+````
+
+those are there for conditional compilation.
