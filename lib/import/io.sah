@@ -771,8 +771,8 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	loadlc
 	& lfr0 swap
+	loadlc
 }
 
 rbs
