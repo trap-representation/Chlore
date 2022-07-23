@@ -1,0 +1,31 @@
+/ example 5: Calculating the length of a nul-terminated string
+  This program calculates the length of the nul-terminated string pointed to by `string'
+/
+
+import "./lib/import/io.sah"
+
+:string dat str "Hello, World!\n"
+
+set LD_DYN 1 ;This should be either set to either 0 or 1
+;0 --> the `std_string' library will be placed in the binary
+;1 --> the `std_string' library will be dynamically loaded at runtime
+
+import "./lib/import/string.sah"
+
+:main
+pushu8 0 str0
+call std_string_init ;load in the `std_string' library
+
+pushu8 0 str0
+call std_io_init ;load in the `std_io' library
+
+pushi64 string ptr_data
+pushu8 0 str0
+call std_string_strlen
+
+;the length of the string pointed to by `string' is now on the top of the stack
+
+pushu8 0 pushu8 0 str1 str0
+call std_io_puti64
+
+hlt
