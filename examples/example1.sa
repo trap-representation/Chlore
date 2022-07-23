@@ -4,10 +4,12 @@
 
 import "./lib/import/io.sah"
 
-:string dat str "Hello, World!\n" ;str automatically nul terminates the string
+:string dat str "Hello, World!\n" ;this string is automatically nul-terminated
 
 :main
-pushi64 string ptr_data ;the top of the stack now has a pointer to the string
-pushu8 0 pushu8 0 inva
-%std_io_puts!
+pushu8 0 str0
+call std_io_init ;loads in the `std_io' library
+pushi64 string ptr_data
+pushu8 0 pushu8 0 str1 str0
+call std_io_puts ;calls the `puts' function from `std_io'
 hlt
