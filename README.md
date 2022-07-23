@@ -33,6 +33,7 @@ A simple Hello World program written in a standard compliant implementation of S
     pushi64 string ptr_data
     pushu8 0 pushu8 0 str1 str0
     call std_io_puts ;call the `puts' function from `std_io'
+    
     hlt
 
 
