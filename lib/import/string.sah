@@ -19,6 +19,7 @@ $fi
 		$fi
 	$fi
 	$elseif LD_DYN 1
+		& lfr0
 		loidx
 	$fi
 	callobj
@@ -39,6 +40,7 @@ $fi
 		$fi
 	$fi
 	$elseif LD_DYN 1
+		& lfr0
 		loidx
 	$fi
 	callobj
@@ -46,6 +48,7 @@ $fi
 
 :hidden$std_string_init (
 	$if LD_DYN 1
+		& lfr0
 		unloadobj
 		$if DY_OBJ 1
 			swap
@@ -54,6 +57,7 @@ $fi
 		$if DY_OBJ 1
 			addi64
 		$fi
+		& lfr0 swap
 		loadobjc
 	$fi
 	$elseif DY_OBJ 1
@@ -64,11 +68,13 @@ $fi
 
 :hidden$std_string_init {
 	$if LD_DYN 1
+		& lfr0
 		unloadobj
 		pushi64 std_string
 		$if DY_OBJ 1
 			addi64
 		$fi
+		& lfr0 swap
 		loadobjc
 	$fi
 	$elseif DY_OBJ 1
