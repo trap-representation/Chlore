@@ -1,0 +1,48 @@
+set POINTER_HEAP -9223372036854775808
+set POINTER_DATA 9223372036854775807
+
+:calc_abs_address { & lfr0 addi64 pushu8 1 swap subi64 }
+
+:oentry
+	swap str0 ;saving the address that this library was loaded at in GPR 0
+	swap %calc_abs_address #jmp
+
+:exposed$__std_string_strlen (
+	swap ;the [top] of the stack now has an explicit pointer to data or the heap
+	pushu8 0 ;this is the length of the string initially
+	swap dup
+	pushi64 POINTER_HEAP
+	andi64
+	pushi64 POINTER_HEAP
+	pushi64 __std_string_strlen_heap %calc_abs_address #jeq
+	pushi64 __std_string_strlen_data %calc_abs_address #jmp
+
+:exposed$__std_string_strlen_heap
+	pushi64 POINTER_DATA andi64 ;get the implicit address to the heap
+	:exposed$__std_string_strlen_heap_loop
+		dup ;both the [top] and [top-1] have (the same dup'ed) pointers to the heap
+		& lfhu8 pushi64 __std_string_strlen_heap_loop_inc %calc_abs_address #jnz ;jump to `std_string_strlen_heap_loop_inc' if the character encountered is not a nul terminator
+	pop swap
+	ret
+
+:exposed$__std_string_strlen_heap_loop_inc
+	pushu8 1 addi64 ;increment the heap pointer
+	swap pushu8 1 addi64 ;increment the length of the string
+	swap
+	jmp __std_string_strlen_heap
+
+:exposed$__std_string_strlen_data
+	pushi64 POINTER_DATA andi64 ;get the implicit address to the data
+	:exposed$__std_string_strlen_data_loop
+		dup ;both the [top] and [top-1] have (the same dup'ed) pointers to the data
+		loadcu8 pushi64 __std_string_strlen_data_loop_inc %calc_abs_address #jnz ;jump to `std_string_strlen_data_loop_inc' if the character encountered is not a nul terminator
+	pop swap
+	ret
+
+:exposed$__std_string_strlen_data_loop_inc
+	pushu8 1 addi64 ;increment the data pointer
+	swap pushu8 1 addi64 ;increment the length of the string
+	swap
+	pushi64 __std_string_strlen_data %calc_abs_address #jmp
+)
+
