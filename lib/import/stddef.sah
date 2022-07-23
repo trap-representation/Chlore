@@ -4,5 +4,5 @@ set NULL -1
 set stdout 1
 set stdin 0
 set stderr 2
-set max_align_t 16
+set max_align_t 16 ;this value will change depending on the target
 set EOF -1
