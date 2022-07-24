@@ -3,7 +3,7 @@
 ![sasm logo](./sasm-logo-github-dark.png#gh-dark-mode-only)
 
 ----
-This is Sasm - a stack based, assembly-like language that aims to target a wide variety of virtual machines.
+This is Sasm - a stack based, assembly-like language.
 
 Design goals:
 - Trust the programmer
