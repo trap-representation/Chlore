@@ -1,4 +1,6 @@
-### Sasm ###
+Sasm
+----
+
 ![sasm logo](./sasm-logo-github.png)
 
 ----
