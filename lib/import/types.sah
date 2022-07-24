@@ -6,8 +6,6 @@ set ALIGNOF_I16 2
 set ALIGNOF_I32 4
 set ALIGNOF_I64 8
 
-;the values of `ALIGNOF_<type-specifier><width-specifier>' might change depending on the target and implementation
-
 set SIZEOF_U8 1
 set SIZEOF_U16 2
 set SIZEOF_U32 4
@@ -15,6 +13,9 @@ set SIZEOF_I8 1
 set SIZEOF_I16 2
 set SIZEOF_I32 4
 set SIZEOF_I64 8
+
+;the values of `ALIGNOF_<type-specifier><width-specifier>' and `SIZEOF_<type-specifier><width-specifier>' might change depending on the target and implementation
+
 set I8_MAX 127
 set I8_MIN -128
 set I16_MAX 32767
