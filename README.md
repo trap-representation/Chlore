@@ -28,12 +28,16 @@ In the future MSasm will be able to target:
 A simple Hello World program written in a standard compliant implementation of Sasm <sup>1)</sup>:
 
     import "./lib/import/io.sah"
+    
     :string dat str "Hello, World!\n"
+    
     :main
+    
     pushu8 0 str0
     call std_io_init ;loads the `std_io' library
     
     pushi64 string ptr_data
+    
     pushu8 0 pushu8 0 str1 str0
     call std_io_puts ;call the `puts' function from `std_io'
     
