@@ -15,3 +15,6 @@ $fi
 ````
 
 those are there for conditional compilation.
+
+
+As a side note: It doesn't matter if a marco and a label have the same name, since macros are deleted after the symbol replacement phase anyway.
