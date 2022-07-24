@@ -1,4 +1,4 @@
-All the libraries in here are standard-compliant and support the *basic instruction set*.
+All the libraries in here are strictly standard conforming (and support the *basic instruction set*).
 
 For shared objects that are being dynamically loaded, if an environment doesn't support dynamically loading shared objects, it will produce a *force_panic* with/without any extra diagonistic message.
 
