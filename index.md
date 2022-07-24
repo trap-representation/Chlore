@@ -4,7 +4,7 @@ Sasm
 ![sasm logo](./sasm-logo-github-pages.png)
 
 ----
-This is Sasm - a stack based, assembly-like language that's made with a focus on simplicity and speed.
+This is Sasm - a stack based, assembly-like language that's made with a focus on speed and simplicity.
 
 #### Why yet another new language? ####
 Most of the modern languages are built with safety in mind. But let's be honest, a compiler can never be perfect; it's not hard for subtle bugs to slip through and cause all sorts of weird stuff.
