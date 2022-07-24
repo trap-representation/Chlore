@@ -1,5 +1,5 @@
 ### Sasm ###
-<img src="./sasm-logo-github.png" height=30% width=30%>
+![sasm logo](./sasm-logo-github.png)
 
 ----
 This is Sasm - a stack based, assembly-like language that aims to target a wide variety of virtual machines.
