@@ -3,7 +3,7 @@
 ![sasm logo](./sasm-logo-github-dark.png#gh-dark-mode-only)
 
 ----
-This is Sasm - a stack based, assembly-like language.
+This is Sasm - a stack based, assembly-like language that's made with a focus on simplicity and speed.
 
 Design goals:
 - Trust the programmer
