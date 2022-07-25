@@ -16,7 +16,7 @@ import "./lib/import/string.sah"
 pushu8 0 str0
 call std_string_init ;load in the `std_string' library
 ;with `LD_DYN' set to 0, the call to `std_string_init' is basically a no-op
-;the call is still performed though, so if you're concerned about runtime performance, better not call `std_string_init'
+;the call may still be performed though, if the compiler isn't smart enough; so if you're concerned about runtime performance, better not call `std_string_init'
 
 pushu8 0 str0
 call std_io_init ;load in the `std_io' library
