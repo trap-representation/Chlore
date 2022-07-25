@@ -15,6 +15,7 @@ import "./lib/import/string.sah"
 :main
 pushu8 0 str0
 call std_string_init ;load in the `std_string' library
+;with `LD_DYN' set to 0, the call to `std_string_init' is basically a no-op
 
 pushu8 0 str0
 call std_io_init ;load in the `std_io' library
