@@ -14,15 +14,15 @@ import "./lib/import/stddef.sah"
 
 ;register libraries
 pushu8 0 str0
-%std_io_init
+%reg_std_io_init
 
 ;register symbols
 pushu8 0 pushu8 0 str1 str0
-%std_io_getc
+%reg_std_io_getc
 pushu8 0 pushu8 1 str1 str0
-%std_io_putc
+%reg_std_io_putc
 pushu8 0 pushu8 2 str1 str0
-%std_io_puts
+%reg_std_io_puts
 
 
 pushu8 0 ^
