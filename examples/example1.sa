@@ -10,7 +10,7 @@ import "./lib/import/io.sah"
 
 ;register the library that we need to use
 pushu8 0 str0 ;the library will be registered at the 0th index of the object handler table
-call reg_std_io_init ;registers the `std_io' library
+call reg_std_io ;registers the `std_io' library
 
 ;register the symbol from the library that we are going to need
 pushu8 0 str0 ;for loading a symbol from the library loaded at the 0th index of the object handler table
