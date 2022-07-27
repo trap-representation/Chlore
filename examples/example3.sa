@@ -11,9 +11,9 @@ import "./lib/import/alloc2.sah"
 
 ;register libraries
 pushu8 0 str0
-call reg_std_alloc2_init
+call reg_std_alloc2
 pushu8 1 str0
-call reg_std_io_init
+call reg_std_io
 
 ;register symbols
 pushu8 0 pushu8 0 str1 str0
