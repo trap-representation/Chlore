@@ -7,9 +7,17 @@ import "./lib/import/io.sah"
 :string dat str "Hello, World!\n" ;this string is automatically nul-terminated
 
 :main
-pushu8 0 str0
-call std_io_init ;loads in the `std_io' library
+
+;register the library that we need to use
+pushu8 0 str0 ;the library will be registered at the 0th object index
+call std_io_init ;registers the `std_io' library
+
+;register the symbol from the library that we are going to need
+pushu8 0 str0 ;for loading a symbol from the library loaded at the 0th object index
+pushu8 0 str1 ;the symbol will be registered at the 0th symbol index
+call std_io_puts ;registers the `std_io_puts' symbol
+
+;invoke the registered symbol
 pushi64 string ptr_data
-pushu8 0 pushu8 0 str1 str0
-call std_io_puts ;calls the `puts' function from `std_io'
+pushu8 0 ^ ;invoke the symbol registered at the 0th symbol register index
 hlt
