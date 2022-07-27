@@ -11,19 +11,21 @@ import "./lib/import/alloc2.sah"
 
 ;register libraries
 pushu8 0 str0
-call reg_std_alloc2
+pushi64 reg_std_alloc2
+call
 pushu8 1 str0
-call reg_std_io
+pushi64 reg_std_io
+call
 
 ;register symbols
 pushu8 0 pushu8 0 str1 str0
-call reg_std_alloc2_aaseg
+%reg_std_alloc2_aaseg
 pushu8 0 pushu8 1 str1 str0
-call reg_std_alloc2_close
+%reg_std_alloc2_close
 pushu8 1 pushu8 2 str1 str0
-call reg_std_io_putu32
+%reg_std_io_putu32
 pushu8 0 pushu8 3 str1 str0
-call reg_std_alloc2_init_mem
+%reg_std_alloc2_init_mem
 
 pushu8 3 ^
 %terminate_on_error
