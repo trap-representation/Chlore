@@ -14,7 +14,7 @@ import "./lib/import/stddef.sah"
 
 ;register libraries
 pushu8 0 str0
-%reg_std_io_init
+%reg_std_io
 
 ;register symbols
 pushu8 0 pushu8 0 str1 str0
