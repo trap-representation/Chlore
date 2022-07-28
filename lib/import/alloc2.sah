@@ -8,9 +8,9 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
               Pushes an unspecified value on the top of the stack.
 /
 
-:hidden$std_alloc2_aaseg (
+:hidden$reg_std_alloc2_aaseg (
 	$if IS_DYOBJ 1
-		swap
+		over addi64 swap
 	$fi
 	pushi64 std_alloc2_aaseg_f
 	$if IS_DYOBJ 1
@@ -18,20 +18,16 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	str0
-	-> 2 invoke -> 1
-	& lfr0
 	ret
 )
 
-:std_alloc2_aaseg {
+:reg_std_alloc2_aaseg {
 	pushi64 std_alloc2_aaseg_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	-> 2 invoke -> 1
 }
 
 rbs
@@ -43,9 +39,9 @@ rbe
               Pushes an unspecified value on the top of the stack.
 /
 
-:hidden$std_alloc2_aseg (
+:hidden$reg_std_alloc2_aseg (
 	$if IS_DYOBJ 1
-		swap
+		over addi64 swap
 	$fi
 	pushi64 std_alloc2_aseg_f
 	$if IS_DYOBJ 1
@@ -53,20 +49,16 @@ rbe
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	swap
-	-> 1 invoke -> 1
-	swap
 	ret
 )
 
-:std_alloc2_aseg {
+:reg_std_alloc2_aseg {
 	pushi64 std_alloc2_aseg_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	-> 1 invoke -> 1
 }
 
 rbs
@@ -78,9 +70,9 @@ rbe
               Pushes an unspecified value on the top of the stack.
 /
 
-:hidden$std_alloc2_arseg (
+:hidden$reg_std_alloc2_arseg (
 	$if IS_DYOBJ 1
-		swap
+		over addi64 swap
 	$fi
 	pushi64 std_alloc2_arseg_f
 	$if IS_DYOBJ 1
@@ -88,20 +80,16 @@ rbe
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	str0
-	-> 3 invoke -> 1
-	& lfr0
 	ret
 )
 
-:std_alloc2_arseg {
+:reg_std_alloc2_arseg {
 	pushi64 std_alloc2_arseg_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	-> 3 invoke -> 1
 }
 
 rbs
@@ -113,9 +101,9 @@ rbe
               Pushes an unspecified value on the top of the stack.
 /
 
-:hidden$std_alloc2_rseg (
+:hidden$reg_std_alloc2_rseg (
 	$if IS_DYOBJ 1
-		swap
+		over addi64 swap
 	$fi
 	pushi64 std_alloc2_rseg_f
 	$if IS_DYOBJ 1
@@ -123,20 +111,16 @@ rbe
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	str0
-	-> 2 invoke -> 1
-	& lfr0
 	ret
 )
 
-:std_alloc2_rseg {
+:reg_std_alloc2_rseg {
 	pushi64 std_alloc2_rseg_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	-> 2 invoke -> 1
 }
 
 rbs
@@ -147,9 +131,9 @@ rbe
   On failure: Returns EINIT.
 /
 
-:hidden$std_alloc2_flush (
+:hidden$reg_std_alloc2_flush (
 	$if IS_DYOBJ 1
-		swap
+		over addi64 swap
 	$fi
 	pushi64 std_alloc2_flush_f
 	$if IS_DYOBJ 1
@@ -157,19 +141,16 @@ rbe
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	swap
-	-> 1 invoke
 	ret
 )
 
-:std_alloc2_flush {
+:reg_std_alloc2_flush {
 	pushi64 std_alloc2_flush_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	-> 1 invoke
 }
 
 rbs
@@ -180,9 +161,9 @@ rbe
   On failure: Returns EINIT.
 /
 
-:hidden$std_alloc2_close (
+:hidden$reg_std_alloc2_close (
 	$if IS_DYOBJ 1
-		swap
+		over addi64 swap
 	$fi
 	pushi64 std_alloc2_close_f
 	$if IS_DYOBJ 1
@@ -190,18 +171,16 @@ rbe
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	invoke
 	ret
 )
 
-:std_alloc2_close {
+:reg_std_alloc2_close {
 	pushi64 std_alloc2_close_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	invoke
 }
 
 rbs
@@ -212,9 +191,9 @@ rbe
   On failure: Returns EINIT.
 /
 
-:hidden$std_alloc2_dump (
+:hidden$reg_std_alloc2_dump (
 	$if IS_DYOBJ 1
-		swap
+		over addi64 swap
 	$fi
 	pushi64 std_alloc2_dump_f
 	$if IS_DYOBJ 1
@@ -222,18 +201,16 @@ rbe
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	invoke
 	ret
 )
 
-:std_alloc2_dump {
+:reg_std_alloc2_dump {
 	pushi64 std_alloc2_dump_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	invoke
 }
 
 rbs
@@ -244,9 +221,9 @@ rbe
   On failure: Returns EINT.
 /
 
-:hidden$std_alloc2_init_mem (
+:hidden$reg_std_alloc2_init (
 	$if IS_DYOBJ 1
-		swap
+		over addi64 swap
 	$fi
 	pushi64 std_alloc2_init_f
 	$if IS_DYOBJ 1
@@ -254,18 +231,16 @@ rbe
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	invoke
 	ret
 )
 
-:std_alloc2_init_mem {
+:reg_std_alloc2_init {
 	pushi64 std_alloc2_init_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	invoke
 }
 
 rbs
@@ -274,9 +249,9 @@ rbe
 
 / Writes the cache hits and misses to stdout. /
 
-:hidden$std_alloc2_prof (
+:hidden$reg_std_alloc2_prof (
 	$if IS_DYOBJ 1
-		swap
+		over addi64 swap
 	$fi
 	pushi64 std_alloc2_prof_f
 	$if IS_DYOBJ 1
@@ -284,29 +259,25 @@ rbe
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	invoke
 	ret
 )
 
-:std_alloc2_prof {
+:reg_std_alloc2_prof {
 	pushi64 std_alloc2_prof_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
 	loadfc
-	invoke
 }
 
 rbs
 :hidden$std_alloc2_prof_f ( dat str "prof" )
 rbe
 
-:hidden$std_alloc2_init (
-	& lfr0
-	unloadl
+:hidden$reg_std_alloc2 (
 	$if IS_DYOBJ 1
-		swap
+		over addi64 swap
 	$fi
 	pushi64 std_alloc2
 	$if IS_DYOBJ 1
@@ -317,9 +288,7 @@ rbe
 	ret
 )
 
-:std_alloc2_init {
-	& lfr0
-	unloadl
+:reg_std_alloc2 {
 	pushi64 std_alloc2
 	$if IS_DYOBJ 1
 		addi64
