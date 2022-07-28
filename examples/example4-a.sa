@@ -6,16 +6,17 @@
 
 :main
 
-pushu8 0 dup dup ;the address of the object will be saved in the 0th object handler
-unloadobj ;unload any object pointed to by this object handler
-
+pushu8 0 ;registers the object at the 0th index of the object handler table
 pushi64 obj_name
 pushu8 8 ;this is the alignment
 aloadobjc ;this will put the object in the executable code section aligned to an 8 byte boundary
 
+pushu8 0 pushu8 0 ldobjhd stsymhd ;store the base address of `example-4b.sso' at the 0th index of the symbol handler table; it is basically the same as saying "Use the default entry point for the object"
 
-loidx ;push the address pointed to by the 0th object handler on the top of the stack
+pushu8 0
+ldobjhd ;push the base address of the object registered at the 0th index of the object handler table
+pushu8 0
+callobj ;calling the object registered at the 0th index
 
-callobj ;calling the object
 
 hlt
