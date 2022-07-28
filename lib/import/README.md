@@ -1,6 +1,6 @@
 NOTEs:
 
-- These are the header files that one can use to register shared objects present in the standard library. Some header files however (like `string.h`, for example), don't use shared objects at all; instead, they have the implementation of the functions that we're calling written in Sasm itself (an AO).
+- These are the header files that one can use to register shared objects and AOs present in the standard library.
 
 - While the value of a label can be assigned to the PC with `call`, macros can't be used with `call`. One has to just write the name of the label prefixed with a `%`.
 
