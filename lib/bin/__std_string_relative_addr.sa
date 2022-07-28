@@ -1,9 +1,9 @@
 ;visible symbols
-set sym_oentry 12
-set sym___std_string_strlen 22
-set sym___std_string_strlen_heap 78
-set sym___std_string_strlen_heap_loop 88
-set sym___std_string_strlen_heap_loop_inc 109
-set sym___std_string_strlen_data 127
-set sym___std_string_strlen_data_loop 137
-set sym___std_string_strlen_data_loop_inc 158
+set sym_oentry 10
+set sym___std_string_strlen 11
+set sym___std_string_strlen_heap 55
+set sym___std_string_strlen_heap_loop 65
+set sym___std_string_strlen_heap_loop_inc 83
+set sym___std_string_strlen_data 101
+set sym___std_string_strlen_data_loop 111
+set sym___std_string_strlen_data_loop_inc 129
