@@ -6,4 +6,4 @@ The way some environments load shared objects or executable code in memory, ofte
 
 For shared objects that are being dynamically loaded, if an environment doesn't support dynamically loading shared objects, it will produce a *force_panic* with/without any extra diagonistic message.
 
-For AO (Addressable Objects) that are being loaded in dynamically, if an environment doesn't support dynamically loading AOs, the behavior is undefined.
+For AOs (Addressable Objects) that are being loaded in dynamically, if an environment doesn't support dynamically loading AOs, the behavior is undefined.
