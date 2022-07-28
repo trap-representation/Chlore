@@ -25,6 +25,6 @@ pushu8 0 ^ ;invoke the symbol registered at the 0th index of the symbol handler 
 hlt
 
 
-;NOTE the caret invocation operator (^) has to check whether the symbol at the [top]th index of the symbol handler table is present in a shared object, or an SSO, which might be slow
+;NOTE the caret invocation operator (^) has to check whether the symbol at the [top]th index of the symbol handler table is present in a shared object, or an SAO, which might be slow
 ;if you want to avoid this, directly use `invoke' or `callobj' based on how the library is implemented
 ;the caret invocation and the tilde unload (~) operators are made just to have a common operator for invoking/unloading symbols irrespective of where those symbols are present in
