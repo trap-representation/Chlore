@@ -14,20 +14,26 @@ import "./lib/import/string.sah"
 
 :main
 pushu8 0 str0
-call std_string_init ;load in the `std_string' library
-;with `LD_DYN' set to 0, the call to `std_string_init' is basically a no-op
-;the call may still be performed though, if the compiler isn't smart enough; so if you're concerned about runtime performance, better not call `std_string_init'
+pushi64 reg_std_string
+call ;load in the `std_string' library
 
-pushu8 0 str0
-call std_io_init ;load in the `std_io' library
+pushu8 1 str0
+pushi64 reg_std_io
+call ;load in the `std_io' library
+
+pushu8 0 pushu8 0 str1 str0
+pushi64 reg_std_string_strlen
+call
 
 pushi64 string ptr_data
-pushu8 0 str0
-call std_string_strlen
+pushu8 0 ^
 
 ;the length of the string pointed to by `string' is now on the top of the stack
 
-pushu8 0 pushu8 0 str1 str0
-call std_io_puti64
+pushu8 1 pushu8 1 str1 str0
+pushi64 reg_std_io_puti64
+call
+
+pushu8 1 ^
 
 hlt
