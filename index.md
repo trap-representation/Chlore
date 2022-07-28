@@ -62,5 +62,5 @@ hlt
 
 #### Future plans: ####
 - Build a useful standard library
-- Build a compiler for a higher level-language that will be able to target Sasm
+- Build a compiler for a higher-level language that will be able to target Sasm
 - Make MSasm self-hosted
