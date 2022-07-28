@@ -14,11 +14,11 @@ import "./lib/import/io.sah"
 swap str3 ;save the base address of this object in GPR 3
 
 pushu8 0 str0
-& lfr3
+& lfr3 ;since we're using the header files from the standard library, and they're `import'ed in an object, they require the base address of the object which they're `include'd in at the top of the stack
 pushi64 reg_std_io %abs_addr
 call
 
-& lfr3 ;since we're calling a standard library function from an object dynamically loaded at runtime, we need to push the base address of the object (since the object can be loaded anywhere during runtime), and the header files will take care of calculating the rest of the addresses that are needed to be calculated
+& lfr3
 pushu8 0 pushu8 0 str1 str0
 pushi64 reg_std_io_puts %abs_addr
 call
