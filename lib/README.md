@@ -1,4 +1,4 @@
-All the libraries in here are strictly standard conforming (and support the *basic instruction set*).
+All the libraries and header files in here are strictly standard conforming (and support the *basic instruction set*).
 
 Since these libraries are strictly standard conforming, these will work with any environment that a particular implementation of Sasm can target (at least as long as the environment supports functionality that the libraries expect the environment to support).
 
