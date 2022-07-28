@@ -6,70 +6,51 @@ $fi
 
 / Pushes the length of the nul-terminated string pointed to by the (explicit) pointer present at the [top] of the stack. /
 
-:hidden$std_string_strlen (
-	swap
+:hidden$reg_std_string_strlen (
 	$if DY_OBJ 1
-		str1 swap
-	$fi
-	pushi64 sym___std_string_strlen
-	$if LD_DYN 0
-		pushi64 __std_string
-		$if DY_OBJ 1
-			& lfr1 addi64
-		$fi
-	$fi
-	$elseif LD_DYN 1
-		& lfr0
-		loidx
-	$fi
-	callobj
-	swap
-	ret
-)
-
-
-:hidden$std_string_strlen {
-	$if DY_OBJ 1
-		str1
-	$fi
-	pushi64 sym___std_string_strlen
-	$if LD_DYN 0
-		pushi64 __std_string
-		$if DY_OBJ 1
-			& lfr1 addi64
-		$fi
-	$fi
-	$elseif LD_DYN 1
-		& lfr0
-		loidx
-	$fi
-	callobj
-}
-
-:hidden$std_string_init (
-	$if LD_DYN 1
-		& lfr0
-		unloadobj
-		$if DY_OBJ 1
-			swap
-		$fi
-		pushi64 std_string
-		$if DY_OBJ 1
-			addi64
-		$fi
-		& lfr0 swap
-		loadobjc
-	$fi
-	$elseif DY_OBJ 1
 		swap pop
 	$fi
+	& lfr1
+	& lfr0
+	ldobjhd
+	pushi64 sym___std_string_strlen
+	addi64
+	stsymhd
 	ret
 )
 
-:hidden$std_string_init {
+:hidden$reg_std_string_strlen {
+	$if DY_OBJ 1
+		pop
+	$fi
+	& lfr1
+	& lfr0
+	ldobjhd
+	pushi64 sym___std_string_strlen
+	addi64
+	stsymhd
+}
+
+:hidden$reg_std_string (
+	$if DY_OBJ 1
+		swap
+	$fi
+	pushi64 std_string
+	$if DY_OBJ 1
+		addi64
+	$fi
+	& lfr0 swap
 	$if LD_DYN 1
-		& lfr0
-		unloadobj
+		loadobjc
+	$fi
+	$elseif LD_DYN 0
+		stobjhd
+	$fi
+	ret
+)
+
+:hidden$reg_std_string {
+	$if LD_DYN 1
 		pushi64 std_string
 		$if DY_OBJ 1
 			addi64
@@ -77,12 +58,17 @@ $fi
 		& lfr0 swap
 		loadobjc
 	$fi
-	$elseif DY_OBJ 1
-		pop
+	$elseif LD_DYN 0
+		pushi64 std_string
+		$if DY_OBJ 1
+			addi64
+		$fi
+		& lfr0 swap
+		stobjhd
 	$fi
 }
 
 $if LD_DYN 0
-:hidden$__std_string
-	include "./lib/bin/string.sso"
+	:hidden$std_string
+		include "./lib/bin/string.sso"
 $fi
