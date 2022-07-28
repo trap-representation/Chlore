@@ -2,25 +2,28 @@
   This is an object file that can be loaded by or placed in another object||standalone file during run-||compile-time
 /
 
-:abs_addr { & lfr3 addi64 } ;this macro should be applied to pointers that are pointing to stuff that are present in this object. This basically calculates an absolute address from a relative address
+:abs_addr { & lfr3 addi64 } ;this macro should be applied to pointers that are pointing to stuff that are present in this object. This macro calculates an absolute address from a relative address
 
 :string dat str "Hello, World!\n"
 
 set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard library functions will simply fail
 import "./lib/import/io.sah"
 
-:oentry
+:oentry ;this is the entry point
 
-over str3
+swap str3 ;save the base address of this object in GPR 3
+
+pushu8 0 str0
+& lfr3
+pushi64 reg_std_io %abs_addr
+call
+
+& lfr3 ;since we're calling a standard library function from an object dynamically loaded at runtime, we need to push the base address of the object (since the object can be loaded anywhere during runtime), and the header files will take care of calculating the rest of the addresses that are needed to be calculated
+pushu8 0 pushu8 0 str1 str0
+pushi64 reg_std_io_puts %abs_addr
+call
 
 pushi64 string %abs_addr ptr_data
-
-& lfr3
-pushu8 0 str0
-call std_io_init
-
-& lfr3 ;since we're calling a standard library function from an object dynamically loaded at runtime, we need to push the base abs_address of the object (since the object can be loaded anywhere during runtime), and the header files will take care of calculating the rest of the abs_addresses that are needed to be calculated
-pushu8 0 pushu8 0 str1 str0
-call std_io_puts
+pushu8 0 ^
 
 hlt
