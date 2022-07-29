@@ -26,7 +26,7 @@ pushi64 reg_std_string_strlen
 call
 
 pushi64 string ptr_data
-pushu8 0 ^
+pushu8 0 !
 
 ;the length of the string pointed to by `string' is now on the top of the stack
 
@@ -34,6 +34,6 @@ pushu8 1 pushu8 1 str1 str0
 pushi64 reg_std_io_puti64
 call
 
-pushu8 1 ^
+pushu8 1 !
 
 hlt
