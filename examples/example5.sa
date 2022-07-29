@@ -6,9 +6,8 @@ import "./lib/import/io.sah"
 
 :string dat str "Hello, World!\n"
 
-set LD_DYN 1 ;This should be either set to either 0 or 1
-;0 --> the `std_string' library will be placed in the binary
-;1 --> the `std_string' library will be dynamically loaded at runtime
+set LD_DYN 1 ;if LD_DYN is set to 1, it'll hint the compiler that libraries can be loaded dynamically
+;it is still nothing more than just a hint, so the compiler is free to put the library in the binary even if LD_DYN is set
 
 import "./lib/import/string.sah"
 
