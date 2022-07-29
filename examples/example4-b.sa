@@ -18,8 +18,8 @@ pushu8 0 str0
 pushi64 reg_std_io %abs_addr
 call
 
-& lfr3
 pushu8 0 pushu8 0 str1 str0
+& lfr3
 pushi64 reg_std_io_puts %abs_addr
 call
 
