@@ -17,7 +17,7 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 	ret
 )
 
@@ -27,7 +27,7 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 }
 
 rbs
@@ -48,7 +48,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 	ret
 )
 
@@ -58,7 +58,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 }
 
 rbs
@@ -79,7 +79,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 	ret
 )
 
@@ -89,7 +89,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 }
 
 rbs
@@ -110,7 +110,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 	ret
 )
 
@@ -120,7 +120,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 }
 
 rbs
@@ -140,7 +140,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 	ret
 )
 
@@ -150,7 +150,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 }
 
 rbs
@@ -170,7 +170,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 	ret
 )
 
@@ -180,7 +180,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 }
 
 rbs
@@ -200,7 +200,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 	ret
 )
 
@@ -210,7 +210,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 }
 
 rbs
@@ -230,7 +230,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 	ret
 )
 
@@ -240,7 +240,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 }
 
 rbs
@@ -258,7 +258,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 	ret
 )
 
@@ -268,7 +268,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap & lfr1 swap
-	loadfc
+	loadnaosymc
 }
 
 rbs
@@ -284,7 +284,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap
-	loadlc
+	loadnaoc
 	ret
 )
 
@@ -294,7 +294,7 @@ rbe
 		addi64
 	$fi
 	& lfr0 swap
-	loadlc
+	loadnaoc
 }
 
 rbs
