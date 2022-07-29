@@ -12,10 +12,10 @@ $fi
 	$fi
 	& lfr1
 	& lfr0
-	ldobjhd
+	ldaohd
 	pushi64 sym___std_string_strlen
 	addi64
-	stsymhd
+	staosymhd
 	ret
 )
 
@@ -25,10 +25,10 @@ $fi
 	$fi
 	& lfr1
 	& lfr0
-	ldobjhd
+	ldaohd
 	pushi64 sym___std_string_strlen
 	addi64
-	stsymhd
+	staosymhd
 }
 
 :hidden$reg_std_string (
@@ -41,10 +41,10 @@ $fi
 	$fi
 	& lfr0 swap
 	$if LD_DYN 1
-		loadobjc
+		loadaoc
 	$fi
 	$elseif LD_DYN 0
-		stobjhd
+		staohd
 	$fi
 	ret
 )
@@ -56,7 +56,7 @@ $fi
 			addi64
 		$fi
 		& lfr0 swap
-		loadobjc
+		loadaoc
 	$fi
 	$elseif LD_DYN 0
 		pushi64 std_string
@@ -64,7 +64,7 @@ $fi
 			addi64
 		$fi
 		& lfr0 swap
-		stobjhd
+		staohd
 	$fi
 }
 
