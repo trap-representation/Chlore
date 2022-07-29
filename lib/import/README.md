@@ -1,6 +1,6 @@
 NOTEs:
 
-- These are the header files that one can use to register shared objects and AOs present in the standard library.
+- These are the header files that one can use to register NAOs and AOs present in the standard library.
 
 - While the value of a label can be assigned to the PC with `call`, macros can't be used with `call`. One has to just write the name of the label prefixed with a `%`.
 
