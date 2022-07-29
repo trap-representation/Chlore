@@ -43,7 +43,7 @@ pushu8 0 pushu8 0 str1 str0
 
 ;invoke the registered symbol
 pushi64 string ptr_data
-pushu8 0 ^
+pushu8 0 !
 hlt
 ````
 
