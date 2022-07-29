@@ -25,24 +25,24 @@ pushu8 0 pushu8 2 str1 str0
 %reg_std_io_puts
 
 
-pushu8 0 ^
+pushu8 0 !
 
 pushi64 rocket_top ptr_data
-pushu8 2 ^
+pushu8 2 !
 
 :loop
 	dup pushu8 '\n' jeq quit ;check for newline
 	dup pushi8 EOF jeq quit ;check for EOF
 	pushi64 pipe_with_space ptr_data
-	pushu8 2 ^
-	pushu8 1 ^
+	pushu8 2 !
+	pushu8 1 !
 	pushi64 pipe_with_newline ptr_data
-	pushu8 2 ^
-	pushu8 0 ^
+	pushu8 2 !
+	pushu8 0 !
 	jmp loop
 
 :quit
 pushi64 rocket_bottom ptr_data
-pushu8 2 ^
+pushu8 2 !
 hlt
 
