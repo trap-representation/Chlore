@@ -16,7 +16,7 @@ pushu8 0 pushu8 0 ldaohd staosymhd ;store the base address of `example-4b.sso' a
 pushu8 0
 ldaohd ;push the base address of the object registered at the 0th index of the object handler table
 pushu8 0
-invokeaosym ;calling the object registered at the 0th index
+invokeaosym ;invoke the symbol registered at the 0th index
 
 
 hlt
