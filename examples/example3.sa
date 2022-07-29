@@ -4,7 +4,7 @@
 import "./lib/import/io.sah"
 import "./lib/import/alloc2.sah"
 
-:terminate_on_error { & lfr1 panic } ;this macro checks the value returned by a called C function, and if it is non-zero, the program terminates
+:terminate_on_error { & lfr1 panic } ;this macro checks the value returned by a an invoked symbol, and if it is non-zero, the program terminates
 ;Note however, if this program terminates after the call to `init' and before the call to `close', there will be a memory leak
 
 :hidden$main
