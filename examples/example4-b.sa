@@ -1,4 +1,4 @@
-/ example 4-b: Object
+/ example 4-b: Addressable object
   This is an addressable object file that can be loaded by or placed in another object||standalone file during run-||compile-time
 /
 
