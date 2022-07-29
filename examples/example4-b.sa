@@ -1,5 +1,5 @@
 / example 4-b: Object
-  This is an object file that can be loaded by or placed in another object||standalone file during run-||compile-time
+  This is an addressable object file that can be loaded by or placed in another object||standalone file during run-||compile-time
 /
 
 :abs_addr { & lfr3 addi64 } ;this macro should be applied to pointers that are pointing to stuff that are present in this object. This macro calculates an absolute address from a relative address
