@@ -8,4 +8,4 @@ For NAOs (Non-Addressable objects) that are being dynamically loaded, if an envi
 
 For AOs (Addressable Objects) that are being loaded in dynamically, if an environment doesn't support dynamically loading AOs, the behavior is undefined.
 
-NOTE There are some header files in the `import/Msasm-stvm` directory, which might only work with the `Msasm-stvm` implementation. That doesn't mean that those header files aren't *strictly standard conforming*; they are just there because the names (and types) of the objects and symbols they load may vary across implementations.
+NOTE There are some header files in the `import/Msasm-<target>` directory, which might only work with that particular `Msasm-<target>` implementation. That doesn't mean that those header files aren't *strictly standard conforming*; they are just there because the names (and types) of the objects and symbols they load may vary across implementations.
