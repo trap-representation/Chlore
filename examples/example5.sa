@@ -2,25 +2,25 @@
   This program calculates the length of the nul-terminated string pointed to by `string'
 /
 
-import "./lib/import/io.sah"
-
-:string dat str "Hello, World!\n"
-
 set LD_DYN 1 ;if LD_DYN is set to 1, it'll hint the compiler that libraries can be loaded dynamically
 ;it is still nothing more than just a hint, so the compiler is free to put the library in the binary even if LD_DYN is set
 
+import "./lib/import/io.sah"
 import "./lib/import/string.sah"
 
+:string dat str "Hello, World!\n"
+
+
 :main
-pushu8 0 str0
+pushu8 0
 pushi64 reg_std_string
 call ;load in the `std_string' library
 
-pushu8 1 str0
+pushu8 1
 pushi64 reg_std_io
 call ;load in the `std_io' library
 
-pushu8 0 pushu8 0 str1 str0
+pushu8 0 pushu8 0
 pushi64 reg_std_string_strlen
 call
 
@@ -29,7 +29,7 @@ pushu8 0 !
 
 ;the length of the string pointed to by `string' is now on the top of the stack
 
-pushu8 1 pushu8 1 str1 str0
+pushu8 1 pushu8 1
 pushi64 reg_std_io_puti64
 call
 
