@@ -1,4 +1,4 @@
-This directory contains the source of the various objects (aka libraries) that one can use in Sasm.
+This directory contains the source of the various objects present in the standard library.
 
 Certain objects cannot be written in Sasm itself, and need to be written in a different language; that's why those objects aren't put here, because they may vary across implementations.
 
