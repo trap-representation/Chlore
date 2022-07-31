@@ -2,7 +2,7 @@
   Just a simple fizzbuzz program
 /
 
-import "./lib/import/io.sah"
+import "./lib/import/Msasm-stvm/io.sah"
 import "./lib/import/shorthand.sah"
 
 :fizz_string dat str "fizz\n"
