@@ -10,15 +10,15 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
 
 :hidden$reg_std_alloc2_aaseg (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_alloc2_aaseg_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_alloc2_aaseg {
@@ -26,7 +26,6 @@ set EOVF 4     ;The requested amount of memory is more than what's been allocate
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -41,15 +40,15 @@ rbe
 
 :hidden$reg_std_alloc2_aseg (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_alloc2_aseg_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_alloc2_aseg {
@@ -57,7 +56,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -65,22 +63,22 @@ rbs
 :hidden$std_alloc2_aseg_f ( dat str "aseg" )
 rbe
 
-/ On success: Flushes the chunk of memory pointed at by the [top-1] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-2] bytes, aligned to a [top] byte boundary, and which retains the contents of the original chunk, on the [top] of the stack.
+/ On success: Flushes the chunk of memory pointed at by the [top-1] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-2] bytes, aligned to a [top] byte boundary, and which & lfr0 retains the contents of the original chunk, on the [top] of the stack.
   On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
               Pushes an unspecified value on the top of the stack.
 /
 
 :hidden$reg_std_alloc2_arseg (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_alloc2_arseg_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_alloc2_arseg {
@@ -88,7 +86,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -96,22 +93,22 @@ rbs
 :hidden$std_alloc2_arseg_f ( dat str "arseg" )
 rbe
 
-/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-1] bytes, and which retains the contents of the original chunk, on the [top] of the stack.
+/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-1] bytes, and which & lfr0 retains the contents of the original chunk, on the [top] of the stack.
   On failure: Returns one of EINIT, EINT, EOVF.
               Pushes an unspecified value on the top of the stack.
 /
 
 :hidden$reg_std_alloc2_rseg (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_alloc2_rseg_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_alloc2_rseg {
@@ -119,7 +116,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -127,21 +123,21 @@ rbs
 :hidden$std_alloc2_rseg_f ( dat str "rseg" )
 rbe
 
-/ On success: Flushes the chunk of memory pointed at by the [top] of the stack. [top] must be an (explicit) pointer returned by one of `aseg', `aaseg', `rseg', `arseg'.
+/ On success: Flushes the chunk of memory pointed at by the [top] of the stack. [top] must be an (explicit) pointer & lfr0 returned by one of `aseg', `aaseg', `rseg', `arseg'.
   On failure: Returns EINIT.
 /
 
 :hidden$reg_std_alloc2_flush (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_alloc2_flush_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_alloc2_flush {
@@ -149,7 +145,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -163,15 +158,15 @@ rbe
 
 :hidden$reg_std_alloc2_close (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_alloc2_close_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_alloc2_close {
@@ -179,7 +174,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -193,15 +187,15 @@ rbe
 
 :hidden$reg_std_alloc2_dump (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_alloc2_dump_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_alloc2_dump {
@@ -209,7 +203,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -223,15 +216,15 @@ rbe
 
 :hidden$reg_std_alloc2_init (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_alloc2_init_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_alloc2_init {
@@ -239,7 +232,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -251,15 +243,15 @@ rbe
 
 :hidden$reg_std_alloc2_prof (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_alloc2_prof_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_alloc2_prof {
@@ -267,7 +259,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -277,15 +268,15 @@ rbe
 
 :hidden$reg_std_alloc2 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_alloc2
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap
 	loadnaoc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_alloc2 {
@@ -293,7 +284,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap
 	loadnaoc
 }
 
