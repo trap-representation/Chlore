@@ -7,3 +7,5 @@ The way some environments load executable code in memory, often times differ fro
 For NAOs (Non-Addressable objects) that are being dynamically loaded, if an environment doesn't support dynamically loading NAOs, it will produce a *force_panic* with/without any extra diagonistic message.
 
 For AOs (Addressable Objects) that are being loaded in dynamically, if an environment doesn't support dynamically loading AOs, the behavior is undefined.
+
+NOTE There are some header files in the `import/Msasm-stvm` directory, which might only work with the `Msasm-stvm` implementation. That doesn't mean that those header files aren't *strictly standard conforming*; they are just there because the names (and types) of the objects and symbols they load may vary across implementations.
