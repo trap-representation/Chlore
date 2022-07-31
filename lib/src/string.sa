@@ -19,7 +19,7 @@ set POINTER_DATA 9223372036854775807
 		dup ;both the [top] and [top-1] have (the same dup'ed) pointers to the heap
 		& lfhu8 rjnz __std_string_strlen_heap_loop_inc ;jump to `std_string_strlen_heap_loop_inc' if the character encountered is not a nul terminator
 	pop swap
-	pushu8 0 str1 ;save a zero return value in GPR 1
+	pushu8 0 str0 ;save a zero return value in GPR 0
 	ret
 
 :exposed$__std_string_strlen_heap_loop_inc
@@ -34,7 +34,7 @@ set POINTER_DATA 9223372036854775807
 		dup ;both the [top] and [top-1] have (the same dup'ed) pointers to the data
 		loadcu8 rjnz __std_string_strlen_data_loop_inc ;jump to `std_string_strlen_data_loop_inc' if the character encountered is not a nul terminator
 	pop swap
-	pushu8 0 str1 ;save a zero return value in GPR 1
+	pushu8 0 str0 ;save a zero return value in GPR 0
 	ret
 
 :exposed$__std_string_strlen_data_loop_inc
