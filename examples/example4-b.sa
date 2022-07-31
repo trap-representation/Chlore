@@ -7,7 +7,7 @@
 :string dat str "Hello, World!\n"
 
 set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard library functions will simply fail
-import "./lib/import/io.sah"
+import "./lib/import/Msasm-stvm/io.sah"
 
 :oentry ;this is the entry point
 
