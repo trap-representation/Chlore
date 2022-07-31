@@ -2,7 +2,7 @@
   This program was made for the "This isn't rocket science" code-golf (code-golf question 91182), though it was never submitted
 /
 
-import "./lib/import/io.sah"
+import "./lib/import/Msasm-stvm/io.sah"
 import "./lib/import/stddef.sah"
 
 :rocket_top dat str "\n  |\n /_\\\n"
