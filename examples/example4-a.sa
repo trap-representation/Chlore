@@ -2,7 +2,7 @@
   This program loads an addressable object at runtime
 /
 
-:obj_name dat str "./example-4b.sso"
+:obj_name dat str "./example4-b.sso"
 
 :main
 
