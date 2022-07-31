@@ -10,21 +10,21 @@ import "./lib/import/alloc2.sah"
 :hidden$main
 
 ;register libraries
-pushu8 0 str0
+pushu8 0
 pushi64 reg_std_alloc2
 call
-pushu8 1 str0
+pushu8 1
 pushi64 reg_std_io
 call
 
 ;register symbols
-pushu8 0 pushu8 0 str1 str0
+pushu8 0 pushu8 0
 %reg_std_alloc2_aaseg
-pushu8 0 pushu8 1 str1 str0
+pushu8 0 pushu8 1
 %reg_std_alloc2_close
-pushu8 1 pushu8 2 str1 str0
+pushu8 1 pushu8 2
 %reg_std_io_putu32
-pushu8 0 pushu8 3 str1 str0
+pushu8 0 pushu8 3
 %reg_std_alloc2_init
 
 pushu8 3 !
