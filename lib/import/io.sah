@@ -1,14 +1,14 @@
 :hidden$reg_std_io_puts (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_puts_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_puts {
@@ -16,7 +16,6 @@
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -27,15 +26,15 @@ rbe
 
 :hidden$reg_std_io_pute (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_pute_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_pute {
@@ -43,7 +42,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -52,14 +50,17 @@ rbs
 rbe
 
 
-:hidden$reg_std_io_puti64 (	
+:hidden$reg_std_io_puti64 (
+	$if IS_DYOBJ 1
+		over addi64
+	$fi
+	str0
 	pushi64 std_io_puti64_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_puti64 {
@@ -67,7 +68,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -78,15 +78,15 @@ rbe
 
 :hidden$reg_std_io_puti32 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_puti32_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_puti32 {
@@ -94,7 +94,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -105,15 +104,15 @@ rbe
 
 :hidden$reg_std_io_puti16 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_puti16_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_puti16 {
@@ -121,7 +120,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -132,15 +130,15 @@ rbe
 
 :hidden$reg_std_io_puti8 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_puti8_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_puti8 {
@@ -148,7 +146,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -159,15 +156,15 @@ rbe
 
 :hidden$reg_std_io_putu32 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_putu32_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_putu32 {
@@ -175,7 +172,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -186,15 +182,15 @@ rbe
 
 :hidden$reg_std_io_putu16 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_putu16_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_putu16 {
@@ -202,7 +198,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -213,15 +208,15 @@ rbe
 
 :hidden$reg_std_io_putu8 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_putu8_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_putu8 {
@@ -229,7 +224,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -240,15 +234,15 @@ rbe
 
 :hidden$reg_std_io_putc (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_putc_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_putc {
@@ -256,7 +250,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -267,15 +260,15 @@ rbe
 
 :hidden$reg_std_io_getargv (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_getargv_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_getargv {
@@ -283,7 +276,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -294,14 +286,14 @@ rbe
 
 :hidden$reg_std_io_getargc (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_getargc_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_getargc {
@@ -309,7 +301,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -320,15 +311,15 @@ rbe
 
 :hidden$reg_std_io_openf (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_openf_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_openf {
@@ -336,7 +327,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -347,15 +337,15 @@ rbe
 
 :hidden$reg_std_io_readf (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_readf_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_readf {
@@ -363,7 +353,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -374,15 +363,15 @@ rbe
 
 :hidden$reg_std_io_writef (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_writef_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_writef {
@@ -390,7 +379,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -401,15 +389,15 @@ rbe
 
 :hidden$reg_std_io_gets (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_gets_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_gets {
@@ -417,7 +405,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -428,15 +415,15 @@ rbe
 
 :hidden$reg_std_io_closef (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_closef_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_closef {
@@ -444,7 +431,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -455,14 +441,14 @@ rbe
 
 :hidden$reg_std_io_getc (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_getc_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_getc {
@@ -470,7 +456,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -481,15 +466,15 @@ rbe
 
 :hidden$reg_std_io_geti64 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_geti64_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_geti64 {
@@ -497,7 +482,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -508,15 +492,15 @@ rbe
 
 :hidden$reg_std_io_geti32 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_geti32_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_geti32 {
@@ -524,7 +508,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -535,15 +518,15 @@ rbe
 
 :hidden$reg_std_io_geti16 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_geti16_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_geti16 {
@@ -551,7 +534,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -562,15 +544,15 @@ rbe
 
 :hidden$reg_std_io_geti8 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_geti8_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_geti8 {
@@ -578,7 +560,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -589,15 +570,15 @@ rbe
 
 :hidden$reg_std_io_getu32 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_getu32_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_getu32 {
@@ -605,7 +586,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -616,15 +596,15 @@ rbe
 
 :hidden$reg_std_io_getu16 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_getu16_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_getu16 {
@@ -632,7 +612,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -643,15 +622,15 @@ rbe
 
 :hidden$reg_std_io_getu8 (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io_getu8_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io_getu8 {
@@ -659,7 +638,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap & lfr1 swap
 	loadnaosymc
 }
 
@@ -669,15 +647,15 @@ rbe
 
 :hidden$reg_std_io (
 	$if IS_DYOBJ 1
-		over addi64 swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_io
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap
 	loadnaoc
-	ret
+	& lfr0 ret
 )
 
 :reg_std_io {
@@ -685,7 +663,6 @@ rbe
 	$if IS_DYOBJ 1
 		addi64
 	$fi
-	& lfr0 swap
 	loadnaoc
 }
 
