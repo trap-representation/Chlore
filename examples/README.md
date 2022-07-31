@@ -1,4 +1,4 @@
-(This only applies to the MSasm-stvm and the MstvmSn8 implementations.)
+(This only applies to MSasm-stvm and MstvmSn8.)
 
 As of now, `push*`es perform an unaligned read, so are slower than using an aligned load from the data (`aloadc*`).
 
