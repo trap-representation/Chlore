@@ -3,28 +3,32 @@ import "./lib/bin/__std_string_relative_addr.sa"
 $if LD_DYN 1
 	:std_string dat str "./lib/bin/string.sso"
 $fi
+$else
+	:hidden$std_string
+		include "./lib/bin/string.sso"
+$fi
+
 
 / Pushes the length of the nul-terminated string pointed to by the (explicit) pointer present at the [top] of the stack. /
 
 :hidden$reg_std_string_strlen (
 	$if DY_OBJ 1
-		swap pop
+		addi64
 	$fi
-	& lfr1
-	& lfr0
+	str0
+	swap
 	ldaohd
 	pushi64 sym___std_string_strlen
 	addi64
 	staosymhd
-	ret
+	& lfr0 ret
 )
 
 :hidden$reg_std_string_strlen {
 	$if DY_OBJ 1
 		pop
 	$fi
-	& lfr1
-	& lfr0
+	swap
 	ldaohd
 	pushi64 sym___std_string_strlen
 	addi64
@@ -33,42 +37,31 @@ $fi
 
 :hidden$reg_std_string (
 	$if DY_OBJ 1
-		swap
+		over addi64
 	$fi
+	str0
 	pushi64 std_string
 	$if DY_OBJ 1
 		addi64
 	$fi
-	& lfr0 swap
 	$if LD_DYN 1
 		loadaoc
 	$fi
-	$elseif LD_DYN 0
+	$else
 		staohd
 	$fi
-	ret
+	& lfr0 ret
 )
 
 :hidden$reg_std_string {
+	pushi64 std_string
+	$if DY_OBJ 1
+		addi64
+	$fi
 	$if LD_DYN 1
-		pushi64 std_string
-		$if DY_OBJ 1
-			addi64
-		$fi
-		& lfr0 swap
 		loadaoc
 	$fi
-	$elseif LD_DYN 0
-		pushi64 std_string
-		$if DY_OBJ 1
-			addi64
-		$fi
-		& lfr0 swap
+	$else
 		staohd
 	$fi
 }
-
-$if LD_DYN 0
-	:hidden$std_string
-		include "./lib/bin/string.sso"
-$fi
