@@ -11,4 +11,4 @@ For AOs (Addressable Objects) that are being loaded in dynamically, if an enviro
 NOTE Even though everything here is *strictly standard conforming*, these are *not* portable across different implementations, and might change.
 For example, an implementation is free to define `char` to be 32 bits, and some of the libraries and headers might not work on that implementation.
 
-The header files and the source of the object files in the standard library here are put here just to demonstrate how those are created, and implementations may define their own version of the objects and headers.
+The header files and the source of the object files in the standard library are put here just to demonstrate how those are created, and implementations may define their own version of the objects and headers.
