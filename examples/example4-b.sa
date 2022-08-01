@@ -6,21 +6,21 @@ set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard lib
 import "./lib/import/porttypes.sah"
 import "./lib/import/io.sah"
 
-:abs_addr { & lfr3 %addp } ;this macro should be applied to pointers that are pointing to stuff that are present in this object. This macro calculates an absolute address from a relative address
+:abs_addr { & lfr1 %addp } ;this macro should be applied to pointers that are pointing to stuff that are present in this object. This macro calculates an absolute address from a relative address
 
 :string dat str "Hello, World!\n"
 
 :oentry ;this is the entry point
 
-swap str3 ;save the base address of this object in GPR 3
+swap str1 ;save the base address of this object in GPR 1
 
 %pushuc 0
-& lfr3 ;since we're using the header files from the standard library, and they're `import'ed in an object, they require the base address of the object which they're `include'd in to be at the top of the stack
+& lfr1 ;since we're using the header files from the standard library, and they're `import'ed in an object, they require the base address of the object which they're `include'd in to be at the top of the stack
 %pushp reg_std_io %abs_addr
 call
 
 %pushuc 0 %pushuc 0
-& lfr3
+& lfr1
 %pushp reg_std_io_putstr %abs_addr
 call
 
