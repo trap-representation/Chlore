@@ -31,7 +31,7 @@ call
 ;the length of the string pointed to by `string' is now on the top of the stack
 
 %pushuc 1 %pushuc 1
-%pushp reg_std_io_puti64
+%pushp reg_std_io_putl
 call
 
 %pushuc 1 !
