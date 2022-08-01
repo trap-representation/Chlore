@@ -42,6 +42,7 @@ The reference implementation of Sasm that I've been working on is called MSasm.
 
 ````
 import "./lib/import/io.sah"
+import "./lib/import/porttypes.sah"
 
 :string dat str "Hello, World!\n"
 
@@ -51,7 +52,7 @@ import "./lib/import/io.sah"
 %reg_std_io
 
 ;register the symbol from the library that we are going to need
-pushu8 0 pushu8 0
+%pushuc 0 %pushuc 0
 %reg_std_io_putstr
 
 ;invoke the registered symbol
