@@ -29,6 +29,7 @@ A simple Hello World program written in a standard compliant implementation of S
 
 ````
 import "./lib/import/io.sah"
+import "./lib/import/porttypes.sah"
 
 :string dat str "Hello, World!\n"
 
@@ -38,7 +39,7 @@ import "./lib/import/io.sah"
 %reg_std_io
 
 ;register the symbol from the library that we are going to need
-pushu8 0 pushu8 0
+%pushuc 0 %pushuc 0
 %reg_std_io_putstr
 
 ;invoke the registered symbol
