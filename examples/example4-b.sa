@@ -21,7 +21,7 @@ call
 
 %pushuc 0 %pushuc 0
 & lfr3
-%pushp reg_std_io_puts %abs_addr
+%pushp reg_std_io_putstr %abs_addr
 call
 
 %pushp string %abs_addr ptr_data
