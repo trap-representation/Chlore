@@ -2,62 +2,63 @@
   Just a simple fizzbuzz program
 /
 
-import "./lib/import/Msasm-stvm/io.sah"
+import "./lib/import/io.sah"
 import "./lib/import/shorthand.sah"
+import "./lib/import/porttypes.sah"
 
 :fizz_string dat str "fizz\n"
 :buzz_string dat str "buzz\n"
 :fizz_buzz_string dat str "fizzbuzz\n"
 
 :main
-pushu8 0
+%pushuc 0
 %reg_std_io
 
-pushu8 0 pushu8 0
-%reg_std_io_puts
+%pushuc 0 %pushuc 0
+%reg_std_io_putstr
 
-pushu8 0 pushu8 1
-%reg_std_io_puti64
+%pushuc 0 %pushuc 1
+%reg_std_io_putl
 
-pushu8 0 pushu8 2
-%reg_std_io_putc
+%pushuc 0 %pushuc 2
+%reg_std_io_putchar
 
 set MAX_CNT 100
 
-pushu8 0
+%pushuc 0
 
 :loop
-	%++i64 ;increment the number at the top of the stack
+	%++l ;increment the number at the top of the stack
 
 	dup
-	pushu8 15 swap remi64 ;check if the number is divisible by 15
+	%pushuc 15 swap %reml ;check if the number is divisible by 15
 	jnz check_fizz ;if not, jump to `check_fizz' to check if it divisible by 3
-	pushi64 fizz_buzz_string ;print "fizzbuzz"
-	pushu8 0 !
+	%pushp fizz_buzz_string ;print "fizzbuzz"
+	%pushuc 0 !
 	jmp continue
 
 	:check_fizz
 	dup
-	pushu8 3 swap remi64 ;check if the number is divisible by 3
+	%pushuc 3 swap %reml ;check if the number is divisible by 3
 	jnz check_buzz ;if not, jump to `check_buzz' to check if it divisible by 5
-	pushi64 fizz_string ;print "fizz"
-	pushu8 0 !
+	%pushp fizz_string ;print "fizz"
+	%pushuc 0 !
 	jmp continue
 
 	:check_buzz
 	dup
-	pushu8 5 swap remi64 ;check if the number is divisible by 5
+	%pushuc 5 swap %reml ;check if the number is divisible by 5
 	jnz print_num ;if not, jump to `print_num' to just print the number at the top of the stack
-	pushi64 buzz_string ;print "buzz"
-	pushu8 0 !
+	%pushp buzz_string ;print "buzz"
+	%pushuc 0 !
 	jmp continue
 
 	:print_num
 	dup
-	pushu8 1 ! ;print the number
-	pushu8 '\n' pushu8 2 ! ;print a linefeed
+	%pushuc 1 ! ;print the number
+	%pushuc '\n' %pushuc 2 ! ;print a linefeed
 
 	:continue
-	dup pushi64 MAX_CNT jne loop ;loop until the number is > MAX_CNT
+	dup %pushl MAX_CNT jne loop ;loop until the number is > MAX_CNT
 
 hlt
