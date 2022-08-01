@@ -17,8 +17,8 @@ call ;registers the `std_io' library
 ;register the symbol from the library that we are going to need
 %pushuc 0 ;for loading a symbol from the library loaded at the 0th index of the object handler table
 %pushuc 0 ;the symbol will be registered at the 0th index of the symbol handler table
-%pushp reg_std_io_puts
-call ;registers the `std_io_puts' symbol
+%pushp reg_std_io_putstr
+call ;registers the `std_io_putstr' symbol
 
 ;invoke the registered symbol
 %pushp string ptr_data
