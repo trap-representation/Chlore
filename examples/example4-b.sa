@@ -1,29 +1,23 @@
-/ example 4-b: Addressable object
-  This is an addressable object file that can be loaded by or placed in another object||standalone file during run-||compile-time
+/ example 4-a: Loading addressable objects at runtime
+  This program loads an addressable object at runtime
 /
 
-:abs_addr { & lfr3 addi64 } ;this macro should be applied to pointers that are pointing to stuff that are present in this object. This macro calculates an absolute address from a relative address
+import "./lib/import/porttypes.sah"
+:obj_name dat str "./b.sso"
 
-:string dat str "Hello, World!\n"
+:main
 
-set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard library functions will simply fail
-import "./lib/import/Msasm-stvm/io.sah"
+%pushuc 0 ;registers the object at the 0th index of the object handler table
+%pushp obj_name
+%pushuc 8 ;this is the alignment
+aloadaoc ;this will put the object in the executable code section aligned to an 8 byte boundary
 
-:oentry ;this is the entry point
+%pushuc 0 %pushuc 0 ldaohd staosymhd ;store the base address of `example-4b.sso' at the 0th index of the symbol handler table; it is basically the same as saying "Use the default entry point for the object"
 
-swap str3 ;save the base address of this object in GPR 3
+%pushuc 0
+ldaohd ;push the base address of the object registered at the 0th index of the object handler table
+%pushuc 0
+invokeaosym ;invoke the symbol registered at the 0th index
 
-pushu8 0
-& lfr3 ;since we're using the header files from the standard library, and they're `import'ed in an object, they require the base address of the object which they're `include'd in to be at the top of the stack
-pushi64 reg_std_io %abs_addr
-call
-
-pushu8 0 pushu8 0
-& lfr3
-pushi64 reg_std_io_puts %abs_addr
-call
-
-pushi64 string %abs_addr ptr_data
-pushu8 0 !
 
 hlt
