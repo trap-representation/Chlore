@@ -47,16 +47,16 @@ import "./lib/import/io.sah"
 
 :main
 ;register the library that we need to use
-pushu8 0
+%pushuc 0
 %reg_std_io
 
 ;register the symbol from the library that we are going to need
 pushu8 0 pushu8 0
-%reg_std_io_puts
+%reg_std_io_putstr
 
 ;invoke the registered symbol
-pushi64 string ptr_data
-pushu8 0 !
+%pushp string ptr_data
+%pushuc 0 !
 hlt
 ````
 
