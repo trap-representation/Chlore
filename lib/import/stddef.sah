@@ -5,8 +5,6 @@ set STDOUT 1
 set STDIN 0
 set STDERR 2
 set EOF -1
-
-;the following values might change depending on the target and implementation
 set MAX_SOX 12
 set MAX_SOBJX 12
 set MAX_CHX 12
