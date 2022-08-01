@@ -38,12 +38,12 @@ call
 
 ;the top of the stack now has an (explicit) pointer to the heap
 phtip ;convert that to a "normal" pointer
-dup str2 ;also store the pointer in register 2 for later
+dup str1 ;also store the pointer in register 1 for later
 %pushui 42 ;this is the value that we're going to store in the heap
 swap
 %asthui ;do an aligned store
 
-& lfr2 ;get the pointer that we had stored in register 2
+& lfr1 ;get the pointer that we had stored in register 1
 & %alfhui ;do an aligned load from there
 ;42 should now be on the top of the stack
 %pushuc 2 !
