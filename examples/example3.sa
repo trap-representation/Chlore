@@ -8,7 +8,7 @@ import "./lib/import/porttypes.sah"
 :terminate_on_error { & lfr0 panic } ;this macro checks the value returned by a an invoked symbol, and if it is non-zero, the program terminates
 ;Note however, if this program terminates after the call to `alloc2_init' and before the call to `alloc2_close', there will be a memory leak
 
-:hidden$main
+:main
 
 ;register libraries
 %pushuc 0
