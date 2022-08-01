@@ -1,14 +1,16 @@
-:++u8 { pushu8 1 addu8 }
-:++u16 { pushu8 1 addu16 }
-:++u32 { pushu8 1 addu32 }
-:++i8 { pushu8 1 addi8 }
-:++i16 { pushu8 1 addi16 }
-:++i32 { pushu8 1 addi32 }
-:++i64 { pushu8 1 addi64 }
-:--u8 { pushu8 1 swap subu8 }
-:--u16 { pushu8 1 swap subu16 }
-:--u32 { pushu8 1 swap subu32 }
-:--i8 { pushu8 1 swap subi8 }
-:--i16 { pushu8 1 swap subi16 }
-:--i32 { pushu8 1 swap subi32 }
-:--i64 { pushu8 1 swap subi64 }
+:++uc { pushu8 1 addu8 }
+:++us { pushu8 1 addu16 }
+:++ui { pushu8 1 addu32 }
+:++c { pushu8 1 addi8 }
+:++s { pushu8 1 addi16 }
+:++i { pushu8 1 addi32 }
+:++l { pushu8 1 addi64 }
+:++p { pushu8 1 addi64 }
+:--uc { pushu8 1 swap subu8 }
+:--us { pushu8 1 swap subu16 }
+:--ui { pushu8 1 swap subu32 }
+:--c { pushu8 1 swap subi8 }
+:--s { pushu8 1 swap subi16 }
+:--i { pushu8 1 swap subi32 }
+:--l { pushu8 1 swap subi64 }
+:--p { pushu8 1 swap subi64 }
