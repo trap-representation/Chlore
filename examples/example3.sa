@@ -24,7 +24,7 @@ call
 %pushuc 0 %pushuc 1
 %reg_std_alloc2_close
 %pushuc 1 %pushuc 2
-%reg_std_io_putu32
+%reg_std_io_putui
 %pushuc 0 %pushuc 3
 %reg_std_alloc2_init
 
