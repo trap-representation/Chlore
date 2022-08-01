@@ -19,11 +19,11 @@ import "./lib/import/porttypes.sah"
 
 ;register symbols
 %pushuc 0 %pushuc 0
-%reg_std_io_getc
+%reg_std_io_getchar
 %pushuc 0 %pushuc 1
-%reg_std_io_putc
+%reg_std_io_putchar
 %pushuc 0 %pushuc 2
-%reg_std_io_puts
+%reg_std_io_putstr
 
 
 %pushuc 0 !
