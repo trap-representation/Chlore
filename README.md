@@ -2,7 +2,6 @@
 ![Chlore logo](./chlore-logo-github-light.png#gh-light-mode-only)
 ![Chlore logo](./chlore-logo-github-dark.png#gh-dark-mode-only)
 
-----
 This is Chlore - a stack based, assembly-like language that's made with a focus on speed and simplicity.
 
 Design goals:
