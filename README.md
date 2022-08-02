@@ -1,4 +1,6 @@
-### Chlore ###
+Chlore
+----
+
 ![Chlore logo](./chlore-logo-github-light.png#gh-light-mode-only)
 ![Chlore logo](./chlore-logo-github-dark.png#gh-dark-mode-only)
 
