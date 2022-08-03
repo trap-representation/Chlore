@@ -120,12 +120,16 @@ rbe
 	loadnaosymc
 }
 
+rbs
+:hidden$std_io_putl_f ( dat str "out_i64" )
+rbe
+
 :hidden$reg_std_io_putp (
 	$if IS_DYOBJ 1
 		over addi64
 	$fi
 	str0
-	pushi64 std_io_putl_f
+	pushi64 std_io_putlu_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
@@ -134,7 +138,28 @@ rbe
 )
 
 :reg_std_io_putp {
-	pushi64 std_io_putl_f
+	pushi64 std_io_putlu_f
+	$if IS_DYOBJ 1
+		addi64
+	$fi
+	loadnaosymc
+}
+
+:hidden$reg_std_io_putlu (
+	$if IS_DYOBJ 1
+		over addi64
+	$fi
+	str0
+	pushi64 std_io_putlu_f
+	$if IS_DYOBJ 1
+		addi64
+	$fi
+	loadnaosymc
+	& lfr0 ret
+)
+
+:reg_std_io_putlu {
+	pushi64 std_io_putlu_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
@@ -142,7 +167,7 @@ rbe
 }
 
 rbs
-:hidden$std_io_putl_f ( dat str "out_i64" )
+:hidden$std_io_putlu_f ( dat str "out_u64" )
 rbe
 
 
