@@ -29,5 +29,4 @@ call
 %pushp string0 ptr_data
 %pushuc 0 !
 
-& lfr0
-hltr
+hlt
