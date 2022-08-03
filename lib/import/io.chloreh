@@ -24,12 +24,12 @@ rbs
 rbe
 
 
-:hidden$reg_std_io_pute (
+:hidden$reg_std_io_putstre (
 	$if IS_DYOBJ 1
 		over addi64
 	$fi
 	str0
-	pushi64 std_io_pute_f
+	pushi64 std_io_putstre_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
@@ -37,8 +37,8 @@ rbe
 	& lfr0 ret
 )
 
-:reg_std_io_pute {
-	pushi64 std_io_pute_f
+:reg_std_io_putstre {
+	pushi64 std_io_putstre_f
 	$if IS_DYOBJ 1
 		addi64
 	$fi
@@ -46,9 +46,58 @@ rbe
 }
 
 rbs
-:hidden$std_io_pute_f ( dat str "print_str_err" )
+:hidden$std_io_putstre_f ( dat str "print_str_err" )
 rbe
 
+:hidden$reg_std_io_putfmt (
+	$if IS_DYOBJ 1
+		over addi64
+	$fi
+	str0
+	pushi64 std_io_putfmt_f
+	$if IS_DYOBJ 1
+		addi64
+	$fi
+	loadnaosymc
+	& lfr0 ret
+)
+
+:reg_std_io_putfmt {
+	pushi64 std_io_putfmt_f
+	$if IS_DYOBJ 1
+		addi64
+	$fi
+	loadnaosymc
+}
+
+rbs
+:hidden$std_io_putfmt_f ( dat str "print_fmt" )
+rbe
+
+:hidden$reg_std_io_putfmte (
+	$if IS_DYOBJ 1
+		over addi64
+	$fi
+	fmte0
+	pushi64 std_io_putfmte_f
+	$if IS_DYOBJ 1
+		addi64
+	$fi
+	loadnaosymc
+	& lfr0 ret
+)
+
+:reg_std_io_putfmte {
+	pushi64 std_io_putfmte_f
+	$if IS_DYOBJ 1
+		addi64
+	$fi
+	loadnaosymc
+}
+
+rbs
+:hidden$std_io_putfmte_f ( dat str "print_fmt_err" )
+rbe
 
 :hidden$reg_std_io_putl (
 	$if IS_DYOBJ 1
