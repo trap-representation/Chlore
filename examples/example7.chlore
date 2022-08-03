@@ -1,0 +1,33 @@
+/ example 7: Formatted Strings
+  Writing formatted strings to stdout
+/
+
+import "./lib/import/io.chloreh"
+import "./lib/import/porttypes.chloreh"
+
+;     these two string literals are automatically concatenated
+;                vvvvv vvvvvvvvvvvvvvvvvvvvvvvv
+:string0 dat str %[ui] " is the answer to %[t]\n"
+;                ^^^^^
+;  a macro defined in porttypes.h
+;  which expands to a string literal
+:string1 dat str "the ultimate question of life, the universe, and everything."
+
+:main
+
+%pushuc 0
+%pushp reg_std_io
+call
+
+%pushuc 0
+%pushuc 0
+%pushp reg_std_io_putfmt
+call
+
+%pushp string1 ptr_data
+%pushui 42
+%pushp string0 ptr_data
+%pushuc 0 !
+
+& lfr0
+hltr
