@@ -6,7 +6,7 @@ import "./lib/import/io.chloreh"
 import "./lib/import/porttypes.chloreh"
 
 ;     these two string literals are automatically concatenated
-;                vvvvv vvvvvvvvvvvvvvvvvvvvvvvv
+;                vvvvv vvvvvvvvvvvvvvvvvvvvvvvvvv
 :string0 dat str %[ui] " is the answer to %[t]\n"
 ;                ^^^^^
 ;  a macro defined in porttypes.h
