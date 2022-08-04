@@ -22,6 +22,7 @@ MChlore can currently target:
 - STVM
 
 In the future MChlore will be able to target:
+- SUBLEQ
 - WebAssembly
 - CIL
 - JVM
