@@ -1,4 +1,4 @@
-import "./lib/bin/__std_string_relative_addr.sah"
+import "./lib/bin/__std_string_relative_addr.chloreh"
 
 $if LD_DYN 1
 	:std_string dat str "./lib/bin/string.sso"
