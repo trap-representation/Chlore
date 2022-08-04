@@ -1,5 +1,5 @@
 set POINTER_HEAP 0x4000000000000000
-set POINTER_DATA 0x7fffffffffffffff
+set POINTER_DATA 0x3fffffffffffffff
 
 :oentry force_panic
 
