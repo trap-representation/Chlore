@@ -18,7 +18,7 @@ This is Chlore - a stack based, assembly-like language that's made with a focus 
 
    Chlore does not and will *never* have any of these "features". Chlore follows a spec-first approach for the design of the language and it has a standard library that tries to be small, lightweight, and as close to libc as possible.
 
-3. Modern languages aren't simple anymore. Simplicity isn't always proportional to how much a language can make a programmer's life easier. A simple language should be small, lightweight, efficient, and shall avoid implicitly performing a task unless it's explicitly asked for as much as possible. The programmer shall be the one in full control of his code, rather than the compiler.
+3. Modern languages aren't simple anymore. Simplicity isn't always proportional to how much a language can make a programmer's life easier. A simple language should be small, lightweight, and efficient. The programmer shall be the one in full control of his code, rather than the compiler.
 
 #### Design goals: ####
 - Trust the programmer
