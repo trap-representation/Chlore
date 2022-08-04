@@ -33,6 +33,7 @@ The reference implementation of Chlore that I've been working on is called MChlo
 - STVM
 
 #### In the future MChlore will be able to target: ####
+- SUBLEQ
 - WebAssembly
 - CIL
 - JVM
