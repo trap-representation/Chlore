@@ -14,7 +14,7 @@ Design goals:
 
 What Chlore will *never* have:
 - Automatic memory management
-- Implicit safety checks; everything has to be done explicitly by the programmer
+- Run-/Compile-time memory-safety checks; everything has to be done explicitly by the programmer
 
 The reference implementation of Chlore that I've been working on is called MChlore.
 
