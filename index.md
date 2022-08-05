@@ -7,9 +7,9 @@ This is Chlore - a stack based, assembly-like language that's made with a focus 
 
 #### Why yet another new language? ####
 
-1. Most of the modern languages are built with safety in mind. But let's be honest, a compiler can never be perfect; it's not hard for subtle bugs to slip through and cause all sorts of weird stuff.
+1. Most of the modern languages are built with memory-safety in mind. But let's be honest, a compiler can never be perfect; it's not hard for subtle bugs to slip through and cause all sorts of weird stuff.
 
-   This is why Chlore does *not* try to be safe at all. It is built with a focus on speed and optimizations, rather than safety. It's always better to make the programmer aware that they're programming in an unsafe language, rather than give them a false sense of safety.
+   This is why Chlore does *not* try to be memory-safe at all. It is built with a focus on speed and optimizations, rather than memory-safety. It's always better to make the programmer aware that they're programming in a "memory-unsafe" language, rather than give them a false sense of safety.
 
 2. Languages are slowly turning into a bloated mess:
 - Huge standard libraries with "features" to make programmers' lives easier
@@ -28,7 +28,7 @@ This is Chlore - a stack based, assembly-like language that's made with a focus 
 
 #### What Chlore will *never* have: ####
 - Automatic memory management
-- Implicit safety checks; everything has to be done explicitly by the programmer
+- Run-/Compile-time memory-safety checks; everything has to be done explicitly by the programmer
 
 The reference implementation of Chlore that I've been working on is called MChlore.
 
