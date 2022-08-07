@@ -5,7 +5,7 @@
 import "./lib/import/io.chloreh"
 import "./lib/import/porttypes.chloreh"
 
-:string dat str "Hello, World!\n" ;this string is automatically null-terminated
+:string dat str "Hello, World!\n" ;this string is automatically nul-terminated
 
 :main
 

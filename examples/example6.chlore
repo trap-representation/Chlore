@@ -18,7 +18,7 @@ import "./lib/import/porttypes.chloreh"
 %reg_std_io_putstr
 
 %pushuc 0 %pushuc 1
-%reg_std_io_putl
+%%reg_std_io_putl
 
 %pushuc 0 %pushuc 2
 %reg_std_io_putchar

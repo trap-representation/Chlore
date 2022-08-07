@@ -1,6 +1,6 @@
 / example 4-a: Loading addressable objects at runtime
   This program loads an addressable object at runtime
-  NOTE This example won't work with implementations/targets that cannot load addressable objects at runtime
+  NOTE This example won't work with implementations||targets that cannot load addressable objects at runtime
 /
 
 import "./lib/import/porttypes.chloreh"
