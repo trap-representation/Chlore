@@ -1,188 +1,185 @@
-:pushp { pushi64 }
-:pushl { pushi64 }
-:pushi { pushi32 }
-:pushui { pushu32 }
-:pushs { pushi16 }
-:pushus { pushu16 }
-:pushc { pushi8 }
-:pushuc { pushu8 }
+$if std_porttypes_guard 0
 
-:addp { addi64 }
-:addl { addi64 }
-:addi { addi32 }
-:addui { addu32 }
-:adds { addi16 }
-:addus { addu16 }
-:addc { addi8 }
-:adduc { addu8 }
+	set std_porttypes_guard 1
 
-:subp { subi64 }
-:subl { subi64 }
-:subi { subi32 }
-:subui { subu32 }
-:subs { subi16 }
-:subus { subu16 }
-:subc { subi8 }
-:subuc { subu8 }
+	:pushp { pushi64 }
+	:pushl { pushi64 }
+	:pushi { pushi32 }
+	:pushui { pushu32 }
+	:pushs { pushi16 }
+	:pushus { pushu16 }
+	:pushc { pushi8 }
+	:pushuc { pushu8 }
 
-:mulp { muli64 }
-:mull { muli64 }
-:muli { muli32 }
-:mului { mulu32 }
-:muls { muli16 }
-:mulus { mulu16 }
-:mulc { muli8 }
-:muluc { mulu8 }
+	:addp { addi64 }
+	:addl { addi64 }
+	:addi { addi32 }
+	:addui { addu32 }
+	:adds { addi16 }
+	:addus { addu16 }
+	:addc { addi8 }
+	:adduc { addu8 }
 
-:divp { divi64 }
-:divl { divi64 }
-:divi { divi32 }
-:divui { divu32 }
-:divs { divi16 }
-:divus { divu16 }
-:divc { divi8 }
-:divuc { divu8 }
+	:subp { subi64 }
+	:subl { subi64 }
+	:subi { subi32 }
+	:subui { subu32 }
+	:subs { subi16 }
+	:subus { subu16 }
+	:subc { subi8 }
+	:subuc { subu8 }
 
-:loadcp { loadci64 }
-:loadcl { loadci64 }
-:loadci { loadci32 }
-:loadcui { loadcu32 }
-:loadcs { loadci16 }
-:loadcus { loadcu16 }
-:loadcc { loadci8 }
-:loadcuc { loadcu8 }
+	:mulp { muli64 }
+	:mull { muli64 }
+	:muli { muli32 }
+	:mului { mulu32 }
+	:muls { muli16 }
+	:mulus { mulu16 }
+	:mulc { muli8 }
+	:muluc { mulu8 }
 
-:lshp { lshi64 }
-:lshl { lshi64 }
-:lshi { lshi32 }
-:lshui { lshu32 }
-:lshs { lshi16 }
-:lshus { lshu16 }
-:lshc { lshi8 }
-:lshuc { lshu8 }
+	:divp { divi64 }
+	:divl { divi64 }
+	:divi { divi32 }
+	:divui { divu32 }
+	:divs { divi16 }
+	:divus { divu16 }
+	:divc { divi8 }
+	:divuc { divu8 }
 
-:rshp { rshi64 }
-:rshl { rshi64 }
-:rshi { rshi32 }
-:rshui { rshu32 }
-:rshs { rshi16 }
-:rshus { rshu16 }
-:rshc { rshi8 }
-:rshuc { rshu8 }
+	:loadcp { loadci64 }
+	:loadcl { loadci64 }
+	:loadci { loadci32 }
+	:loadcui { loadcu32 }
+	:loadcs { loadci16 }
+	:loadcus { loadcu16 }
+	:loadcc { loadci8 }
+	:loadcuc { loadcu8 }
 
-:andp { andi64 }
-:andl { andi64 }
-:andi { andi32 }
-:andui { andu32 }
-:ands { andi16 }
-:andus { andu16 }
-:andc { andi8 }
-:anduc { andu8 }
+	:lshp { lshi64 }
+	:lshl { lshi64 }
+	:lshi { lshi32 }
+	:lshui { lshu32 }
+	:lshs { lshi16 }
+	:lshus { lshu16 }
+	:lshc { lshi8 }
+	:lshuc { lshu8 }
 
-:orp { ori64 }
-:orl { ori64 }
-:ori { ori32 }
-:orui { oru32 }
-:ors { ori16 }
-:orus { oru16 }
-:orc { ori8 }
-:oruc { oru8 }
+	:rshp { rshi64 }
+	:rshl { rshi64 }
+	:rshi { rshi32 }
+	:rshui { rshu32 }
+	:rshs { rshi16 }
+	:rshus { rshu16 }
+	:rshc { rshi8 }
+	:rshuc { rshu8 }
 
-:notp { noti64 }
-:notl { noti64 }
-:noti { noti32 }
-:notui { notu32 }
-:nots { noti16 }
-:notus { notu16 }
-:notc { noti8 }
-:notuc { notu8 }
+	:andp { andi64 }
+	:andl { andi64 }
+	:andi { andi32 }
+	:andui { andu32 }
+	:ands { andi16 }
+	:andus { andu16 }
+	:andc { andi8 }
+	:anduc { andu8 }
 
-:xorp { xori64 }
-:xorl { xori64 }
-:xori { xori32 }
-:xorui { xoru32 }
-:xors { xori16 }
-:xorus { xoru16 }
-:xorc { xori8 }
-:xoruc { xoru8 }
+	:orp { ori64 }
+	:orl { ori64 }
+	:ori { ori32 }
+	:orui { oru32 }
+	:ors { ori16 }
+	:orus { oru16 }
+	:orc { ori8 }
+	:oruc { oru8 }
 
-:remp { remi64 }
-:reml { remi64 }
-:remi { remi32 }
-:remui { remu32 }
-:rems { remi16 }
-:remus { remu16 }
-:remc { remi8 }
-:remuc { remu8 }
+	:notp { noti64 }
+	:notl { noti64 }
+	:noti { noti32 }
+	:notui { notu32 }
+	:nots { noti16 }
+	:notus { notu16 }
+	:notc { noti8 }
+	:notuc { notu8 }
 
-:sthp { sthi64 }
-:sthl { sthi64 }
-:sthi { sthi32 }
-:sthui { sthu32 }
-:sths { sthi16 }
-:sthus { sthu16 }
-:sthc { sthi8 }
-:sthuc { sthu8 }
+	:xorp { xori64 }
+	:xorl { xori64 }
+	:xori { xori32 }
+	:xorui { xoru32 }
+	:xors { xori16 }
+	:xorus { xoru16 }
+	:xorc { xori8 }
+	:xoruc { xoru8 }
 
-:lfhp { lfhi64 }
-:lfhl { lfhi64 }
-:lfhi { lfhi32 }
-:lfhui { lfhu32 }
-:lfhs { lfhi16 }
-:lfhus { lfhu16 }
-:lfhc { lfhi8 }
-:lfhuc { lfhu8 }
+	:remp { remi64 }
+	:reml { remi64 }
+	:remi { remi32 }
+	:remui { remu32 }
+	:rems { remi16 }
+	:remus { remu16 }
+	:remc { remi8 }
+	:remuc { remu8 }
 
-:alfhp { alfhi64 }
-:alfhl { alfhi64 }
-:alfhi { alfhi32 }
-:alfhui { alfhu32 }
-:alfhs { alfhi16 }
-:alfhus { alfhu16 }
-:alfhc { alfhi8 }
-:alfhuc { alfhu8 }
+	:sthp { sthi64 }
+	:sthl { sthi64 }
+	:sthi { sthi32 }
+	:sthui { sthu32 }
+	:sths { sthi16 }
+	:sthus { sthu16 }
+	:sthc { sthi8 }
+	:sthuc { sthu8 }
 
-:asthp { asthi64 }
-:asthl { asthi64 }
-:asthi { asthi32 }
-:asthui { asthu32 }
-:asths { asthi16 }
-:asthus { asthu16 }
-:asthc { asthi8 }
-:asthuc { asthu8 }
+	:lfhp { lfhi64 }
+	:lfhl { lfhi64 }
+	:lfhi { lfhi32 }
+	:lfhui { lfhu32 }
+	:lfhs { lfhi16 }
+	:lfhus { lfhu16 }
+	:lfhc { lfhi8 }
+	:lfhuc { lfhu8 }
 
-:aloadcp { aloadci64 }
-:aloadcl { aloadci64 }
-:aloadci { aloadci32 }
-:aloadcui { aloadcu32 }
-:aloadcs { aloadci16 }
-:aloadcus { aloadcu16 }
-:aloadcc { aloadci8 }
-:aloadcuc { aloadcu8 }
+	:alfhp { alfhi64 }
+	:alfhl { alfhi64 }
+	:alfhi { alfhi32 }
+	:alfhui { alfhu32 }
+	:alfhs { alfhi16 }
+	:alfhus { alfhu16 }
+	:alfhc { alfhi8 }
+	:alfhuc { alfhu8 }
 
-:eftp { efti64 }
-:eftl { efti64 }
-:efti { efti32 }
-:eftui { eftu32 }
-:efts { efti16 }
-:eftus { eftu16 }
-:eftc { efti8 }
-:eftuc { eftu8 }
+	:asthp { asthi64 }
+	:asthl { asthi64 }
+	:asthi { asthi32 }
+	:asthui { asthu32 }
+	:asths { asthi16 }
+	:asthus { asthu16 }
+	:asthc { asthi8 }
+	:asthuc { asthu8 }
 
-:[p] { "%[x64]" }
-:[ul] { "%[u64]" }
-:[l] { "%[i64]" }
-:[i] { "%[i32]" }
-:[ui] { "%[u32]" }
-:[s] { "%[i16]" }
-:[us] { "%[u16]" }
-:[c] { "%[i8]" }
-:[uc] { "%[u8]" }
-:[xl] { "%[x64]" }
-:[xi] { "%[x32]" }
-:[xs] { "%[x16]" }
-:[xc] { "%[x8]" }
-:[ol] { "%[o64]" }
-:[oi] { "%[o32]" }
-:[os] { "%[o16]" }
-:[oc] { "%[o8]" }
+	:aloadcp { aloadci64 }
+	:aloadcl { aloadci64 }
+	:aloadci { aloadci32 }
+	:aloadcui { aloadcu32 }
+	:aloadcs { aloadci16 }
+	:aloadcus { aloadcu16 }
+	:aloadcc { aloadci8 }
+	:aloadcuc { aloadcu8 }
+
+	:[p] { "%[x64]" }
+	:[ul] { "%[u64]" }
+	:[l] { "%[i64]" }
+	:[i] { "%[i32]" }
+	:[ui] { "%[u32]" }
+	:[s] { "%[i16]" }
+	:[us] { "%[u16]" }
+	:[c] { "%[i8]" }
+	:[uc] { "%[u8]" }
+	:[xl] { "%[x64]" }
+	:[xi] { "%[x32]" }
+	:[xs] { "%[x16]" }
+	:[xc] { "%[x8]" }
+	:[ol] { "%[o64]" }
+	:[oi] { "%[o32]" }
+	:[os] { "%[o16]" }
+	:[oc] { "%[o8]" }
+
+$fi

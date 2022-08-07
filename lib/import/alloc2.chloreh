@@ -1,292 +1,299 @@
-set EINIT 1    ;Heap isn't initialized.
-set EALIGN 2   ;Cannot align the memory to the requested alignment.
-set EINT 3     ;One of the internal functions that this library uses to allocate memory has encountered some kind of error. In case of this error, the best option is to terminate the program, or you can also unload and reload the library and reinitialize it. It'll result in a memory leak in both of the cases.
-set EOVF 4     ;The requested amount of memory is more than what's been allocated for the VM.
+import "./lib/import/porttypes.chloreh"
 
-/ On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top-1] bytes, and aligned to a [top] bytes boundary on the [top] of the stack.
-  On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
-              Pushes an unspecified value on the top of the stack.
-/
+$if std_alloc2_guard 0
 
-:hidden$reg_std_alloc2_aaseg (
-	$if IS_DYOBJ 1
-		over addi64
-	$fi
-	str0
-	pushi64 std_alloc2_aaseg_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-	& lfr0 ret
-)
+	set std_alloc2_guard 1
 
-:reg_std_alloc2_aaseg {
-	pushi64 std_alloc2_aaseg_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-}
+	set EINIT 1    ;Heap isn't initialized.
+	set EALIGN 2   ;Cannot align the memory to the requested alignment.
+	set EINT 3     ;One of the internal functions that this library uses to allocate memory has encountered some kind of error. In case of this error, the best option is to terminate the program, or you can also unload and reload the library and reinitialize it. It'll result in a memory leak in both of the cases.
+	set EOVF 4     ;The requested amount of memory is more than what's been allocated for the VM.
 
-rbs
-:hidden$std_alloc2_aaseg_f ( dat str "aaseg" )
-rbe
+	/ On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top-1] bytes, and aligned to a [top] bytes boundary on the [top] of the stack.
+	  On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
+		      Pushes an unspecified value on the top of the stack.
+	/
 
-/ On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top] bytes on the [top] of the stack.
-  On failure: Returns one of EINIT, EINT, EOVF.
-              Pushes an unspecified value on the top of the stack.
-/
+	:hidden$reg_std_alloc2_aaseg (
+		$if IS_DYOBJ 1
+			over %addp
+		$fi
+		str0
+		%pushp std_alloc2_aaseg_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+		& lfr0 ret
+	)
 
-:hidden$reg_std_alloc2_aseg (
-	$if IS_DYOBJ 1
-		over addi64
-	$fi
-	str0
-	pushi64 std_alloc2_aseg_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-	& lfr0 ret
-)
+	:reg_std_alloc2_aaseg {
+		%pushp std_alloc2_aaseg_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+	}
 
-:reg_std_alloc2_aseg {
-	pushi64 std_alloc2_aseg_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-}
+	rbs
+	:hidden$std_alloc2_aaseg_f ( dat str "aaseg" )
+	rbe
 
-rbs
-:hidden$std_alloc2_aseg_f ( dat str "aseg" )
-rbe
+	/ On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top] bytes on the [top] of the stack.
+	  On failure: Returns one of EINIT, EINT, EOVF.
+		      Pushes an unspecified value on the top of the stack.
+	/
 
-/ On success: Flushes the chunk of memory pointed at by the [top-1] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-2] bytes, aligned to a [top] byte boundary, and which & lfr0 retains the contents of the original chunk, on the [top] of the stack.
-  On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
-              Pushes an unspecified value on the top of the stack.
-/
+	:hidden$reg_std_alloc2_aseg (
+		$if IS_DYOBJ 1
+			over %addp
+		$fi
+		str0
+		%pushp std_alloc2_aseg_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+		& lfr0 ret
+	)
 
-:hidden$reg_std_alloc2_arseg (
-	$if IS_DYOBJ 1
-		over addi64
-	$fi
-	str0
-	pushi64 std_alloc2_arseg_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-	& lfr0 ret
-)
+	:reg_std_alloc2_aseg {
+		%pushp std_alloc2_aseg_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+	}
 
-:reg_std_alloc2_arseg {
-	pushi64 std_alloc2_arseg_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-}
+	rbs
+	:hidden$std_alloc2_aseg_f ( dat str "aseg" )
+	rbe
 
-rbs
-:hidden$std_alloc2_arseg_f ( dat str "arseg" )
-rbe
+	/ On success: Flushes the chunk of memory pointed at by the [top-1] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-2] bytes, aligned to a [top] byte boundary, and which & lfr0 retains the contents of the original chunk, on the [top] of the stack.
+	  On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
+		      Pushes an unspecified value on the top of the stack.
+	/
 
-/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-1] bytes, and which & lfr0 retains the contents of the original chunk, on the [top] of the stack.
-  On failure: Returns one of EINIT, EINT, EOVF.
-              Pushes an unspecified value on the top of the stack.
-/
+	:hidden$reg_std_alloc2_arseg (
+		$if IS_DYOBJ 1
+			over %addp
+		$fi
+		str0
+		%pushp std_alloc2_arseg_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+		& lfr0 ret
+	)
 
-:hidden$reg_std_alloc2_rseg (
-	$if IS_DYOBJ 1
-		over addi64
-	$fi
-	str0
-	pushi64 std_alloc2_rseg_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-	& lfr0 ret
-)
+	:reg_std_alloc2_arseg {
+		%pushp std_alloc2_arseg_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+	}
 
-:reg_std_alloc2_rseg {
-	pushi64 std_alloc2_rseg_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-}
+	rbs
+	:hidden$std_alloc2_arseg_f ( dat str "arseg" )
+	rbe
 
-rbs
-:hidden$std_alloc2_rseg_f ( dat str "rseg" )
-rbe
+	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-1] bytes, and which & lfr0 retains the contents of the original chunk, on the [top] of the stack.
+	  On failure: Returns one of EINIT, EINT, EOVF.
+		      Pushes an unspecified value on the top of the stack.
+	/
 
-/ On success: Flushes the chunk of memory pointed at by the [top] of the stack. [top] must be an (explicit) pointer & lfr0 returned by one of `aseg', `aaseg', `rseg', `arseg'.
-  On failure: Returns EINIT.
-/
+	:hidden$reg_std_alloc2_rseg (
+		$if IS_DYOBJ 1
+			over %addp
+		$fi
+		str0
+		%pushp std_alloc2_rseg_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+		& lfr0 ret
+	)
 
-:hidden$reg_std_alloc2_flush (
-	$if IS_DYOBJ 1
-		over addi64
-	$fi
-	str0
-	pushi64 std_alloc2_flush_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-	& lfr0 ret
-)
+	:reg_std_alloc2_rseg {
+		%pushp std_alloc2_rseg_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+	}
 
-:reg_std_alloc2_flush {
-	pushi64 std_alloc2_flush_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-}
+	rbs
+	:hidden$std_alloc2_rseg_f ( dat str "rseg" )
+	rbe
 
-rbs
-:hidden$std_alloc2_flush_f ( dat str "flush" )
-rbe
+	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack. [top] must be an (explicit) pointer & lfr0 returned by one of `aseg', `aaseg', `rseg', `arseg'.
+	  On failure: Returns EINIT.
+	/
 
-/ On success: Frees up all the additional memory allocated by this library.
-  On failure: Returns EINIT.
-/
+	:hidden$reg_std_alloc2_flush (
+		$if IS_DYOBJ 1
+			over %addp
+		$fi
+		str0
+		%pushp std_alloc2_flush_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+		& lfr0 ret
+	)
 
-:hidden$reg_std_alloc2_close (
-	$if IS_DYOBJ 1
-		over addi64
-	$fi
-	str0
-	pushi64 std_alloc2_close_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-	& lfr0 ret
-)
+	:reg_std_alloc2_flush {
+		%pushp std_alloc2_flush_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+	}
 
-:reg_std_alloc2_close {
-	pushi64 std_alloc2_close_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-}
+	rbs
+	:hidden$std_alloc2_flush_f ( dat str "flush" )
+	rbe
 
-rbs
-:hidden$std_alloc2_close_f ( dat str "close" )
-rbe
+	/ On success: Frees up all the additional memory allocated by this library.
+	  On failure: Returns EINIT.
+	/
 
-/ On success: Dumps the current VM heap state to stdout.
-  On failure: Returns EINIT.
-/
+	:hidden$reg_std_alloc2_close (
+		$if IS_DYOBJ 1
+			over %addp
+		$fi
+		str0
+		%pushp std_alloc2_close_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+		& lfr0 ret
+	)
 
-:hidden$reg_std_alloc2_dump (
-	$if IS_DYOBJ 1
-		over addi64
-	$fi
-	str0
-	pushi64 std_alloc2_dump_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-	& lfr0 ret
-)
+	:reg_std_alloc2_close {
+		%pushp std_alloc2_close_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+	}
 
-:reg_std_alloc2_dump {
-	pushi64 std_alloc2_dump_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-}
+	rbs
+	:hidden$std_alloc2_close_f ( dat str "close" )
+	rbe
 
-rbs
-:hidden$std_alloc2_dump_f ( dat str "dump" )
-rbe
+	/ On success: Dumps the current VM heap state to stdout.
+	  On failure: Returns EINIT.
+	/
 
-/ On success: Initializes the heap. Must be called before anything in this library is used.
-  On failure: Returns EINT.
-/
+	:hidden$reg_std_alloc2_dump (
+		$if IS_DYOBJ 1
+			over %addp
+		$fi
+		str0
+		%pushp std_alloc2_dump_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+		& lfr0 ret
+	)
 
-:hidden$reg_std_alloc2_init (
-	$if IS_DYOBJ 1
-		over addi64
-	$fi
-	str0
-	pushi64 std_alloc2_init_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-	& lfr0 ret
-)
+	:reg_std_alloc2_dump {
+		%pushp std_alloc2_dump_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+	}
 
-:reg_std_alloc2_init {
-	pushi64 std_alloc2_init_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-}
+	rbs
+	:hidden$std_alloc2_dump_f ( dat str "dump" )
+	rbe
 
-rbs
-:hidden$std_alloc2_init_f ( dat str "init" )
-rbe
+	/ On success: Initializes the heap. Must be called before anything in this library is used.
+	  On failure: Returns EINT.
+	/
 
-/ Writes the cache hits and misses to stdout. /
+	:hidden$reg_std_alloc2_init (
+		$if IS_DYOBJ 1
+			over %addp
+		$fi
+		str0
+		%pushp std_alloc2_init_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+		& lfr0 ret
+	)
 
-:hidden$reg_std_alloc2_prof (
-	$if IS_DYOBJ 1
-		over addi64
-	$fi
-	str0
-	pushi64 std_alloc2_prof_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-	& lfr0 ret
-)
+	:reg_std_alloc2_init {
+		%pushp std_alloc2_init_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+	}
 
-:reg_std_alloc2_prof {
-	pushi64 std_alloc2_prof_f
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaosymc
-}
+	rbs
+	:hidden$std_alloc2_init_f ( dat str "init" )
+	rbe
 
-rbs
-:hidden$std_alloc2_prof_f ( dat str "prof" )
-rbe
+	/ Writes the cache hits and misses to stdout. /
 
-:hidden$reg_std_alloc2 (
-	$if IS_DYOBJ 1
-		over addi64
-	$fi
-	str0
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaoc
-	& lfr0 ret
-)
+	:hidden$reg_std_alloc2_prof (
+		$if IS_DYOBJ 1
+			over %addp
+		$fi
+		str0
+		%pushp std_alloc2_prof_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+		& lfr0 ret
+	)
 
-:reg_std_alloc2 {
-	pushi64 std_alloc2
-	$if IS_DYOBJ 1
-		addi64
-	$fi
-	loadnaoc
-}
+	:reg_std_alloc2_prof {
+		%pushp std_alloc2_prof_f
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaosymc
+	}
 
-rbs
-:hidden$std_alloc2 dat str "./lib/bin/alloc2.so"
-rbe
+	rbs
+	:hidden$std_alloc2_prof_f ( dat str "prof" )
+	rbe
+
+	:hidden$reg_std_alloc2 (
+		$if IS_DYOBJ 1
+			over %addp
+		$fi
+		str0
+		%pushp std_alloc2
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaoc
+		& lfr0 ret
+	)
+
+	:reg_std_alloc2 {
+		%pushp std_alloc2
+		$if IS_DYOBJ 1
+			%addp
+		$fi
+		loadnaoc
+	}
+
+	rbs
+	:hidden$std_alloc2 dat str "./lib/bin/alloc2.so"
+	rbe
+$fi

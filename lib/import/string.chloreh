@@ -1,67 +1,73 @@
+import "./lib/import/porttypes.chloreh"
 import "./lib/bin/__std_string_relative_addr.chloreh"
 
-$if LD_DYN 1
-	:std_string dat str "./lib/bin/string.sso"
-$fi
-$else
-	:hidden$std_string
-		include "./lib/bin/string.sso"
-$fi
+$if std_string_guard 0
 
+	set std_string_guard 1
 
-/ Pushes the length of the nul-terminated string pointed to by the (explicit) pointer present at the [top] of the stack. /
-
-:hidden$reg_std_string_strlen (
-	$if DY_OBJ 1
-		addi64
-	$fi
-	str0
-	swap
-	ldaohd
-	pushi64 sym___std_string_strlen
-	addi64
-	staosymhd
-	& lfr0 ret
-)
-
-:hidden$reg_std_string_strlen {
-	$if DY_OBJ 1
-		pop
-	$fi
-	swap
-	ldaohd
-	pushi64 sym___std_string_strlen
-	addi64
-	staosymhd
-}
-
-:hidden$reg_std_string (
-	$if DY_OBJ 1
-		over addi64
-	$fi
-	str0
-	pushi64 std_string
-	$if DY_OBJ 1
-		addi64
-	$fi
 	$if LD_DYN 1
-		loadaoc
+		:hidden$std_string dat str "./lib/bin/string.sso"
 	$fi
 	$else
-		staohd
+		:hidden$std_string
+			include "./lib/bin/string.sso"
 	$fi
-	& lfr0 ret
-)
 
-:hidden$reg_std_string {
-	pushi64 std_string
-	$if DY_OBJ 1
-		addi64
-	$fi
-	$if LD_DYN 1
-		loadaoc
-	$fi
-	$else
-		staohd
-	$fi
-}
+
+	/ Pushes the length of the null-terminated string pointed to by the (explicit) pointer present at the [top] of the stack. /
+
+	:hidden$reg_std_string_strlen (
+		$if DY_OBJ 1
+			%addp
+		$fi
+		str0
+		swap
+		ldaohd
+		%pushp sym___std_string_strlen
+		%addp
+		staosymhd
+		& lfr0 ret
+	)
+
+	:hidden$reg_std_string_strlen {
+		$if DY_OBJ 1
+			pop
+		$fi
+		swap
+		ldaohd
+		%pushp sym___std_string_strlen
+		%addp
+		staosymhd
+	}
+
+	:hidden$reg_std_string (
+		$if DY_OBJ 1
+			over %addp
+		$fi
+		str0
+		%pushp std_string
+		$if DY_OBJ 1
+			%addp
+		$fi
+		$if LD_DYN 1
+			loadaoc
+		$fi
+		$else
+			staohd
+		$fi
+		& lfr0 ret
+	)
+
+	:hidden$reg_std_string {
+		%pushp std_string
+		$if DY_OBJ 1
+			%addp
+		$fi
+		$if LD_DYN 1
+			loadaoc
+		$fi
+		$else
+			staohd
+		$fi
+	}
+$fi
