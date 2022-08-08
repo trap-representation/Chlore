@@ -33,7 +33,7 @@ set MAX_CNT 100
 	dup
 	%pushuc 15 swap %reml ;check if the number is divisible by 15
 	jnz check_fizz ;if not, jump to `check_fizz' to check if it divisible by 3
-	%pushp fizz_buzz_string ;print "fizzbuzz"
+	%pushp fizz_buzz_string ptr_data ;print "fizzbuzz"
 	%pushuc 0 !
 	jmp continue
 
@@ -41,7 +41,7 @@ set MAX_CNT 100
 	dup
 	%pushuc 3 swap %reml ;check if the number is divisible by 3
 	jnz check_buzz ;if not, jump to `check_buzz' to check if it divisible by 5
-	%pushp fizz_string ;print "fizz"
+	%pushp fizz_string ptr_data ;print "fizz"
 	%pushuc 0 !
 	jmp continue
 
@@ -49,7 +49,7 @@ set MAX_CNT 100
 	dup
 	%pushuc 5 swap %reml ;check if the number is divisible by 5
 	jnz print_num ;if not, jump to `print_num' to just print the number at the top of the stack
-	%pushp buzz_string ;print "buzz"
+	%pushp buzz_string ptr_data ;print "buzz"
 	%pushuc 0 !
 	jmp continue
 
