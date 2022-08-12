@@ -4,7 +4,7 @@ $if std_stddef_guard 0
 
 	set TRUE 1
 	set FALSE 0
-	set NULL -1
+	set NULL 0x3fffffffffffffff
 	set STDOUT 1
 	set STDIN 0
 	set STDERR 2

@@ -24,7 +24,7 @@ $if std_types_guard 0
 	set S_MIN -32768
 	set I_MAX 2147483647
 	set I_MIN -2147483648
-	set P_MAX 0x3fffffffffffffff
+	set P_MAX 0x3ffffffffffffffe
 	set L_MAX 9223372036854775807
 	set L_MIN -9223372036854775808
 	set UC_MAX 255
