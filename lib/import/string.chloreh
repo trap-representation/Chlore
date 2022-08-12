@@ -1,4 +1,3 @@
-import "./lib/import/porttypes.chloreh"
 import "./lib/bin/__std_string_relative_addr.chloreh"
 
 $if std_string_guard 0
@@ -18,13 +17,13 @@ $if std_string_guard 0
 
 	:hidden$reg_std_string_strlen (
 		$if DY_OBJ 1
-			%addp
+			addp
 		$fi
 		str0
 		swap
 		ldaohd
-		%pushp sym___std_string_strlen
-		%addp
+		pushp sym___std_string_strlen
+		addp
 		staosymhd
 		& lfr0 ret
 	)
@@ -35,19 +34,19 @@ $if std_string_guard 0
 		$fi
 		swap
 		ldaohd
-		%pushp sym___std_string_strlen
-		%addp
+		pushp sym___std_string_strlen
+		addp
 		staosymhd
 	}
 
 	:hidden$reg_std_string (
 		$if DY_OBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_string
+		pushp std_string
 		$if DY_OBJ 1
-			%addp
+			addp
 		$fi
 		$if LD_DYN 1
 			loadaoc
@@ -59,9 +58,9 @@ $if std_string_guard 0
 	)
 
 	:hidden$reg_std_string {
-		%pushp std_string
+		pushp std_string
 		$if DY_OBJ 1
-			%addp
+			addp
 		$fi
 		$if LD_DYN 1
 			loadaoc

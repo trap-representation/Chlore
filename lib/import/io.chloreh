@@ -1,26 +1,24 @@
-import "./lib/import/porttypes.chloreh"
-
 $if std_io_guard 0
 
 	set std_io_guard 1
 
 	:hidden$reg_std_io_putstr (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_putstr_f
+		pushp std_io_putstr_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
 	:reg_std_io_putstr {
-		%pushp std_io_putstr_f
+		pushp std_io_putstr_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -31,21 +29,21 @@ $if std_io_guard 0
 
 	:hidden$reg_std_io_putstre (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_putstre_f
+		pushp std_io_putstre_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
 	:reg_std_io_putstre {
-		%pushp std_io_putstre_f
+		pushp std_io_putstre_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -56,21 +54,21 @@ $if std_io_guard 0
 
 	:hidden$reg_std_io_putfmt (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_putfmt_f
+		pushp std_io_putfmt_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
 	:reg_std_io_putfmt {
-		%pushp std_io_putfmt_f
+		pushp std_io_putfmt_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -81,21 +79,21 @@ $if std_io_guard 0
 
 	:hidden$reg_std_io_putfmte (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
-		fmte0
-		%pushp std_io_putfmte_f
+		str0
+		pushp std_io_putfmte_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
 	:reg_std_io_putfmte {
-		%pushp std_io_putfmte_f
+		pushp std_io_putfmte_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -104,241 +102,223 @@ $if std_io_guard 0
 	:hidden$std_io_putfmte_f ( dat str "print_fmt_err" )
 	rbe
 
-	:hidden$reg_std_io_puti64 (
+	:hidden$reg_std_io_putl (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_puti64_f
+		pushp std_io_putl_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_puti64 {
-		%pushp std_io_puti64_f
+	:reg_std_io_putl {
+		pushp std_io_putl_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_putl { reg_std_io_puti64 }
-
 	rbs
-	:hidden$std_io_puti64_f ( dat str "out_i64" )
+	:hidden$std_io_putl_f ( dat str "out_l" )
 	rbe
 
-	:hidden$reg_std_io_putu64 (
+	:hidden$reg_std_io_putp (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_putu64_f
+		pushp std_io_putp_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_putu64 {
-		%pushp std_io_putu64_f
+	:reg_std_io_putp {
+		pushp std_io_putp_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_putp { reg_std_io_putu64 }
-
-	:reg_std_io_putlu { reg_std_io_putu64 }
-
 	rbs
-	:hidden$std_io_putu64_f ( dat str "out_u64" )
+	:hidden$std_io_putp_f ( dat str "out_p" )
 	rbe
 
-	:hidden$reg_std_io_puti32 (
+	:hidden$reg_std_io_puti (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_puti32_f
+		pushp std_io_puti_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_puti32 {
-		%pushp std_io_puti32_f
+	:reg_std_io_puti {
+		pushp std_io_puti_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_puti { reg_std_io_puti32 }
-
 	rbs
-	:hidden$std_io_puti32_f ( dat str "out_i32" )
+	:hidden$std_io_puti_f ( dat str "out_i" )
 	rbe
 
-	:hidden$reg_std_io_puti16 (
+	:hidden$reg_std_io_puts (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_puti16_f
+		pushp std_io_puts_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_puti16 {
-		%pushp std_io_puti16_f
+	:reg_std_io_puts {
+		pushp std_io_puts_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_puts { reg_std_io_puti16 }
-
 	rbs
-	:hidden$std_io_puti16_f ( dat str "out_i16" )
+	:hidden$std_io_puts_f ( dat str "out_s" )
 	rbe
 
-	:hidden$reg_std_io_puti8 (
+	:hidden$reg_std_io_putc (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_puti8_f
+		pushp std_io_putc_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_puti8 {
-		%pushp std_io_puti8_f
+	:reg_std_io_putc {
+		pushp std_io_putc_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_putc { reg_std_io_puti8 }
-
 	rbs
-	:hidden$std_io_puti8_f ( dat str "out_i8" )
+	:hidden$std_io_putc_f ( dat str "out_c" )
 	rbe
 
-	:hidden$reg_std_io_putu32 (
+	:hidden$reg_std_io_putui (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_putu32_f
+		pushp std_io_putui_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_putu32 {
-		%pushp std_io_putu32_f
+	:reg_std_io_putui {
+		pushp std_io_putui_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_putui { reg_std_io_putu32 }
-
 	rbs
-	:hidden$std_io_putu32_f ( dat str "out_u32" )
+	:hidden$std_io_putui_f ( dat str "out_ui" )
 	rbe
 
-	:hidden$reg_std_io_putu16 (
+	:hidden$reg_std_io_putus (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_putu16_f
+		pushp std_io_putus_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_putu16 {
-		%pushp std_io_putu16_f
+	:reg_std_io_putus {
+		pushp std_io_putus_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_puts { reg_std_io_putu16 }
-
 	rbs
-	:hidden$std_io_putu16_f ( dat str "out_u16" )
+	:hidden$std_io_putus_f ( dat str "out_us" )
 	rbe
 
-	:hidden$reg_std_io_putu8 (
+	:hidden$reg_std_io_putuc (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_putu8_f
+		pushp std_io_putuc_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_putu8 {
-		%pushp std_io_putu8_f
+	:reg_std_io_putuc {
+		pushp std_io_putuc_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_putuc { reg_std_io_putu8 }
-
 	rbs
-	:hidden$std_io_putu8_f ( dat str "out_u8" )
+	:hidden$std_io_putuc_f ( dat str "out_uc" )
 	rbe
 
 	:hidden$reg_std_io_putchar (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_putchar_f
+		pushp std_io_putchar_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
 	:reg_std_io_putchar {
-		%pushp std_io_putchar_f
+		pushp std_io_putchar_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -349,21 +329,21 @@ $if std_io_guard 0
 
 	:hidden$reg_std_io_getargv (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_getargv_f
+		pushp std_io_getargv_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
 	:reg_std_io_getargv {
-		%pushp std_io_getargv_f
+		pushp std_io_getargv_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -374,20 +354,20 @@ $if std_io_guard 0
 
 	:hidden$reg_std_io_getargc (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_getargc_f
+		pushp std_io_getargc_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		& lfr0 ret
 	)
 
 	:reg_std_io_getargc {
-		%pushp std_io_getargc_f
+		pushp std_io_getargc_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -398,21 +378,21 @@ $if std_io_guard 0
 
 	:hidden$reg_std_io_openf (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_openf_f
+		pushp std_io_openf_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
 	:reg_std_io_openf {
-		%pushp std_io_openf_f
+		pushp std_io_openf_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -423,21 +403,21 @@ $if std_io_guard 0
 
 	:hidden$reg_std_io_readf (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_readf_f
+		pushp std_io_readf_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
 	:reg_std_io_readf {
-		%pushp std_io_readf_f
+		pushp std_io_readf_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -448,21 +428,21 @@ $if std_io_guard 0
 
 	:hidden$reg_std_io_writef (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_writef_f
+		pushp std_io_writef_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
 	:reg_std_io_writef {
-		%pushp std_io_writef_f
+		pushp std_io_writef_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -473,21 +453,21 @@ $if std_io_guard 0
 
 	:hidden$reg_std_io_getstr (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_getstr_f
+		pushp std_io_getstr_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
 	:reg_std_io_getstr {
-		%pushp std_io_getstr_f
+		pushp std_io_getstr_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -498,21 +478,21 @@ $if std_io_guard 0
 
 	:hidden$reg_std_io_closef (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_closef_f
+		pushp std_io_closef_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
 	:reg_std_io_closef {
-		%pushp std_io_closef_f
+		pushp std_io_closef_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -523,20 +503,20 @@ $if std_io_guard 0
 
 	:hidden$reg_std_io_getchar (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_getchar_f
+		pushp std_io_getchar_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		& lfr0 ret
 	)
 
 	:reg_std_io_getchar {
-		%pushp std_io_getchar_f
+		pushp std_io_getchar_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
@@ -545,212 +525,198 @@ $if std_io_guard 0
 	:hidden$std_io_getchar_f ( dat str "scanin_char" )
 	rbe
 
-	:hidden$reg_std_io_geti64 (
+	:hidden$reg_std_io_getl (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_geti64_f
+		pushp std_io_getl_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_geti64 {
-		%pushp std_io_geti64_f
+	:reg_std_io_getl {
+		pushp std_io_getl_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_getl { reg_std_io_geti64 }
-
 	rbs
-	:hidden$std_io_geti64_f ( dat str "scanin_i64" )
+	:hidden$std_io_getl_f ( dat str "scanin_l" )
 	rbe
 
-	:hidden$reg_std_io_geti32 (
+	:hidden$reg_std_io_geti (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_geti32_f
+		pushp std_io_geti_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_geti32 {
-		%pushp std_io_geti32_f
+	:reg_std_io_geti {
+		pushp std_io_geti_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_geti { reg_std_io_geti32 }
-
 	rbs
-	:hidden$std_io_geti32_f ( dat str "scanin_i32" )
+	:hidden$std_io_geti_f ( dat str "scanin_i" )
 	rbe
 
-	:hidden$reg_std_io_geti16 (
+	:hidden$reg_std_io_gets (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_geti16_f
+		pushp std_io_gets_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_geti16 {
-		%pushp std_io_geti16_f
+	:reg_std_io_gets {
+		pushp std_io_gets_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_gets { reg_std_io_geti16 }
-
 	rbs
-	:hidden$std_io_geti16_f ( dat str "scanin_i16" )
+	:hidden$std_io_gets_f ( dat str "scanin_s" )
 	rbe
 
-	:hidden$reg_std_io_geti8 (
+	:hidden$reg_std_io_getc (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_geti8_f
+		pushp std_io_getc_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_geti8 {
-		%pushp std_io_geti8_f
+	:reg_std_io_getc {
+		pushp std_io_getc_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_getc { reg_std_io_geti8 }
-
 	rbs
-	:hidden$std_io_geti8_f ( dat str "scanin_i8" )
+	:hidden$std_io_getc_f ( dat str "scanin_c" )
 	rbe
 
-	:hidden$reg_std_io_getu32 (
+	:hidden$reg_std_io_getui (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_getu32_f
+		pushp std_io_getui_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_getu32 {
-		%pushp std_io_getu32_f
+	:reg_std_io_getui {
+		pushp std_io_getui_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_getui { reg_std_io_getu32 }
-
 	rbs
-	:hidden$std_io_getu32_f ( dat str "scanin_u32" )
+	:hidden$std_io_getui_f ( dat str "scanin_ui" )
 	rbe
 
-	:hidden$reg_std_io_getu16 (
+	:hidden$reg_std_io_getus (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_getu16_f
+		pushp std_io_getus_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_getu16 {
-		%pushp std_io_getu16_f
+	:reg_std_io_getus {
+		pushp std_io_getus_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_getus { reg_std_io_getu16 }
-
 	rbs
-	:hidden$std_io_getu16_f ( dat str "scanin_u16" )
+	:hidden$std_io_getus_f ( dat str "scanin_us" )
 	rbe
 
-	:hidden$reg_std_io_getu8 (
+	:hidden$reg_std_io_getuc (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io_getu8_f
+		pushp std_io_getuc_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 		& lfr0 ret
 	)
 
-	:reg_std_io_getu8 {
-		%pushp std_io_getu8_f
+	:reg_std_io_getuc {
+		pushp std_io_getuc_f
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaosymc
 	}
 
-	:reg_std_io_getuc { reg_std_io_getu8 }
-
 	rbs
-	:hidden$std_io_getu8_f ( dat str "scanin_u8" )
+	:hidden$std_io_getuc_f ( dat str "scanin_uc" )
 	rbe
 
 	:hidden$reg_std_io (
 		$if IS_DYOBJ 1
-			over %addp
+			over addp
 		$fi
 		str0
-		%pushp std_io
+		pushp std_io
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaoc
 		& lfr0 ret
 	)
 
 	:reg_std_io {
-		%pushp std_io
+		pushp std_io
 		$if IS_DYOBJ 1
-			%addp
+			addp
 		$fi
 		loadnaoc
 	}

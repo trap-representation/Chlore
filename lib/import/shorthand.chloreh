@@ -2,20 +2,20 @@ $if std_shorthand_guard 0
 
 	set std_shorthand_guard 1
 
-	:++uc { pushu8 1 addu8 }
-	:++us { pushu8 1 addu16 }
-	:++ui { pushu8 1 addu32 }
-	:++c { pushu8 1 addi8 }
-	:++s { pushu8 1 addi16 }
-	:++i { pushu8 1 addi32 }
-	:++l { pushu8 1 addi64 }
-	:++p { pushu8 1 addi64 }
-	:--uc { pushu8 1 swap subu8 }
-	:--us { pushu8 1 swap subu16 }
-	:--ui { pushu8 1 swap subu32 }
-	:--c { pushu8 1 swap subi8 }
-	:--s { pushu8 1 swap subi16 }
-	:--i { pushu8 1 swap subi32 }
-	:--l { pushu8 1 swap subi64 }
-	:--p { pushu8 1 swap subi64 }
+	:++uc { pushuc 1 adduc }
+	:++us { pushuc 1 addus }
+	:++ui { pushuc 1 addui }
+	:++c { pushuc 1 addc }
+	:++s { pushuc 1 adds }
+	:++i { pushuc 1 addi }
+	:++l { pushuc 1 addl }
+	:++p { pushuc 1 addp }
+	:--uc { pushuc 1 swap subuc }
+	:--us { pushuc 1 swap subus }
+	:--ui { pushuc 1 swap subui }
+	:--c { pushuc 1 swap subc }
+	:--s { pushuc 1 swap subs }
+	:--i { pushuc 1 swap subi }
+	:--l { pushuc 1 swap subl }
+	:--p { pushuc 1 swap subp }
 $fi
