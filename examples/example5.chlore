@@ -7,33 +7,32 @@ set LD_DYN 1 ;if LD_DYN is set to 1, it'll hint the compiler that libraries can 
 
 import "./lib/import/io.chloreh"
 import "./lib/import/string.chloreh"
-import "./lib/import/porttypes.chloreh"
 
 :string dat str "Hello, World!\n"
 
 
 :main
-%pushuc 0
-%pushp reg_std_string
+pushuc 0
+pushp reg_std_string
 call ;load in the `std_string' library
 
-%pushuc 1
-%pushp reg_std_io
+pushuc 1
+pushp reg_std_io
 call ;load in the `std_io' library
 
-%pushuc 0 %pushuc 0
-%pushp reg_std_string_strlen
+pushuc 0 pushuc 0
+pushp reg_std_string_strlen
 call
 
-%pushp string ptr_data
-%pushuc 0 !
+pushp string ptr_data
+pushuc 0 !
 
 ;the length of the string pointed to by `string' is now on the top of the stack
 
-%pushuc 1 %pushuc 1
-%pushp %reg_std_io_putl
+pushuc 1 pushuc 1
+pushp reg_std_io_putl
 call
 
-%pushuc 1 !
+pushuc 1 !
 
 hlt

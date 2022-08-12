@@ -4,7 +4,6 @@
 /
 import "./lib/import/io.chloreh"
 import "./lib/import/alloc2.chloreh"
-import "./lib/import/porttypes.chloreh"
 
 :terminate_on_error { & lfr0 panic } ;this macro checks the value returned by a an invoked symbol, and if it is non-zero, the program terminates
 ;Note however, if this program terminates after the call to `alloc2_init' and before the call to `alloc2_close', there will be a memory leak
@@ -12,43 +11,43 @@ import "./lib/import/porttypes.chloreh"
 :main
 
 ;register libraries
-%pushuc 0
-%pushp reg_std_alloc2
+pushuc 0
+pushp reg_std_alloc2
 call
-%pushuc 1
-%pushp reg_std_io
+pushuc 1
+pushp reg_std_io
 call
 
 ;register symbols
-%pushuc 0 %pushuc 0
+pushuc 0 pushuc 0
 %reg_std_alloc2_aaseg
-%pushuc 0 %pushuc 1
+pushuc 0 pushuc 1
 %reg_std_alloc2_close
-%pushuc 1 %pushuc 2
-%%reg_std_io_putui
-%pushuc 0 %pushuc 3
+pushuc 1 pushuc 2
+%reg_std_io_putui
+pushuc 0 pushuc 3
 %reg_std_alloc2_init
 
-%pushuc 3 !
+pushuc 3 !
 %terminate_on_error
 
-%pushl 1024 ;we'll allocate a chunk of size 1024 bytes
-%pushuc 8 ;aligned to a 8-byte boundary
-%pushuc 0 !
+pushl 1024 ;we'll allocate a chunk of size 1024 bytes
+pushuc 8 ;aligned to a 8-byte boundary
+pushuc 0 !
 %terminate_on_error
 
 ;the top of the stack now has an (explicit) pointer to the heap
-phtip ;convert that to a "normal" pointer
+ep2ip ;convert that to a "normal" pointer
 dup
-%pushui 42 ;this is the value that we're going to store in the heap
+pushui 42 ;this is the value that we're going to store in the heap
 swap
-%asthui ;do an aligned store
+asthui ;do an aligned store
 
 
-& %alfhui ;do an aligned load from the same address
+& alfhui ;do an aligned load from the same address
 ;42 should now be on the top of the stack
-%pushuc 2 !
+pushuc 2 !
 
-%pushuc 1 !
+pushuc 1 !
 
 hlt

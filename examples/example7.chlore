@@ -3,30 +3,24 @@
 /
 
 import "./lib/import/io.chloreh"
-import "./lib/import/porttypes.chloreh"
 
-;     these two string literals are automatically concatenated
-;                vvvvv vvvvvvvvvvvvvvvvvvvvvvvvvv
-:string0 dat str %[ui] " is the answer to %[t]\n"
-;                ^^^^^
-;  a macro defined in porttypes.h
-;  which expands to a string literal
+:string0 dat str "%ui is the answer to %t\n"
 :string1 dat str "the ultimate question of life, the universe, and everything."
 
 :main
 
-%pushuc 0
-%pushp reg_std_io
+pushuc 0
+pushp reg_std_io
 call
 
-%pushuc 0
-%pushuc 0
-%pushp reg_std_io_putfmt
+pushuc 0
+pushuc 0
+pushp reg_std_io_putfmt
 call
 
-%pushp string1 ptr_data
-%pushui 42
-%pushp string0 ptr_data
-%pushuc 0 !
+pushp string1 ptr_data
+pushui 42
+pushp string0 ptr_data
+pushuc 0 !
 
 hlt
