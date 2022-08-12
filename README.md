@@ -31,7 +31,6 @@ A simple Hello World program written in a standard compliant implementation of C
 
 ````
 import "./lib/import/io.sah"
-import "./lib/import/porttypes.sah"
 
 :string dat str "Hello, World!\n"
 
