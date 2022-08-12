@@ -30,7 +30,7 @@ In the future MChlore will be able to target:
 A simple Hello World program written in a standard compliant implementation of Chlore <sup>1)</sup>:
 
 ````
-import "./lib/import/io.sah"
+import "./lib/import/io.chloreh"
 
 :string dat str "Hello, World!\n"
 
