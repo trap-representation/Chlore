@@ -1,48 +1,44 @@
-import "./lib/import/porttypes.chloreh"
-
-set POINTER_HEAP 0x4000000000000000
-set POINTER_DATA 0x3fffffffffffffff
+import "./lib/import/stddef.chloreh"
 
 :oentry force_panic
 
 :exposed$__std_string_strlen (
 	swap ;the [top] of the stack now has an explicit pointer to data or the heap
-	%pushuc 0 ;this is the length of the string initially
+	pushuc 0 ;this is the length of the string initially
 	swap dup
-	%pushp POINTER_HEAP
-	andi64
-	%pushp POINTER_HEAP
-	rjeq __std_string_strlen_heap
-	rjmp __std_string_strlen_data
+	ptyp
+	pushl MAX_ADDR_MEM
+	pushrp __std_string_strlen_heap rjeq
+	pushrp __std_string_strlen_data rjmp
 
 :exposed$__std_string_strlen_heap
-	%pushp POINTER_DATA %andp ;get the implicit pointer
+	ep2ip
 	:exposed$__std_string_strlen_heap_loop
 		dup ;both the [top] and [top-1] have (the same dup'ed) pointers to the heap
-		& %lfhuc rjnz __std_string_strlen_heap_loop_inc ;jump to `std_string_strlen_heap_loop_inc' if the character encountered is not a nul terminator
+		& lfhuc pushrp __std_string_strlen_heap_loop_inc rjnz ;jump to `std_string_strlen_heap_loop_inc' if the character encountered is not a nul terminator
 	pop swap
-	%pushuc 0 str0 ;save a zero return value in GPR 0
+	pushuc 0 str0 ;save a zero return value in GPR 0
 	ret
 
 :exposed$__std_string_strlen_heap_loop_inc
-	%pushuc 1 %addp ;increment the heap pointer
-	swap %pushuc 1 %addl ;increment the length of the string
+	pushuc 1 addp ;increment the heap pointer
+	swap pushuc 1 addl ;increment the length of the string
 	swap
-	rjmp __std_string_strlen_heap
+	pushrp __std_string_strlen_heap rjmp
 
 :exposed$__std_string_strlen_data
-	%pushp POINTER_DATA %andp ;get the implicit pointer
+	ep2ip
 	:exposed$__std_string_strlen_data_loop
 		dup ;both the [top] and [top-1] have (the same dup'ed) pointers to the data
-		%loadcuc rjnz __std_string_strlen_data_loop_inc ;jump to `std_string_strlen_data_loop_inc' if the character encountered is not a nul terminator
+		loadcuc pushrp __std_string_strlen_data_loop_inc rjnz ;jump to `std_string_strlen_data_loop_inc' if the character encountered is not a nul terminator
 	pop swap
-	%pushuc 0 str0 ;save a zero return value in GPR 0
+	pushuc 0 str0 ;save a zero return value in GPR 0
 	ret
 
 :exposed$__std_string_strlen_data_loop_inc
-	%pushuc 1 %addp ;increment the data pointer
-	swap %pushuc 1 %addl ;increment the length of the string
+	pushuc 1 addp ;increment the data pointer
+	swap pushuc 1 addl ;increment the length of the string
 	swap
-	rjmp __std_string_strlen_data
+	pushrp __std_string_strlen_data rjmp
 )
 
