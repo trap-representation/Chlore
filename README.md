@@ -37,16 +37,16 @@ import "./lib/import/porttypes.sah"
 
 :main
 ;register the library that we need to use
-%pushuc 0
+pushuc 0
 %reg_std_io
 
 ;register the symbol from the library that we are going to need
-%pushuc 0 %pushuc 0
+pushuc 0 pushuc 0
 %reg_std_io_putstr
 
 ;invoke the registered symbol
-%pushp string ptr_data
-%pushuc 0 !
+pushp string ptr_data
+pushuc 0 !
 hlt
 ````
 
