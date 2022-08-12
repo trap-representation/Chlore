@@ -1,5 +1,5 @@
-/ example 5: Calculating the length of a nul-terminated string
-  This program calculates the length of the nul-terminated string pointed to by `string'
+/ example 5: Calculating the length of a null-terminated string
+  This program calculates the length of the null-terminated string pointed to by `string'
 /
 
 set LD_DYN 1 ;if LD_DYN is set to 1, it'll hint the compiler that libraries can be loaded dynamically

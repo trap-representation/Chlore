@@ -4,7 +4,7 @@
 
 import "./lib/import/io.chloreh"
 
-:string dat str "Hello, World!\n" ;this string is automatically nul-terminated
+:string dat str "Hello, World!\n" ;this string is automatically null-terminated
 
 :main
 
