@@ -1,4 +1,4 @@
-All the object files and header files in here are strictly standard conforming (and support the *basic instruction set*).
+All the object files and header files in here are strictly standard conforming.
 
 Since these object files are strictly standard conforming, these will work with any environment that a particular implementation of Chlore can target (at least as long as the environment supports the functionalities that the libraries expect the environment to support).
 
