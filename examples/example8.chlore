@@ -1,0 +1,31 @@
+/ example 8: Recursive Fibonacci series
+  Recursive Fibonacci series
+/
+
+import "./lib/import/io.chloreh"
+
+:main
+pushuc 40
+pushp fib
+call
+
+pushuc 0 %reg_std_io
+pushuc 0 pushuc 0 %reg_std_io_putl
+pushuc 0 !
+
+hlt
+
+:fib
+swap
+dup pushuc 1 pushp return jge
+dup pushuc 1 swap subl pushp fib call
+swap
+pushuc 2 swap subl pushp fib call
+addl
+swap
+ret
+
+
+:return
+swap ret
+ret
