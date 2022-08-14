@@ -36,7 +36,7 @@ pushuc 0 !
 %terminate_on_error
 
 ;the top of the stack now has an (explicit) pointer to the heap
-ep2ip ;convert that to a "normal" pointer
+ep2ip ;convert that to an implicit pointer
 dup
 pushui 42 ;this is the value that we're going to store in the heap
 swap
