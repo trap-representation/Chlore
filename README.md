@@ -35,11 +35,11 @@ import "./lib/import/io.chloreh"
 :string dat str "Hello, World!\n"
 
 :main
-;register the library that we need to use
+;register the object that we need to use
 pushuc 0
 %reg_std_io
 
-;register the symbol from the library that we are going to need
+;register the symbol from the object that we are going to need
 pushuc 0 pushuc 0
 %reg_std_io_putstr
 
