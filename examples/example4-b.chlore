@@ -1,5 +1,5 @@
 / example 4-b: Addressable object
-  This is an addressable object file that can be loaded by or placed in another object file during run-||compile-time
+  This is an addressable object file that can be loaded by or placed in another object||standalone file during run-||compile-time
 /
 
 set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard library functions will simply fail
