@@ -2,7 +2,7 @@
   This program loads an addressable object at runtime
 /
 
-:obj_name dat str "./example-4b.sso" ;change `./example-4b.sso' with the object identifier of the object that should be loaded
+:obj_name dat str "./example-4b.sso" ;replace `./example-4b.sso' with the object identifier of the object that should be loaded
 
 :main
 
