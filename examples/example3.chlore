@@ -9,7 +9,7 @@ import "./lib/import/alloc2.chloreh"
 
 :main
 
-;register libraries
+;register objects
 pushuc 0
 pushp reg_std_alloc2
 call
