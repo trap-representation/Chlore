@@ -4,7 +4,7 @@ $if std_alloc2_guard 0
 
 	set EINIT 1    ;Heap isn't initialized.
 	set EALIGN 2   ;Cannot align the memory to the requested alignment.
-	set EINT 3     ;One of the internal functions that this library uses to allocate memory has encountered some kind of error. In case of this error, the best option is to terminate the program, or you can also unload and reload the library and reinitialize it. It'll result in a memory leak in both of the cases.
+	set EINT 3     ;One of the internal functions that this object uses to allocate memory has encountered an error. In case of this error, the best option is to terminate the program, or you can also unload and reload the object and reinitialize it. It'll result in a memory leak in both of the cases.
 	set EOVF 4     ;The requested amount of memory is more than what's been allocated for the VM.
 
 	/ On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top-1] bytes, and aligned to a [top] bytes boundary on the [top] of the stack.
@@ -156,7 +156,7 @@ $if std_alloc2_guard 0
 	:hidden$std_alloc2_flush_f ( dat str "flush" )
 	rbe
 
-	/ On success: Frees up all the additional memory allocated by this library.
+	/ On success: Frees up all the additional memory allocated by this object.
 	  On failure: Returns EINIT.
 	/
 
@@ -214,7 +214,7 @@ $if std_alloc2_guard 0
 	:hidden$std_alloc2_dump_f ( dat str "dump" )
 	rbe
 
-	/ On success: Initializes the heap. Must be called before anything in this library is used.
+	/ On success: Initializes the heap. Must be called before anything in this object is used.
 	  On failure: Returns EINT.
 	/
 
