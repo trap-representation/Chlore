@@ -1,6 +1,5 @@
 / example 3: Aligned alloc
   This program allocates a chunk of memory aligned to a 8 byte boundary, stores the number (n) 42 (unsigned int) in that chunk with an aligned store; then it loads n back from the chunk with an aligned load, and writes n to stdout
-  NOTE This example requires the target to have an addressable heap
 /
 import "./lib/import/io.chloreh"
 import "./lib/import/alloc2.chloreh"
