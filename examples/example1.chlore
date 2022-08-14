@@ -26,5 +26,5 @@ hlt
 
 
 ;NOTE the bang invocation operator (!) has to check whether the symbol at the [top]th index of the symbol handler table is present in a NAO, or an AO, which might be slow
-;if you want to avoid this, directly use `invokenaosym' or `invokeaosym' based on how the object is implemented/loaded
+;if you want to avoid this, directly use `invokenaosym' or `invokeaosym' based on how the object is implemented
 ;the bang invocation and the tilde unload (~) operators are made just to have a common operator for invoking/unloading symbols irrespective of where those symbols are present in
