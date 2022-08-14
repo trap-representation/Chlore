@@ -12,7 +12,7 @@ import "./lib/import/stddef.chloreh"
 
 :main
 
-;register libraries
+;register objects
 pushuc 0
 %reg_std_io
 
