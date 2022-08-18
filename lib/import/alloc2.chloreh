@@ -4,8 +4,37 @@ $if std_alloc2_guard 0
 
 	set EINIT 1    ;Heap isn't initialized.
 	set EALIGN 2   ;Cannot align the memory to the requested alignment.
-	set EINT 3     ;One of the internal functions that this object uses to allocate memory has encountered an error. In case of this error, the best option is to terminate the program, or you can also unload and reload the object and reinitialize it. It'll result in a memory leak in both of the cases.
-	set EOVF 4     ;The requested amount of memory is more than what's been allocated for the VM.
+	set EINT 3     ;One of the internal functions that this object uses to allocate memory has encountered an error. In case of this error, the best option is to terminate the program.
+	set EOVF 4     ;The requested amount of memory is more than what's been pre-allocated by the environment for the program.
+
+	/ On success: Signals the enviroment to allocate [top-1] bytes for the heap buffer. The contents of the heap are retained after the reallocation. The heap keeps the alignment that it had before the reallocation.
+	  On failure: Returns EINT.
+	/
+
+	:hidden$reg_std_alloc2_rlhb (
+		$if IS_DYOBJ 1
+			over addp
+		$fi
+		str0
+		pushp std_alloc2_rlhb_f
+		$if IS_DYOBJ 1
+			addp
+		$fi
+		loadnaosymc
+		& lfr0 ret
+	)
+
+	:reg_std_alloc2_rlhb {
+		pushp std_alloc2_rlhb_f
+		$if IS_DYOBJ 1
+			addp
+		$fi
+		loadnaosymc
+	}
+
+	rbs
+	:hidden$std_alloc2_rlhb_f ( dat str "rlhb" )
+	rbe
 
 	/ On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top-1] bytes, and aligned to a [top] bytes boundary on the [top] of the stack.
 	  On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
@@ -214,7 +243,7 @@ $if std_alloc2_guard 0
 	:hidden$std_alloc2_dump_f ( dat str "dump" )
 	rbe
 
-	/ On success: Initializes the heap. Must be called before anything in this object is used.
+	/ On success: Initializes the heap. Must be called before anything (except `rlhb') in this object is used.
 	  On failure: Returns EINT.
 	/
 
