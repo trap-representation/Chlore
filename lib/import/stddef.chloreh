@@ -14,5 +14,5 @@ $if std_stddef_guard 0
 	set MAX_SOBJX 12
 	set MAX_CHX 12
 	set MAX_CHSX 12
-	set MAX_ADDR_MEM 0x4000000000000000
+	set MAX_ADDR_MEM 0x3fffffffffffffff
 $fi

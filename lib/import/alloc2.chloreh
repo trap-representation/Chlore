@@ -4,7 +4,7 @@ $if std_alloc2_guard 0
 
 	set EINIT 1    ;Heap isn't initialized.
 	set EALIGN 2   ;Cannot align the memory to the requested alignment.
-	set EINT 3     ;One of the internal functions that this object uses to allocate memory has encountered an error. In case of this error, the best option is to terminate the program.
+	set EINT 3     ;One of the internal functions that this object uses to allocate memory has encountered an error. In case of this error, the best option is to terminate the program, or you can also unload and reload the object and reinitialize it. It'll result in a memory leak in both of the cases.
 	set EOVF 4     ;The requested amount of memory is more than what's been pre-allocated by the environment for the program.
 
 	/ On success: Signals the enviroment to allocate [top-1] bytes for the heap buffer. The contents of the heap are retained after the reallocation. The heap keeps the alignment that it had before the reallocation.
