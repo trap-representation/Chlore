@@ -51,8 +51,8 @@ hlt
 
 ###### 1) Check out more examples in the `examples` directory. ######
 
-A formal language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. You'll be able to find a standard draft of this language here in a month or two.
+A formal language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. Check out the [Chlore-spec-working-drafts](https://github.com/trap-representation/Chlore-spec-working-drafts) repository to take a look at the working drafts.
 
-You'll also be able to find the source of the reference implementation of Chlore that I've been working on here soon.
+You'll be able to find the source of the reference implementation of Chlore that I've been working on here soon.
 
 PS: Check out the Chlore website [here](https://trap-representation.github.io/Chlore/).
