@@ -12,7 +12,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_putstr {
@@ -37,7 +37,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_putstre {
@@ -62,7 +62,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_putfmt {
@@ -87,7 +87,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_putfmte {
@@ -112,7 +112,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_putl {
@@ -137,7 +137,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_putp {
@@ -162,7 +162,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_puti {
@@ -187,7 +187,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_puts {
@@ -212,7 +212,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_putc {
@@ -237,7 +237,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_putui {
@@ -262,7 +262,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_putus {
@@ -287,7 +287,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_putuc {
@@ -312,7 +312,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_putchar {
@@ -337,7 +337,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_getargv {
@@ -361,7 +361,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addp
 		$fi
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_getargc {
@@ -386,7 +386,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_openf {
@@ -411,7 +411,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_readf {
@@ -436,7 +436,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_writef {
@@ -461,7 +461,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_getstr {
@@ -486,7 +486,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_closef {
@@ -510,7 +510,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addp
 		$fi
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_getchar {
@@ -535,7 +535,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_getl {
@@ -560,7 +560,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_geti {
@@ -585,7 +585,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_gets {
@@ -610,7 +610,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_getc {
@@ -635,7 +635,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_getui {
@@ -660,7 +660,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_getus {
@@ -685,7 +685,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaosymc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io_getuc {
@@ -710,7 +710,7 @@ $if std_io_guard 0
 			addp
 		$fi
 		loadnaoc
-		& lfr0 ret
+		@lfr0 ret
 	)
 
 	:reg_std_io {
