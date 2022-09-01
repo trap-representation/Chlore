@@ -21,7 +21,7 @@ $if std_alloc2_guard 0
 			addp
 		$fi
 		loadnaosymc
-		@lfr0 ret
+		& lfr &0 ret
 	)
 
 	:reg_std_alloc2_rlhb {
@@ -51,7 +51,7 @@ $if std_alloc2_guard 0
 			addp
 		$fi
 		loadnaosymc
-		@lfr0 ret
+		& lfr &0 ret
 	)
 
 	:reg_std_alloc2_aaseg {
@@ -81,7 +81,7 @@ $if std_alloc2_guard 0
 			addp
 		$fi
 		loadnaosymc
-		@lfr0 ret
+		& lfr &0 ret
 	)
 
 	:reg_std_alloc2_aseg {
@@ -96,7 +96,7 @@ $if std_alloc2_guard 0
 	:hidden$std_alloc2_aseg_f ( dat str "aseg" )
 	rbe
 
-	/ On success: Flushes the chunk of memory pointed at by the [top-1] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-2] bytes, aligned to a [top] byte boundary, and which @lfr0 retains the contents of the original chunk, on the [top] of the stack.
+	/ On success: Flushes the chunk of memory pointed at by the [top-1] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-2] bytes, aligned to a [top] byte boundary, and which & lfr &0 retains the contents of the original chunk, on the [top] of the stack.
 	  On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
 		      Pushes an unspecified value on the top of the stack.
 	/
@@ -111,7 +111,7 @@ $if std_alloc2_guard 0
 			addp
 		$fi
 		loadnaosymc
-		@lfr0 ret
+		& lfr &0 ret
 	)
 
 	:reg_std_alloc2_arseg {
@@ -126,7 +126,7 @@ $if std_alloc2_guard 0
 	:hidden$std_alloc2_arseg_f ( dat str "arseg" )
 	rbe
 
-	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-1] bytes, and which @lfr0 retains the contents of the original chunk, on the [top] of the stack.
+	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-1] bytes, and which & lfr &0 retains the contents of the original chunk, on the [top] of the stack.
 	  On failure: Returns one of EINIT, EINT, EOVF.
 		      Pushes an unspecified value on the top of the stack.
 	/
@@ -141,7 +141,7 @@ $if std_alloc2_guard 0
 			addp
 		$fi
 		loadnaosymc
-		@lfr0 ret
+		& lfr &0 ret
 	)
 
 	:reg_std_alloc2_rseg {
@@ -156,7 +156,7 @@ $if std_alloc2_guard 0
 	:hidden$std_alloc2_rseg_f ( dat str "rseg" )
 	rbe
 
-	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack. [top] must be an (explicit) pointer @lfr0 returned by one of `aseg', `aaseg', `rseg', `arseg'.
+	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack. [top] must be an (explicit) pointer & lfr &0 returned by one of `aseg', `aaseg', `rseg', `arseg'.
 	  On failure: Returns EINIT.
 	/
 
@@ -170,7 +170,7 @@ $if std_alloc2_guard 0
 			addp
 		$fi
 		loadnaosymc
-		@lfr0 ret
+		& lfr &0 ret
 	)
 
 	:reg_std_alloc2_flush {
@@ -199,7 +199,7 @@ $if std_alloc2_guard 0
 			addp
 		$fi
 		loadnaosymc
-		@lfr0 ret
+		& lfr &0 ret
 	)
 
 	:reg_std_alloc2_close {
@@ -228,7 +228,7 @@ $if std_alloc2_guard 0
 			addp
 		$fi
 		loadnaosymc
-		@lfr0 ret
+		& lfr &0 ret
 	)
 
 	:reg_std_alloc2_dump {
@@ -257,7 +257,7 @@ $if std_alloc2_guard 0
 			addp
 		$fi
 		loadnaosymc
-		@lfr0 ret
+		& lfr &0 ret
 	)
 
 	:reg_std_alloc2_init {
@@ -284,7 +284,7 @@ $if std_alloc2_guard 0
 			addp
 		$fi
 		loadnaosymc
-		@lfr0 ret
+		& lfr &0 ret
 	)
 
 	:reg_std_alloc2_prof {
@@ -309,7 +309,7 @@ $if std_alloc2_guard 0
 			addp
 		$fi
 		loadnaoc
-		@lfr0 ret
+		& lfr &0 ret
 	)
 
 	:reg_std_alloc2 {
