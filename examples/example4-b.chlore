@@ -5,7 +5,7 @@
 set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard object functions will simply fail
 import "./lib/import/io.chloreh"
 
-:abs_addr { @lfr1 addp } ;this macro should be applied to pointers that are pointing to stuff that are present in this object. This macro calculates an absolute address from a relative address
+:abs_addr { & lfr &1 addp } ;this macro should be applied to pointers that are pointing to stuff that are present in this object. This macro calculates an absolute address from a relative address
 
 :string dat str "Hello, World!\n"
 
@@ -14,12 +14,12 @@ import "./lib/import/io.chloreh"
 swap str1 ;save the base address of this object in GPR 1
 
 pushuc 0
-@lfr1 ;since we're using the header files from the standard object, and they're `import'ed in an object, they require the base address of the object which they're `include'd in to be at the top of the stack
+& lfr &1 ;since we're using the header files from the standard object, and they're `import'ed in an object, they require the base address of the object which they're `include'd in to be at the top of the stack
 pushp reg_std_io %abs_addr
 call
 
 pushuc 0 pushuc 0
-@lfr1
+& lfr &1
 pushp reg_std_io_putstr %abs_addr
 call
 
