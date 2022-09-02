@@ -25,7 +25,7 @@ $if std_string_guard 0
 		pushp sym___std_string_strlen
 		addp
 		staosymhd
-		& lfr &0 ret
+		& lfr0 & ret
 	)
 
 	:hidden$reg_std_string_strlen {
@@ -54,7 +54,7 @@ $if std_string_guard 0
 		$else
 			staohd
 		$fi
-		& lfr &0 ret
+		& lfr0 & ret
 	)
 
 	:hidden$reg_std_string {
