@@ -2,12 +2,6 @@ NOTEs:
 
 - These are the header files that one can use to register NAOs and AOs present in the standard library.
 
-- While the value of a label can be assigned to the PC with `call`, macros can't be used with `call`. One has to just write the name of the label prefixed with a `%`.
-
-   For example, to expand the `reg_std_io_puts` macro, do this: `%reg_std_io_puts`.
-
-   The `%` expands the macro.
-
 - You'll also see that some header files have things like this:
 
    ````
