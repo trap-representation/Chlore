@@ -8,14 +8,14 @@ import "./lib/import/io.chloreh"
 
 :main
 
-;save a pointer to the object that we need to use
+;save a pointer to the non-addressable object that we need to use
 pushuc 0 ;the pointer will be saved at the 0th index of OHT0
 pushp sav_std_io
 call
 
-;save a pointer to the instruction within the object that we're going to call
-pushuc 0 ;the object we're going to load is present in the 0th index of OHT0
-pushuc 0 ;the pointer will be stored at the 0th index of OHT1
+;save a pointer to the routine we're going to call
+pushuc 0 ;we'll try loading the routine from the non-addressable object present at the 0th index of OHT0
+pushuc 0 ;and if loaded successfully, store the pointer to the routine at the 0th index of OHT1
 pushp sav_std_io_putstr
 call
 

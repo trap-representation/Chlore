@@ -6,15 +6,15 @@
 
 :main
 
-pushuc 0 ;saves a pointer to the object at the 0th index of OHT0
+pushuc 0 ;saves a pointer to the addressable object at the 0th index of OHT0
 pushp obj_name
 pushuc 8 ;this is the alignment
 aldao0c
 
-pushuc 0 pushuc 0 ldao0 stao1 ;store a pointer pointing to the object at the 0th index of the OHT1; it is basically the same as saying "Use the default entry point for the object"
+pushuc 0 pushuc 0 ldao0 stao1 ;store a pointer pointing to the addressable object at the 0th index of the OHT1; it is basically the same as saying "Use the default entry point for the addressable object"
 
 pushuc 0
-ldao0 ;push an implicit pointer to the object saved at OHT0
+ldao0 ;push an implicit pointer to the addressable object saved at OHT0
 pushuc 0
 callao ;branch to the instruction pointed to by the 0th index of OHT1
 

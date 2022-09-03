@@ -2,8 +2,8 @@
   This program calculates the length of the null-terminated string pointed to by `string'
 /
 
-set LD_DYN 1 ;if LD_DYN is set to 1, it'll hint the compiler that objects can be loaded dynamically
-;it is still nothing more than just a hint, so the compiler is free to put the object in the binary even if LD_DYN is set
+set LD_DYN 1 ;if LD_DYN is set to 1, it'll hint the implementation that addressable objects can be loaded dynamically
+;it is still nothing more than just a hint though, so the implementation is free to put it anywhere it likes, if it wants to
 
 import "./lib/import/io.chloreh"
 import "./lib/import/string.chloreh"
