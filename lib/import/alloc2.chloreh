@@ -11,7 +11,7 @@ $if std_alloc2_guard 0
 	  On failure: Returns EINT.
 	/
 
-	:hidden$reg_std_alloc2_rlhb (
+	:hidden$sav_std_alloc2_rlhb (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
@@ -20,16 +20,16 @@ $if std_alloc2_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
-		& lfr0 & ret
+		ldnao1c
+		& ldr0 & ret
 	)
 
-	:reg_std_alloc2_rlhb {
+	:sav_std_alloc2_rlhb {
 		pushp std_alloc2_rlhb_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
+		ldnao1c
 	}
 
 	rbs
@@ -41,7 +41,7 @@ $if std_alloc2_guard 0
 		      Pushes an unspecified value on the top of the stack.
 	/
 
-	:hidden$reg_std_alloc2_aaseg (
+	:hidden$sav_std_alloc2_aaseg (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
@@ -50,16 +50,16 @@ $if std_alloc2_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
-		& lfr0 & ret
+		ldnao1c
+		& ldr0 & ret
 	)
 
-	:reg_std_alloc2_aaseg {
+	:sav_std_alloc2_aaseg {
 		pushp std_alloc2_aaseg_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
+		ldnao1c
 	}
 
 	rbs
@@ -71,7 +71,7 @@ $if std_alloc2_guard 0
 		      Pushes an unspecified value on the top of the stack.
 	/
 
-	:hidden$reg_std_alloc2_aseg (
+	:hidden$sav_std_alloc2_aseg (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
@@ -80,28 +80,28 @@ $if std_alloc2_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
-		& lfr0 & ret
+		ldnao1c
+		& ldr0 & ret
 	)
 
-	:reg_std_alloc2_aseg {
+	:sav_std_alloc2_aseg {
 		pushp std_alloc2_aseg_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
+		ldnao1c
 	}
 
 	rbs
 	:hidden$std_alloc2_aseg_f ( dat str "aseg" )
 	rbe
 
-	/ On success: Flushes the chunk of memory pointed at by the [top-1] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-2] bytes, aligned to a [top] byte boundary, and which & lfr0 & retains the contents of the original chunk, on the [top] of the stack.
+	/ On success: Flushes the chunk of memory pointed at by the [top-1] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-2] bytes, aligned to a [top] byte boundary, and which & ldr0 & retains the contents of the original chunk, on the [top] of the stack.
 	  On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
 		      Pushes an unspecified value on the top of the stack.
 	/
 
-	:hidden$reg_std_alloc2_arseg (
+	:hidden$sav_std_alloc2_arseg (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
@@ -110,28 +110,28 @@ $if std_alloc2_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
-		& lfr0 & ret
+		ldnao1c
+		& ldr0 & ret
 	)
 
-	:reg_std_alloc2_arseg {
+	:sav_std_alloc2_arseg {
 		pushp std_alloc2_arseg_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
+		ldnao1c
 	}
 
 	rbs
 	:hidden$std_alloc2_arseg_f ( dat str "arseg" )
 	rbe
 
-	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-1] bytes, and which & lfr0 & retains the contents of the original chunk, on the [top] of the stack.
+	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-1] bytes, and which & ldr0 & retains the contents of the original chunk, on the [top] of the stack.
 	  On failure: Returns one of EINIT, EINT, EOVF.
 		      Pushes an unspecified value on the top of the stack.
 	/
 
-	:hidden$reg_std_alloc2_rseg (
+	:hidden$sav_std_alloc2_rseg (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
@@ -140,27 +140,27 @@ $if std_alloc2_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
-		& lfr0 & ret
+		ldnao1c
+		& ldr0 & ret
 	)
 
-	:reg_std_alloc2_rseg {
+	:sav_std_alloc2_rseg {
 		pushp std_alloc2_rseg_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
+		ldnao1c
 	}
 
 	rbs
 	:hidden$std_alloc2_rseg_f ( dat str "rseg" )
 	rbe
 
-	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack. [top] must be an (explicit) pointer & lfr0 & returned by one of `aseg', `aaseg', `rseg', `arseg'.
+	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack. [top] must be an (explicit) pointer & ldr0 & returned by one of `aseg', `aaseg', `rseg', `arseg'.
 	  On failure: Returns EINIT.
 	/
 
-	:hidden$reg_std_alloc2_flush (
+	:hidden$sav_std_alloc2_flush (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
@@ -169,16 +169,16 @@ $if std_alloc2_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
-		& lfr0 & ret
+		ldnao1c
+		& ldr0 & ret
 	)
 
-	:reg_std_alloc2_flush {
+	:sav_std_alloc2_flush {
 		pushp std_alloc2_flush_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
+		ldnao1c
 	}
 
 	rbs
@@ -189,7 +189,7 @@ $if std_alloc2_guard 0
 	  On failure: Returns EINIT.
 	/
 
-	:hidden$reg_std_alloc2_close (
+	:hidden$sav_std_alloc2_close (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
@@ -198,16 +198,16 @@ $if std_alloc2_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
-		& lfr0 & ret
+		ldnao1c
+		& ldr0 & ret
 	)
 
-	:reg_std_alloc2_close {
+	:sav_std_alloc2_close {
 		pushp std_alloc2_close_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
+		ldnao1c
 	}
 
 	rbs
@@ -218,7 +218,7 @@ $if std_alloc2_guard 0
 	  On failure: Returns EINIT.
 	/
 
-	:hidden$reg_std_alloc2_dump (
+	:hidden$sav_std_alloc2_dump (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
@@ -227,16 +227,16 @@ $if std_alloc2_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
-		& lfr0 & ret
+		ldnao1c
+		& ldr0 & ret
 	)
 
-	:reg_std_alloc2_dump {
+	:sav_std_alloc2_dump {
 		pushp std_alloc2_dump_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
+		ldnao1c
 	}
 
 	rbs
@@ -247,7 +247,7 @@ $if std_alloc2_guard 0
 	  On failure: Returns EINT.
 	/
 
-	:hidden$reg_std_alloc2_init (
+	:hidden$sav_std_alloc2_init (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
@@ -256,16 +256,16 @@ $if std_alloc2_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
-		& lfr0 & ret
+		ldnao1c
+		& ldr0 & ret
 	)
 
-	:reg_std_alloc2_init {
+	:sav_std_alloc2_init {
 		pushp std_alloc2_init_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
+		ldnao1c
 	}
 
 	rbs
@@ -274,7 +274,7 @@ $if std_alloc2_guard 0
 
 	/ Writes the cache hits and misses to stdout. /
 
-	:hidden$reg_std_alloc2_prof (
+	:hidden$sav_std_alloc2_prof (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
@@ -283,23 +283,23 @@ $if std_alloc2_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
-		& lfr0 & ret
+		ldnao1c
+		& ldr0 & ret
 	)
 
-	:reg_std_alloc2_prof {
+	:sav_std_alloc2_prof {
 		pushp std_alloc2_prof_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaosymc
+		ldnao1c
 	}
 
 	rbs
 	:hidden$std_alloc2_prof_f ( dat str "prof" )
 	rbe
 
-	:hidden$reg_std_alloc2 (
+	:hidden$sav_std_alloc2 (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
@@ -308,16 +308,16 @@ $if std_alloc2_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaoc
-		& lfr0 & ret
+		ldnao0c
+		& ldr0 & ret
 	)
 
-	:reg_std_alloc2 {
+	:sav_std_alloc2 {
 		pushp std_alloc2
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		loadnaoc
+		ldnao0c
 	}
 
 	rbs

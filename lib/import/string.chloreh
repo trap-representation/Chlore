@@ -15,31 +15,31 @@ $if std_string_guard 0
 
 	/ Pushes the length of the null-terminated string pointed to by the (explicit) pointer present at the [top] of the stack. /
 
-	:hidden$reg_std_string_strlen (
+	:hidden$sav_std_string_strlen (
 		$if DY_OBJ 1
 			addbp
 		$fi
 		str0
 		swap
-		ldaohd
+		ldao0
 		pushp sym___std_string_strlen
 		addbp
-		staosymhd
-		& lfr0 & ret
+		stao1
+		& ldr0 & ret
 	)
 
-	:hidden$reg_std_string_strlen {
+	:hidden$sav_std_string_strlen {
 		$if DY_OBJ 1
 			pop
 		$fi
 		swap
-		ldaohd
+		ldao0
 		pushp sym___std_string_strlen
 		addbp
-		staosymhd
+		stao1
 	}
 
-	:hidden$reg_std_string (
+	:hidden$sav_std_string (
 		$if DY_OBJ 1
 			over addbp
 		$fi
@@ -49,24 +49,24 @@ $if std_string_guard 0
 			addbp
 		$fi
 		$if LD_DYN 1
-			loadaoc
+			ldao0c
 		$fi
 		$else
-			staohd
+			stao0
 		$fi
-		& lfr0 & ret
+		& ldr0 & ret
 	)
 
-	:hidden$reg_std_string {
+	:hidden$sav_std_string {
 		pushp std_string
 		$if DY_OBJ 1
 			addbp
 		$fi
 		$if LD_DYN 1
-			loadaoc
+			ldao0c
 		$fi
 		$else
-			staohd
+			stao0
 		$fi
 	}
 $fi
