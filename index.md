@@ -3,7 +3,7 @@ Chlore
 
 ![Chlore logo](./chlore-logo-github-pages.png)
 
-This is Chlore - a stack based, assembly-like language that's made with a focus on speed and simplicity.
+This is Chlore - a stack based language that's made with a focus on speed and simplicity.
 
 #### Why yet another new language? ####
 
