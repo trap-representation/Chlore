@@ -15,7 +15,7 @@ import "./lib/import/stddef.chloreh"
 	ep2ip
 	:exposed$__std_string_strlen_heap_loop
 		dup ;both the [top] and [top-1] have (the same dup'ed) pointers to the heap
-		& lfhuc & pushrp __std_string_strlen_heap_loop_inc rjnz ;jump to `std_string_strlen_heap_loop_inc' if the character encountered is not a null terminator
+		& ldhuc & pushrp __std_string_strlen_heap_loop_inc rjnz ;jump to `std_string_strlen_heap_loop_inc' if the character encountered is not a null terminator
 	pop swap
 	pushuc 0 str0 ;save a zero return value in GPR 0
 	ret
@@ -30,7 +30,7 @@ import "./lib/import/stddef.chloreh"
 	ep2ip
 	:exposed$__std_string_strlen_code_loop
 		dup ;both the [top] and [top-1] have (the same dup'ed) pointers to the code
-		loadcuc pushrp __std_string_strlen_code_loop_inc rjnz ;jump to `std_string_strlen_code_loop_inc' if the character encountered is not a null terminator
+		ldcuc pushrp __std_string_strlen_code_loop_inc rjnz ;jump to `std_string_strlen_code_loop_inc' if the character encountered is not a null terminator
 	pop swap
 	pushuc 0 str0 ;save a zero return value in GPR 0
 	ret
