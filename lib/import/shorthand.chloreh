@@ -9,7 +9,7 @@ $if std_shorthand_guard 0
 	:++s { pushuc 1 adds }
 	:++i { pushuc 1 addi }
 	:++l { pushuc 1 addl }
-	:++p { pushuc 1 addp }
+	:++p { pushuc 1 swap addp }
 	:--uc { pushuc 1 swap subuc }
 	:--us { pushuc 1 swap subus }
 	:--ui { pushuc 1 swap subui }

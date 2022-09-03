@@ -13,12 +13,12 @@ $if std_alloc2_guard 0
 
 	:hidden$reg_std_alloc2_rlhb (
 		$if IS_DYOBJ 1
-			over addp
+			over addbp
 		$fi
 		str0
 		pushp std_alloc2_rlhb_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 		& lfr0 & ret
@@ -27,7 +27,7 @@ $if std_alloc2_guard 0
 	:reg_std_alloc2_rlhb {
 		pushp std_alloc2_rlhb_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 	}
@@ -43,12 +43,12 @@ $if std_alloc2_guard 0
 
 	:hidden$reg_std_alloc2_aaseg (
 		$if IS_DYOBJ 1
-			over addp
+			over addbp
 		$fi
 		str0
 		pushp std_alloc2_aaseg_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 		& lfr0 & ret
@@ -57,7 +57,7 @@ $if std_alloc2_guard 0
 	:reg_std_alloc2_aaseg {
 		pushp std_alloc2_aaseg_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 	}
@@ -73,12 +73,12 @@ $if std_alloc2_guard 0
 
 	:hidden$reg_std_alloc2_aseg (
 		$if IS_DYOBJ 1
-			over addp
+			over addbp
 		$fi
 		str0
 		pushp std_alloc2_aseg_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 		& lfr0 & ret
@@ -87,7 +87,7 @@ $if std_alloc2_guard 0
 	:reg_std_alloc2_aseg {
 		pushp std_alloc2_aseg_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 	}
@@ -103,12 +103,12 @@ $if std_alloc2_guard 0
 
 	:hidden$reg_std_alloc2_arseg (
 		$if IS_DYOBJ 1
-			over addp
+			over addbp
 		$fi
 		str0
 		pushp std_alloc2_arseg_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 		& lfr0 & ret
@@ -117,7 +117,7 @@ $if std_alloc2_guard 0
 	:reg_std_alloc2_arseg {
 		pushp std_alloc2_arseg_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 	}
@@ -133,12 +133,12 @@ $if std_alloc2_guard 0
 
 	:hidden$reg_std_alloc2_rseg (
 		$if IS_DYOBJ 1
-			over addp
+			over addbp
 		$fi
 		str0
 		pushp std_alloc2_rseg_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 		& lfr0 & ret
@@ -147,7 +147,7 @@ $if std_alloc2_guard 0
 	:reg_std_alloc2_rseg {
 		pushp std_alloc2_rseg_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 	}
@@ -162,12 +162,12 @@ $if std_alloc2_guard 0
 
 	:hidden$reg_std_alloc2_flush (
 		$if IS_DYOBJ 1
-			over addp
+			over addbp
 		$fi
 		str0
 		pushp std_alloc2_flush_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 		& lfr0 & ret
@@ -176,7 +176,7 @@ $if std_alloc2_guard 0
 	:reg_std_alloc2_flush {
 		pushp std_alloc2_flush_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 	}
@@ -191,12 +191,12 @@ $if std_alloc2_guard 0
 
 	:hidden$reg_std_alloc2_close (
 		$if IS_DYOBJ 1
-			over addp
+			over addbp
 		$fi
 		str0
 		pushp std_alloc2_close_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 		& lfr0 & ret
@@ -205,7 +205,7 @@ $if std_alloc2_guard 0
 	:reg_std_alloc2_close {
 		pushp std_alloc2_close_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 	}
@@ -220,12 +220,12 @@ $if std_alloc2_guard 0
 
 	:hidden$reg_std_alloc2_dump (
 		$if IS_DYOBJ 1
-			over addp
+			over addbp
 		$fi
 		str0
 		pushp std_alloc2_dump_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 		& lfr0 & ret
@@ -234,7 +234,7 @@ $if std_alloc2_guard 0
 	:reg_std_alloc2_dump {
 		pushp std_alloc2_dump_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 	}
@@ -249,12 +249,12 @@ $if std_alloc2_guard 0
 
 	:hidden$reg_std_alloc2_init (
 		$if IS_DYOBJ 1
-			over addp
+			over addbp
 		$fi
 		str0
 		pushp std_alloc2_init_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 		& lfr0 & ret
@@ -263,7 +263,7 @@ $if std_alloc2_guard 0
 	:reg_std_alloc2_init {
 		pushp std_alloc2_init_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 	}
@@ -276,12 +276,12 @@ $if std_alloc2_guard 0
 
 	:hidden$reg_std_alloc2_prof (
 		$if IS_DYOBJ 1
-			over addp
+			over addbp
 		$fi
 		str0
 		pushp std_alloc2_prof_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 		& lfr0 & ret
@@ -290,7 +290,7 @@ $if std_alloc2_guard 0
 	:reg_std_alloc2_prof {
 		pushp std_alloc2_prof_f
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaosymc
 	}
@@ -301,12 +301,12 @@ $if std_alloc2_guard 0
 
 	:hidden$reg_std_alloc2 (
 		$if IS_DYOBJ 1
-			over addp
+			over addbp
 		$fi
 		str0
 		pushp std_alloc2
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaoc
 		& lfr0 & ret
@@ -315,7 +315,7 @@ $if std_alloc2_guard 0
 	:reg_std_alloc2 {
 		pushp std_alloc2
 		$if IS_DYOBJ 1
-			addp
+			addbp
 		$fi
 		loadnaoc
 	}

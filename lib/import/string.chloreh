@@ -17,13 +17,13 @@ $if std_string_guard 0
 
 	:hidden$reg_std_string_strlen (
 		$if DY_OBJ 1
-			addp
+			addbp
 		$fi
 		str0
 		swap
 		ldaohd
 		pushp sym___std_string_strlen
-		addp
+		addbp
 		staosymhd
 		& lfr0 & ret
 	)
@@ -35,18 +35,18 @@ $if std_string_guard 0
 		swap
 		ldaohd
 		pushp sym___std_string_strlen
-		addp
+		addbp
 		staosymhd
 	}
 
 	:hidden$reg_std_string (
 		$if DY_OBJ 1
-			over addp
+			over addbp
 		$fi
 		str0
 		pushp std_string
 		$if DY_OBJ 1
-			addp
+			addbp
 		$fi
 		$if LD_DYN 1
 			loadaoc
@@ -60,7 +60,7 @@ $if std_string_guard 0
 	:hidden$reg_std_string {
 		pushp std_string
 		$if DY_OBJ 1
-			addp
+			addbp
 		$fi
 		$if LD_DYN 1
 			loadaoc
