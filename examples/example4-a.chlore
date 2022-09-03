@@ -11,10 +11,10 @@ pushp obj_name
 pushuc 8 ;this is the alignment
 aloadaoc
 
-pushuc 0 pushuc 0 ldaohd staosymhd ;store the base address of `example-4b.sso' at the 0th index of the symbol handler table; it is basically the same as saying "Use the default entry point for the object"
+pushuc 0 pushuc 0 ldaohd staosymhd ;store an implicit pointer to `example-4b.sso' at the 0th index of the symbol handler table; it is basically the same as saying "Use the default entry point for the object"
 
 pushuc 0
-ldaohd ;push the base address of the object registered at the 0th index of the object handler table
+ldaohd ;push the implicit pointer to the object registered at the 0th index of the object handler table
 pushuc 0
 invokeaosym ;invoke the symbol registered at the 0th index
 

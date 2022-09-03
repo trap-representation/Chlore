@@ -20,7 +20,7 @@ pushp reg_std_io_putstr
 call ;registers the `std_io_putstr' symbol
 
 ;invoke the registered symbol
-pushp string ptr_data
+pushp string ptr_code
 pushuc 0 ! ;invoke the symbol registered at the 0th index of the symbol handler table
 hlt
 

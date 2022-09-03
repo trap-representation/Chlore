@@ -27,22 +27,22 @@ pushuc 0 pushuc 2
 
 pushuc 0 !
 
-pushp rocket_top ptr_data
+pushp rocket_top ptr_code
 pushuc 2 !
 
 :loop
 	dup pushuc '\n' pushp quit jeq ;check for newline
 	dup pushc EOF pushp quit jeq ;check for EOF
-	pushp pipe_with_space ptr_data
+	pushp pipe_with_space ptr_code
 	pushuc 2 !
 	pushuc 1 !
-	pushp pipe_with_newline ptr_data
+	pushp pipe_with_newline ptr_code
 	pushuc 2 !
 	pushuc 0 !
 	pushp loop jmp
 
 :quit
-pushp rocket_bottom ptr_data
+pushp rocket_bottom ptr_code
 pushuc 2 !
 hlt
 

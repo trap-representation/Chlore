@@ -32,7 +32,7 @@ pushuc 0
 	dup
 	pushuc 15 swap reml ;check if the number is divisible by 15
 	pushp check_fizz jnz ;if not, jump to `check_fizz' to check if it divisible by 3
-	pushp fizz_buzz_string ptr_data ;print "fizzbuzz"
+	pushp fizz_buzz_string ptr_code ;print "fizzbuzz"
 	pushuc 0 !
 	pushp continue jmp
 
@@ -40,7 +40,7 @@ pushuc 0
 	dup
 	pushuc 3 swap reml ;check if the number is divisible by 3
 	pushp check_buzz jnz ;if not, jump to `check_buzz' to check if it divisible by 5
-	pushp fizz_string ptr_data ;print "fizz"
+	pushp fizz_string ptr_code ;print "fizz"
 	pushuc 0 !
 	pushp continue jmp
 
@@ -48,7 +48,7 @@ pushuc 0
 	dup
 	pushuc 5 swap reml ;check if the number is divisible by 5
 	pushp print_num jnz ;if not, jump to `print_num' to just print the number at the top of the stack
-	pushp buzz_string ptr_data ;print "buzz"
+	pushp buzz_string ptr_code ;print "buzz"
 	pushuc 0 !
 	pushp continue jmp
 

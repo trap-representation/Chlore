@@ -24,7 +24,7 @@ pushuc 0 pushuc 0
 pushp reg_std_string_strlen
 call
 
-pushp string ptr_data
+pushp string ptr_code
 pushuc 0 !
 
 ;the length of the string pointed to by `string' is now on the top of the stack

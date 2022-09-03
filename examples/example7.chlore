@@ -18,9 +18,9 @@ pushuc 0
 pushp reg_std_io_putfmt
 call
 
-pushp string1 ptr_data
+pushp string1 ptr_code
 pushui 42
-pushp string0 ptr_data
+pushp string0 ptr_code
 pushuc 0 !
 
 hlt
