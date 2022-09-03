@@ -2,7 +2,7 @@
   This is an addressable, non-standalone object file that can be loaded by or placed in another non-standalone||standalone object file during run-||compile-time
 /
 
-set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard library subroutines will simply fail
+set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard library routines will simply fail
 import "./lib/import/io.chloreh"
 
 :abs_addr { & ldr1 & addbp } ;this macro should be applied to pointers that are pointing to stuff present in this object.
