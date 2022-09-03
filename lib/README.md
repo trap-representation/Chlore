@@ -1,1 +1,1 @@
-The source files here are implementation-dependent. These are put here as examples.
+The source files may vary depending on the implementation.
