@@ -3,42 +3,42 @@ import "./lib/import/stddef.chloreh"
 :oentry force_panic
 
 :exposed$__std_string_strlen (
-	swap ;the [top] of the stack now has an explicit pointer to data or the heap
+	swap ;the [top] of the stack now has an explicit pointer to code or the heap
 	pushuc 0 ;this is the length of the string initially
 	swap dup
 	ptyp
 	pushl MAX_ADDR_MEM
 	pushrp __std_string_strlen_heap rjeq
-	pushrp __std_string_strlen_data rjmp
+	pushrp __std_string_strlen_code rjmp
 
 :exposed$__std_string_strlen_heap
 	ep2ip
 	:exposed$__std_string_strlen_heap_loop
 		dup ;both the [top] and [top-1] have (the same dup'ed) pointers to the heap
-		& lfhuc pushrp __std_string_strlen_heap_loop_inc rjnz ;jump to `std_string_strlen_heap_loop_inc' if the character encountered is not a nul terminator
+		& lfhuc & pushrp __std_string_strlen_heap_loop_inc rjnz ;jump to `std_string_strlen_heap_loop_inc' if the character encountered is not a null terminator
 	pop swap
 	pushuc 0 str0 ;save a zero return value in GPR 0
 	ret
 
 :exposed$__std_string_strlen_heap_loop_inc
-	pushuc 1 addp ;increment the heap pointer
+	pushuc 1 swap addp ;increment the heap pointer
 	swap pushuc 1 addl ;increment the length of the string
 	swap
 	pushrp __std_string_strlen_heap rjmp
 
-:exposed$__std_string_strlen_data
+:exposed$__std_string_strlen_code
 	ep2ip
-	:exposed$__std_string_strlen_data_loop
-		dup ;both the [top] and [top-1] have (the same dup'ed) pointers to the data
-		loadcuc pushrp __std_string_strlen_data_loop_inc rjnz ;jump to `std_string_strlen_data_loop_inc' if the character encountered is not a nul terminator
+	:exposed$__std_string_strlen_code_loop
+		dup ;both the [top] and [top-1] have (the same dup'ed) pointers to the code
+		loadcuc pushrp __std_string_strlen_code_loop_inc rjnz ;jump to `std_string_strlen_code_loop_inc' if the character encountered is not a null terminator
 	pop swap
 	pushuc 0 str0 ;save a zero return value in GPR 0
 	ret
 
-:exposed$__std_string_strlen_data_loop_inc
-	pushuc 1 addp ;increment the data pointer
+:exposed$__std_string_strlen_code_loop_inc
+	pushuc 1 swap addp ;increment the code pointer
 	swap pushuc 1 addl ;increment the length of the string
 	swap
-	pushrp __std_string_strlen_data rjmp
+	pushrp __std_string_strlen_code rjmp
 )
 
