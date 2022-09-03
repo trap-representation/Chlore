@@ -6,17 +6,17 @@
 
 :main
 
-pushuc 0 ;registers the object at the 0th index of the object handler table
+pushuc 0 ;saves a pointer to the object at the 0th index of OHT0
 pushp obj_name
 pushuc 8 ;this is the alignment
-aloadaoc
+aldao0c
 
-pushuc 0 pushuc 0 ldaohd staosymhd ;store an implicit pointer to `example-4b.sso' at the 0th index of the symbol handler table; it is basically the same as saying "Use the default entry point for the object"
+pushuc 0 pushuc 0 ldao0 stao1 ;store a pointer pointing to the object at the 0th index of the OHT1; it is basically the same as saying "Use the default entry point for the object"
 
 pushuc 0
-ldaohd ;push the implicit pointer to the object registered at the 0th index of the object handler table
+ldao0 ;push an implicit pointer to the object saved at OHT0
 pushuc 0
-invokeaosym ;invoke the symbol registered at the 0th index
+callao ;branch to the instruction pointed to by the 0th index of OHT1
 
 
 hlt

@@ -8,23 +8,17 @@ import "./lib/import/io.chloreh"
 
 :main
 
-;register the object that we need to use
-pushuc 0 ;the object will be registered at the 0th index of the object handler table
-pushp reg_std_io
-call ;registers the `std_io' object
+;save a pointer to the object that we need to use
+pushuc 0 ;the pointer will be saved at the 0th index of OHT0
+pushp sav_std_io
+call
 
-;register the symbol from the object that we are going to need
-pushuc 0 ;for loading a symbol from the object loaded at the 0th index of the object handler table
-pushuc 0 ;the symbol will be registered at the 0th index of the symbol handler table
-pushp reg_std_io_putstr
-call ;registers the `std_io_putstr' symbol
+;save a pointer to the instruction within the object that we're going to call
+pushuc 0 ;the object we're going to load is present in the 0th index of OHT0
+pushuc 0 ;the pointer will be stored at the 0th index of OHT1
+pushp sav_std_io_putstr
+call
 
-;invoke the registered symbol
 pushp string ptr_code
-pushuc 0 ! ;invoke the symbol registered at the 0th index of the symbol handler table
+pushuc 0 ! ;branch to the instruction pointed to by the 0th index of OHT1
 hlt
-
-
-;NOTE the bang invocation operator (!) has to check whether the symbol at the [top]th index of the symbol handler table is present in a NAO, or an AO, which might be slow
-;if you want to avoid this, directly use `invokenaosym' or `invokeaosym' based on how the object is implemented
-;the bang invocation and the tilde unload (~) operators are made just to have a common operator for invoking/unloading symbols irrespective of where those symbols are present in

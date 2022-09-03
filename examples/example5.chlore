@@ -13,15 +13,15 @@ import "./lib/import/string.chloreh"
 
 :main
 pushuc 0
-pushp reg_std_string
-call ;load in the `std_string' object
+pushp sav_std_string
+call
 
 pushuc 1
-pushp reg_std_io
-call ;load in the `std_io' object
+pushp sav_std_io
+call
 
 pushuc 0 pushuc 0
-pushp reg_std_string_strlen
+pushp sav_std_string_strlen
 call
 
 pushp string ptr_code
@@ -30,7 +30,7 @@ pushuc 0 !
 ;the length of the string pointed to by `string' is now on the top of the stack
 
 pushuc 1 pushuc 1
-pushp reg_std_io_putl
+pushp sav_std_io_putl
 call
 
 pushuc 1 !

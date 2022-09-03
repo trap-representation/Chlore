@@ -11,16 +11,16 @@ import "./lib/import/shorthand.chloreh"
 
 :main
 pushuc 0
-%reg_std_io
+%sav_std_io
 
 pushuc 0 pushuc 0
-%reg_std_io_putstr
+%sav_std_io_putstr
 
 pushuc 0 pushuc 1
-%reg_std_io_putl
+%sav_std_io_putl
 
 pushuc 0 pushuc 2
-%reg_std_io_putchar
+%sav_std_io_putchar
 
 set MAX_CNT 100
 
