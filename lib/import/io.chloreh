@@ -11,7 +11,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -20,7 +20,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -36,7 +36,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -45,7 +45,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -61,7 +61,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -70,7 +70,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -86,7 +86,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -95,7 +95,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -111,7 +111,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -120,7 +120,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -136,7 +136,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -145,7 +145,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -161,7 +161,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -170,7 +170,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -186,7 +186,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -195,7 +195,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -211,7 +211,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -220,7 +220,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -236,7 +236,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -245,7 +245,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -261,7 +261,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -270,7 +270,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -286,7 +286,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -295,7 +295,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -311,7 +311,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -320,7 +320,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -336,7 +336,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -345,7 +345,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -369,7 +369,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -385,7 +385,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -394,7 +394,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -410,7 +410,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -419,7 +419,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -435,7 +435,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -444,7 +444,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -460,7 +460,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -469,7 +469,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -485,7 +485,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -494,7 +494,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -518,7 +518,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -534,7 +534,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -543,7 +543,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -559,7 +559,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -568,7 +568,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -584,7 +584,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -593,7 +593,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -609,7 +609,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -618,7 +618,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -634,7 +634,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -643,7 +643,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -659,7 +659,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -668,7 +668,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -684,7 +684,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 		& ldr0 & ret
 	)
 
@@ -693,7 +693,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao1c
+		stvisnaoc
 	}
 
 	rbs
@@ -709,7 +709,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao0c
+		opennaoc
 		& ldr0 & ret
 	)
 
@@ -718,7 +718,7 @@ $if std_io_guard 0
 		$if IS_DYOBJ 1
 			addbp
 		$fi
-		ldnao0c
+		opennaoc
 	}
 
 	rbs

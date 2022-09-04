@@ -21,10 +21,8 @@ $if std_string_guard 0
 		$fi
 		str0
 		swap
-		ldao0
 		pushp sym___std_string_strlen
-		addbp
-		stao1
+		stvisao
 		& ldr0 & ret
 	)
 
@@ -33,10 +31,8 @@ $if std_string_guard 0
 			pop
 		$fi
 		swap
-		ldao0
 		pushp sym___std_string_strlen
-		addbp
-		stao1
+		stvisao
 	}
 
 	:hidden$sav_std_string (
@@ -49,10 +45,10 @@ $if std_string_guard 0
 			addbp
 		$fi
 		$if LD_DYN 1
-			ldao0c
+			openaoc
 		$fi
 		$else
-			stao0
+			stao
 		$fi
 		& ldr0 & ret
 	)
@@ -63,10 +59,10 @@ $if std_string_guard 0
 			addbp
 		$fi
 		$if LD_DYN 1
-			ldao0c
+			openaoc
 		$fi
 		$else
-			stao0
+			stao
 		$fi
 	}
 $fi
