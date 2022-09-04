@@ -1,22 +1,25 @@
-/ example 4-a: Loading addressable objects at runtime
-  This program loads an addressable object at runtime
+/ example 4-a: Opening addressable objects at runtime
+  This program opens an addressable object at runtime
 /
+
+import "./example-4b_visible_symbols.chlore"
 
 :obj_name dat str "./example-4b.sso"
 
 :main
 
-pushuc 0 ;saves a pointer to the addressable object at the 0th index of OHT0
+pushuc 0 ;save a pointer to the addressable object at the 0th index of the object handler table
 pushp obj_name
 pushuc 8 ;this is the alignment
-aldao0c
+aopenaoc
 
-pushuc 0 pushuc 0 ldao0 stao1 ;store a pointer pointing to the addressable object at the 0th index of the OHT1; it is basically the same as saying "Use the default entry point for the addressable object"
+pushuc 0 pushuc 0 pushp sym_oentry stvisao ;store the visible symbol `oentry' at the 0th index of the visible symbol handler table
 
 pushuc 0
-ldao0 ;push an implicit pointer to the addressable object saved at OHT0
+ldao ;get an implicit pointer to the object saved at the 0th index of the object handler table
+
 pushuc 0
-callao ;branch to the instruction pointed to by the 0th index of OHT1
+callao ;branch to the instruction pointed to by the visible symbol at the 0th index of the symbol handler table
 
 
 hlt

@@ -3,7 +3,6 @@
 /
 
 set LD_DYN 1 ;if LD_DYN is set to 1, it'll hint the implementation that addressable objects can be loaded dynamically
-;it is still nothing more than just a hint though, so the implementation is free to put it anywhere it likes, if it wants to
 
 import "./lib/import/io.chloreh"
 import "./lib/import/string.chloreh"
