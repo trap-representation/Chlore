@@ -9,16 +9,16 @@ import "./lib/import/io.chloreh"
 :main
 
 ;open the non-addressable object that we need to use
-pushuc 0 ;the object will be saved at the 0th index of the object handler table
+pushuc 0 ;the non-addressable object will be saved at the 0th index of the object handler table
 pushp sav_std_io
 call
 
 ;save a pointer to the visible symbol we're going to call
-pushuc 0 ;we'll try loading the symbol from the non-addressable object present at the 0th index of the object handler table
-pushuc 0 ;and if loaded successfully, store the pointer to the object at the 0th index of the visible symbol handler table
+pushuc 0 ;we'll try loading the visible symbol from the non-addressable object present at the 0th index of the object handler table
+pushuc 0 ;and if loaded successfully, store the symbol at the 0th index of the symbol handler table
 pushp sav_std_io_putstr
 call
 
 pushp string ptr_code
-pushuc 0 ! ;branch to the object pointed to by the 0th index of the visible symbol handler table
+pushuc 0 ! ;branch to the object pointed to by the 0th index of the symbol handler table
 hlt

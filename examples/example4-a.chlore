@@ -13,13 +13,13 @@ pushp obj_name
 pushuc 8 ;this is the alignment
 aopenaoc
 
-pushuc 0 pushuc 0 pushp sym_oentry stvisao ;store the visible symbol `oentry' at the 0th index of the visible symbol handler table
+pushuc 0 pushuc 0 pushp sym_oentry stvisao ;store the visible symbol `oentry' at the 0th index of the symbol handler table
 
 pushuc 0
-ldao ;get an implicit pointer to the object saved at the 0th index of the object handler table
+ldao ;get a pointer to the addressable object saved at the 0th index of the object handler table
 
 pushuc 0
-callao ;branch to the instruction pointed to by the visible symbol at the 0th index of the visible symbol handler table
+callao ;branch to the instruction pointed to by the visible symbol at the 0th index of the symbol handler table
 
 
 hlt

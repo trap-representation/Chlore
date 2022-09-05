@@ -1,11 +1,11 @@
 / example 4-b: Addressable, non-standalone object
-  This is an addressable, non-standalone object file that can be loaded by or placed in another non-standalone||standalone object file during run-||compile-time
+  This is an addressable, non-standalone object file that can be loaded by or placed in another non-standalone||standalone object during run-||compile-time
 /
 
 set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard library subroutines will simply fail
 import "./lib/import/io.chloreh"
 
-:calc_addr { & ldr1 & addbp } ;this macro should be applied to pointers that are pointing to stuff present in this addressable object
+:abs_addr { & ldr1 & addbp }
 
 :string dat str "Hello, World!\n"
 
@@ -15,15 +15,15 @@ swap str1
 
 pushuc 0
 & ldr1 &
-pushp sav_std_io %calc_addr
+pushp sav_std_io %abs_addr
 call
 
 pushuc 0 pushuc 0
 & ldr1 &
-pushp sav_std_io_putstr %calc_addr
+pushp sav_std_io_putstr %abs_addr
 call
 
-pushp string %calc_addr ptr_code
+pushp string %abs_addr ptr_code
 pushuc 0 !
 
 hlt
