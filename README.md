@@ -54,4 +54,5 @@ Update: I've been working on bootstrapping the MChlore compiler, so I might not 
 
 You'll be able to find the source of the reference implementation of Chlore that I've been working on here soon.
 
-PS: Check out the Chlore website [here](https://trap-representation.github.io/Chlore/).
+PS: Check out the Chlore website [here](https://trap-representation.github.io/Chlore/).  
+Join the [discord](https://discord.gg/5FCpR5eZyp).
