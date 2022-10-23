@@ -6,4 +6,5 @@ TODO:
 - [ ] Backend
 - [ ] Optimizer
 
-`gen_tokens.txt` contains a list of tokens generated from running the lexer on `lexer.chlore`
+
+1 `gen_tokens.txt` contains a list of tokens generated from running the lexer on `lexer.chlore`
