@@ -1724,7 +1724,7 @@ pushc '\0' sthc ;store a null terminator there
 	& ldr0 & ;push the length of the read buffer
 
 	/state 0 -> start of the file || finished reading a token
-	 state 1 -> reading a symbol || instruction || directive
+	 state 1 -> reading a symbol || instruction
 	 state 2 -> reading an integer
 	 state 3 -> reading a string constant
 	 state 4 -> reading single-line comment
