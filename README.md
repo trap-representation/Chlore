@@ -10,7 +10,6 @@ Design goals:
 - Trust the programmer
 - Keep the language as simple as possible
 - Keep the standard library as minimal as possible
-- One pays for only as much as one wants to do
 
 What Chlore will *never* have:
 - Automatic memory management
