@@ -3,22 +3,22 @@ Chlore
 
 ![Chlore logo](./chlore-logo-github-pages.png)
 
-This is Chlore - a stack based language that's made with a focus on speed and simplicity.
+This is Chlore - a stack based language that's made with a focus on simplicity.
 
 #### Why yet another new language? ####
 
-1. Most of the modern languages are built with memory-safety in mind. But let's be honest, a compiler can never be perfect; it's not hard for subtle bugs to slip through and cause all sorts of weird stuff.
+1. Most of the modern languages are built with memory-safety in mind, and most translators perform a lot of complex operations to "guarantee" that "memory-safety" they promise. But let's be honest, the more complex the translator is, the more are the chances of subtle bugs to silp right through, and cause all sorts of weird stuff.
 
-   This is why Chlore does *not* try to be memory-safe at all. It is built with a focus on speed and optimizations, rather than memory-safety. It's always better to make the programmer aware that they're programming in a "memory-unsafe" language, rather than give them a false sense of safety.
+    Chlore is *not* "memory-safe", and its reference implementation is probably one of the simplest compilers you'll find out there.
 
 2. Languages are slowly turning into a bloated mess:
 - Huge standard libraries with "features" to make programmers' lives easier
-- Package managers built right into the language encouraging the use of third-party libraries (which is one of the main causes of security vulnerabilities in softwares, since programmers don't care to read the source of the library they're using)
+- Package managers built right into the language encouraging the use of third-party libraries (which is one of the main causes of security vulnerabilities in softwares, since most programmers don't care to read the source of the library they're using)
 - Some languages don't even have any formal specification
 
-   Chlore does not and will *never* have any of these "features". Chlore follows a spec-first approach for the design of the language and it has a standard library that tries to be small, lightweight, and as close to libc as possible.
+   Chlore does not and will *never* have any of these "features". Chlore follows a spec-first approach for the design of the language and it has a standard library that tries to be small, and lightweight.
 
-3. Modern languages aren't simple anymore. Simplicity isn't always proportional to how much a language can make a programmer's life easier. A simple language should be small, lightweight, and efficient. The programmer shall be the one in full control of his code, rather than the compiler.
+3. Modern languages aren't simple anymore. Simplicity isn't always proportional to how much a language can make a programmer's life easier. A simple language should be ... well simple, and efficient. The programmer shall be the one in full control of his code, rather than the translator.
 
 #### Design goals: ####
 - Trust the programmer
@@ -50,17 +50,12 @@ import "./lib/import/io.chloreh"
 
 :main
 pushuc 0
-%reg_std_io
+%sav_std_io
 
 pushuc 0 pushuc 0
-%reg_std_io_putstr
+%sav_std_io_putstr
 
 pushp string ptr_data
 pushuc 0 !
 hlt
 ````
-
-#### Future plans: ####
-- Build a useful standard library
-- Build a compiler for a higher-level language that will be able to target Chlore
-- Make MChlore self-hosted
