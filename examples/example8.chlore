@@ -10,8 +10,8 @@ pushl n
 pushp fib
 call
 
-pushuc 0 %sav_std_io
-pushuc 0 pushuc 0 %sav_std_io_putl
+pushuc 0 %std_io
+pushuc 0 pushuc 0 %putl
 pushuc 0 !
 
 hlt
