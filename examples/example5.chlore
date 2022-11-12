@@ -2,7 +2,7 @@
   This program calculates the length of the null-terminated string pointed to by `string'
 /
 
-set LD_DYN 1 ;if LD_DYN is set to 1, it'll hint the implementation that addressable objects can be loaded dynamically
+set LD_DYN 1 ;if LD_DYN is set to 1, it'll hint the implementation that non-addressable objects can be loaded dynamically
 
 import "./lib/import/io.chloreh"
 import "./lib/import/string.chloreh"
@@ -12,15 +12,15 @@ import "./lib/import/string.chloreh"
 
 :main
 pushuc 0
-pushp sav_std_string
+pushp std_string
 call
 
 pushuc 1
-pushp sav_std_io
+pushp std_io
 call
 
 pushuc 0 pushuc 0
-pushp sav_std_string_strlen
+pushp strlen
 call
 
 pushp string ptr_code
@@ -29,7 +29,7 @@ pushuc 0 !
 ;the length of the string pointed to by `string' is now on the top of the stack
 
 pushuc 1 pushuc 1
-pushp sav_std_io_putl
+pushp putl
 call
 
 pushuc 1 !
