@@ -9,20 +9,20 @@ import "./lib/import/alloc2.chloreh"
 :main
 
 pushuc 0
-pushp sav_std_alloc2
+pushp std_alloc2
 call
 pushuc 1
-pushp sav_std_io
+pushp std_io
 call
 
 pushuc 0 pushuc 0
-%sav_std_alloc2_aaseg
+%aaseg
 pushuc 0 pushuc 1
-%sav_std_alloc2_close
+%alloc_close
 pushuc 1 pushuc 2
-%sav_std_io_putui
+%putui
 pushuc 0 pushuc 3
-%sav_std_alloc2_init
+%alloc_init
 
 pushuc 3 !
 %terminate_on_error
