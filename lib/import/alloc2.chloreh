@@ -7,16 +7,16 @@ $if std_alloc2_guard 0
 	set EINT 3     ;One of the internal functions that this object uses to allocate memory has encountered an error. In case of this error, the best option is to terminate the program, since it might leave the heap in a corrupted state.
 	set EOVF 4     ;The requested amount of memory is more than what's been pre-allocated by the environment for the program.
 
-	/ On success: Signals the enviroment to allocate [top-1] bytes for the heap buffer. The contents of the heap are retained after the reallocation. The heap keeps the alignment that it had before the reallocation.
+	/ On success: Signals the enviroment to allocate [top] bytes for the heap buffer. The contents of the heap are retained after the reallocation. The heap keeps the alignment that it had before the reallocation.
 	  On failure: Returns EINT.
 	/
 
-	:hidden$sav_std_alloc2_rlhb (
+	:hidden$rlhb (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp std_alloc2_rlhb_f
+		pushp rlhb_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -24,8 +24,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:sav_std_alloc2_rlhb {
-		pushp std_alloc2_rlhb_f
+	:rlhb {
+		pushp rlhb_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -33,7 +33,7 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$std_alloc2_rlhb_f ( dat str "rlhb" )
+	:hidden$rlhb_f ( dat str "rlhb" )
 	rbe
 
 	/ On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top-1] bytes, and aligned to a [top] bytes boundary on the [top] of the stack.
@@ -41,12 +41,12 @@ $if std_alloc2_guard 0
 		      Pushes an unspecified value on the top of the stack.
 	/
 
-	:hidden$sav_std_alloc2_aaseg (
+	:hidden$aaseg (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp std_alloc2_aaseg_f
+		pushp aaseg_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -54,8 +54,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:sav_std_alloc2_aaseg {
-		pushp std_alloc2_aaseg_f
+	:aaseg {
+		pushp aaseg_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -63,7 +63,7 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$std_alloc2_aaseg_f ( dat str "aaseg" )
+	:hidden$aaseg_f ( dat str "aaseg" )
 	rbe
 
 	/ On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top] bytes on the [top] of the stack.
@@ -71,12 +71,12 @@ $if std_alloc2_guard 0
 		      Pushes an unspecified value on the top of the stack.
 	/
 
-	:hidden$sav_std_alloc2_aseg (
+	:hidden$aseg (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp std_alloc2_aseg_f
+		pushp aseg_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -84,8 +84,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:sav_std_alloc2_aseg {
-		pushp std_alloc2_aseg_f
+	:aseg {
+		pushp aseg_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -93,20 +93,20 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$std_alloc2_aseg_f ( dat str "aseg" )
+	:hidden$aseg_f ( dat str "aseg" )
 	rbe
 
-	/ On success: Flushes the chunk of memory pointed at by the [top-1] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-2] bytes, aligned to a [top] byte boundary, and which & ldr0 & retains the contents of the original chunk, on the [top] of the stack.
+	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-2] bytes, aligned to a [top-1] byte boundary, which retains the contents of the original chunk, on the [top] of the stack.
 	  On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
 		      Pushes an unspecified value on the top of the stack.
 	/
 
-	:hidden$sav_std_alloc2_arseg (
+	:hidden$arseg (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp std_alloc2_arseg_f
+		pushp arseg_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -114,8 +114,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:sav_std_alloc2_arseg {
-		pushp std_alloc2_arseg_f
+	:arseg {
+		pushp arseg_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -123,20 +123,20 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$std_alloc2_arseg_f ( dat str "arseg" )
+	:hidden$arseg_f ( dat str "arseg" )
 	rbe
 
-	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-1] bytes, and which & ldr0 & retains the contents of the original chunk, on the [top] of the stack.
+	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-1] bytes, which retains the contents of the original chunk, on the [top] of the stack.
 	  On failure: Returns one of EINIT, EINT, EOVF.
 		      Pushes an unspecified value on the top of the stack.
 	/
 
-	:hidden$sav_std_alloc2_rseg (
+	:hidden$rseg (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp std_alloc2_rseg_f
+		pushp rseg_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -144,8 +144,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:sav_std_alloc2_rseg {
-		pushp std_alloc2_rseg_f
+	:rseg {
+		pushp rseg_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -153,19 +153,19 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$std_alloc2_rseg_f ( dat str "rseg" )
+	:hidden$rseg_f ( dat str "rseg" )
 	rbe
 
 	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack. [top] must be an (explicit) pointer & ldr0 & returned by one of `aseg', `aaseg', `rseg', `arseg'.
 	  On failure: Returns EINIT.
 	/
 
-	:hidden$sav_std_alloc2_flush (
+	:hidden$flush (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp std_alloc2_flush_f
+		pushp flush_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -173,8 +173,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:sav_std_alloc2_flush {
-		pushp std_alloc2_flush_f
+	:flush {
+		pushp flush_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -182,19 +182,19 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$std_alloc2_flush_f ( dat str "flush" )
+	:hidden$flush_f ( dat str "flush" )
 	rbe
 
 	/ On success: Frees up all the additional memory allocated by this object.
 	  On failure: Returns EINIT.
 	/
 
-	:hidden$sav_std_alloc2_close (
+	:hidden$close (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp std_alloc2_close_f
+		pushp close_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -202,8 +202,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:sav_std_alloc2_close {
-		pushp std_alloc2_close_f
+	:close {
+		pushp close_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -211,19 +211,19 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$std_alloc2_close_f ( dat str "close" )
+	:hidden$close_f ( dat str "close" )
 	rbe
 
 	/ On success: Dumps the current VM heap state to stdout.
 	  On failure: Returns EINIT.
 	/
 
-	:hidden$sav_std_alloc2_dump (
+	:hidden$dump (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp std_alloc2_dump_f
+		pushp dump_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -231,8 +231,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:sav_std_alloc2_dump {
-		pushp std_alloc2_dump_f
+	:dump {
+		pushp dump_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -240,19 +240,19 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$std_alloc2_dump_f ( dat str "dump" )
+	:hidden$dump_f ( dat str "dump" )
 	rbe
 
 	/ On success: Initializes the heap. Must be called before anything (except `rlhb') in this object is used.
 	  On failure: Returns EINT.
 	/
 
-	:hidden$sav_std_alloc2_init (
+	:hidden$init (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp std_alloc2_init_f
+		pushp init_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -260,8 +260,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:sav_std_alloc2_init {
-		pushp std_alloc2_init_f
+	:init {
+		pushp init_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -269,17 +269,17 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$std_alloc2_init_f ( dat str "init" )
+	:hidden$init_f ( dat str "init" )
 	rbe
 
 	/ Writes the cache hits and misses to stdout. /
 
-	:hidden$sav_std_alloc2_prof (
+	:hidden$prof (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp std_alloc2_prof_f
+		pushp prof_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -287,8 +287,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:sav_std_alloc2_prof {
-		pushp std_alloc2_prof_f
+	:prof {
+		pushp prof_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -296,15 +296,15 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$std_alloc2_prof_f ( dat str "prof" )
+	:hidden$prof_f ( dat str "prof" )
 	rbe
 
-	:hidden$sav_std_alloc2 (
+	:hidden$std_alloc2 (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp std_alloc2
+		pushp std_alloc2_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -312,8 +312,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:sav_std_alloc2 {
-		pushp std_alloc2
+	:std_alloc2 {
+		pushp std_alloc2_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -321,6 +321,7 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$std_alloc2 dat str "./lib/bin/alloc2.so"
+	:hidden$std_alloc2_f ( dat str "./lib/bin/alloc2.so" )
 	rbe
 $fi
+

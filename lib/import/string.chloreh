@@ -1,68 +1,81 @@
-import "./lib/bin/__std_string_relative_addr.chloreh"
-
 $if std_string_guard 0
 
-	set std_string_guard 1
+	set string_guard 1
 
-	$if LD_DYN 1
-		:hidden$std_string dat str "./lib/bin/string.sso"
-	$fi
-	$else
-		:hidden$std_string
-			include "./lib/bin/string.sso"
-	$fi
-
-
-	/ Pushes the length of the null-terminated string pointed to by the (explicit) pointer present at the [top] of the stack. /
-
-	:hidden$sav_std_string_strlen (
-		$if DY_OBJ 1
-			addbp
-		$fi
-		str0
-		swap
-		pushp sym___std_string_strlen
-		stvisao
-		& ldr0 & ret
-	)
-
-	:hidden$sav_std_string_strlen {
-		$if DY_OBJ 1
-			pop
-		$fi
-		swap
-		pushp sym___std_string_strlen
-		stvisao
-	}
-
-	:hidden$sav_std_string (
-		$if DY_OBJ 1
+	:hidden$strlen (
+		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp std_string
-		$if DY_OBJ 1
+		pushp strlen_f
+		$if IS_DYOBJ 1
 			addbp
 		$fi
-		$if LD_DYN 1
-			openaoc
-		$fi
-		$else
-			stao
-		$fi
+		stvisnaoc
 		& ldr0 & ret
 	)
 
-	:hidden$sav_std_string {
-		pushp std_string
-		$if DY_OBJ 1
+	:strlen {
+		pushp strlen_f
+		$if IS_DYOBJ 1
 			addbp
 		$fi
-		$if LD_DYN 1
-			openaoc
-		$fi
-		$else
-			stao
-		$fi
+		stvisnaoc
 	}
+
+	rbs
+	:hidden$strlen_f ( dat str "string_len" )
+	rbe
+
+	:hidden$strcmp (
+		$if IS_DYOBJ 1
+			over addbp
+		$fi
+		str0
+		pushp strcmp_f
+		$if IS_DYOBJ 1
+			addbp
+		$fi
+		stvisnaoc
+		& ldr0 & ret
+	)
+
+	:strcmp {
+		pushp strcmp_f
+		$if IS_DYOBJ 1
+			addbp
+		$fi
+		stvisnaoc
+	}
+
+	rbs
+	:hidden$strcmp_f ( dat str "cmp_string" )
+	rbe
+
+	:hidden$std_string (
+		$if IS_DYOBJ 1
+			over addbp
+		$fi
+		str0
+		pushp std_string_f
+		$if IS_DYOBJ 1
+			addbp
+		$fi
+		opennaoc
+		& ldr0 & ret
+	)
+
+	:std_string {
+		pushp std_string_f
+		$if IS_DYOBJ 1
+			addbp
+		$fi
+		opennaoc
+	}
+
+	rbs
+	:hidden$std_string_f ( dat str "./lib/bin/string.so" )
+	rbe
+
 $fi
+
