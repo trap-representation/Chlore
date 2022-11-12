@@ -3,6 +3,7 @@
 /
 
 set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard library subroutines will simply fail
+
 import "./lib/import/io.chloreh"
 
 :abs_addr { & ldr1 & addbp }
@@ -15,12 +16,12 @@ swap str1
 
 pushuc 0
 & ldr1 &
-pushp sav_std_io %abs_addr
+pushp std_io %abs_addr
 call
 
 pushuc 0 pushuc 0
 & ldr1 &
-pushp sav_std_io_putstr %abs_addr
+pushp putstr %abs_addr
 call
 
 pushp string %abs_addr ptr_code
