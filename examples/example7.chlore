@@ -10,12 +10,12 @@ import "./lib/import/io.chloreh"
 :main
 
 pushuc 0
-pushp sav_std_io
+pushp std_io
 call
 
 pushuc 0
 pushuc 0
-pushp sav_std_io_putfmt
+pushp putfmt
 call
 
 pushp string1 ptr_code
