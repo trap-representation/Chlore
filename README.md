@@ -47,7 +47,7 @@ hlt
 
 ###### 1) Check out more examples in the `examples` directory. ######
 
-A formal language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be uploaded here soon.
+A formal language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be put here soon.
 
 The `self_hosted` directory contains the source to the (WIP) self-hosted compiler of the language.
 
