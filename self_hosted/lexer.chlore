@@ -1,6 +1,6 @@
 ; [WIP] Lexer for the Chlore programming language written in Chlore
 
-import "./self_hosted/tokens/keywords.chloreh"
+import "./self_hosted/keywords.chloreh"
 
 set BUF_SIZ 4096
 
@@ -184,7 +184,7 @@ pushc '\0' sthc ;store a null terminator there
 	pushp check_punctuator_and_set_code call
 }
 
-import "./self_hosted/tokens/keywords_ops.chloreh"
+import "./self_hosted/keywords_ops.chloreh"
 
 :lex (
 	/NOTE keep `aseg' at the 1st index, `rseg' at the 2nd one, `strcmp' at the 3rd one, and `flush' at the 4th one, unless we're about to return control back to the parser, in which case about anything is fine

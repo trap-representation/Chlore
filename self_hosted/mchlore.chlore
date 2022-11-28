@@ -6,6 +6,7 @@ import "./lib/import/shorthand.chloreh"
 import "./lib/import/types.chloreh"
 import "./lib/import/stddef.chloreh"
 import "./lib/import/string.chloreh"
+import "./self_hosted/tokens_list.chloreh"
 import "./self_hosted/lexer.chlore"
 
 :initialize_before_lex (
