@@ -1,23 +1,14 @@
 ; [WIP] Lexer for the Chlore programming language written in Chlore
 
-import "./self_hosted/tokens/tk_list.chloreh"
+import "./self_hosted/tokens/keywords.chloreh"
 
 set BUF_SIZ 4096
 
-:close_resources_and_quit (
+:close_resources_and_quit_lexer (
 	pushuc 1 pushuc 0 %alloc_close
 	pushuc 0 !
 	& ldr0 &
 	hltr
-)
-
-:perror_panic (
-	pushuc 1 pushuc 0 %alloc_close
-	pushuc 0 !
-
-	pushuc 0 pushuc 0 %perror
-	pushuc 0 !
-	force_panic
 )
 
 :load_state { & ldr2 & }
@@ -30,57 +21,61 @@ set BUF_SIZ 4096
 :token->token_code { }
 
 :token->start_x {
-	pushl SIZEOF_UI addp
+	pushl SIZEOF_UC addp
 }
 
 :token->start_y {
-	pushl SIZEOF_UI pushl SIZEOF_L addp addp
+	pushl SIZEOF_UC pushl SIZEOF_L addl addp
 }
 
 :token->end_x {
-	pushl SIZEOF_UI pushl SIZEOF_L pushl SIZEOF_L addp addp addp
+	pushl SIZEOF_UC pushl SIZEOF_L pushl SIZEOF_L addl addl addp
 }
 
 :token->end_y {
-	pushl SIZEOF_UI pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L addp addp addp addp
+	pushl SIZEOF_UC pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L addl addl addl addp
 }
 
 :token->next_token {
-	pushl SIZEOF_UI pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L addp addp addp addp addp
+	pushl SIZEOF_UC pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L addl addl addl addl addp
 }
 
 :token->prev_token {
-	pushl SIZEOF_UI pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_P addp addp addp addp addp addp
+	pushl SIZEOF_UC pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_P addl addl addl addl addl addp
 }
 
 :token->fname {
-	pushl SIZEOF_UI pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_P pushl SIZEOF_P addp addp addp addp addp addp addp
+	pushl SIZEOF_UC pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_P pushl SIZEOF_P addl addl addl addl addl addl addp
 }
 
 :token->string {
-	pushl SIZEOF_UI pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_P pushl SIZEOF_P pushl SIZEOF_P addp addp addp addp addp addp addp addp
+	pushl SIZEOF_UC pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_P pushl SIZEOF_P pushl SIZEOF_P addl addl addl addl addl addl addl addp
 }
 
-:err_message_failed_read dat str "MChlore (error): failed to read from file\n"
-:failed_read (
+:token->instr_code {
+	pushl SIZEOF_UC pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_L pushl SIZEOF_P pushl SIZEOF_P pushl SIZEOF_P pushl SIZEOF_P addl addl addl addl addl addl addl addl addp
+}
+
+:err_message_failed_read_lexer dat str "MChlore (error): failed to read from file\n"
+:failed_read_lexer (
 	pushuc 0 pushuc 0 %putstre
-	pushp err_message_failed_read ptr_code
+	pushp err_message_failed_read_lexer ptr_code
 	pushuc 0 !
-	pushp close_resources_and_quit jmp
+	pushp close_resources_and_quit_lexer jmp
 )
 
-:err_message_failed_alloc dat str "MChlore (error): failed to allocate memory\n"
-:failed_alloc (
+:err_message_failed_alloc_lexer dat str "MChlore (error): failed to allocate memory\n"
+:failed_alloc_lexer (
 	pushuc 0 pushuc 0 %putstre
-	pushp err_message_failed_alloc ptr_code
+	pushp err_message_failed_alloc_lexer ptr_code
 	pushuc 0 !
-	pushp close_resources_and_quit jmp
+	pushp close_resources_and_quit_lexer jmp
 )
 
 :create_token {
 	pushuc 1 str4 ;initialize token length
 
-	pushl SIZEOF_UI ;token code
+	pushl SIZEOF_UC ;token code
 	pushl SIZEOF_L ;starting x position
 	pushl SIZEOF_L ;starting y position
 	pushl SIZEOF_L ;ending x position
@@ -89,10 +84,11 @@ set BUF_SIZ 4096
 	pushl SIZEOF_P ;implicit pointer to the previous token
 	pushl SIZEOF_P ;explicit pointer to the file name
 	pushl SIZEOF_P ;implicit pointer (in the heap) to the actual string designating the token read
+	pushl SIZEOF_UI ;keyword
 	;will have to add alignments later, but for now an unaligned access should do it
-	addl addl addl addl addl addl addl addl
+	addl addl addl addl addl addl addl addl addl
 	pushuc 1 !
-	& ldr0 & pushp failed_alloc jnz ;if we fail allocating the memory, close every opened resource, and panic
+	& ldr0 & pushp failed_alloc_lexer jnz ;if we fail allocating the memory, close every opened resource, and panic
 	ep2ip
 }
 
@@ -108,7 +104,7 @@ set BUF_SIZ 4096
 	pushc '\0' over %token->string & ldhp & sthc
 }
 
-:join_to_list {
+:join_token_to_list {
 	dup dup dup dup & ldr1 & %token->next_token sthp
 	pushp NULL swap %token->next_token sthp
 	& ldr1 & swap %token->prev_token sthp
@@ -158,37 +154,37 @@ pushc '\0' sthc ;store a null terminator there
 	dup pushc '&' pushp is_ampersand jeq
 	force_panic
 	:is_percent
-	pop pushui tk_percent pushp set_code jmp
+	pop pushuc tk_percent pushp set_code jmp
 	:is_colon
-	pop pushui tk_colon pushp set_code jmp
+	pop pushuc tk_colon pushp set_code jmp
 	:is_openingcurly
-	pop pushui tk_opencurly pushp set_code jmp
+	pop pushuc tk_opencurly pushp set_code jmp
 	:is_closingcurly
-	pop pushui tk_closecurly pushp set_code jmp
+	pop pushuc tk_closecurly pushp set_code jmp
 	:is_openingbracket
-	pop pushui tk_openbracket pushp set_code jmp
+	pop pushuc tk_openbracket pushp set_code jmp
 	:is_closingbracket
-	pop pushui tk_closecurly pushp set_code jmp
+	pop pushuc tk_closecurly pushp set_code jmp
 	:is_ampersand
-	pop pushui tk_ampersand pushp set_code jmp
+	pop pushuc tk_ampersand pushp set_code jmp
 	:is_bang
-	pop pushui tk_bang pushp set_code jmp
+	pop pushuc tk_bang pushp set_code jmp
 	:is_tilde
-	pop pushui tk_tilde pushp set_code jmp
+	pop pushuc tk_tilde pushp set_code jmp
 	:set_code
-	& ldr1 & %token->token_code sthui
+	& ldr1 & %token->token_code sthuc
 	ret
 )
 
 :create_and_fill_token_punctuator {
 	%create_token
 	%init_token
-	%join_to_list
+	%join_token_to_list
 	%index_load
 	pushp check_punctuator_and_set_code call
 }
 
-import "./self_hosted/tokens/tokens.chloreh"
+import "./self_hosted/tokens/keywords_ops.chloreh"
 
 :lex (
 	/NOTE keep `aseg' at the 1st index, `rseg' at the 2nd one, `strcmp' at the 3rd one, and `flush' at the 4th one, unless we're about to return control back to the parser, in which case about anything is fine
@@ -212,7 +208,7 @@ import "./self_hosted/tokens/tokens.chloreh"
 	pushuc 1 str6 ;save the inital y position of the source file in GPR5
 
 	%create_token ep2ip dup dup dup dup str7 ;the head of the token list is in GPR7
-	pushui tk_btrans swap %token->token_code sthui ;beginning of translation unit
+	pushuc tk_btrans swap %token->token_code sthuc ;beginning of translation unit
 	pushp NULL swap %token->next_token sthp ;next token is a pointer to NULL
 	pushp NULL swap %token->prev_token sthp ;the previous token is a pointer to NULL
 	%token->fname sthp ;save an explicit pointer to the file name we're currently performing lexical analysis on at token->fname
@@ -225,12 +221,12 @@ import "./self_hosted/tokens/tokens.chloreh"
 	& ldr3 & ptr_heap ;explicit pointer to the beginning of the buffer
 	pushui BUF_SIZ ;size of the chunk to read
 	pushuc 0 !
-	& ldr0 & pushi -1 pushp failed_read jeq ;if read fails, quit
+	& ldr0 & pushi -1 pushp failed_read_lexer jeq ;if read fails, quit
 	& ldr0 & pushuc 0 pushp finish_lex jeq
 	& ldr0 & ;push the length of the read buffer
 
 	/state 0 -> start of the file || finished reading a token
-	 state 1 -> reading a symbol || instruction
+	 state 1 -> reading a symbol || keyword
 	 state 2 -> reading an integer
 	 state 3 -> reading a string constant
 	 state 4 -> reading single-line comment
@@ -355,20 +351,20 @@ import "./self_hosted/tokens/tokens.chloreh"
 		pushp state_2_ops_continue2 jmp
 
 		:state_2_is_hex
-		pushui tk_positive_hex & ldr1 & %token->token_code sthui
+		pushuc tk_positive_hex & ldr1 & %token->token_code sthuc
 		pushp read_next_char jmp
 
 		:state_2_is_bin
-		pushui tk_positive_bin & ldr1 & %token->token_code sthui
+		pushuc tk_positive_bin & ldr1 & %token->token_code sthuc
 		pushp read_next_char jmp
 
 		:state_2_is_oct
-		pushui tk_positive_oct & ldr1 & %token->token_code sthui
+		pushuc tk_positive_oct & ldr1 & %token->token_code sthuc
 		pushp read_next_char jmp
 
 		:state_2_is_negative
-		& ldr1 &  %token->token_code dup ldhui pushuc 4 addui ;adding 4 to the token_code will produce the correct token_code for the negative counterpart
-		swap sthui
+		& ldr1 &  %token->token_code dup ldhuc pushuc 4 adduc ;adding 4 to the token_code will produce the correct token_code for the negative counterpart
+		swap sthuc
 		pushp set_state_to_0_and_read_next_char jmp
 	)
 
@@ -475,8 +471,8 @@ import "./self_hosted/tokens/tokens.chloreh"
 		%create_token
 		%init_token
 		%init_token_string
-		%join_to_list
-		pushui tk_char_seq_string & ldr1 & %token->token_code sthui
+		%join_token_to_list
+		pushuc tk_char_seq_string & ldr1 & %token->token_code sthuc
 		pushp set_state_to_3 jmp
 
 		:state_0_create_token_then_set_state_to_6
@@ -485,8 +481,8 @@ import "./self_hosted/tokens/tokens.chloreh"
 		%create_token
 		%init_token
 		%init_token_string
-		%join_to_list
-		pushui tk_char_seq_char & ldr1 & %token->token_code sthui
+		%join_token_to_list
+		pushuc tk_char_seq_char & ldr1 & %token->token_code sthuc
 		pushp set_state_to_6 jmp
 	)
 
@@ -495,8 +491,8 @@ import "./self_hosted/tokens/tokens.chloreh"
 		%create_token
 		%init_token
 		%init_token_string
-		%join_to_list
-		pushui tk_symbol & ldr1 & %token->token_code sthui
+		%join_token_to_list
+		pushuc tk_symbol & ldr1 & %token->token_code sthuc
 		pushp read_token jmp
 	)
 
@@ -505,8 +501,8 @@ import "./self_hosted/tokens/tokens.chloreh"
 		%create_token
 		%init_token
 		%init_token_string
-		%join_to_list
-		pushui tk_positive_dec & ldr1 & %token->token_code sthui
+		%join_token_to_list
+		pushuc tk_positive_dec & ldr1 & %token->token_code sthuc
 		pushp read_token jmp
 	)
 
@@ -589,7 +585,7 @@ import "./self_hosted/tokens/tokens.chloreh"
 		& ldr6 & ldr1 & %token->end_y sthl ;update the end_y position
 		& ldr4 & ldr1 & %token->string & ldhp & ptr_heap
 		pushuc 2 ! ;reallocate token->string
-		& ldr0 & pushp failed_alloc jnz ;if we fail allocating the memory, close every opened resource, and panic
+		& ldr0 & pushp failed_alloc_lexer jnz ;if we fail allocating the memory, close every opened resource, and panic
 		ep2ip
 		& ldr1 & %token->string sthp
 		swap ;the top of the stack has the character that we want to store
@@ -608,6 +604,7 @@ import "./self_hosted/tokens/tokens.chloreh"
 	pushuc 0 pushuc 4 %putui
 	pushuc 0 pushuc 5 %putl
 	pushuc 0 pushuc 6 %putstr
+	pushuc 0 pushuc 7 %putuc
 	& ldr7 & %token->next_token & ldhp & ;get the token next to the head of the list
 
 	:print_tokens_continue0
@@ -620,11 +617,12 @@ import "./self_hosted/tokens/tokens.chloreh"
 	pushc ':' pushuc 3 !
 	dup %token->end_x & ldhl & pushuc 5 !
 	pushc ' ' pushuc 3 !
-	dup %token->token_code & ldhui & pushuc 4 !
-	dup %token->token_code & ldhui & pushui tk_char_seq_string pushp print_tokens_printstr jeq
-	dup %token->token_code & ldhui & pushui tk_char_seq_char pushp print_tokens_printstr jeq
-	dup %token->token_code & ldhui & pushui tk_symbol pushp print_tokens_printstr jeq
-	dup %token->token_code & ldhui & pushui tk_positive_dec pushp print_tokens_maybe_integer jle
+	dup %token->token_code & ldhuc & pushuc 4 !
+	dup %token->token_code & ldhuc & pushuc tk_char_seq_string pushp print_tokens_printstr jeq
+	dup %token->token_code & ldhuc & pushuc tk_char_seq_char pushp print_tokens_printstr jeq
+	dup %token->token_code & ldhuc & pushuc tk_symbol pushp print_tokens_printstr jeq
+	dup %token->token_code & ldhuc & pushuc tk_positive_dec pushp print_tokens_maybe_integer jle
+	dup %token->token_code & ldhuc & pushuc tk_instr pushp print_tokens_instr jeq
 
 	:print_tokens_continue1
 	dup %token->next_token & ldhp & pushp NULL pushp print_tokens_break jeq
@@ -637,12 +635,17 @@ import "./self_hosted/tokens/tokens.chloreh"
 	ret
 
 	:print_tokens_maybe_integer
-	dup %token->token_code & ldhui & pushui tk_negative_bin pushp print_tokens_printstr jge
+	dup %token->token_code & ldhuc & pushuc tk_negative_bin pushp print_tokens_printstr jge
 	pushp print_tokens_continue1 jmp
 
 	:print_tokens_printstr
 	pushuc ' ' pushuc 3 !
 	dup %token->string & ldhp & ptr_heap pushuc 6 !
+	pushp print_tokens_continue1 jmp
+
+	:print_tokens_instr
+	pushuc ' ' pushuc 3 !
+	dup %token->instr_code & ldhui & pushuc 7 !
 	pushp print_tokens_continue1 jmp
 )
 
