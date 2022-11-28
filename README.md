@@ -47,11 +47,9 @@ hlt
 
 ###### 1) Check out more examples in the `examples` directory. ######
 
-A formal language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. You can find working drafts of the Chlore22 standard in the [Chlore-spec-working-drafts](https://github.com/trap-representation/Chlore-spec-working-drafts) repository.
+A formal language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be uploaded here soon.
 
-Update: I've been working on bootstrapping the MChlore compiler, so I might not be updating the standard anymore. I'll continue working on the standard once I'm done building the self-hosted compiler.
-
-You'll be able to find the source of the reference implementation of Chlore that I've been working on here soon.
+The `self_hosted` directory contains the source to the (WIP) self-hosted compiler of the language.
 
 PS: Check out the Chlore website [here](https://trap-representation.github.io/Chlore/).  
 Join the [discord](https://discord.gg/5FCpR5eZyp).
