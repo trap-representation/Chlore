@@ -6,7 +6,7 @@ set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard lib
 
 import "./lib/import/io.chloreh"
 
-:abs_addr { & ldr1 & addbp }
+:_ptr { & ldr1 & addbp }
 
 :string dat str "Hello, World!\n"
 
@@ -16,12 +16,12 @@ swap str1
 
 pushuc 0
 & ldr1 &
-pushp std_io %abs_addr
+pushp std_io %_ptr
 call
 
 pushuc 0 pushuc 0
 & ldr1 &
-pushp putstr %abs_addr
+pushp putstr %_ptr
 call
 
 pushp string %abs_addr ptr_code
