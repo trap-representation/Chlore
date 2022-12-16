@@ -20,5 +20,5 @@ pushp std_io_putstr
 call
 
 pushp string ptr_code
-pushuc 0 ! ;branch to the object pointed to by the 0th index of the symbol handler table
+pushuc 0 !
 hlt
