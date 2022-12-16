@@ -19,7 +19,7 @@ pushuc 0
 ldao ;get a pointer to the addressable object saved at the 0th index of the object handler table
 
 pushuc 0
-callao ;branch to the instruction pointed to by the visible symbol at the 0th index of the symbol handler table
+callao
 
 
 hlt
