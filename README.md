@@ -35,10 +35,10 @@ import "./lib/import/io.chloreh"
 
 :main
 pushuc 0
-%sav_std_io
+sav_std_io
 
 pushuc 0 pushuc 0
-%sav_std_io_putstr
+sav_std_io_putstr
 
 pushp string ptr_data
 pushuc 0 !
