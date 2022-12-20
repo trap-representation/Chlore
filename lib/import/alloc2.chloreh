@@ -1,3 +1,21 @@
+    ;alloc2 - part of the Chlore standard library
+/   Copyright (C) 2022  Somdipto Chakraborty
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+/
+
+
 $if std_alloc2_guard 0
 
 	set std_alloc2_guard 1
@@ -189,12 +207,12 @@ $if std_alloc2_guard 0
 	  On failure: Returns EINIT.
 	/
 
-	:hidden$close (
+	:hidden$alloc_close (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp close_f
+		pushp alloc_close_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -202,8 +220,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:close {
-		pushp close_f
+	:alloc_close {
+		pushp alloc_close_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -211,7 +229,7 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$close_f ( dat str "close" )
+	:hidden$alloc_close_f ( dat str "close" )
 	rbe
 
 	/ On success: Dumps the current VM heap state to stdout.
@@ -247,12 +265,12 @@ $if std_alloc2_guard 0
 	  On failure: Returns EINT.
 	/
 
-	:hidden$init (
+	:hidden$alloc_init (
 		$if IS_DYOBJ 1
 			over addbp
 		$fi
 		str0
-		pushp init_f
+		pushp alloc_init_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -260,8 +278,8 @@ $if std_alloc2_guard 0
 		& ldr0 & ret
 	)
 
-	:init {
-		pushp init_f
+	:alloc_init {
+		pushp alloc_init_f
 		$if IS_DYOBJ 1
 			addbp
 		$fi
@@ -269,7 +287,7 @@ $if std_alloc2_guard 0
 	}
 
 	rbs
-	:hidden$init_f ( dat str "init" )
+	:hidden$alloc_init_f ( dat str "init" )
 	rbe
 
 	/ Writes the cache hits and misses to stdout. /
