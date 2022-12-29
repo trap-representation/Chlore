@@ -38,7 +38,7 @@ pushuc 0
 %std_io
 
 pushuc 0 pushuc 0
-%std_io_putstr
+%putstr
 
 pushp string ptr_data
 pushuc 0 !
