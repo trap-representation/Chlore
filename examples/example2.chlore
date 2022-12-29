@@ -44,4 +44,3 @@ pushuc 2 !
 pushp rocket_bottom ptr_code
 pushuc 2 !
 hlt
-

@@ -10,7 +10,7 @@ import "./lib/import/io.chloreh"
 
 :string dat str "Hello, World!\n"
 
-:oentry ;this is the entry point
+:exposed$oentry ;this is the entry point
 
 swap str1
 
@@ -24,7 +24,7 @@ pushuc 0 pushuc 0
 pushp putstr %_ptr
 call
 
-pushp string %abs_addr ptr_code
+pushp string & ldr1 & addbp ptr_code
 pushuc 0 !
 
 hlt
