@@ -45,3 +45,4 @@ asthui ;do an aligned store
 pushuc 2 !
 
 pushuc 1 !
+hlt

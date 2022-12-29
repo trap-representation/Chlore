@@ -5,7 +5,7 @@
 import "./lib/import/io.chloreh"
 
 :main
-set n 42
+set n 35
 pushl n
 pushp fib
 call
