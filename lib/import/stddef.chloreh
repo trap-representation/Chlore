@@ -1,37 +1,13 @@
-    ;stddef - a part of the Chlore standard library
-/   Copyright (C) 2022  Somdipto Chakraborty
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-/
-
-
-$if std_stddef_guard 0
-
-	set std_stddef_guard 1
-
-	set TRUE 1
-	set FALSE 0
-	set NULL 0x3fffffffffffffff
-	set STDOUT 1
-	set STDIN 0
-	set STDERR 2
-	set MAX_ALIGN_T 16
-	set EOF -1
-	set MAX_SOX 12
-	set MAX_SOBJX 12
-	set MAX_CHX 12
-	set MAX_CHSX 12
-	set MAX_ADDR_MEM 0x3fffffffffffffff
-$fi
-
+set TRUE 1
+set FALSE 0
+set NULL 0x3fffffffffffffff
+set STDOUT 1
+set STDIN 0
+set STDERR 2
+set MAX_ALIGN_T 16
+set EOF -1
+set MAX_SOX 12
+set MAX_SOBJX 12
+set MAX_CHX 12
+set MAX_CHSX 12
+set MAX_ADDR_MEM 0x3fffffffffffffff
