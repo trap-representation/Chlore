@@ -31,25 +31,21 @@ A simple Hello World program written in a standard compliant implementation of C
 ````
 import "./lib/import/io.chloreh"
 
-:string dat str "Hello, World!\n"
-
 :main
 pushuc 0
-%std_io
+pushp std_io call
 
 pushuc 0 pushuc 0
-%putstr
+pushp putstr call
 
-pushp string ptr_data
-pushuc 0 !
+pushp "Hello, World!\n"
+pushuc 0!
 hlt
 ````
 
 ###### 1) Check out more examples in the `examples` directory. ######
 
 A language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be put here soon.
-
-The `self_hosted` directory contains the source to the (WIP) self-hosted compiler of the language.
 
 PS: Check out the Chlore website [here](https://trap-representation.github.io/Chlore/).  
 Join the [discord](https://discord.gg/5FCpR5eZyp).
