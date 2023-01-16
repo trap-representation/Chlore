@@ -6,6 +6,12 @@ A colon (:) following a non-terminal introduces its definition. Terminals are en
 
 [Syntax summary]:
 
+token:
+  keyword
+  punctuator
+  identifier
+  constant
+
 translation-unit:
   statement
   statement translation-unit
@@ -19,7 +25,6 @@ statement:
   type-def
   tagged-nonfundamental-type-expression
   instruction
-  punctuator
 
 keyword:
   `typedef`
@@ -225,7 +230,7 @@ instruction: one of
   `ldvisao` `ldtypt0` `ldtypt1` `stao` `pushpc` `pushcs`
   `ptyp`
   `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
-  push-instruction
+  `pushc` `pushs` `pushi` `pushp` `pushrp` `pushl` `pushuc` `pushus` `pushui` `pushep`
 
 punctuator: one of
   `~` `!` `&`
