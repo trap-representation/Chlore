@@ -1,345 +1,70 @@
-    ;alloc2 - part of the Chlore standard library
-/   Copyright (C) 2022  Somdipto Chakraborty
+set EINIT 1
+set EALIGN 2
+set EINT 3
+set EOVF 4
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+:rlhb
+str0
+pushep "rlhb"
+stvisnaoc
+ldr0 ret
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+:aaseg
+str0
+pushep "aaseg"
+stvisnaoc
+ldr0 ret
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-/
+:aseg
+str0
+pushep "aseg"
+stvisnaoc
+ldr0 ret
 
+:arseg
+str0
+pushep "arseg"
+stvisnaoc
+ldr0 ret
 
-$if std_alloc2_guard 0
+:rseg
+str0
+pushep "rseg"
+stvisnaoc
+ldr0 ret
 
-	set std_alloc2_guard 1
+:flush
+str0
+pushep "flush"
+stvisnaoc
+ldr0 ret
 
-	set EINIT 1    ;Heap isn't initialized.
-	set EALIGN 2   ;Cannot align the memory to the requested alignment.
-	set EINT 3     ;One of the internal functions that this object uses to allocate memory has encountered an error. In case of this error, the best option is to terminate the program, since it might leave the heap in a corrupted state.
-	set EOVF 4     ;The requested amount of memory is more than what's been pre-allocated by the environment for the program.
+:mem_close
+str0
+pushep "close"
+stvisnaoc
+ldr0 ret
 
-	/ On success: Signals the enviroment to allocate [top] bytes for the heap buffer. The contents of the heap are retained after the reallocation. The heap keeps the alignment that it had before the reallocation.
-	  On failure: Returns EINT.
-	/
+:dump
+str0
+pushep "dump"
+stvisnaoc
+ldr0 ret
 
-	:hidden$rlhb (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp rlhb_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
+:mem_init
+str0
+pushep "init"
+stvisnaoc
+ldr0 ret
 
-	:rlhb {
-		pushp rlhb_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
+:prof
+str0
+pushep "prof"
+stvisnaoc
+ldr0 ret
 
-	rbs
-	:hidden$rlhb_f ( dat str "rlhb" )
-	rbe
-
-	/ On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top-1] bytes, and aligned to a [top] bytes boundary on the [top] of the stack.
-	  On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
-		      Pushes an unspecified value on the top of the stack.
-	/
-
-	:hidden$aaseg (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp aaseg_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:aaseg {
-		pushp aaseg_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$aaseg_f ( dat str "aaseg" )
-	rbe
-
-	/ On success: Pushes an (explicit) pointer to a chunk of memory in the heap of size [top] bytes on the [top] of the stack.
-	  On failure: Returns one of EINIT, EINT, EOVF.
-		      Pushes an unspecified value on the top of the stack.
-	/
-
-	:hidden$aseg (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp aseg_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:aseg {
-		pushp aseg_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$aseg_f ( dat str "aseg" )
-	rbe
-
-	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-2] bytes, aligned to a [top-1] byte boundary, which retains the contents of the original chunk, on the [top] of the stack.
-	  On failure: Returns one of EINIT, EALIGN, EINT, EOVF.
-		      Pushes an unspecified value on the top of the stack.
-	/
-
-	:hidden$arseg (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp arseg_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:arseg {
-		pushp arseg_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$arseg_f ( dat str "arseg" )
-	rbe
-
-	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack, and pushes an (explicit) pointer to a chunk of memory of size [top-1] bytes, which retains the contents of the original chunk, on the [top] of the stack.
-	  On failure: Returns one of EINIT, EINT, EOVF.
-		      Pushes an unspecified value on the top of the stack.
-	/
-
-	:hidden$rseg (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp rseg_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:rseg {
-		pushp rseg_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$rseg_f ( dat str "rseg" )
-	rbe
-
-	/ On success: Flushes the chunk of memory pointed at by the [top] of the stack. [top] must be an (explicit) pointer & ldr0 & returned by one of `aseg', `aaseg', `rseg', `arseg'.
-	  On failure: Returns EINIT.
-	/
-
-	:hidden$flush (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp flush_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:flush {
-		pushp flush_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$flush_f ( dat str "flush" )
-	rbe
-
-	/ On success: Frees up all the additional memory allocated by this object.
-	  On failure: Returns EINIT.
-	/
-
-	:hidden$alloc_close (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp alloc_close_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:alloc_close {
-		pushp alloc_close_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$alloc_close_f ( dat str "close" )
-	rbe
-
-	/ On success: Dumps the current VM heap state to stdout.
-	  On failure: Returns EINIT.
-	/
-
-	:hidden$dump (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp dump_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:dump {
-		pushp dump_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$dump_f ( dat str "dump" )
-	rbe
-
-	/ On success: Initializes the heap. Must be called before anything (except `rlhb') in this object is used.
-	  On failure: Returns EINT.
-	/
-
-	:hidden$alloc_init (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp alloc_init_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:alloc_init {
-		pushp alloc_init_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$alloc_init_f ( dat str "init" )
-	rbe
-
-	/ Writes the cache hits and misses to stdout. /
-
-	:hidden$prof (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp prof_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:prof {
-		pushp prof_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$prof_f ( dat str "prof" )
-	rbe
-
-	:hidden$std_alloc2 (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp std_alloc2_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		opennaoc
-		& ldr0 & ret
-	)
-
-	:std_alloc2 {
-		pushp std_alloc2_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		opennaoc
-	}
-
-	rbs
-	:hidden$std_alloc2_f ( dat str "./lib/bin/alloc2.so" )
-	rbe
-$fi
-
+:std_alloc2
+str0
+pushep "./lib/bin/alloc2.so"
+opennaoc
+ldr0 ret
