@@ -1,99 +1,17 @@
-    ;string - a part of the Chlore standard library
-/   Copyright (C) 2022  Somdipto Chakraborty
+:strlen
+str0
+pushep "string_len"
+stvisnaoc
+ldr0 ret
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+:strcmp
+str0
+pushep "cmp_str"
+stvisnaoc
+ldr0 ret
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-/
-
-
-$if std_string_guard 0
-
-	set string_guard 1
-
-	:hidden$strlen (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp strlen_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:strlen {
-		pushp strlen_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$strlen_f ( dat str "string_len" )
-	rbe
-
-	:hidden$strcmp (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp strcmp_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:strcmp {
-		pushp strcmp_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$strcmp_f ( dat str "cmp_string" )
-	rbe
-
-	:hidden$std_string (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp std_string_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		opennaoc
-		& ldr0 & ret
-	)
-
-	:std_string {
-		pushp std_string_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		opennaoc
-	}
-
-	rbs
-	:hidden$std_string_f ( dat str "./lib/bin/string.so" )
-	rbe
-
-$fi
-
+:std_string
+str0
+pushep "./lib/bin/string.so"
+opennaoc
+ldr0 ret
