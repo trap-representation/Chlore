@@ -15,3 +15,4 @@ str0
 pushep "./lib/bin/string.so"
 opennaoc
 ldr0 ret
+

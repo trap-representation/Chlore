@@ -68,3 +68,4 @@ str0
 pushep "./lib/bin/alloc2.so"
 opennaoc
 ldr0 ret
+
