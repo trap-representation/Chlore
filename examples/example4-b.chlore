@@ -1,28 +1,19 @@
 / example 4-b: Addressable, non-standalone object
-  This is an addressable, non-standalone object file that can be loaded by or placed in another non-standalone||standalone object during run-||compile-time
+  This is an addressable, non-standalone object file that can be loaded by or placed in another non-standalone or standalone object during run- or compile-time
 /
-
-set IS_DYOBJ 1 ;this macro needs to be set, or all the calls to the standard library subroutines will simply fail
 
 import "./lib/import/io.chloreh"
 
-:string dat str "Hello, World!\n"
-
-:exposed$oentry ;this is the entry point
-
-swap str1
-
+:oentry ;this is the entry point
 pushuc 0
-& ldr1 &
 pushep std_io
 call
 
 pushuc 0 pushuc 0
-& ldr1 &
 pushep putstr
 call
 
-pushep string ptr_code
-pushuc 0 !
+pushep "Hello, World!\n"
+pushuc 0!
 
 hlt
