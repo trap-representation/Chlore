@@ -20,16 +20,6 @@ This is Chlore - a stack based language that's made with a focus on simplicity.
 
 3. Modern languages aren't simple anymore. Simplicity isn't always proportional to how much a language can make a programmer's life easier. A simple language should be ... well simple, and efficient. The programmer shall be the one in full control of his code, rather than the translator.
 
-#### Design goals: ####
-- Trust the programmer
-- Keep the language as simple as possible
-- Keep the standard library as minimal as possible
-- One pays for only as much as one wants to do
-
-#### What Chlore will *never* have: ####
-- Automatic memory management
-- Run-/Compile-time memory-safety checks; everything has to be done explicitly by the programmer
-
 The reference implementation of Chlore that I've been working on is called MChlore.
 
 #### MChlore can currently target: ####
