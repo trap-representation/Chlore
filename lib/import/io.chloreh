@@ -1,774 +1,179 @@
-    ;io - a part of the Chlore standard library
-/   Copyright (C) 2022  Somdipto Chakraborty
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-/
-
-
-$if std_io_guard 0
-
-	set std_io_guard 1
-
-	set O_RDONLY 0
-
-	:hidden$perror (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp perror_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:perror {
-		pushp perror_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$perror_f ( dat str "print_if_theres_any_error" )
-	rbe
-
-	:hidden$putstr (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp putstr_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:putstr {
-		pushp putstr_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$putstr_f ( dat str "print_str" )
-	rbe
-
-	:hidden$putstre (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp putstre_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:putstre {
-		pushp putstre_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$putstre_f ( dat str "print_str_err" )
-	rbe
-
-	:hidden$putfmt (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp putfmt_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:putfmt {
-		pushp putfmt_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$putfmt_f ( dat str "print_fmt" )
-	rbe
-
-	:hidden$putfmte (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp putfmte_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:putfmte {
-		pushp putfmte_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$putfmte_f ( dat str "print_fmt_err" )
-	rbe
-
-	:hidden$putl (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp putl_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:putl {
-		pushp putl_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$putl_f ( dat str "out_l" )
-	rbe
-
-	:hidden$putp (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp putp_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:putp {
-		pushp putp_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$putp_f ( dat str "out_p" )
-	rbe
-
-	:hidden$puti (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp puti_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:puti {
-		pushp puti_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$puti_f ( dat str "out_i" )
-	rbe
-
-	:hidden$puts (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp puts_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:puts {
-		pushp puts_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$puts_f ( dat str "out_s" )
-	rbe
-
-	:hidden$putc (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp putc_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:putc {
-		pushp putc_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$putc_f ( dat str "out_c" )
-	rbe
-
-	:hidden$putui (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp putui_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:putui {
-		pushp putui_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$putui_f ( dat str "out_ui" )
-	rbe
-
-	:hidden$putus (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp putus_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:putus {
-		pushp putus_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$putus_f ( dat str "out_us" )
-	rbe
-
-	:hidden$putuc (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp putuc_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:putuc {
-		pushp putuc_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$putuc_f ( dat str "out_uc" )
-	rbe
-
-	:hidden$putchar (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp putchar_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:putchar {
-		pushp putchar_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$putchar_f ( dat str "out_char" )
-	rbe
-
-	:hidden$getargv (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp getargv_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:getargv {
-		pushp getargv_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$getargv_f ( dat str "get_argv" )
-	rbe
-
-	:hidden$getargc (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp getargc_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		& ldr0 & ret
-	)
-
-	:getargc {
-		pushp getargc_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$getargc_f ( dat str "get_argc" )
-	rbe
-
-	:hidden$openf (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp openf_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:openf {
-		pushp openf_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$openf_f ( dat str "open_file" )
-	rbe
-
-	:hidden$readf (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp readf_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:readf {
-		pushp readf_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$readf_f ( dat str "read_file" )
-	rbe
-
-	:hidden$writef (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp writef_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:writef {
-		pushp writef_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$writef_f ( dat str "write_file" )
-	rbe
-
-	:hidden$getstr (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp getstr_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:getstr {
-		pushp getstr_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$getstr_f ( dat str "scanin_str" )
-	rbe
-
-	:hidden$closef (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp closef_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:closef {
-		pushp closef_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$closef_f ( dat str "close_file" )
-	rbe
-
-	:hidden$getchar (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp getchar_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		& ldr0 & ret
-	)
-
-	:getchar {
-		pushp getchar_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$getchar_f ( dat str "scanin_char" )
-	rbe
-
-	:hidden$getl (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp getl_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:getl {
-		pushp getl_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$getl_f ( dat str "scanin_l" )
-	rbe
-
-	:hidden$geti (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp geti_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:geti {
-		pushp geti_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$geti_f ( dat str "scanin_i" )
-	rbe
-
-	:hidden$gets (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp gets_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:gets {
-		pushp gets_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$gets_f ( dat str "scanin_s" )
-	rbe
-
-	:hidden$getc (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp getc_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:getc {
-		pushp getc_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$getc_f ( dat str "scanin_c" )
-	rbe
-
-	:hidden$getui (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp getui_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:getui {
-		pushp getui_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$getui_f ( dat str "scanin_ui" )
-	rbe
-
-	:hidden$getus (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp getus_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:getus {
-		pushp getus_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$getus_f ( dat str "scanin_us" )
-	rbe
-
-	:hidden$getuc (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp getuc_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-		& ldr0 & ret
-	)
-
-	:getuc {
-		pushp getuc_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		stvisnaoc
-	}
-
-	rbs
-	:hidden$getuc_f ( dat str "scanin_uc" )
-	rbe
-
-	:hidden$std_io (
-		$if IS_DYOBJ 1
-			over addbp
-		$fi
-		str0
-		pushp std_io_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		opennaoc
-		& ldr0 & ret
-	)
-
-	:std_io {
-		pushp std_io_f
-		$if IS_DYOBJ 1
-			addbp
-		$fi
-		opennaoc
-	}
-
-	rbs
-	:hidden$std_io_f ( dat str "./lib/bin/io.so" )
-	rbe
-
-$fi
-
+:perror
+str0
+pushep "print_if_theres_any_error"
+stvisnaoc
+ldr0 ret
+
+:putstr
+str0
+pushep "print_str"
+stvisnaoc
+ldr0 ret
+
+:putstre
+str0
+pushep "print_str_err"
+stvisnaoc
+ldr0 ret
+
+:putfmt
+str0
+pushep "print_fmt"
+stvisnaoc
+ldr0 ret
+
+:putfmte
+str0
+pushep "print_fmt_err"
+stvisnaoc
+ldr0 ret
+
+:putl
+str0
+pushep "out_l"
+stvisnaoc
+ldr0 ret
+
+:putp
+str0
+pushep "out_p"
+stvisnaoc
+ldr0 ret
+
+:puti
+str0
+pushep "out_i"
+stvisnaoc
+ldr0 ret
+
+:puts
+str0
+pushep "out_s"
+stvisnaoc
+ldr0 ret
+
+:putc
+str0
+pushep "out_c"
+stvisnaoc
+ldr0 ret
+
+:putui
+str0
+pushep "out_ui"
+stvisnaoc
+ldr0 ret
+
+:putus
+str0
+pushep "out_us"
+stvisnaoc
+ldr0 ret
+
+:putuc
+str0
+pushep "out_uc"
+stvisnaoc
+ldr0 ret
+
+:putchar
+str0
+pushep "out_char"
+stvisnaoc
+ldr0 ret
+
+:getargv
+str0
+pushep "get_argv"
+stvisnaoc
+ldr0 ret
+
+:getargc
+str0
+pushep "get_argc"
+stvisnaoc
+ldr0 ret
+
+:openf
+str0
+pushep "open_file"
+stvisnaoc
+ldr0 ret
+
+:readf
+str0
+pushep "read_file"
+stvisnaoc
+ldr0 ret
+
+:writef
+str0
+pushep "write_file"
+stvisnaoc
+ldr0 ret
+
+:getstr
+str0
+pushep "scanin_str"
+stvisnaoc
+ldr0 ret
+
+:closef
+str0
+pushep "close_file"
+stvisnaoc
+ldr0 ret
+
+:getchar
+str0
+pushep "scanin_char"
+stvisnaoc
+ldr0 ret
+
+:getl
+str0
+pushep "scanin_l"
+stvisnaoc
+ldr0 ret
+
+:geti
+str0
+pushep "scanin_i"
+stvisnaoc
+ldr0 ret
+
+:gets
+str0
+pushep "scanin_s"
+stvisnaoc
+ldr0 ret
+
+:getc
+str0
+pushep "scanin_c"
+stvisnaoc
+ldr0 ret
+
+:getui
+str0
+pushep "scanin_ui"
+stvisnaoc
+ldr0 ret
+
+:getus
+str0
+pushep "scanin_us"
+stvisnaoc
+ldr0 ret
+
+:getuc
+str0
+pushep "scanin_uc"
+stvisnaoc
+ldr0 ret
+
+:std_io
+str0
+pushep "./lib/bin/io.so"
+opennaoc
+ldr0 ret
