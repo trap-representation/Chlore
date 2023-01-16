@@ -46,16 +46,14 @@ The reference implementation of Chlore that I've been working on is called MChlo
 ````
 import "./lib/import/io.chloreh"
 
-:string dat str "Hello, World!\n"
-
 :main
 pushuc 0
-%std_io
+pushp std_io call
 
 pushuc 0 pushuc 0
-%putstr
+pushp putstr call
 
-pushp string ptr_data
-pushuc 0 !
+pushp "Hello, World!\n"
+pushuc 0!
 hlt
 ````
