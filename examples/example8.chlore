@@ -5,14 +5,18 @@
 import "./lib/import/io.chloreh"
 
 :main
-set n 35
+set n 10
 pushl n
 pushp fib
 call
 
-pushuc 0 %std_io
-pushuc 0 pushuc 0 %putl
+pushuc 0 pushp std_io call
+pushuc 0 pushuc 0 pushp putl call
+pushuc 0 pushuc 1 pushp putchar call
 pushuc 0 !
+
+pushc '\n'
+pushuc 1 !
 
 hlt
 
