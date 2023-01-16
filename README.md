@@ -36,7 +36,7 @@ hlt
 
 1. Check out more examples in the `examples` directory.
 
-You can find a summary of the syntax in `grammar.txt`.
+You can find a summary of the syntax of Chlore in `grammar.txt`.
 
 A language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be put here soon.
 
