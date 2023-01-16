@@ -19,12 +19,20 @@ translation-unit:
 statement:
   keyword
   push-statement
+  alignof-statement
+  sizeof-statement
   set-statement
   labeled-statement
   import-statement
   type-def
   tagged-nonfundamental-type-expression
   instruction
+
+alignof-statement:
+  `alignof` type
+
+sizeof-statement:
+  `sizeof` type
 
 keyword: one of
   `typedef` `hidden` `exposed` `import` `include`
@@ -67,6 +75,7 @@ keyword: one of
   `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
   `pushc` `pushs` `pushi` `pushp` `pushrp` `pushl` `pushuc` `pushus` `pushui` `pushep`
   `uc` `us` `ui` `c` `s` `i` `l` `p`
+  `type` `sizeof` `alignof`
 
 fundamental-type:
   `uc` `us` `ui` `c` `s` `i` `l` `p`
@@ -263,7 +272,6 @@ instruction: one of
   `ldvisao` `ldtypt0` `ldtypt1` `stao` `pushpc` `pushcs`
   `ptyp`
   `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
-  `pushc` `pushs` `pushi` `pushp` `pushrp` `pushl` `pushuc` `pushus` `pushui` `pushep`
 
 punctuator: one of
   `~` `!` `&`
