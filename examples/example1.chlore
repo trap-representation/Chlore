@@ -4,8 +4,6 @@
 
 import "./lib/import/io.chloreh"
 
-:string dat str "Hello, World!\n" ;this string is automatically null-terminated
-
 :main
 
 ;open the non-addressable object that we need to use
@@ -19,6 +17,6 @@ pushuc 0 ;and if loaded successfully, store the symbol at the 0th index of the s
 pushp putstr
 call
 
-pushp string ptr_code
-pushuc 0 !
+pushp "Hello, World!\n" ;this string is automatically null-terminated
+pushuc 0!
 hlt
