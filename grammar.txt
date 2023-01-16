@@ -26,14 +26,47 @@ statement:
   tagged-nonfundamental-type-expression
   instruction
 
-keyword:
-  `typedef`
-  `hidden`
-  `exposed`
-  `import`
-  `include`
-  fundamental-type
-  instruction
+keyword: one of
+  `typedef` `hidden` `exposed` `import` `include`
+  `jmp` `jeq` `jgt` `jls` `jge` `jle` `jne` `jz` `jnz`
+  `addc` `adds` `addi` `addp` `addbp` `addl` `adduc` `addus` `addui`
+  `subc` `subs` `subi` `subp` `subbp` `subl` `subuc` `subus` `subui`
+  `mulc` `muls` `muli` `mull` `muluc` `mulus` `mului`
+  `divc` `divs` `divi` `divl` `divuc` `divus` `divui`
+  `remc` `rems` `remi` `reml` `remuc` `remus` `remui`
+  `lshc` `lshs` `lshi` `lshl` `lshuc` `lshus` `lshui`
+  `rshc` `rshs` `rshi` `rshl` `rshuc` `rshus` `rshui`
+  `orc` `ors` `ori` `orl` `oruc` `orus` `orui`
+  `andc` `ands` `andi` `andl` `anduc` `andus` `andui`
+  `notc` `nots` `noti` `notl` `notuc` `notus` `notui`
+  `xorc` `xors` `xori` `xorl` `xoruc` `xorus` `xorui`
+  `swap` `pop` `dup` `opennaoc` `stvisnaoc` `callnao`
+  `rocallnao` `ret` `over` `panic`
+  `str0` `str1` `str2` `str3` `str4` `str5` `str6` `str7`
+  `ldr0` `ldr1` `ldr2` `ldr3` `ldr4` `ldr5` `ldr6` `ldr7`
+  `ldhc` `ldhs` `ldhi` `ldhp` `ldhl` `ldhuc` `ldhus` `ldhui`
+  `sthc` `sths` `sthi` `sthp` `sthl` `sthuc` `sthus` `sthui`
+  `vstr0` `vstr1` `vstr2` `vstr3` `vstr4` `vstr5` `vstr6` `vstr7`
+  `vldr0` `vldr1` `vldr2` `vldr3` `vldr4` `vldr5` `vldr6` `vldr7`
+  `vldhc` `vldhs` `vldhi` `vldhp` `vldhl` `vldhuc` `vldhus` `vldhui`
+  `vsthc` `vsths` `vsthi` `vsthp` `vsthl` `vsthuc` `vsthus` `vsthui`
+  `hlt`
+  `call` `copy` `pcopy` `popa` `sts` `rbs` `rbe` `pushsp`
+  `ptr_code` `ptr_heap` `set` `include` `hltr` `nop`
+  `aldhc` `aldhs` `aldhi` `aldhp` `aldhl` `aldhuc` `aldhus` `aldhui`
+  `asthc` `asths` `asthi` `asthp` `asthl` `asthuc` `asthus` `asthui`
+  `alignc` `aligns` `aligni` `alignp` `alignl` `alignuc` `alignus` `alignui`
+  `ep2ip` `incsp` `decsp` `exit`
+  `force_panic` `jmp_panic`
+  `rjmp` `rjeq` `rjgt` `rjls` `rjge` `rjle` `rjne` `rjz` `rjnz`
+  `pushlt`
+  `openaoc` `closeao` `aopenaoc` `callao` `opennaoh`
+  `stvisnaoh` `openaoh` `aopenaoh` `closenao` `ldao` `stvisao`
+  `ldvisao` `ldtypt0` `ldtypt1` `stao` `pushpc` `pushcs`
+  `ptyp`
+  `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
+  `pushc` `pushs` `pushi` `pushp` `pushrp` `pushl` `pushuc` `pushus` `pushui` `pushep`
+  `uc` `us` `ui` `c` `s` `i` `l` `p`
 
 fundamental-type:
   `uc` `us` `ui` `c` `s` `i` `l` `p`
