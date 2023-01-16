@@ -22,37 +22,37 @@ set MAX_CNT 100
 pushuc 0
 
 :loop
-pushuc 1 addl ;increment the number at the top of the stack
+	pushuc 1 addl ;increment the number at the top of the stack
 
-dup
-pushuc 15 swap reml ;check if the number is divisible by 15
-pushp check_fizz jnz ;if not, jump to `check_fizz' to check if it divisible by 3
-pushp "fizz buzz\n" ptr_code ;print "fizzbuzz"
-pushuc 0!
-pushp continue jmp
+	dup
+	pushuc 15 swap reml ;check if the number is divisible by 15
+	pushp check_fizz jnz ;if not, jump to `check_fizz' to check if it divisible by 3
+	pushp "fizz buzz\n" ptr_code ;print "fizzbuzz"
+	pushuc 0!
+	pushp continue jmp
 
-:check_fizz
-dup
-pushuc 3 swap reml ;check if the number is divisible by 3
-pushp check_buzz jnz ;if not, jump to `check_buzz' to check if it divisible by 5
-pushp "fizz\n" ptr_code ;print "fizz"
-pushuc 0!
-pushp continue jmp
+	:check_fizz
+	dup
+	pushuc 3 swap reml ;check if the number is divisible by 3
+	pushp check_buzz jnz ;if not, jump to `check_buzz' to check if it divisible by 5
+	pushp "fizz\n" ptr_code ;print "fizz"
+	pushuc 0!
+	pushp continue jmp
 
-:check_buzz
-dup
-pushuc 5 swap reml ;check if the number is divisible by 5
-pushp print_num jnz ;if not, jump to `print_num' to just print the number at the top of the stack
-pushp "buzz\n" ptr_code ;print "buzz"
-pushuc 0!
-pushp continue jmp
+	:check_buzz
+	dup
+	pushuc 5 swap reml ;check if the number is divisible by 5
+	pushp print_num jnz ;if not, jump to `print_num' to just print the number at the top of the stack
+	pushp "buzz\n" ptr_code ;print "buzz"
+	pushuc 0!
+	pushp continue jmp
 
-:print_num
-dup
-pushuc 1! ;print the number
-pushuc '\n' pushuc 2! ;print a linefeed
+	:print_num
+	dup
+	pushuc 1! ;print the number
+	pushuc '\n' pushuc 2! ;print a linefeed
 
-:continue
-dup pushl MAX_CNT pushp loop jne ;loop until the number is > MAX_CNT
+	:continue
+	dup pushl MAX_CNT pushp loop jne ;loop until the number is > MAX_CNT
 
 hlt
