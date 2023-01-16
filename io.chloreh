@@ -1,0 +1,180 @@
+:perror
+str0
+pushep "print_if_theres_any_error"
+stvisnaoc
+ldr0 ret
+
+:putstr
+str0
+pushep "print_str"
+stvisnaoc
+ldr0 ret
+
+:putstre
+str0
+pushep "print_str_err"
+stvisnaoc
+ldr0 ret
+
+:putfmt
+str0
+pushep "print_fmt"
+stvisnaoc
+ldr0 ret
+
+:putfmte
+str0
+pushep "print_fmt_err"
+stvisnaoc
+ldr0 ret
+
+:putl
+str0
+pushep "out_l"
+stvisnaoc
+ldr0 ret
+
+:putp
+str0
+pushep "out_p"
+stvisnaoc
+ldr0 ret
+
+:puti
+str0
+pushep "out_i"
+stvisnaoc
+ldr0 ret
+
+:puts
+str0
+pushep "out_s"
+stvisnaoc
+ldr0 ret
+
+:putc
+str0
+pushep "out_c"
+stvisnaoc
+ldr0 ret
+
+:putui
+str0
+pushep "out_ui"
+stvisnaoc
+ldr0 ret
+
+:putus
+str0
+pushep "out_us"
+stvisnaoc
+ldr0 ret
+
+:putuc
+str0
+pushep "out_uc"
+stvisnaoc
+ldr0 ret
+
+:putchar
+str0
+pushep "out_char"
+stvisnaoc
+ldr0 ret
+
+:getargv
+str0
+pushep "get_argv"
+stvisnaoc
+ldr0 ret
+
+:getargc
+str0
+pushep "get_argc"
+stvisnaoc
+ldr0 ret
+
+:openf
+str0
+pushep "open_file"
+stvisnaoc
+ldr0 ret
+
+:readf
+str0
+pushep "read_file"
+stvisnaoc
+ldr0 ret
+
+:writef
+str0
+pushep "write_file"
+stvisnaoc
+ldr0 ret
+
+:getstr
+str0
+pushep "scanin_str"
+stvisnaoc
+ldr0 ret
+
+:closef
+str0
+pushep "close_file"
+stvisnaoc
+ldr0 ret
+
+:getchar
+str0
+pushep "scanin_char"
+stvisnaoc
+ldr0 ret
+
+:getl
+str0
+pushep "scanin_l"
+stvisnaoc
+ldr0 ret
+
+:geti
+str0
+pushep "scanin_i"
+stvisnaoc
+ldr0 ret
+
+:gets
+str0
+pushep "scanin_s"
+stvisnaoc
+ldr0 ret
+
+:getc
+str0
+pushep "scanin_c"
+stvisnaoc
+ldr0 ret
+
+:getui
+str0
+pushep "scanin_ui"
+stvisnaoc
+ldr0 ret
+
+:getus
+str0
+pushep "scanin_us"
+stvisnaoc
+ldr0 ret
+
+:getuc
+str0
+pushep "scanin_uc"
+stvisnaoc
+ldr0 ret
+
+:std_io
+str0
+pushep "./lib/bin/io.so"
+opennaoc
+ldr0 ret
+

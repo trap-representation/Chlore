@@ -1,0 +1,18 @@
+:strlen
+str0
+pushep "string_len"
+stvisnaoc
+ldr0 ret
+
+:strcmp
+str0
+pushep "cmp_str"
+stvisnaoc
+ldr0 ret
+
+:std_string
+str0
+pushep "./lib/bin/string.so"
+opennaoc
+ldr0 ret
+
