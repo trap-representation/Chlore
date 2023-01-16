@@ -6,15 +6,6 @@ Chlore
 
 This is Chlore - a stack based language that's made with a focus on simplicity.
 
-Design goals:
-- Trust the programmer
-- Keep the language as simple as possible
-- Keep the standard library as minimal as possible
-
-What Chlore will *never* have:
-- Automatic memory management
-- Run-/Compile-time memory-safety checks; everything has to be done explicitly by the programmer
-
 The reference implementation of Chlore that I've been working on is called MChlore.
 
 MChlore can currently target:
