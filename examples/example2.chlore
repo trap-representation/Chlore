@@ -5,42 +5,36 @@
 import "./lib/import/io.chloreh"
 import "./lib/import/stddef.chloreh"
 
-:rocket_top dat str "\n  |\n /_\\\n"
-:rocket_bottom dat str " |_|\n/___\\\n VvV\n"
-:pipe_with_space dat str " |"
-:pipe_with_newline dat str "|\n"
-
 :main
-
 pushuc 0
-%std_io
+pushp std_io call
 
 
 pushuc 0 pushuc 0
-%getchar
+pushp getchar call
 pushuc 0 pushuc 1
-%putchar
+pushp putchar call
 pushuc 0 pushuc 2
-%putstr
+pushp putstr call
 
 
-pushuc 0 !
+pushuc 0!
 
-pushp rocket_top ptr_code
-pushuc 2 !
+pushp "\n  |\n /_\\\n"
+pushuc 2!
 
 :loop
-	dup pushuc '\n' pushp quit jeq ;check for newline
-	dup pushc EOF pushp quit jeq ;check for EOF
-	pushp pipe_with_space ptr_code
-	pushuc 2 !
-	pushuc 1 !
-	pushp pipe_with_newline ptr_code
-	pushuc 2 !
-	pushuc 0 !
-	pushp loop jmp
+dup pushuc '\n' pushp quit jeq ;check for newline
+dup pushc EOF pushp quit jeq ;check for EOF
+pushp " |"
+pushuc 2!
+pushuc 1!
+pushp "|\n"
+pushuc 2!
+pushuc 0!
+pushp loop jmp
 
 :quit
-pushp rocket_bottom ptr_code
-pushuc 2 !
+pushp " |_|\n/___\\\n VvV\n"
+pushuc 2!
 hlt
