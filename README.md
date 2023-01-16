@@ -17,7 +17,7 @@ In the future MChlore will be able to target:
 - CIL
 - JVM
 
-A simple Hello World program written in a standard compliant implementation of Chlore <sup>1)</sup>:
+A simple Hello World program written in a standard compliant implementation of Chlore <sup>1.</sup>:
 
 ````
 import "./lib/import/io.chloreh"
@@ -34,7 +34,9 @@ pushuc 0!
 hlt
 ````
 
-###### 1) Check out more examples in the `examples` directory. ######
+1. Check out more examples in the `examples` directory.
+
+You can find a summary of the syntax in `grammar.txt`.
 
 A language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be put here soon.
 
