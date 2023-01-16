@@ -1,10 +1,8 @@
 / example 3: Aligned alloc
-  This program allocates a chunk of memory aligned to a 8 byte boundary, stores the number (n) 42 (unsigned int) in that chunk with an aligned store; then it loads n back from the chunk with an aligned load, and writes n to stdout
+  This program allocates a chunk of memory aligned to an 8 byte boundary, stores the number (n) 42 (unsigned int) in that chunk with an aligned store; then it loads n back from the chunk with an aligned load, and writes n to stdout
 /
 import "./lib/import/io.chloreh"
 import "./lib/import/alloc2.chloreh"
-
-:terminate_on_error { & ldr0 & panic } ;this macro checks the value returned by a subroutine in the standard library, and if it is non-zero, the program terminates
 
 :main
 
@@ -16,33 +14,33 @@ pushp std_io
 call
 
 pushuc 0 pushuc 0
-%aaseg
+pushp aaseg call
 pushuc 0 pushuc 1
-%alloc_close
+pushp mem_close call
 pushuc 1 pushuc 2
-%putui
+pushp putui call
 pushuc 0 pushuc 3
-%alloc_init
+pushp mem_init call
 
-pushuc 3 !
-%terminate_on_error
+pushuc 3!
+ldr0 panic
 
 pushl 1024 ;we'll allocate a chunk of size 1024 bytes
-pushuc 8 ;aligned to a 8-byte boundary
-pushuc 0 !
-%terminate_on_error
+pushuc 8 ;aligned to an 8-byte boundary
+pushuc 0!
+ldr0 panic
 
-;the top of the stack now has an (explicit) pointer to the heap
-ep2ip ;convert that to an implicit pointer
+;the top of the stack now has a pointer to the heap
+ep2ip ;convert that to a bare pointer
 dup
 pushui 42 ;this is the value that we're going to store in the heap
 swap
 asthui ;do an aligned store
 
 
-& aldhui & ;do an aligned ld from the same address
+aldhui ;do an aligned load from the same address
 ;42 should now be on the top of the stack
-pushuc 2 !
+pushuc 2!
 
-pushuc 1 !
+pushuc 1!
 hlt
