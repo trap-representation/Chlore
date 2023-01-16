@@ -1,87 +1,61 @@
-    ;types - a part of the Chlore standard library
-/   Copyright (C) 2022  Somdipto Chakraborty
+set ALIGNOF_UC 1
+set ALIGNOF_US 2
+set ALIGNOF_UI 4
+set ALIGNOF_C 1
+set ALIGNOF_S 2
+set ALIGNOF_I 4
+set ALIGNOF_P 8
+set ALIGNOF_L 8
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+set SIZEOF_UC 1
+set SIZEOF_US 2
+set SIZEOF_UI 4
+set SIZEOF_C 1
+set SIZEOF_S 2
+set SIZEOF_I 4
+set SIZEOF_P 8
+set SIZEOF_L 8
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+set C_MAX 127
+set C_MIN -128
+set S_MAX 32767
+set S_MIN -32768
+set I_MAX 2147483647
+set I_MIN -2147483648
+set P_MAX 0x3fffffffffffffff
+set L_MAX 9223372036854775807
+set L_MIN -9223372036854775807
+set UC_MAX 255
+set US_MAX 65535
+set UI_MAX 4294967295
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-/
+;exact-width integer types
+;an implementation doesn't necessarily need to have the following symbols
 
+set ALIGNOF_U8 1
+set ALIGNOF_U16 2
+set ALIGNOF_U32 4
+set ALIGNOF_S8 1
+set ALIGNOF_S16 2
+set ALIGNOF_S32 4
+set ALIGNOF_S64 8
 
-$if std_types_guard 0
+set SIZEOF_U8 1
+set SIZEOF_U16 2
+set SIZEOF_U32 4
+set SIZEOF_S8 1
+set SIZEOF_S16 2
+set SIZEOF_S32 4
+set SIZEOF_S64 8
 
-	set std_types_guard 1
-
-	set ALIGNOF_UC 1
-	set ALIGNOF_US 2
-	set ALIGNOF_UI 4
-	set ALIGNOF_C 1
-	set ALIGNOF_S 2
-	set ALIGNOF_I 4
-	set ALIGNOF_P 8
-	set ALIGNOF_L 8
-
-	set SIZEOF_UC 1
-	set SIZEOF_US 2
-	set SIZEOF_UI 4
-	set SIZEOF_C 1
-	set SIZEOF_S 2
-	set SIZEOF_I 4
-	set SIZEOF_P 8
-	set SIZEOF_L 8
-
-	set C_MAX 127
-	set C_MIN -128
-	set S_MAX 32767
-	set S_MIN -32768
-	set I_MAX 2147483647
-	set I_MIN -2147483648
-	set P_MAX 0x3fffffffffffffff
-	set L_MAX 9223372036854775807
-	set L_MIN -9223372036854775807
-	set UC_MAX 255
-	set US_MAX 65535
-	set UI_MAX 4294967295
-
-	;exact-width integer types
-	;these may not be present in an implementation
-	;if present though, these are guaranteed to have a 2's complement representation
-
-	set ALIGNOF_U8 1
-	set ALIGNOF_U16 2
-	set ALIGNOF_U32 4
-	set ALIGNOF_S8 1
-	set ALIGNOF_S16 2
-	set ALIGNOF_S32 4
-	set ALIGNOF_S64 8
-
-	set SIZEOF_U8 1
-	set SIZEOF_U16 2
-	set SIZEOF_U32 4
-	set SIZEOF_S8 1
-	set SIZEOF_S16 2
-	set SIZEOF_S32 4
-	set SIZEOF_S64 8
-
-	set S8_MAX 127
-	set S8_MIN -128
-	set S16_MAX 32767
-	set S16_MIN -32768
-	set S32_MAX 2147483647
-	set S32_MIN -2147483648
-	set S64_MAX 9223372036854775807
-	set S64_MIN -9223372036854775807
-	set U8_MAX 255
-	set U16_MAX 65535
-	set U32_MAX 4294967295
-
-$fi
-
+set S8_MAX 127
+set S8_MIN -128
+set S16_MAX 32767
+set S16_MIN -32768
+set S32_MAX 2147483647
+set S32_MIN -2147483648
+set S64_MAX 9223372036854775807
+set S64_MIN -9223372036854775807
+set U8_MAX 255
+set U16_MAX 65535
+set U32_MAX 4294967295
