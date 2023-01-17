@@ -1,1 +1,1 @@
-These source files are implementation-specific.
+These source files might change depending on the implementation.
