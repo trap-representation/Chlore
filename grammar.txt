@@ -24,18 +24,20 @@ statement:
   set-statement
   labeled-statement
   import-statement
-  type-def
-  tagged-nonfundamental-type-expression
+  struct
+  tagged-struct-name-expression
   instruction
 
 alignof-statement:
   `alignof` type
+  `alignof` struct-name
 
 sizeof-statement:
   `sizeof` type
+  `sizeof` struct-name
 
 keyword: one of
-  `typedef` `hidden` `exposed` `import` `include`
+  `hidden` `exposed` `import` `include`
   `jmp` `jeq` `jgt` `jls` `jge` `jle` `jne` `jz` `jnz`
   `addc` `adds` `addi` `addp` `addbp` `addl` `adduc` `addus` `addui`
   `subc` `subs` `subi` `subp` `subbp` `subl` `subuc` `subus` `subui`
@@ -75,9 +77,9 @@ keyword: one of
   `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
   `pushc` `pushs` `pushi` `pushp` `pushrp` `pushl` `pushuc` `pushus` `pushui` `pushep`
   `uc` `us` `ui` `c` `s` `i` `l` `p`
-  `typedef` `sizeof` `alignof`
+  `struct` `sizeof` `alignof`
 
-fundamental-type:
+type:
   `uc` `us` `ui` `c` `s` `i` `l` `p`
 
 decimal-digit: one of
@@ -198,38 +200,35 @@ import-statement:
 include-statement:
   `include` string-constant
 
-type:
-  fundamental-type
-  nonfundamental-type
-
 tag:
   identifier
 
 symbol:
   identifier
 
-nonfundamental-type:
+struct-name:
   identifier
 
-type-def-name:
+struct-name:
   identifier
 
-type-tag-pair:
+struct-tag-definition:
   type `:` tag
+  struct-name `:` tag
 
-type-tag-pair-sequence:
-  type-tag-pair
-  type-tag-pair type-tag-pair-sequence
+struct-tag-definition-sequence:
+  struct-tag-definition
+  struct-tag-definition struct-tag-definition-sequence
 
-type-def:
-  `typedef` type-def-name type-tag-pair-sequence `*`
+struct-definition:
+  `struct` struct-name struct-tag-definition-sequence `*`
 
 tag-sequence:
   `.` tag
   `.` tag tag-sequence
 
-tagged-nonfundamental-type-expression:
-  `+` nonfundamental-type tag-sequence
+tagged-struct-name-expression:
+  `+` struct-name tag-sequence
 
 push-instruction: one of
   `pushc` `pushs` `pushi` `pushp` `pushrp` `pushl` `pushuc` `pushus` `pushui` `pushep`
@@ -272,3 +271,4 @@ instruction: one of
   `ldvisao` `ldtypt0` `ldtypt1` `stao` `pushpc` `pushcs`
   `ptyp`
   `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
+
