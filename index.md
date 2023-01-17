@@ -9,7 +9,7 @@ This is Chlore - a stack based language that's made with a focus on simplicity.
 
 1. Most of the modern languages are built with memory-safety in mind, and most translators perform a lot of complex operations to "guarantee" that "memory-safety" they promise. But let's be honest, the more complex the translator is, the more are the chances of subtle bugs to silp right through, and cause all sorts of weird stuff.
 
-    Chlore is *not* "memory-safe", and its reference implementation is probably one of the simplest compilers you'll find out there.
+    Chlore implementations are *not* required to provide "memory-safety", and its reference implementation is probably one of the simplest compilers you'll find out there.
 
 2. Languages are slowly turning into a bloated mess:
 - Huge standard libraries with "features" to make programmers' lives easier
