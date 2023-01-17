@@ -222,7 +222,7 @@ type-tag-pair-sequence:
   type-tag-pair type-tag-pair-sequence
 
 type-def:
-  `type` type-def-name
+  `type` type-def-name type-tag-pair-sequence `*`
 
 tag-sequence:
   `.` tag
