@@ -53,22 +53,6 @@ i: val*
 struct s64
 l: val*
 
-set ALIGNOF_U8 1
-set ALIGNOF_U16 2
-set ALIGNOF_U32 4
-set ALIGNOF_S8 1
-set ALIGNOF_S16 2
-set ALIGNOF_S32 4
-set ALIGNOF_S64 8
-
-set SIZEOF_U8 1
-set SIZEOF_U16 2
-set SIZEOF_U32 4
-set SIZEOF_S8 1
-set SIZEOF_S16 2
-set SIZEOF_S32 4
-set SIZEOF_S64 8
-
 set S8_MAX 127
 set S8_MIN -128
 set S16_MAX 32767
