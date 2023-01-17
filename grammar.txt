@@ -229,7 +229,7 @@ tag-sequence:
   `.` tag tag-sequence
 
 tagged-nonfundamental-type-expression:
-  `+` nonfundamental-type `.` tag-sequence
+  `+` nonfundamental-type tag-sequence
 
 push-instruction: one of
   `pushc` `pushs` `pushi` `pushp` `pushrp` `pushl` `pushuc` `pushus` `pushui` `pushep`
