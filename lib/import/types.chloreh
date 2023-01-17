@@ -30,7 +30,28 @@ set US_MAX 65535
 set UI_MAX 4294967295
 
 ;exact-width integer types
-;an implementation isn't mandated to have the following symbols
+;an implementation doesn't necessarily need to have the following symbols and structs
+
+struct u8
+uc: val*
+
+struct u16
+us: val*
+
+struct u32
+ui: val*
+
+struct s8
+c: val*
+
+struct s16
+s: val*
+
+struct s32
+i: val*
+
+struct s64
+l: val*
 
 set ALIGNOF_U8 1
 set ALIGNOF_U16 2
@@ -59,4 +80,3 @@ set S64_MIN -9223372036854775807
 set U8_MAX 255
 set U16_MAX 65535
 set U32_MAX 4294967295
-
