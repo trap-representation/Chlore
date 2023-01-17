@@ -6,12 +6,12 @@ Chlore
 
 This is Chlore - a stack based language that's made with a focus on simplicity.
 
-The reference implementation of Chlore that I've been working on is called MChlore.
+The reference implementation of Chlore that I've been working on is called Ehre.
 
-MChlore can currently target:
+Ehre can currently target:
 - STVM
 
-In the future MChlore will be able to target:
+In the future Ehre will be able to target:
 - SUBLEQ
 - WebAssembly
 - CIL
