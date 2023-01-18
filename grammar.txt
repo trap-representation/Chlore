@@ -209,9 +209,6 @@ symbol:
 struct-name:
   identifier
 
-struct-name:
-  identifier
-
 struct-tag-definition:
   type `:` tag
   struct-name `:` tag
@@ -271,4 +268,3 @@ instruction: one of
   `ldvisao` `ldtypt0` `ldtypt1` `stao` `pushpc` `pushcs`
   `ptyp`
   `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
-
