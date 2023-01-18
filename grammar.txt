@@ -13,7 +13,7 @@ token:
   constant
 
 translation-unit:
-  statement
+  statement (opt)
   statement translation-unit
 
 statement:
@@ -218,14 +218,14 @@ struct-tag-definition-sequence:
   struct-tag-definition struct-tag-definition-sequence
 
 struct-definition:
-  `struct` struct-name struct-tag-definition-sequence `*`
+  `struct` struct-name struct-tag-definition-sequence (opt) `*`
 
 tag-sequence:
   `.` tag
   `.` tag tag-sequence
 
 tagged-struct-name-expression:
-  `+` struct-name tag-sequence
+  `+` struct-name tag-sequence (opt)
 
 push-instruction: one of
   `pushc` `pushs` `pushi` `pushp` `pushrp` `pushl` `pushuc` `pushus` `pushui` `pushep`
