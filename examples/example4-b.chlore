@@ -1,5 +1,5 @@
 / example 4-b: Addressable, non-standalone object
-  This is an addressable, non-standalone object file that can be loaded by or placed in another non-standalone||standalone object during run-||compile-time
+  This is an addressable, non-standalone object file that can be loaded by or placed in another non-standalone or standalone object during run- or compile-time
 /
 
 import "./lib/import/io.chloreh"
