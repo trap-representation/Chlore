@@ -44,6 +44,6 @@ pushuc 0 pushuc 0
 pushp putstr call
 
 pushp "Hello, World!\n"
-pushuc 0!
+pushuc 0 invoke
 hlt
 ````
