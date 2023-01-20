@@ -18,23 +18,23 @@ pushuc 0 pushuc 2
 pushp putstr call
 
 
-pushuc 0!
+pushuc 0 invoke
 
 pushp "\n  |\n /_\\\n"
-pushuc 2!
+pushuc 2 invoke
 
 :loop
 dup pushuc '\n' pushp quit jeq ;check for newline
 dup pushc EOF pushp quit jeq ;check for EOF
 pushp " |"
-pushuc 2!
-pushuc 1!
+pushuc 2 invoke
+pushuc 1 invoke
 pushp "|\n"
-pushuc 2!
-pushuc 0!
+pushuc 2 invoke
+pushuc 0 invoke
 pushp loop jmp
 
 :quit
 pushp " |_|\n/___\\\n VvV\n"
-pushuc 2!
+pushuc 2 invoke
 hlt

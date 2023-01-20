@@ -22,12 +22,12 @@ pushp putui call
 pushuc 0 pushuc 3
 pushp mem_init call
 
-pushuc 3!
+pushuc 3 invoke
 ldr0 panic
 
 pushl 1024 ;we'll allocate a chunk of size 1024 bytes
 pushuc 8 ;aligned to an 8-byte boundary
-pushuc 0!
+pushuc 0 invoke
 ldr0 panic
 
 ;the top of the stack now has a pointer to the heap
@@ -40,7 +40,7 @@ asthui ;do an aligned store
 
 aldhui ;do an aligned load from the same address
 ;42 should now be on the top of the stack
-pushuc 2!
+pushuc 2 invoke
 
-pushuc 1!
+pushuc 1 invoke
 hlt

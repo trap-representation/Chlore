@@ -6,17 +6,17 @@ import "./lib/import/io.chloreh"
 
 :main
 
-;open the non-addressable object that we need to use
-pushuc 0 ;the non-addressable object will be saved at the 0th index of the object handler table
+;save the `std_io' library at the 0th index of the object table
+pushuc 0
 pushp std_io
 call
 
-;save a pointer to the visible symbol we're going to call
-pushuc 0 ;we'll try loading the visible symbol from the non-addressable object present at the 0th index of the object handler table
-pushuc 0 ;and if loaded successfully, store the symbol at the 0th index of the symbol handler table
+;save the `putstr' symbol present in the `std_io' library at the 0th index of the symbol table
+pushuc 0
+pushuc 0
 pushp putstr
 call
 
-pushp "Hello, World!\n" ;this string is automatically null-terminated
-pushuc 0!
+pushp "Hello, World!\n"
+pushuc 0 invoke
 hlt
