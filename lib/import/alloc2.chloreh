@@ -1,71 +1,70 @@
 set EINIT 1
-set EALIGN 2
-set EINT 3
-set EOVF 4
+set EINT 2
+set EOVF 3
 
 :rlhb
 str0
 pushep "rlhb"
-stvisnaoc
+opensymc
 ldr0 ret
 
 :aaseg
 str0
 pushep "aaseg"
-stvisnaoc
+opensymc
 ldr0 ret
 
 :aseg
 str0
 pushep "aseg"
-stvisnaoc
+opensymc
 ldr0 ret
 
 :arseg
 str0
 pushep "arseg"
-stvisnaoc
+opensymc
 ldr0 ret
 
 :rseg
 str0
 pushep "rseg"
-stvisnaoc
+opensymc
 ldr0 ret
 
 :flush
 str0
 pushep "flush"
-stvisnaoc
+opensymc
 ldr0 ret
 
 :mem_close
 str0
 pushep "close"
-stvisnaoc
+opensymc
 ldr0 ret
 
 :dump
 str0
 pushep "dump"
-stvisnaoc
+opensymc
 ldr0 ret
 
 :mem_init
 str0
 pushep "init"
-stvisnaoc
+opensymc
 ldr0 ret
 
 :prof
 str0
 pushep "prof"
-stvisnaoc
+opensymc
 ldr0 ret
 
 :std_alloc2
 str0
 pushep "./lib/bin/alloc2.so"
-opennaoc
+openobjc
 ldr0 ret
 

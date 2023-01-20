@@ -33,25 +33,25 @@ set UI_MAX 4294967295
 ;an implementation doesn't necessarily need to have the following symbols and structs
 
 struct u8
-uc: val*
+uc: val!
 
 struct u16
-us: val*
+us: val!
 
 struct u32
-ui: val*
+ui: val!
 
 struct s8
-c: val*
+c: val!
 
 struct s16
-s: val*
+s: val!
 
 struct s32
-i: val*
+i: val!
 
 struct s64
-l: val*
+l: val!
 
 set S8_MAX 127
 set S8_MIN -128
@@ -64,3 +64,4 @@ set S64_MIN -9223372036854775807
 set U8_MAX 255
 set U16_MAX 65535
 set U32_MAX 4294967295
+

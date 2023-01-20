@@ -1,18 +1,18 @@
 :strlen
 str0
 pushep "string_len"
-stvisnaoc
+opensymc
 ldr0 ret
 
 :strcmp
 str0
 pushep "cmp_str"
-stvisnaoc
+opensymc
 ldr0 ret
 
 :std_string
 str0
 pushep "./lib/bin/string.so"
-opennaoc
+openobjc
 ldr0 ret
 
