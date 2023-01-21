@@ -137,7 +137,7 @@ character-sequence-char:
   character-char character-sequence-char
 
 character-char:
-  any member of the source character set except the `'` and the `\` character
+  any member of the source character set except the `'`, the `\` character, and the newline character
   escape-sequence
 
 string-constant:
@@ -148,7 +148,7 @@ character-sequence-string:
   character-string character-sequence-string
 
 character-string:
-  any member of the source character set except the `"` and the `\` character
+  any member of the source character set except the `"`, the `\` character, and the newline character
   escape-sequence
 
 escape-sequence:
