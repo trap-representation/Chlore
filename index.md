@@ -7,7 +7,7 @@ This is Chlore - a stack based language that's made with a focus on simplicity.
 
 #### Why yet another new language? ####
 
-1. Most of the modern languages are built with memory-safety in mind, and most translators perform a lot of complex operations to "guarantee" that "memory-safety" they promise. But let's be honest, the more complex the translator is, the more are the chances of subtle bugs to silp right through, and cause all sorts of weird stuff.
+1. Most of the modern languages are built with memory-safety in mind, and implementations have to perform a lot of complex operations to "guarantee" that "memory-safety" they promise. But let's be real here; the more complex the implementation is, the more are the chances of subtle bugs to silp right through, and cause all sorts of weird stuff.
 
     Chlore implementations are *not* required to provide "memory-safety", and its reference implementation is probably one of the simplest compilers you'll find out there.
 
@@ -18,7 +18,7 @@ This is Chlore - a stack based language that's made with a focus on simplicity.
 
    Chlore does not and will *never* have any of these "features". Chlore follows a spec-first approach for the design of the language and it has a standard library that tries to be small.
 
-3. Modern languages aren't simple anymore. Simplicity isn't always proportional to how much a language can make a programmer's life easier. A simple language should not be unnecessarily complex to define and implement.
+3. Modern languages aren't simple anymore. Simplicity isn't always proportional to how much a language can make a programmer's life easier. A simple language should be ... well, simple. It must not be unnecessarily complicated to define and implement.
 
 The reference implementation of Chlore that I've been working on is called Ehre.
 
