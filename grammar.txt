@@ -13,8 +13,11 @@ token:
   constant
 
 translation-unit:
-  statement (opt)
-  statement translation-unit
+  statement-sequence (opt)
+
+statement-sequence:
+  statement
+  statement statement-sequence
 
 statement:
   keyword
@@ -190,7 +193,7 @@ visibility:
   `exposed`
 
 labeled-statement:
-  `:` visibility symbol
+  `:` visibility (opt) symbol
 
 import-statement:
   `import` string-constant
@@ -264,4 +267,3 @@ instruction: one of
   `vldhc` `vldhs` `vldhi` `vldhp` `vldhl` `vldhuc` `vldhus` `vldhui`
   `vsthc` `vsths` `vsthi` `vsthp` `vsthl` `vsthuc` `vsthus` `vsthui`
   `pushpc` `pushcs`
-
