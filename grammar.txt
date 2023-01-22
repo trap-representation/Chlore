@@ -1,6 +1,6 @@
 [Notation]:
 
-A colon (:) following a non-terminal introduces its definition. Terminals are enclosed in back-ticks (`). Alternative definitions are listed on separate lines, except when prefaced by the words `one of". An optional symbol is indicated by the suffix ` (opt)".
+A colon (:) following a non-terminal introduces its definition. Terminals are enclosed in backticks (`). Alternative definitions are listed on separate lines, except when prefaced by the words `one of". An optional symbol is indicated by the suffix ` (opt)".
 
 ----
 
@@ -170,9 +170,9 @@ character-identifier: one of
   `w` `x` `y` `z` `A` `B` `C` `D` `E` `F` `G`
   `H` `I` `J` `K` `L` `M` `N` `O` `P` `Q` `R`
   `S` `T` `U` `V` `W` `X` `Y` `Z` `0` `1` `2`
-  `3` `4` `5` `6` `7` `8` `9` `_` `^` ``` `@`
-  `|` `\` `[` `]` `(` `)` `,` `#` `{` `}` `&`
-  `%` `~` `*`
+  `3` `4` `5` `6` `7` `8` `9` `_` `^` `@` `|`
+  `\` `[` `]` `(` `)` `,` `#` `{` `}` `&` `%`
+  `~` `*` the backtick character
 
 punctuator:
   `-` `+` `$` `.` `!`
