@@ -27,7 +27,7 @@ statement:
   set-statement
   labeled-statement
   import-statement
-  struct
+  struct-definition
   tagged-struct-name-expression
   instruction
 
@@ -267,3 +267,4 @@ instruction: one of
   `vldhc` `vldhs` `vldhi` `vldhp` `vldhl` `vldhuc` `vldhus` `vldhui`
   `vsthc` `vsths` `vsthi` `vsthp` `vsthl` `vsthuc` `vsthus` `vsthui`
   `pushpc` `pushcs`
+
