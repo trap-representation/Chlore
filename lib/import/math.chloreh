@@ -1,0 +1,18 @@
+:sqroot
+str0
+pushep "sqroot"
+opensymc
+ldr0 ret
+
+:power
+str0
+pushep "power"
+opensymc
+ldr0 ret
+
+:std_math
+str0
+pushep "./lib/bin/math.so"
+openobjc
+ldr0 ret
+
