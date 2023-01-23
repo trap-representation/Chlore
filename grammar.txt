@@ -28,7 +28,7 @@ statement:
   labeled-statement
   import-statement
   struct-definition
-  tagged-struct-name-expression
+  tagged-expression
   instruction
 
 alignof-statement:
@@ -225,7 +225,7 @@ tag-sequence:
   `.` tag
   `.` tag tag-sequence
 
-tagged-struct-name-expression:
+tagged-expression:
   `+` struct-name tag-sequence (opt)
 
 push-instruction: one of
