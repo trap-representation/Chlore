@@ -1,10 +1,10 @@
-:sqroot
+:sqrt
 str0
 pushep "sqroot"
 opensymc
 ldr0 ret
 
-:power
+:pow
 str0
 pushep "power"
 opensymc
