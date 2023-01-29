@@ -4,61 +4,61 @@ set EOVF 3
 
 :rlhb
 str0
-pushep "rlhb"
+pushp "rlhb"
 opensymc
 ldr0 ret
 
 :aaseg
 str0
-pushep "aaseg"
+pushp "aaseg"
 opensymc
 ldr0 ret
 
 :aseg
 str0
-pushep "aseg"
+pushp "aseg"
 opensymc
 ldr0 ret
 
 :arseg
 str0
-pushep "arseg"
+pushp "arseg"
 opensymc
 ldr0 ret
 
 :rseg
 str0
-pushep "rseg"
+pushp "rseg"
 opensymc
 ldr0 ret
 
 :flush
 str0
-pushep "flush"
+pushp "flush"
 opensymc
 ldr0 ret
 
 :mem_close
 str0
-pushep "close"
+pushp "close"
 opensymc
 ldr0 ret
 
 :dump
 str0
-pushep "dump"
+pushp "dump"
 opensymc
 ldr0 ret
 
 :mem_init
 str0
-pushep "init"
+pushp "init"
 opensymc
 ldr0 ret
 
 :std_alloc2
 str0
-pushep "./lib/bin/alloc2.so"
+pushp "./lib/bin/alloc2.so"
 openobjc
 ldr0 ret
 

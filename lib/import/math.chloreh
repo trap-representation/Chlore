@@ -1,18 +1,18 @@
 :sqrt
 str0
-pushep "sqroot"
+pushp "sqroot"
 opensymc
 ldr0 ret
 
 :pow
 str0
-pushep "power"
+pushp "power"
 opensymc
 ldr0 ret
 
 :std_math
 str0
-pushep "./lib/bin/math.so"
+pushp "./lib/bin/math.so"
 openobjc
 ldr0 ret
 

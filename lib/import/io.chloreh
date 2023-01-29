@@ -1,180 +1,180 @@
 :perror
 str0
-pushep "print_error"
+pushp "print_error"
 opensymc
 ldr0 ret
 
 :putstr
 str0
-pushep "print_str"
+pushp "print_str"
 opensymc
 ldr0 ret
 
 :putstre
 str0
-pushep "print_str_err"
+pushp "print_str_err"
 opensymc
 ldr0 ret
 
 :putfmt
 str0
-pushep "print_fmt"
+pushp "print_fmt"
 opensymc
 ldr0 ret
 
 :putfmte
 str0
-pushep "print_fmt_err"
+pushp "print_fmt_err"
 opensymc
 ldr0 ret
 
 :putl
 str0
-pushep "out_l"
+pushp "out_l"
 opensymc
 ldr0 ret
 
 :putp
 str0
-pushep "out_p"
+pushp "out_p"
 opensymc
 ldr0 ret
 
 :puti
 str0
-pushep "out_i"
+pushp "out_i"
 opensymc
 ldr0 ret
 
 :puts
 str0
-pushep "out_s"
+pushp "out_s"
 opensymc
 ldr0 ret
 
 :putc
 str0
-pushep "out_c"
+pushp "out_c"
 opensymc
 ldr0 ret
 
 :putui
 str0
-pushep "out_ui"
+pushp "out_ui"
 opensymc
 ldr0 ret
 
 :putus
 str0
-pushep "out_us"
+pushp "out_us"
 opensymc
 ldr0 ret
 
 :putuc
 str0
-pushep "out_uc"
+pushp "out_uc"
 opensymc
 ldr0 ret
 
 :putchar
 str0
-pushep "out_char"
+pushp "out_char"
 opensymc
 ldr0 ret
 
 :getargv
 str0
-pushep "get_argv"
+pushp "get_argv"
 opensymc
 ldr0 ret
 
 :getargc
 str0
-pushep "get_argc"
+pushp "get_argc"
 opensymc
 ldr0 ret
 
 :openf
 str0
-pushep "open_file"
+pushp "open_file"
 opensymc
 ldr0 ret
 
 :readf
 str0
-pushep "read_file"
+pushp "read_file"
 opensymc
 ldr0 ret
 
 :writef
 str0
-pushep "write_file"
+pushp "write_file"
 opensymc
 ldr0 ret
 
 :getstr
 str0
-pushep "scanin_str"
+pushp "scanin_str"
 opensymc
 ldr0 ret
 
 :closef
 str0
-pushep "close_file"
+pushp "close_file"
 opensymc
 ldr0 ret
 
 :getchar
 str0
-pushep "scanin_char"
+pushp "scanin_char"
 opensymc
 ldr0 ret
 
 :getl
 str0
-pushep "scanin_l"
+pushp "scanin_l"
 opensymc
 ldr0 ret
 
 :geti
 str0
-pushep "scanin_i"
+pushp "scanin_i"
 opensymc
 ldr0 ret
 
 :gets
 str0
-pushep "scanin_s"
+pushp "scanin_s"
 opensymc
 ldr0 ret
 
 :getc
 str0
-pushep "scanin_c"
+pushp "scanin_c"
 opensymc
 ldr0 ret
 
 :getui
 str0
-pushep "scanin_ui"
+pushp "scanin_ui"
 opensymc
 ldr0 ret
 
 :getus
 str0
-pushep "scanin_us"
+pushp "scanin_us"
 opensymc
 ldr0 ret
 
 :getuc
 str0
-pushep "scanin_uc"
+pushp "scanin_uc"
 opensymc
 ldr0 ret
 
 :std_io
 str0
-pushep "./lib/bin/io.so"
+pushp "./lib/bin/io.so"
 openobjc
 ldr0 ret
 
