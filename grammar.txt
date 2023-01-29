@@ -40,7 +40,7 @@ sizeof-statement:
   `sizeof` struct-name
 
 keyword: one of
-  `pushc` `pushs` `pushi` `pushp` `pushrp` `pushl` `pushuc` `pushus` `pushui`
+  `pushc` `pushs` `pushi` `pushp` `pushl` `pushuc` `pushus` `pushui`
   `jmp` `jeq` `jgt` `jls` `jge` `jle` `jne` `jz` `jnz`
   `addc` `adds` `addi` `addp` `addbp` `addl` `adduc` `addus` `addui`
   `subc` `subs` `subi` `subp` `subbp` `subl` `subuc` `subus` `subui`
@@ -67,10 +67,9 @@ keyword: one of
   `alignc` `aligns` `aligni` `alignp` `alignl` `alignuc` `alignus` `alignui`
   `ep2ip` `incsp` `decsp` `exit`
   `force_panic` `jmp_panic`
-  `rjmp` `rjeq` `rjgt` `rjls` `rjge` `rjle` `rjne` `rjz` `rjnz`
   `pushlt` `openobjc` `openobjh` `opensymc` `opensymh` `closeobj` `invoke`  `import`
   `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
-  `pushep` `vstr0` `vstr1` `vstr2` `vstr3` `vstr4` `vstr5` `vstr6` `vstr7`
+  `vstr0` `vstr1` `vstr2` `vstr3` `vstr4` `vstr5` `vstr6` `vstr7`
   `vldr0` `vldr1` `vldr2` `vldr3` `vldr4` `vldr5` `vldr6` `vldr7`
   `vldhc` `vldhs` `vldhi` `vldhp` `vldhl` `vldhuc` `vldhus` `vldhui`
   `vsthc` `vsths` `vsthi` `vsthp` `vsthl` `vsthuc` `vsthus` `vsthui`
@@ -229,10 +228,9 @@ tagged-expression:
   `+` struct-name tag-sequence (opt)
 
 push-instruction: one of
-  `pushc` `pushs` `pushi` `pushp` `pushrp` `pushl` `pushuc` `pushus` `pushui` `pushep`
+  `pushc` `pushs` `pushi` `pushp` `pushl` `pushuc` `pushus` `pushui`
 
 instruction: one of
-  `pushc` `pushs` `pushi` `pushp` `pushrp` `pushl` `pushuc` `pushus` `pushui`
   `jmp` `jeq` `jgt` `jls` `jge` `jle` `jne` `jz` `jnz`
   `addc` `adds` `addi` `addp` `addbp` `addl` `adduc` `addus` `addui`
   `subc` `subs` `subi` `subp` `subbp` `subl` `subuc` `subus` `subui`
@@ -259,10 +257,9 @@ instruction: one of
   `alignc` `aligns` `aligni` `alignp` `alignl` `alignuc` `alignus` `alignui`
   `ep2ip` `incsp` `decsp` `exit`
   `force_panic` `jmp_panic`
-  `rjmp` `rjeq` `rjgt` `rjls` `rjge` `rjle` `rjne` `rjz` `rjnz`
   `pushlt` `openobjc` `openobjh` `opensymc` `opensymh` `closeobj` `invoke`  `import`
   `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
-  `pushep` `vstr0` `vstr1` `vstr2` `vstr3` `vstr4` `vstr5` `vstr6` `vstr7`
+  `vstr0` `vstr1` `vstr2` `vstr3` `vstr4` `vstr5` `vstr6` `vstr7`
   `vldr0` `vldr1` `vldr2` `vldr3` `vldr4` `vldr5` `vldr6` `vldr7`
   `vldhc` `vldhs` `vldhi` `vldhp` `vldhl` `vldhuc` `vldhus` `vldhui`
   `vsthc` `vsths` `vsthi` `vsthp` `vsthl` `vsthuc` `vsthus` `vsthui`
