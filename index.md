@@ -34,16 +34,11 @@ The reference implementation of Chlore that I've been working on is called Ehre.
 #### A simple Hello World program written in a standard compliant implementation of Chlore: ####
 
 ````
+import "./lib/import/stdlib.chloreh"
 import "./lib/import/io.chloreh"
 
 :main
-pushuc 0
-pushp std_io call
-
-pushuc 0 pushuc 0
-pushp putstr call
-
 pushp "Hello, World!\n"
-pushuc 0 invoke
+pushp putstr call
 hlt
 ````
