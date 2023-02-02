@@ -14,3 +14,10 @@ invoke
 ldr1
 ret
 
+:memcpy
+str1
+pushp STDLIB_ID
+pushp "cpy_mem"
+invoke
+ldr1
+ret
