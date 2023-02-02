@@ -20,25 +20,20 @@ In the future Ehre will be able to target:
 A simple Hello World program written in a standard compliant implementation of Chlore <sup>1.</sup>:
 
 ````
+import "./lib/import/stdlib.chloreh"
 import "./lib/import/io.chloreh"
 
 :main
-pushuc 0
-pushp std_io call
-
-pushuc 0 pushuc 0
-pushp putstr call
-
 pushp "Hello, World!\n"
-pushuc 0 invoke
+pushp putstr call
 hlt
 ````
-
-1. Check out more examples in the `examples` directory.
 
 You can find a summary of the syntax of Chlore in `grammar.txt`.
 
 A language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be put here soon.
+
+If you're curious about how the language looks like though, you can check the `grammar.txt` which contains a summary of the syntax of Chlore. Ehre adds some new instructions to Chlore, so you might also want to take a look at `ehre_specific_grammar.txt`.
 
 The syntax of Chlore was recently changed, so I decided to nuke the `self_hosted` directory because the self hosted compiler wouldn't compile with the new implementation anymore. I'm working on a new self hosted implementation now, which I'll put here once I get the lexer written.
 
