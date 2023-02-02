@@ -2,39 +2,27 @@
   This program was made for the "This isn't rocket science" code-golf (code-golf question 91182), though it was never submitted
 /
 
+import "./lib/import/stdlib.chloreh"
 import "./lib/import/io.chloreh"
 import "./lib/import/stddef.chloreh"
 
 :main
-pushuc 0
-pushp std_io call
-
-
-pushuc 0 pushuc 0
 pushp getchar call
-pushuc 0 pushuc 1
-pushp putchar call
-pushuc 0 pushuc 2
-pushp putstr call
-
-
-pushuc 0 invoke
-
 pushp "\n  |\n /_\\\n"
-pushuc 2 invoke
+pushp putstr call
 
 :loop
 dup pushuc '\n' pushp quit jeq ;check for newline
 dup pushc EOF pushp quit jeq ;check for EOF
 pushp " |"
-pushuc 2 invoke
-pushuc 1 invoke
+pushp putstr call
+pushp putchar call
 pushp "|\n"
-pushuc 2 invoke
-pushuc 0 invoke
+pushp putstr call
+pushp getchar call
 pushp loop jmp
 
 :quit
 pushp " |_|\n/___\\\n VvV\n"
-pushuc 2 invoke
+pushp putstr call
 hlt

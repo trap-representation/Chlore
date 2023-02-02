@@ -2,21 +2,10 @@
   This program writes "Hello, World" to stdout
 /
 
+import "./lib/import/stdlib.chloreh"
 import "./lib/import/io.chloreh"
 
 :main
-
-;save the `std_io' library at the 0th index of the object table
-pushuc 0
-pushp std_io
-call
-
-;save the `putstr' symbol present in the `std_io' library at the 0th index of the symbol table
-pushuc 0
-pushuc 0
-pushp putstr
-call
-
 pushp "Hello, World!\n"
-pushuc 0 invoke
+pushp putstr call
 hlt

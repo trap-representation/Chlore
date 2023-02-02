@@ -2,6 +2,7 @@
   Recursive Fibonacci series
 /
 
+import "./lib/import/stdlib.chloreh"
 import "./lib/import/io.chloreh"
 
 :main
@@ -9,14 +10,9 @@ set n 10
 pushl n
 pushp fib
 call
-
-pushuc 0 pushp std_io call
-pushuc 0 pushuc 0 pushp putl call
-pushuc 0 pushuc 1 pushp putchar call
-pushuc 0 invoke
-
+pushp putl call
 pushc '\n'
-pushuc 1 invoke
+pushp putchar call
 
 hlt
 

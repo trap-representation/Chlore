@@ -2,29 +2,14 @@
   This program calculates the length of the null-terminated string
 /
 
+import "./lib/import/stdlib.chloreh"
 import "./lib/import/io.chloreh"
 import "./lib/import/string.chloreh"
 
 :main
-pushuc 0
-pushp std_string
-call
-
-pushuc 1
-pushp std_io
-call
-
-pushuc 0 pushuc 0
-pushp strlen
-call
-
 pushp "Hello, World!\n"
-pushuc 0 invoke
+pushp strlen call
 
-pushuc 1 pushuc 1
-pushp putl
-call
-
-pushuc 1 invoke
+pushp putl call
 
 hlt
