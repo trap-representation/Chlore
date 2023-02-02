@@ -1,6 +1,6 @@
 [Notation]:
 
-A colon (:) following a non-terminal introduces its definition. Terminals are enclosed in backticks (`). Alternative definitions are listed on separate lines, except when prefaced by the words "one of". An optional symbol is indicated by the suffix " (opt)".
+A colon (:) following a non-terminal introduces its definition. If a plus (+) preceeds a non-terminal, the new definition adds to the previous definition of the non-terminal. Terminals are enclosed in backticks (`). Alternative definitions are listed on separate lines, except when prefaced by the words "one of". An optional symbol is indicated by the suffix " (opt)".
 
 ----
 
@@ -278,4 +278,16 @@ tag-sequence:
 
 tagged-expression:
   `+` struct-name tag-sequence (opt)
+
+----
+
+[Ehre-specific]:
+
+[Lexical grammar]:
+
++keyword: one of
+  `open` `invoke`
+
++instruction: one of
+  `open` `invoke`
 
