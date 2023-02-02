@@ -28,12 +28,11 @@ pushp "Hello, World!\n"
 pushp putstr call
 hlt
 ````
-
-You can find a summary of the syntax of Chlore in `grammar.txt`.
-
-A language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be put here soon.
+1. Check out more examples in the `examples` directory.
 
 If you're curious about how the language looks like though, you can check the `grammar.txt` which contains a summary of the syntax of Chlore. Ehre adds some new instructions to Chlore, so you might also want to take a look at `ehre_specific_grammar.txt`.
+
+A language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be put here soon.
 
 The syntax of Chlore was recently changed, so I decided to nuke the `self_hosted` directory because the self hosted compiler wouldn't compile with the new implementation anymore. I'm working on a new self hosted implementation now, which I'll put here once I get the lexer written.
 
