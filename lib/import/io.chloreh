@@ -1,180 +1,232 @@
 :perror
-str0
+str1
+pushp STDLIB_ID
 pushp "print_error"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :putstr
-str0
+str1
+pushp STDLIB_ID
 pushp "print_str"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :putstre
-str0
+str1
+pushp STDLIB_ID
 pushp "print_str_err"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :putfmt
-str0
+str1
+pushp STDLIB_ID
 pushp "print_fmt"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :putfmte
-str0
+str1
+pushp STDLIB_ID
 pushp "print_fmt_err"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :putl
-str0
+str1
+pushp STDLIB_ID
 pushp "out_l"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :putp
-str0
+str1
+pushp STDLIB_ID
 pushp "out_p"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :puti
-str0
+str1
+pushp STDLIB_ID
 pushp "out_i"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :puts
-str0
+str1
+pushp STDLIB_ID
 pushp "out_s"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :putc
-str0
+str1
+pushp STDLIB_ID
 pushp "out_c"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :putui
-str0
+str1
+pushp STDLIB_ID
 pushp "out_ui"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :putus
-str0
+str1
+pushp STDLIB_ID
 pushp "out_us"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :putuc
-str0
+str1
+pushp STDLIB_ID
 pushp "out_uc"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :putchar
-str0
+str1
+pushp STDLIB_ID
 pushp "out_char"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :getargv
-str0
+str1
+pushp STDLIB_ID
 pushp "get_argv"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :getargc
-str0
+str1
+pushp STDLIB_ID
 pushp "get_argc"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :openf
-str0
+str1
+pushp STDLIB_ID
 pushp "open_file"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :readf
-str0
+str1
+pushp STDLIB_ID
 pushp "read_file"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :writef
-str0
+str1
+pushp STDLIB_ID
 pushp "write_file"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :getstr
-str0
+str1
+pushp STDLIB_ID
 pushp "scanin_str"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :closef
-str0
+str1
+pushp STDLIB_ID
 pushp "close_file"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :getchar
-str0
+str1
+pushp STDLIB_ID
 pushp "scanin_char"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :getl
-str0
+str1
+pushp STDLIB_ID
 pushp "scanin_l"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :geti
-str0
+str1
+pushp STDLIB_ID
 pushp "scanin_i"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :gets
-str0
+str1
+pushp STDLIB_ID
 pushp "scanin_s"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :getc
-str0
+str1
+pushp STDLIB_ID
 pushp "scanin_c"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :getui
-str0
+str1
+pushp STDLIB_ID
 pushp "scanin_ui"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :getus
-str0
+str1
+pushp STDLIB_ID
 pushp "scanin_us"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :getuc
-str0
+str1
+pushp STDLIB_ID
 pushp "scanin_uc"
-opensymc
-ldr0 ret
-
-:std_io
-str0
-pushp "./lib/bin/io.so"
-openobjc
-ldr0 ret
+invoke
+ldr1
+ret
 

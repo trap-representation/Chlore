@@ -3,62 +3,74 @@ set EINT 2
 set EOVF 3
 
 :rlhb
-str0
+str1
+pushp STDLIB_ID
 pushp "rlhb"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :aaseg
-str0
+str1
+pushp STDLIB_ID
 pushp "aaseg"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :aseg
-str0
+str1
+pushp STDLIB_ID
 pushp "aseg"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :arseg
-str0
+str1
+pushp STDLIB_ID
 pushp "arseg"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :rseg
-str0
+str1
+pushp STDLIB_ID
 pushp "rseg"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :flush
-str0
+str1
+pushp STDLIB_ID
 pushp "flush"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :mem_close
-str0
-pushp "close"
-opensymc
-ldr0 ret
+str1
+pushp STDLIB_ID
+pushp "closem"
+invoke
+ldr1
+ret
 
-:dump
-str0
-pushp "dump"
-opensymc
-ldr0 ret
+:mem_dump
+str1
+pushp STDLIB_ID
+pushp "dumpm"
+invoke
+ldr1
+ret
 
 :mem_init
-str0
-pushp "init"
-opensymc
-ldr0 ret
-
-:std_alloc2
-str0
-pushp "./lib/bin/alloc2.so"
-openobjc
-ldr0 ret
+str1
+pushp STDLIB_ID
+pushp "initm"
+invoke
+ldr1
+ret
 

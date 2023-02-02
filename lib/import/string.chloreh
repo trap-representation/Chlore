@@ -1,18 +1,16 @@
 :strlen
-str0
+str1
+pushp STDLIB_ID
 pushp "string_len"
-opensymc
-ldr0 ret
+invoke
+ldr1
+ret
 
 :strcmp
-str0
+str1
+pushp STDLIB_ID
 pushp "cmp_str"
-opensymc
-ldr0 ret
-
-:std_string
-str0
-pushp "./lib/bin/string.so"
-openobjc
-ldr0 ret
+invoke
+ldr1
+ret
 
