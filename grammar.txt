@@ -33,12 +33,12 @@ keyword: one of
   `sthc` `sths` `sthi` `sthp` `sthl` `sthuc` `sthus` `sthui`
   `ldcc` `ldcs` `ldci` `ldcp` `ldcl` `ldcuc` `ldcus` `ldcui`
   `hlt` `call` `copy` `pcopy` `popa` `sts` `rbs` `rbe` `pushsp`
-  `ptr_code` `ptr_heap` `set` `include` `hltr` `nop`
+  `set` `include` `hltr` `nop`
   `aldhc` `aldhs` `aldhi` `aldhp` `aldhl` `aldhuc` `aldhus` `aldhui`
   `asthc` `asths` `asthi` `asthp` `asthl` `asthuc` `asthus` `asthui`
   `aldcc` `aldcs` `aldci` `aldcp` `aldcl` `aldcuc` `aldcus` `aldcui`
   `alignc` `aligns` `aligni` `alignp` `alignl` `alignuc` `alignus` `alignui`
-  `ep2ip` `incsp` `decsp` `exit`
+  `incsp` `decsp` `exit`
   `force_panic` `jmp_panic`
   `pushlt` `import`
   `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
@@ -188,12 +188,12 @@ instruction: one of
   `sthc` `sths` `sthi` `sthp` `sthl` `sthuc` `sthus` `sthui`
   `ldcc` `ldcs` `ldci` `ldcp` `ldcl` `ldcuc` `ldcus` `ldcui`
   `hlt` `call` `copy` `pcopy` `popa` `sts` `rbs` `rbe` `pushsp`
-  `ptr_code` `ptr_heap` `set` `include` `hltr` `nop`
+  `set` `include` `hltr` `nop`
   `aldhc` `aldhs` `aldhi` `aldhp` `aldhl` `aldhuc` `aldhus` `aldhui`
   `asthc` `asths` `asthi` `asthp` `asthl` `asthuc` `asthus` `asthui`
   `aldcc` `aldcs` `aldci` `aldcp` `aldcl` `aldcuc` `aldcus` `aldcui`
   `alignc` `aligns` `aligni` `alignp` `alignl` `alignuc` `alignus` `alignui`
-  `ep2ip` `incsp` `decsp` `exit`
+  `incsp` `decsp` `exit`
   `force_panic` `jmp_panic`
   `pushlt` `import`
   `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
