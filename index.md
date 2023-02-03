@@ -20,17 +20,6 @@ This is Chlore - a stack based language that's made with a focus on simplicity.
 
 3. Modern languages aren't simple anymore. Simplicity isn't always proportional to how much a language can make a programmer's life easier. A simple language should be ... well, simple. It must not be unnecessarily complicated to define and implement.
 
-The reference implementation of Chlore that I've been working on is called Ehre.
-
-#### Ehre can currently target: ####
-- STVM
-
-#### In the future Ehre will be able to target: ####
-- SUBLEQ
-- WebAssembly
-- CIL
-- JVM
-
 #### A simple Hello World program written in a standard compliant implementation of Chlore: ####
 
 ````
