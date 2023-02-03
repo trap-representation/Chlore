@@ -6,17 +6,6 @@ Chlore
 
 This is Chlore - a stack based language that's made with a focus on simplicity.
 
-The reference implementation of Chlore that I've been working on is called Ehre.
-
-Ehre can currently target:
-- STVM
-
-In the future Ehre will be able to target:
-- SUBLEQ
-- WebAssembly
-- CIL
-- JVM
-
 A simple Hello World program written in a standard compliant implementation of Chlore <sup>1.</sup>:
 
 ````
