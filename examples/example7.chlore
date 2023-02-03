@@ -2,8 +2,8 @@
   Recursive Fibonacci series
 /
 
-import "./lib/import/stdlib.chloreh"
-import "./lib/import/io.chloreh"
+import "stdlib.chloreh"
+import "io.chloreh"
 
 :main
 set n 10

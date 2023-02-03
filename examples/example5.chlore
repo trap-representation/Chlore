@@ -2,8 +2,8 @@
   Just a simple fizzbuzz program
 /
 
-import "./lib/import/stdlib.chloreh"
-import "./lib/import/io.chloreh"
+import "stdlib.chloreh"
+import "io.chloreh"
 
 :main
 set MAX_CNT 100
