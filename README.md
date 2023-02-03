@@ -34,8 +34,6 @@ If you're curious about how the language looks like though, you can check the `g
 
 A language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be put here soon.
 
-The syntax of Chlore was recently changed, so I decided to nuke the `self_hosted` directory because the self hosted compiler wouldn't compile with the new implementation anymore. I'm working on a new self hosted implementation now, which I'll put here once I get the lexer written.
-
 Every source file in this repository is licensed under the GPLv3 license, even if the text of the license is not explicitly placed at the start of the file. For files where the license is not explicitly placed in, modify/use/distribute them the way you would've had the following text been present in the file.
 
 ```
