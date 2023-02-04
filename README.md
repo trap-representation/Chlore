@@ -19,7 +19,7 @@ hlt
 ````
 1. Check out more examples in the `examples` directory.
 
-If you're curious about how the language looks like though, you can check the `grammar.txt` which contains a summary of the syntax of Chlore. Ehre adds some new instructions to Chlore, so you might also want to take a look at `ehre_specific_grammar.txt`.
+If you're curious about how the language looks like, you can check the `grammar.txt` which contains a summary of the syntax of Chlore.
 
 A language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be put here soon.
 
