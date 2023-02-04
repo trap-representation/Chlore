@@ -8,13 +8,13 @@ import "io.chloreh"
 :main
 set MAX_CNT 100
 
-pushuc 0
+pushi 0
 
 :loop
-pushuc 1 addl ;increment the number at the top of the stack
+pushl 1 addl ;increment the number at the top of the stack
 
 dup
-pushuc 15 swap reml ;check if the number is divisible by 15
+pushi 15 swap reml ;check if the number is divisible by 15
 pushp check_fizz jnz ;if not, jump to `check_fizz' to check if it divisible by 3
 pushp "fizz buzz\n" ;print "fizzbuzz"
 pushp putstr call
@@ -22,7 +22,7 @@ pushp continue jmp
 
 :check_fizz
 dup
-pushuc 3 swap reml ;check if the number is divisible by 3
+pushi 3 swap reml ;check if the number is divisible by 3
 pushp check_buzz jnz ;if not, jump to `check_buzz' to check if it divisible by 5
 pushp "fizz\n" ;print "fizz"
 pushp putstr call
@@ -30,7 +30,7 @@ pushp continue jmp
 
 :check_buzz
 dup
-pushuc 5 swap reml ;check if the number is divisible by 5
+pushi 5 swap reml ;check if the number is divisible by 5
 pushp print_num jnz ;if not, jump to `print_num' to just print the number at the top of the stack
 pushp "buzz\n" ;print "buzz"
 pushp putstr call

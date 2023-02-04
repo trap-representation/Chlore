@@ -12,7 +12,7 @@ pushp "\n  |\n /_\\\n"
 pushp putstr call
 
 :loop
-dup pushuc '\n' pushp quit jeq ;check for newline
+dup pushc '\n' pushp quit jeq ;check for newline
 dup pushc EOF pushp quit jeq ;check for EOF
 pushp " |"
 pushp putstr call

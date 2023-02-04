@@ -3,6 +3,6 @@
 /
 
 :main
-pushuc 42
+pushi 42
 hltr
 

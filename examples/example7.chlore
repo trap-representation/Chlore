@@ -18,10 +18,10 @@ hlt
 
 :fib
 swap
-dup pushuc 1 pushp return jge
-dup pushuc 1 swap subl pushp fib call
+dup pushi 1 pushp return jge
+dup pushi 1 swap subl pushp fib call
 swap
-pushuc 2 swap subl pushp fib call
+pushi 2 swap subl pushp fib call
 addl
 swap
 ret
