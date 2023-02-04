@@ -23,8 +23,8 @@ This is Chlore - a stack based language that's made with a focus on simplicity.
 #### A simple Hello World program written in a standard compliant implementation of Chlore: ####
 
 ````
-import "./lib/import/stdlib.chloreh"
-import "./lib/import/io.chloreh"
+import "stdlib.chloreh"
+import "io.chloreh"
 
 :main
 pushp "Hello, World!\n"
