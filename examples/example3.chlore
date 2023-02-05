@@ -15,7 +15,7 @@ pushui 8 ;aligned to an 8-byte boundary
 pushp aaseg call
 ldr0 panic
 
-;the top of the stack now has a pointer to the heap
+;the top of the stack now has a pointer to an item in the heap
 h2b ;convert that to a bare pointer
 dup
 pushui 42 ;this is the value that we're going to store in the heap
