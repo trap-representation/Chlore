@@ -1,0 +1,169 @@
+struct buffer
+  l: size
+  l: offset
+  l: disp_start
+  ui: max_dispchars
+  p: buf_contents!
+
+struct buffers
+  buffer: buffer0
+  buffer: buffer1
+  buffer: buffer2
+  buffer: buffer3
+  buffer: buffer4!
+
+set BUF_N 5
+
+:inc_buf
+pushui BUF_N ldr2 pushui 1 addui remui str2
+ret
+
+:dec_buf
+pushui BUF_N pushui 1 ldr2 subl reml pushui BUF_N addl pushui BUF_N swap remui str2
+ret
+
+:get_buf_ptr
+ldr2
+dup pushui 0 pushp is_buf0 jeq
+dup pushui 1 pushp is_buf1 jeq
+dup pushui 2 pushp is_buf2 jeq
+dup pushui 3 pushp is_buf3 jeq
+dup pushui 4 pushp is_buf4 jeq
+pushp unexpected_buffer jmp
+
+:is_buf0
+pop ldr5 h2b +buffers.buffer0 swap ret
+
+:is_buf1
+pop ldr5 h2b +buffers.buffer1 swap ret
+
+:is_buf2
+pop ldr5 h2b +buffers.buffer2 swap ret
+
+:is_buf3
+pop ldr5 h2b +buffers.buffer3 swap ret
+
+:is_buf4
+pop ldr5 h2b +buffers.buffer4 swap ret
+
+:allocate_bufs
+swap
+
+sizeof buffers pushp aseg call ;allocate the buffers
+dup pushp NULL pushp allocation_failure jeq ;check if allocation was successful
+
+sizeof buffer pushp aseg call
+dup pushp NULL pushp allocation_failure jeq
+over h2b +buffers.buffer0 sthp
+
+sizeof buffer pushp aseg call
+dup pushp NULL pushp allocation_failure jeq
+over h2b +buffers.buffer1 sthp
+
+sizeof buffer pushp aseg call
+dup pushp NULL pushp allocation_failure jeq
+over h2b +buffers.buffer2 sthp
+
+sizeof buffer pushp aseg call
+dup pushp NULL pushp allocation_failure jeq
+over h2b +buffers.buffer3 sthp
+
+sizeof buffer pushp aseg call
+dup pushp NULL pushp allocation_failure jeq
+over h2b +buffers.buffer4 sthp
+
+swap over h2b +buffers.buffer0.buf_contents sthp
+ldr3 over h2b +buffers.buffer0.size sthl
+pushui 512 over h2b +buffers.buffer0.max_dispchars sthui
+pushi 0 over h2b +buffers.buffer0.offset sthl
+pushi 0 over h2b +buffers.buffer0.disp_start sthl
+
+pushp NULL over h2b +buffers.buffer1.buf_contents sthp
+pushi 0 over h2b +buffers.buffer1.size sthl
+pushui 512 over h2b +buffers.buffer1.max_dispchars sthui
+pushi 0 over h2b +buffers.buffer1.offset sthl
+pushi 0 over h2b +buffers.buffer1.disp_start sthl
+
+pushp NULL over h2b +buffers.buffer2.buf_contents sthp
+pushi 0 over h2b +buffers.buffer2.size sthl
+pushui 512 over h2b +buffers.buffer2.max_dispchars sthui
+pushi 0 over h2b +buffers.buffer2.offset sthl
+pushi 0 over h2b +buffers.buffer2.disp_start sthl
+
+pushp NULL over h2b +buffers.buffer3.buf_contents sthp
+pushi 0 over h2b +buffers.buffer3.size sthl
+pushui 512 over h2b +buffers.buffer3.max_dispchars sthui
+pushi 0 over h2b +buffers.buffer3.offset sthl
+pushi 0 over h2b +buffers.buffer3.disp_start sthl
+
+pushp NULL over h2b +buffers.buffer4.buf_contents sthp
+pushi 0 over h2b +buffers.buffer4.size sthl
+pushui 512 over h2b +buffers.buffer4.max_dispchars sthui
+pushi 0 over h2b +buffers.buffer4.offset sthl
+pushi 0 over h2b +buffers.buffer4.disp_start sthl
+
+swap
+ret
+
+:write_buffer
+;a hackish way to clear the display device in an environment-dependent manner
+
+pushui typ_Linux pushp clear_Linux jnz
+pushui typ_Windows pushp clear_Windows jnz
+pushp write_buffer_continue0 jmp
+
+:clear_Linux
+pushp "clear" pushp system call
+pushp write_buffer_continue0 jmp
+
+:clear_Windows
+pushp "cls" pushp system call
+pushp write_buffer_continue0 jmp
+
+:write_buffer_continue0
+pushp get_buf_ptr call str3
+
+ldr3 dup +buffer.disp_start ldhl swap +buffer.offset ldhl pushp dec_disp_start jls
+pushp write_buffer_continue1 jmp
+
+:dec_disp_start
+ldr3 dup +buffer.offset ldhl swap +buffer.disp_start sthl
+
+:write_buffer_continue1
+ldr3 dup dup +buffer.disp_start ldhl swap +buffer.offset ldhl subl swap +buffer.max_dispchars ldhui pushp inc_disp_start jls
+pushp write_first_half jmp
+
+:inc_disp_start
+ldr3 dup +buffer.offset ldhl swap +buffer.disp_start sthl
+
+:write_first_half
+ldr3 dup +buffer.disp_start ldhl swap +buffer.offset ldhl subl
+ldr3 dup +buffer.buf_contents ldhp h2b swap +buffer.disp_start ldhl swap addp b2h
+pushp putnstr call
+ldr0 pushi EOF pushp stdout_write_error jeq
+pushp write_posin jmp
+
+:write_posin
+pushc '|'
+pushp putchar call
+ldr0 pushi EOF pushp stdout_write_error jeq
+
+ldr3 dup dup +buffer.disp_start ldhl swap +buffer.offset ldhl subl swap +buffer.max_dispchars ldhui subl
+ldr3 +buffer.offset ldhl addl
+ldr3 +buffer.size ldhl pushp write_all jls
+
+ldr3 dup dup +buffer.disp_start ldhl swap +buffer.offset ldhl subl swap +buffer.max_dispchars ldhui subl
+ldr3 dup +buffer.buf_contents ldhp h2b swap +buffer.offset ldhl swap addp b2h
+pushp putnstr call
+ldr0 pushi EOF pushp stdout_write_error jeq
+pushp write_buffer_end jmp
+
+:write_all
+ldr3 dup +buffer.size ldhl swap +buffer.offset ldhl swap subl
+ldr3 dup +buffer.buf_contents ldhp h2b swap +buffer.offset ldhl swap addp b2h
+pushp putnstr call
+ldr0 pushi EOF pushp stdout_write_error jeq
+
+:write_buffer_end
+ret
+

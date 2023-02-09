@@ -1,0 +1,601 @@
+set MAX_PATHSIZE 4096
+
+:read_file
+pushp NULL ;this is a pointer to a location in the heap where we will be storing the bytes read from the file
+pushi 0 str3 ;this is the size of the buffer
+
+pushl BUF_SIZE
+pushp aseg call ;allocate a buffer of size BUF_SIZE bytes
+;we will be using this to read the file in chunks
+dup pushp NULL pushp allocation_failure_f2 jeq ;check if the allocation was successful
+
+:read_loop
+ldr2 ;get the file descriptor
+over
+pushl BUF_SIZE
+pushp readf call
+ldr0 dup pushi -1 pushp read_failure_f2 jeq ;check if the read was successful
+str4 ;store the size of the chunk we just read in gpr 4
+
+swap ;dest src -- src dest
+ldr4 ldr3 addl ;add the size of the buffer to the size of the chunk we just read
+swap pushp rseg call
+dup pushp NULL pushp allocation_failure_f2 jeq ;check if reallocation was successful
+
+over over ;src dest -- src dest src dest
+ldr3 swap h2b addp b2h ;this is equivalent to evaluating &buf[gpr3] in C
+
+swap ;src dest -- dest src
+ldr4
+pushp memcpy call
+
+ldr3 ldr4 addl str3 ;add the size of the chunk read to the size of the buffer
+
+swap ;src dest -- dest src
+
+ldr4 pushl BUF_SIZE pushp text_editor jgt ;if the number of items read was <= BUF_SIZE, then that means that we just read the last chunk from the file
+pushp read_loop jmp
+
+:text_editor
+pushp flush call
+ldr2 pushp closef call
+
+pushp allocate_bufs call
+
+str5 ;save the pointer to the `buffers' struct that we allocated in gpr 5
+pushi 0 str2 ;this is the buffer we're currently working on (aka undo-level in some text editors)
+
+:text_editor_loop
+pushp write_buffer call
+
+pushc '%' pushp putchar call
+ldr0 pushi EOF pushp allocation_failure jeq
+
+:text_editor_loop_dw
+pushp getchar call
+
+dup pushc 'f' pushp com_f jeq
+dup pushc 'b' pushp com_b jeq
+dup pushc 'l' pushp com_l jeq
+dup pushc 'n' pushp com_n jeq
+dup pushc 'p' pushp com_p jeq
+dup pushc 'd' pushp com_d jeq
+dup pushc 'u' pushp com_u jeq
+dup pushc 'r' pushp com_r jeq
+dup pushc 'm' pushp com_m jeq
+dup pushc 'y' pushp com_y jeq
+dup pushc 'k' pushp com_k jeq
+dup pushc 'z' pushp com_z jeq
+dup pushc ';' pushp com_semicolon jeq
+dup pushc 'v' pushp com_v jeq
+dup pushc '.' pushp com_dot jeq
+dup pushc ',' pushp com_comma jeq
+dup pushc ':' pushp com_colon jeq
+dup pushc '=' pushp com_equal jeq
+dup pushc 'w' pushp com_w jeq
+dup pushc '~' pushp com_tilde jeq
+dup pushc '$' pushp com_dollar jeq
+dup pushc '@' pushp com_at jeq
+dup pushc 'q' pushp quit_gracefully jeq
+dup pushi EOF pushp quit_gracefully jeq
+pop pushp text_editor_loop_dw jmp
+
+:com_at
+pop
+
+pushp getui call
+ldr0 pushi 1 pushp not_an_integer jne
+ldr5 +buffers.buffer0.max_dispchars h2b over swap sthui
+ldr5 +buffers.buffer1.max_dispchars h2b over swap sthui
+ldr5 +buffers.buffer2.max_dispchars h2b over swap sthui
+ldr5 +buffers.buffer3.max_dispchars h2b over swap sthui
+ldr5 +buffers.buffer4.max_dispchars h2b over swap sthui
+pop
+
+pushp text_editor_loop_dw jmp
+
+:com_dollar
+pop
+
+pushp getui call
+ldr0 pushi 1 pushp not_an_integer jne
+pushp get_buf_ptr call +buffer.max_dispchars sthui
+
+pushp text_editor_loop_dw jmp
+
+:not_an_integer
+pop
+
+pushp "YET: expected an integer\n" pushp putstre call
+pushp text_editor_loop_dw jmp
+
+:com_l
+pop
+
+pushp text_editor_loop jmp
+
+:com_w
+pop
+
+dup pushi O_WRONLY
+pushp openf call
+dup pushi -1 pushp open_failure_wr jeq
+dup
+
+pushp get_buf_ptr call dup +buffer.buf_contents ldhp
+swap +buffer.size ldhl
+pushp writef call
+ldr0
+
+pushi -1 pushp write_failure jeq
+
+pushp closef call
+
+pushp text_editor_loop_dw jmp
+
+:com_equal
+pop
+
+pushl MAX_PATHSIZE pushi 1 addl
+pushp aseg call
+dup pushp NULL pushp allocation_failure jeq ;check if the allocation was successful
+
+dup
+
+pushl MAX_PATHSIZE
+over
+pushp getstr call
+ldr0 pushi EOF pushp stdin_read_error jeq
+
+pushi O_WRONLY
+pushp openf call
+dup pushi -1 pushp open_failure_wr jeq
+
+swap pushp flush call
+
+dup
+pushp get_buf_ptr call dup +buffer.buf_contents ldhp
+swap +buffer.size ldhl
+pushp writef call
+ldr0
+
+pushi -1 pushp write_failure jeq
+
+pushp closef call
+
+pushp text_editor_loop_dw jmp
+
+:com_r
+pop
+
+pushp inc_buf call
+pushp get_buf_ptr call +buffer.buf_contents ldhp pushp NULL pushp redo_noinf jeq
+pushp text_editor_loop_dw jmp
+
+:redo_noinf
+pushp dec_buf call
+pushp "YET: no further redo information\n" pushp putstre call
+pushp text_editor_loop_dw jmp
+
+:com_u
+pop
+
+pushp dec_buf call
+pushp get_buf_ptr call +buffer.buf_contents ldhp pushp NULL pushp undo_noinf jeq
+pushp text_editor_loop_dw jmp
+
+:undo_noinf
+pushp inc_buf call
+pushp "YET: no further undo information\n" pushp putstre call
+pushp text_editor_loop_dw jmp
+
+:com_d
+pop
+
+pushp get_buf_ptr call
+dup +buffer.size ldhl pushi 1 swap subl
+
+pushp aseg call
+dup pushp NULL pushp allocation_failure jeq ;check if the allocation was successful
+
+pushp inc_buf call pushp get_buf_ptr call +buffer.buf_contents dup ldhp pushp flush call sthp
+
+pushp get_buf_ptr call +buffer.buf_contents ldhp
+over dup +buffer.buf_contents ldhp
+swap +buffer.offset ldhl
+pushp memcpy call
+
+pushp get_buf_ptr call +buffer.buf_contents ldhp h2b over +buffer.offset ldhl swap addp b2h
+over dup +buffer.buf_contents ldhp h2b over +buffer.offset ldhl pushi 1 addl swap addp b2h
+swap dup +buffer.offset ldhl pushi 1 addl swap +buffer.size ldhl subl
+pushp memcpy call
+
+dup +buffer.size ldhl pushi 1 swap subl pushp get_buf_ptr call +buffer.size sthl
+dup +buffer.offset ldhl pushp get_buf_ptr call +buffer.offset sthl
++buffer.disp_start ldhl pushp get_buf_ptr call +buffer.disp_start sthl
+
+pushp text_editor_loop_dw jmp
+
+:com_tilde
+pop
+
+pushp get_buf_ptr call
+dup +buffer.size ldhl pushi 1 addl
+
+pushp aseg call
+dup pushp NULL pushp allocation_failure jeq ;check if the allocation was successful
+
+pushp inc_buf call pushp get_buf_ptr call +buffer.buf_contents dup ldhp pushp flush call sthp
+
+pushp get_buf_ptr call +buffer.buf_contents ldhp
+over dup +buffer.buf_contents ldhp
+swap +buffer.offset ldhl
+pushp memcpy call
+
+pushp get_buf_ptr call +buffer.buf_contents ldhp h2b over +buffer.offset ldhl swap addp b2h
+pushp "\n"
+pushui 1
+pushp memcpy call
+
+pushp get_buf_ptr call +buffer.buf_contents ldhp h2b over +buffer.offset ldhl pushi 1 addl swap addp b2h
+over dup +buffer.buf_contents ldhp h2b over +buffer.offset ldhl swap addp b2h
+swap dup +buffer.offset ldhl swap +buffer.size ldhl subl
+pushp memcpy call
+
+dup +buffer.size ldhl pushi 1 addl pushp get_buf_ptr call +buffer.size sthl
+dup +buffer.offset ldhl pushp get_buf_ptr call +buffer.offset sthl
++buffer.disp_start ldhl pushp get_buf_ptr call +buffer.disp_start sthl
+
+pushp text_editor_loop_dw jmp
+
+:com_f
+pop
+
+pushp get_buf_ptr call str3
+ldr3 dup +buffer.offset ldhl swap +buffer.size ldhl pushi 1 swap subl pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 addl swap sthl
+pushp text_editor_loop_dw jmp
+
+:com_b
+pop
+
+pushp get_buf_ptr call str3
+ldr3 +buffer.offset ldhl pushi 0 pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 swap subl swap sthl
+pushp text_editor_loop_dw jmp
+
+:com_m
+pop
+
+pushp get_buf_ptr call str3
+
+:com_m_loop_until_newline0
+ldr3 +buffer.offset ldhl pushi 0 pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 swap subl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp com_m_loop_until_newline1 jeq
+pushp com_m_loop_until_newline0 jmp
+
+:com_m_loop_until_newline1
+ldr3 +buffer.offset ldhl pushi 0 pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 swap subl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp com_m_loop_until_newline2 jeq
+pushp com_m_loop_until_newline1 jmp
+
+:com_m_loop_until_newline2
+ldr3 +buffer.offset ldhl pushi 0 pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 swap subl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp com_m_loop_until_newline3 jeq
+pushp com_m_loop_until_newline2 jmp
+
+:com_m_loop_until_newline3
+ldr3 +buffer.offset ldhl pushi 0 pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 swap subl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp com_m_loop_until_newline4 jeq
+pushp com_m_loop_until_newline3 jmp
+
+:com_m_loop_until_newline4
+ldr3 +buffer.offset ldhl pushi 0 pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 swap subl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp text_editor_loop_dw jeq
+pushp com_m_loop_until_newline4 jmp
+
+:com_comma
+pop
+
+pushp get_buf_ptr call str3
+
+:com_comma_loop_until_end
+ldr3 dup +buffer.offset ldhl swap +buffer.size ldhl pushi 1 swap subl pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 addl swap sthl
+pushp com_comma_loop_until_end jmp
+
+:com_dot
+pop
+
+pushp get_buf_ptr call str3
+
+:com_dot_loop_until_beginning
+ldr3 +buffer.offset ldhl pushi 0 pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 swap subl swap sthl
+pushp com_dot_loop_until_beginning jmp
+
+:com_semicolon
+pop
+
+pushp get_buf_ptr call str3
+
+:com_semicolon_loop_until_space
+ldr3 +buffer.offset ldhl pushi 0 pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 swap subl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushp isspace call pushp text_editor_loop_dw jnz
+pushp com_semicolon_loop_until_space jmp
+
+:com_p
+pop
+
+pushp get_buf_ptr call str3
+
+:com_p_loop_until_newline
+ldr3 +buffer.offset ldhl pushi 0 pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 swap subl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp text_editor_loop_dw jeq
+pushp com_p_loop_until_newline jmp
+
+:com_v
+pop
+
+pushp get_buf_ptr call str3
+
+:com_v_loop_until_newline0
+ldr3 dup +buffer.offset ldhl swap +buffer.size ldhl pushi 1 swap subl pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 addl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp com_v_loop_until_newline1 jeq
+pushp com_v_loop_until_newline0 jmp
+
+:com_v_loop_until_newline1
+ldr3 dup +buffer.offset ldhl swap +buffer.size ldhl pushi 1 swap subl pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 addl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp com_v_loop_until_newline2 jeq
+pushp com_v_loop_until_newline1 jmp
+
+:com_v_loop_until_newline2
+ldr3 dup +buffer.offset ldhl swap +buffer.size ldhl pushi 1 swap subl pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 addl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp com_v_loop_until_newline3 jeq
+pushp com_v_loop_until_newline2 jmp
+
+:com_v_loop_until_newline3
+ldr3 dup +buffer.offset ldhl swap +buffer.size ldhl pushi 1 swap subl pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 addl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp com_v_loop_until_newline4 jeq
+pushp com_v_loop_until_newline3 jmp
+
+:com_v_loop_until_newline4
+ldr3 dup +buffer.offset ldhl swap +buffer.size ldhl pushi 1 swap subl pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 addl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp text_editor_loop_dw jeq
+pushp com_v_loop_until_newline4 jmp
+
+:com_k
+pop
+
+pushp get_buf_ptr call str3
+
+ldr3 +buffer.offset ldhl
+
+pushp aseg call
+dup pushp NULL pushp allocation_failure jeq ;check if the allocation was successful
+
+pushp inc_buf call pushp get_buf_ptr call +buffer.buf_contents dup ldhp pushp flush call sthp
+
+pushp get_buf_ptr call +buffer.buf_contents ldhp
+ldr3 dup +buffer.buf_contents ldhp
+swap +buffer.offset ldhl
+pushp memcpy call
+
+ldr3 +buffer.offset ldhl str4
+
+pushp dec_buf call
+
+:com_k_loop_until_space
+ldr4 ldr3 +buffer.size ldhl pushi 1 swap subl pushp com_k_write_rem jeq
+ldr4 pushi 1 addl str4
+ldr4 ldr3 +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp com_k_write_rem jeq
+pushp com_k_loop_until_space jmp
+
+:com_k_write_rem
+pushp inc_buf call
+ldr3 dup +buffer.offset ldhl ldr4 subl swap +buffer.size ldhl subl
+pushp get_buf_ptr call +buffer.buf_contents ldhp
+
+pushp rseg call
+dup pushp NULL pushp allocation_failure jeq ;check if the allocation was successful
+
+pushp get_buf_ptr call +buffer.buf_contents sthp
+
+pushp get_buf_ptr call +buffer.buf_contents ldhp h2b ldr3 +buffer.offset ldhl swap addp b2h
+ldr3 +buffer.buf_contents ldhp h2b ldr4 swap addp b2h
+ldr4 ldr3 +buffer.size ldhl subl
+pushp memcpy call
+
+pushp get_buf_ptr call
+
+ldr3 dup +buffer.offset ldhl ldr4 subl swap +buffer.size ldhl subl over +buffer.size sthl
+ldr3 +buffer.offset ldhl over +buffer.offset sthl
+ldr3 +buffer.disp_start ldhl swap +buffer.disp_start sthl
+
+pushp text_editor_loop_dw jmp
+
+:com_y
+pop
+
+pushp get_buf_ptr call str3
+
+ldr3 +buffer.offset ldhl
+
+pushp aseg call
+dup pushp NULL pushp allocation_failure jeq ;check if the allocation was successful
+
+pushp inc_buf call pushp get_buf_ptr call +buffer.buf_contents dup ldhp pushp flush call sthp
+
+pushp get_buf_ptr call +buffer.buf_contents ldhp
+ldr3 dup +buffer.buf_contents ldhp
+swap +buffer.offset ldhl
+pushp memcpy call
+
+ldr3 +buffer.offset ldhl str4
+
+pushp dec_buf call
+
+:com_y_loop_until_space
+ldr4 ldr3 +buffer.size ldhl pushi 1 swap subl pushp com_y_write_rem jeq
+ldr4 pushi 1 addl str4
+ldr4 ldr3 +buffer.buf_contents ldhp h2b addp
+ldhc pushp isspace call pushp com_y_write_rem jnz
+pushp com_y_loop_until_space jmp
+
+:com_y_write_rem
+pushp inc_buf call
+ldr3 dup +buffer.offset ldhl ldr4 subl swap +buffer.size ldhl subl
+pushp get_buf_ptr call +buffer.buf_contents ldhp
+
+pushp rseg call
+dup pushp NULL pushp allocation_failure jeq ;check if the allocation was successful
+
+pushp get_buf_ptr call +buffer.buf_contents sthp
+
+pushp get_buf_ptr call +buffer.buf_contents ldhp h2b ldr3 +buffer.offset ldhl swap addp b2h
+ldr3 +buffer.buf_contents ldhp h2b ldr4 swap addp b2h
+ldr4 ldr3 +buffer.size ldhl subl
+pushp memcpy call
+
+pushp get_buf_ptr call
+
+ldr3 dup +buffer.offset ldhl ldr4 subl swap +buffer.size ldhl subl over +buffer.size sthl
+ldr3 +buffer.offset ldhl over +buffer.offset sthl
+ldr3 +buffer.disp_start ldhl swap +buffer.disp_start sthl
+
+pushp text_editor_loop_dw jmp
+
+:com_z
+pop
+
+pushp get_buf_ptr call str3
+
+:com_z_loop_until_space
+ldr3 dup +buffer.offset ldhl swap +buffer.size ldhl pushi 1 swap subl pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 addl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushp isspace call pushp text_editor_loop_dw jnz
+pushp com_z_loop_until_space jmp
+
+:com_n
+pop
+
+pushp get_buf_ptr call str3
+
+:com_n_loop_until_newline
+ldr3 dup +buffer.offset ldhl swap +buffer.size ldhl pushi 1 swap subl pushp text_editor_loop_dw jeq
+ldr3 +buffer.offset dup ldhl pushi 1 addl swap sthl
+ldr3 dup +buffer.offset ldhl swap +buffer.buf_contents ldhp h2b addp
+ldhc pushc '\n' pushp text_editor_loop_dw jeq
+pushp com_n_loop_until_newline jmp
+
+:com_colon
+pop
+
+pushp get_buf_ptr call dup +buffer.buf_contents ldhp
+swap +buffer.offset ldhl str3
+
+pushp inc_buf call
+pushp get_buf_ptr call +buffer.buf_contents dup ldhp pushp flush call
+
+ldr3
+pushp aseg call
+dup pushp NULL pushp allocation_failure jeq ;check if the allocation was successful
+
+over sthp
+
+;src dest_a
+
+ldhp
+
+over over swap ;src dest -- src dest dest src
+ldr3
+pushp memcpy call
+
+swap pop ;src dest -- dest
+
+pushl BUF_SIZE pushi 1 addl
+pushp aseg call ;allocate a buffer of size BUF_SIZE bytes
+;we will be using this to read the file in chunks
+dup pushp NULL pushp allocation_failure jeq ;check if the allocation was successful
+
+:com_colon_read_stdin_loop
+pushl BUF_SIZE
+over
+pushp getstr call
+ldr0 dup pushi EOF pushp allocation_failure jeq
+str4 ;store the size of the chunk we just read in gpr 4
+
+swap ;dest src -- src dest
+ldr4 ldr3 addl ;add the size of the buffer to the size of the chunk we just read
+swap pushp rseg call
+dup pushp NULL pushp allocation_failure jeq ;check if reallocation was successful
+
+over over ;src dest -- src dest src dest
+ldr3 swap h2b addp b2h ;this is equivalent to evaluating &buf[gpr3] in C
+
+swap ;src dest -- dest src
+ldr4
+pushp memcpy call
+
+ldr3 ldr4 addl str3 ;add the size of the chunk read to the size of the buffer
+
+swap ;src dest -- dest src
+
+ldr4 pushl BUF_SIZE pushp update_buffers jgt ;if the number of items read was <= BUF_SIZE, then that means that we just read the last chunk from stdin
+pushp com_colon_read_stdin_loop jmp
+
+:update_buffers
+pushp flush call
+
+pushp get_buf_ptr call str4
+ldr4 +buffer.buf_contents sthp
+
+pushp dec_buf call pushp get_buf_ptr call
+
+dup dup +buffer.offset ldhl swap +buffer.size ldhl subl ldr3 addl ldr4 +buffer.buf_contents ldhp pushp rseg call
+dup pushp NULL pushp allocation_failure jeq ;check if reallocation was successful
+ldr4 +buffer.buf_contents sthp
+
+ldr4 +buffer.buf_contents ldhp h2b ldr3 swap addp b2h
+over dup dup +buffer.buf_contents ldhp h2b swap +buffer.offset ldhl swap addp b2h
+swap dup +buffer.offset ldhl swap +buffer.size ldhl subl
+pushp memcpy call
+
+dup dup +buffer.offset ldhl swap +buffer.size ldhl subl ldr3 addl ldr4 +buffer.size sthl
+
+dup +buffer.disp_start ldhl ldr4 +buffer.disp_start sthl
+
+ldr3 ldr4 +buffer.offset sthl
+
+pushp inc_buf call
+
+pop
+
+pushp text_editor_loop_dw jmp
+
