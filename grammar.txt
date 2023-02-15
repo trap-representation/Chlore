@@ -223,7 +223,7 @@ statement:
   alignof-statement
   sizeof-statement
   set-statement
-  labeled-statement
+  label
   import-statement
   struct-definition
   tagged-expression
@@ -245,7 +245,7 @@ set-statement:
   `set` identifier sign (opt) constant
   `set` identifier sign (opt) identifier
 
-labeled-statement:
+label:
   `:` visibility (opt) symbol
 
 import-statement:
