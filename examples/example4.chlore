@@ -1,4 +1,4 @@
-/ example 5: Calculating the length of a null-terminated string
+/ example 4: Calculating the length of a null-terminated string
   This program calculates the length of the null-terminated string
 /
 

@@ -1,4 +1,4 @@
-/ example 8: Recursive Fibonacci series
+/ example 7: Recursive Fibonacci series
   Recursive Fibonacci series
 /
 
@@ -30,3 +30,4 @@ ret
 :return
 swap ret
 ret
+
