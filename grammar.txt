@@ -46,7 +46,6 @@ keyword: one of
   `vldr0` `vldr1` `vldr2` `vldr3` `vldr4` `vldr5` `vldr6` `vldr7`
   `vldhc` `vldhs` `vldhi` `vldhp` `vldhl` `vldhuc` `vldhus` `vldhui`
   `vsthc` `vsths` `vsthi` `vsthp` `vsthl` `vsthuc` `vsthus` `vsthui`
-  `pushpc` `pushcs`
   `hidden` `exposed` `struct`
   `uc` `us` `ui` `c` `s` `i` `l` `p`
   `alignof` `sizeof` `c2b` `h2b`
@@ -202,7 +201,7 @@ instruction: one of
   `vldr0` `vldr1` `vldr2` `vldr3` `vldr4` `vldr5` `vldr6` `vldr7`
   `vldhc` `vldhs` `vldhi` `vldhp` `vldhl` `vldhuc` `vldhus` `vldhui`
   `vsthc` `vsths` `vsthi` `vsthp` `vsthl` `vsthuc` `vsthus` `vsthui`
-  `pushpc` `pushcs` `c2b` `h2b`
+  `c2b` `h2b`
   `b2c` `b2h`
 
 push-instruction: one of
