@@ -28,6 +28,5 @@ ret
 
 
 :return
-swap ret
+swap
 ret
-
