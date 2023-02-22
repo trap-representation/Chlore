@@ -22,7 +22,7 @@ This is Chlore - a stack based language that's made with a focus on simplicity.
 
 #### What I use Chlore for ####
 
-About everything I do nowadays. Heck, my primary text editor ([YET](https://github.com/trap-representation/YET)) is written in Chlore. Here's a GIF of the YET text editor in action:
+About everything I do nowadays, which includes, but is not limited to: compiler development, implementing emulators, and sometimes writing my own utilities instead of downloading random stuff off the internet. Heck, even the text editor I use now ([YET](https://github.com/trap-representation/YET)) is written in Chlore. Here's a GIF of the YET text editor in action:
 ![YET in action](./yet_in_action.gif)
 
 #### A simple Hello World program written in a standard compliant implementation of Chlore: ####
