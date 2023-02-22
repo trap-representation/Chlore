@@ -94,7 +94,7 @@ binary-constant:
   `0b` binary-digit-sequence
 
 numeric-constant:
-  decimal-conanstant
+  decimal-constant
   octal-constant
   binary-constant
   hexadecimal-constant
