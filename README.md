@@ -9,8 +9,8 @@ This is Chlore - a stack based language that's made with a focus on simplicity.
 A simple Hello World program written in a standard compliant implementation of Chlore <sup>1</sup>:
 
 ````
-import "stdlib.chloreh"
-import "io.chloreh"
+import "stdlib.chlore"
+import "io.chlore"
 
 :main
 pushp "Hello, World!\n"
