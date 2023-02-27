@@ -2,8 +2,8 @@
   Recursive Fibonacci series
 /
 
-import "stdlib.chloreh"
-import "io.chloreh"
+import "stdlib.chlore"
+import "io.chlore"
 
 :main
 set n 10
@@ -30,3 +30,4 @@ ret
 :return
 swap
 ret
+

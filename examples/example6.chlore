@@ -2,8 +2,8 @@
   Writing formatted strings to stdout
 /
 
-import "stdlib.chloreh"
-import "io.chloreh"
+import "stdlib.chlore"
+import "io.chlore"
 
 :main
 pushp "the ultimate question of life, the universe, and everything."
