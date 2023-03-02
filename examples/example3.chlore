@@ -14,6 +14,7 @@ pushp aaseg call
 ldr0 panic
 
 ;the top of the stack now has a pointer to an object in the heap
+dup ;dup this so we can free it later
 h2b ;convert that to a bare pointer
 dup
 pushui 42 ;this is the value that we're going to store in the heap
@@ -24,6 +25,8 @@ asthui ;do an aligned store
 aldhui ;do an aligned load from the same address
 ;42 should now be on the top of the stack
 pushp putui call
+
+pushp flush call ;free the allocated chunk
 
 pushp mem_close call
 hlt
