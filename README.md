@@ -28,7 +28,7 @@ A language specification is extremely important for the development of a languag
 Every source file in this repository is licensed under the GPLv3 license, even if the text of the license is not explicitly placed at the start of the file. For files where the license is not explicitly placed in, modify/use/distribute them the way you would've had the following text been present in the file.
 
 ```
-    Copyright (C) 2022  Somdipto Chakraborty
+    Copyright (C) 2022-2023  Somdipto Chakraborty
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
