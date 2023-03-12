@@ -6,7 +6,7 @@ import "stdlib.chlore"
 import "io.chlore"
 
 :main
-set n 10
+set n 15
 pushl n
 pushp fib
 call
