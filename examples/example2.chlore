@@ -7,22 +7,22 @@ import "io.chlore"
 import "stddef.chlore"
 
 :main
-pushp getchar call
-pushp "\n  |\n /_\\\n"
-pushp putstr call
+  pushp getchar call
+  pushp "\n  |\n /_\\\n"
+  pushp putstr call
 
-:loop
-dup pushc '\n' pushp quit jeq ;check for newline
-dup pushc EOF pushp quit jeq ;check for EOF
-pushp " |"
-pushp putstr call
-pushp putchar call
-pushp "|\n"
-pushp putstr call
-pushp getchar call
-pushp loop jmp
+  :loop
+    dup pushc '\n' pushp quit jeq ;check for newline
+    dup pushc EOF pushp quit jeq ;check for EOF
+    pushp " |"
+    pushp putstr call
+    pushp putchar call
+    pushp "|\n"
+    pushp putstr call
+    pushp getchar call
+    pushp loop jmp
 
-:quit
-pushp " |_|\n/___\\\n VvV\n"
-pushp putstr call
-hlt
+    :quit
+      pushp " |_|\n/___\\\n VvV\n"
+      pushp putstr call
+  hlt

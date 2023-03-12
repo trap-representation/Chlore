@@ -7,25 +7,23 @@ import "io.chlore"
 import "alloc2.chlore"
 
 :main
+  pushl 1024 ;we'll allocate a chunk of size 1024 bytes
+  pushui 8 ;aligned to an 8-byte boundary
+  pushp aaseg call
+  get0 panic
 
-pushl 1024 ;we'll allocate a chunk of size 1024 bytes
-pushui 8 ;aligned to an 8-byte boundary
-pushp aaseg call
-get0 panic
+  ;the top of the stack now has a pointer to the allocated segment
+  dup ;dup this so we can free it later
+  dup
+  pushui 42 ;this is the value that we're going to store in the heap
+  swap
+  astoreui ;do an aligned store
 
-;the top of the stack now has a pointer to the allocated segment
-dup ;dup this so we can free it later
-dup
-pushui 42 ;this is the value that we're going to store in the heap
-swap
-astoreui ;do an aligned store
+  aloadui ;do an aligned load from the same address
+  ;42 should now be on the top of the stack
+  pushp putui call
 
+  pushp flush call ;free the allocated chunk
 
-aloadui ;do an aligned load from the same address
-;42 should now be on the top of the stack
-pushp putui call
-
-pushp flush call ;free the allocated chunk
-
-pushp mem_close call
-hlt
+  pushp mem_close call
+  hlt

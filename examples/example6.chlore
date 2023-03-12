@@ -6,9 +6,9 @@ import "stdlib.chlore"
 import "io.chlore"
 
 :main
-pushp "the ultimate question of life, the universe, and everything."
-pushui 42
-pushp "%ui is the answer to %t\n"
-pushp putfmt call
+  pushp "the ultimate question of life, the universe, and everything."
+  pushui 42
+  pushp "%ui is the answer to %t\n"
+  pushp putfmt call
 
-hlt
+  hlt

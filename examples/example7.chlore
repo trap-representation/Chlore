@@ -6,28 +6,27 @@ import "stdlib.chlore"
 import "io.chlore"
 
 :main
-set n 15
-pushl n
-pushp fib
-call
-pushp putl call
-pushc '\n'
-pushp putchar call
+  set n 15
+  pushl n
+  pushp fib
+  call
+  pushp putl call
+  pushc '\n'
+  pushp putchar call
 
-hlt
+  hlt
 
 :fib
-swap
-dup pushi 1 pushp return jge
-dup pushi 1 swap subl pushp fib call
-swap
-pushi 2 swap subl pushp fib call
-addl
-swap
-ret
+  swap
+  dup pushi 1 pushp return jge
+  dup pushi 1 swap subl pushp fib call
+  swap
+  pushi 2 swap subl pushp fib call
+  addl
+  swap
+  ret
 
-
-:return
-swap
-ret
+  :return
+    swap
+    ret
 

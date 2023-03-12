@@ -7,9 +7,8 @@ import "io.chlore"
 import "string.chlore"
 
 :main
-pushp "Hello, World!\n"
-pushp strlen call
+  pushp "Hello, World!\n"
+  pushp strlen call
+  pushp putl call
 
-pushp putl call
-
-hlt
+  hlt

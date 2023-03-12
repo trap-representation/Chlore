@@ -6,42 +6,41 @@ import "stdlib.chlore"
 import "io.chlore"
 
 :main
-set MAX_CNT 100
+  set MAX_CNT 100
 
-pushi 0
+  pushi 0
 
-:loop
-pushl 1 addl ;increment the number at the top of the stack
+  :loop
+    pushl 1 addl ;increment the number at the top of the stack
 
-dup
-pushi 15 swap reml ;check if the number is divisible by 15
-pushp check_fizz jnz ;if not, jump to `check_fizz' to check if it divisible by 3
-pushp "fizz buzz\n" ;print "fizzbuzz"
-pushp putstr call
-pushp continue jmp
+    dup
+    pushi 15 swap reml ;check if the number is divisible by 15
+    pushp check_fizz jnz ;if not, jump to `check_fizz' to check if it divisible by 3
+    pushp "fizz buzz\n" ;print "fizzbuzz"
+    pushp putstr call
+    pushp continue jmp
 
-:check_fizz
-dup
-pushi 3 swap reml ;check if the number is divisible by 3
-pushp check_buzz jnz ;if not, jump to `check_buzz' to check if it divisible by 5
-pushp "fizz\n" ;print "fizz"
-pushp putstr call
-pushp continue jmp
+    :check_fizz
+      dup
+      pushi 3 swap reml ;check if the number is divisible by 3
+      pushp check_buzz jnz ;if not, jump to `check_buzz' to check if it divisible by 5
+      pushp "fizz\n" ;print "fizz"
+      pushp putstr call
+      pushp continue jmp
 
-:check_buzz
-dup
-pushi 5 swap reml ;check if the number is divisible by 5
-pushp print_num jnz ;if not, jump to `print_num' to just print the number at the top of the stack
-pushp "buzz\n" ;print "buzz"
-pushp putstr call
-pushp continue jmp
+      :check_buzz
+        dup
+        pushi 5 swap reml ;check if the number is divisible by 5
+        pushp print_num jnz ;if not, jump to `print_num' to just print the number at the top of the stack
+        pushp "buzz\n" ;print "buzz"
+        pushp putstr call
+        pushp continue jmp
 
-:print_num
-dup
-pushp putl call ;print the number
-pushc '\n' pushp putchar call ;write the newline character to stdout
+        :print_num
+          dup
+          pushp putl call ;print the number
+          pushc '\n' pushp putchar call ;write the newline character to stdout
 
-:continue
-dup pushl MAX_CNT pushp loop jne ;loop until the number is > MAX_CNT
-
-hlt
+    :continue
+      dup pushl MAX_CNT pushp loop jne ;loop until the number is > MAX_CNT
+  hlt

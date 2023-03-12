@@ -3,6 +3,6 @@
 /
 
 :main
-pushi 42
-hltr
+  pushi 42
+  hltr
 
