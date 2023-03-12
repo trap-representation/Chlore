@@ -13,56 +13,83 @@ token:
   constant
 
 keyword: one of
-  `pushc` `pushs` `pushi` `pushp` `pushl` `pushuc` `pushus` `pushui`
-  `jmp` `jeq` `jgt` `jls` `jge` `jle` `jne` `jz` `jnz`
-  `addc` `adds` `addi` `addp` `addbp` `addl` `adduc` `addus` `addui`
-  `subc` `subs` `subi` `subp` `subbp` `subl` `subuc` `subus` `subui`
-  `mulc` `muls` `muli` `mull` `muluc` `mulus` `mului`
-  `divc` `divs` `divi` `divl` `divuc` `divus` `divui`
-  `remc` `rems` `remi` `reml` `remuc` `remus` `remui`
-  `lshc` `lshs` `lshi` `lshl` `lshuc` `lshus` `lshui`
-  `rshc` `rshs` `rshi` `rshl` `rshuc` `rshus` `rshui`
-  `orc` `ors` `ori` `orl` `oruc` `orus` `orui`
-  `andc` `ands` `andi` `andl` `anduc` `andus` `andui`
-  `notc` `nots` `noti` `notl` `notuc` `notus` `notui`
-  `xorc` `xors` `xori` `xorl` `xoruc` `xorus` `xorui`
-  `swap` `pop` `dup` `ret` `over` `panic`
-  `str0` `str1` `str2` `str3` `str4` `str5` `str6` `str7`
-  `ldr0` `ldr1` `ldr2` `ldr3` `ldr4` `ldr5` `ldr6` `ldr7`
-  `ldhc` `ldhs` `ldhi` `ldhp` `ldhl` `ldhuc` `ldhus` `ldhui`
-  `sthc` `sths` `sthi` `sthp` `sthl` `sthuc` `sthus` `sthui`
-  `ldcc` `ldcs` `ldci` `ldcp` `ldcl` `ldcuc` `ldcus` `ldcui`
-  `hlt` `call` `copy` `pcopy` `popa` `sts` `rbs` `rbe` `pushsp`
-  `set` `include` `hltr` `nop`
-  `aldhc` `aldhs` `aldhi` `aldhp` `aldhl` `aldhuc` `aldhus` `aldhui`
-  `asthc` `asths` `asthi` `asthp` `asthl` `asthuc` `asthus` `asthui`
-  `aldcc` `aldcs` `aldci` `aldcp` `aldcl` `aldcuc` `aldcus` `aldcui`
-  `alignc` `aligns` `aligni` `alignp` `alignl` `alignuc` `alignus` `alignui`
-  `incsp` `decsp` `exit`
-  `force_panic` `jmp_panic`
-  `pushlt` `import`
-  `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
-  `vstr0` `vstr1` `vstr2` `vstr3` `vstr4` `vstr5` `vstr6` `vstr7`
-  `vldr0` `vldr1` `vldr2` `vldr3` `vldr4` `vldr5` `vldr6` `vldr7`
-  `vldhc` `vldhs` `vldhi` `vldhp` `vldhl` `vldhuc` `vldhus` `vldhui`
-  `vsthc` `vsths` `vsthi` `vsthp` `vsthl` `vsthuc` `vsthus` `vsthui`
-  `hidden` `exposed` `struct`
-  `uc` `us` `ui` `c` `s` `i` `l` `p`
-  `alignof` `sizeof` `c2b` `h2b`
-  `b2c` `b2h`
+    `addc` `addi` `addl` `addp`
+    `adds` `adduc` `addui` `addus`
+    `alignc` `aligni` `alignl` `alignof`
+    `alignp` `aligns` `alignuc` `alignui`
+    `alignus` `aloadc` `aloadi` `aloadl`
+    `aloadp` `aloads` `aloaduc` `aloadui`
+    `aloadus` `andc` `andi` `andl`
+    `ands` `anduc` `andui` `andus`
+    `astorec` `astorei` `astorel` `astorep`
+    `astores` `astoreuc` `astoreui` `astoreus`
+    `c` `call` `copy` `decsp`
+    `divc` `divi` `divl` `divs`
+    `divuc` `divui` `divus` `dup`
+    `exit` `exposed` `force_panic` `get0`
+    `get1` `get2` `get3` `get4`
+    `get5` `get6` `get7` `hidden`
+    `hlt` `hltr` `i` `import`
+    `include` `incsp` `jeq` `jge`
+    `jgt` `jle` `jls` `jmp`
+    `jmp_panic` `jne` `jnz` `jz`
+    `l` `loadc` `loadi` `loadl`
+    `loadp` `loads` `loaduc` `loadui`
+    `loadus` `lshc` `lshi` `lshl`
+    `lshs` `lshuc` `lshui` `lshus`
+    `mulc` `muli` `mull` `muls`
+    `muluc` `mului` `mulus` `nop`
+    `notc` `noti` `notl` `nots`
+    `notuc` `notui` `notus` `orc`
+    `ori` `orl` `ors` `oruc`
+    `orui` `orus` `over` `p`
+    `panic` `pcopy` `pop` `popa`
+    `pushc` `pushi` `pushl` `pushlt`
+    `pushp` `pushs` `pushsp` `pushuc`
+    `pushui` `pushus` `put` `remc`
+    `remi` `reml` `rems` `remuc`
+    `remui` `remus` `ret` `rshc`
+    `rshi` `rshl` `rshs` `rshuc`
+    `rshui` `rshus` `s` `set`
+    `sizeof` `storec` `storei` `storel`
+    `storep` `stores` `storeuc` `storeui`
+    `storeus` `struct` `subc` `subi`
+    `subl` `subp` `subs` `subuc`
+    `subui` `subus` `swap` `uc`
+    `ui` `us` `valoadc` `valoadi`
+    `valoadl` `valoadp` `valoads` `valoaduc`
+    `valoadui` `valoadus` `vastorec` `vastorei`
+    `vastorel` `vastorep` `vastores` `vastoreuc`
+    `vastoreui` `vastoreus` `vget0` `vget1`
+    `vget2` `vget3` `vget4` `vget5`
+    `vget6` `vget7` `vloadc` `vloadi`
+    `vloadl` `vloadp` `vloads` `vloaduc`
+    `vloadui` `vloadus` `vstorec` `vstorei`
+    `vstorel` `vstorep` `vstores` `vstoreuc`
+    `vstoreui` `vstoreus` `vwrite0` `vwrite1`
+    `vwrite2` `vwrite3` `vwrite4` `vwrite5`
+    `vwrite6` `vwrite7` `write0` `write1`
+    `write2` `write3` `write4` `write5`
+    `write6` `write7` `xorc` `xori`
+    `xorl` `xors` `xoruc` `xorui`
+    `xorus`
 
 type:
-  `uc` `us` `ui` `c` `s` `i` `l` `p`
+  `c` `i` `l` `p`
+  `s` `uc` `ui` `us`
 
 decimal-digit: one of
-  `0` `1` `2` `3` `4` `5` `6` `7` `8` `9`
+  `0` `1` `2` `3`
+  `4` `5` `6` `7`
+  `8` `9`
 
 decimal-constant:
   decimal-digit
   decimal-digit decimal-constant
 
 octal-digit: one of
-  `0` `1` `2` `3` `4` `5` `6` `7`
+  `0` `1` `2` `3`
+  `4` `5` `6` `7`
 
 octal-digit-sequence:
   octal-digit
@@ -72,8 +99,11 @@ octal-constant:
   `0o` octal-digit-sequence
 
 hexadecimal-digit: one of
-  `0` `1` `2` `3` `4` `5` `6` `7` `8` `9`
-  `a` `b` `c` `d` `e` `f` `A` `B` `C` `D`
+  `0` `1` `2` `3`
+  `4` `5` `6` `7`
+  `8` `9` `a` `b`
+  `c` `d` `e` `f`
+  `A` `B` `C` `D`
   `E` `F`
 
 hexadecimal-digit-sequence:
@@ -140,26 +170,50 @@ character-sequence-identifier:
   character-identifier character-sequence-identifier
 
 identifier-nondigit: one of
-  `a` `b` `c` `d` `e` `f` `g` `h` `i` `j` `k`
-  `l` `m` `n` `o` `p` `q` `r` `s` `t` `u` `v`
-  `w` `x` `y` `z` `A` `B` `C` `D` `E` `F` `G`
-  `H` `I` `J` `K` `L` `M` `N` `O` `P` `Q` `R`
-  `S` `T` `U` `V` `W` `X` `Y` `Z` `_` `^` `@`
-  `|`   `\` `[` `]` `(` `)` `,` `#` `{` `}`
-  `&` `%` `~` `*` the backtick character
+  `a` `b` `c` `d`
+  `e` `f` `g` `h`
+  `i` `j` `k` `l`
+  `m` `n` `o` `p`
+  `q` `r` `s` `t`
+  `u` `v` `w` `x`
+  `y` `z` `A` `B`
+  `C` `D` `E` `F`
+  `G` `H` `I` `J`
+  `K` `L` `M` `N`
+  `O` `P` `Q` `R`
+  `S` `T` `U` `V`
+  `W` `X` `Y` `Z`
+  `_` `^` `@` `|`
+  `\` `[` `]` `(`
+  `)` `,` `#` `{`
+  `}` `&` `%` `~`
+  `*` the backtick character
 
 character-identifier: one of
-  `a` `b` `c` `d` `e` `f` `g` `h` `i` `j` `k`
-  `l` `m` `n` `o` `p` `q` `r` `s` `t` `u` `v`
-  `w` `x` `y` `z` `A` `B` `C` `D` `E` `F` `G`
-  `H` `I` `J` `K` `L` `M` `N` `O` `P` `Q` `R`
-  `S` `T` `U` `V` `W` `X` `Y` `Z` `0` `1` `2`
-  `3` `4` `5` `6` `7` `8` `9` `_` `^` `@` `|`
-  `\` `[` `]` `(` `)` `,` `#` `{` `}` `&` `%`
-  `~` `*` the backtick character
+  `a` `b` `c` `d`
+  `e` `f` `g` `h`
+  `i` `j` `k` `l`
+  `m` `n` `o` `p`
+  `q` `r` `s` `t`
+  `u` `v` `w` `x`
+  `y` `z` `A` `B`
+  `C` `D` `E` `F`
+  `G` `H` `I` `J`
+  `K` `L` `M` `N`
+  `O` `P` `Q` `R`
+  `S` `T` `U` `V`
+  `W` `X` `Y` `Z`
+  `0` `1` `2` `3`
+  `4` `5` `6` `7`
+  `8` `9` `_` `^`
+  `@` `|` `\` `[`
+  `]` `(` `)` `,`
+  `#` `{` `}` `&`
+  `%` `~` `*` the backtick character
 
 punctuator:
-  `-` `+` `$` `.` `!`
+  `-` `+` `$` `.`
+  `!`
 
 sign: one of
   `+` `-`
@@ -169,43 +223,66 @@ visibility:
   `exposed`
 
 instruction: one of
-  `jmp` `jeq` `jgt` `jls` `jge` `jle` `jne` `jz` `jnz`
-  `addc` `adds` `addi` `addp` `addbp` `addl` `adduc` `addus` `addui`
-  `subc` `subs` `subi` `subp` `subbp` `subl` `subuc` `subus` `subui`
-  `mulc` `muls` `muli` `mull` `muluc` `mulus` `mului`
-  `divc` `divs` `divi` `divl` `divuc` `divus` `divui`
-  `remc` `rems` `remi` `reml` `remuc` `remus` `remui`
-  `lshc` `lshs` `lshi` `lshl` `lshuc` `lshus` `lshui`
-  `rshc` `rshs` `rshi` `rshl` `rshuc` `rshus` `rshui`
-  `orc` `ors` `ori` `orl` `oruc` `orus` `orui`
-  `andc` `ands` `andi` `andl` `anduc` `andus` `andui`
-  `notc` `nots` `noti` `notl` `notuc` `notus` `notui`
-  `xorc` `xors` `xori` `xorl` `xoruc` `xorus` `xorui`
-  `swap` `pop` `dup` `ret` `over` `panic`
-  `str0` `str1` `str2` `str3` `str4` `str5` `str6` `str7`
-  `ldr0` `ldr1` `ldr2` `ldr3` `ldr4` `ldr5` `ldr6` `ldr7`
-  `ldhc` `ldhs` `ldhi` `ldhp` `ldhl` `ldhuc` `ldhus` `ldhui`
-  `sthc` `sths` `sthi` `sthp` `sthl` `sthuc` `sthus` `sthui`
-  `ldcc` `ldcs` `ldci` `ldcp` `ldcl` `ldcuc` `ldcus` `ldcui`
-  `hlt` `call` `copy` `pcopy` `popa` `sts` `rbs` `rbe` `pushsp`
-  `set` `include` `hltr` `nop`
-  `aldhc` `aldhs` `aldhi` `aldhp` `aldhl` `aldhuc` `aldhus` `aldhui`
-  `asthc` `asths` `asthi` `asthp` `asthl` `asthuc` `asthus` `asthui`
-  `aldcc` `aldcs` `aldci` `aldcp` `aldcl` `aldcuc` `aldcus` `aldcui`
-  `alignc` `aligns` `aligni` `alignp` `alignl` `alignuc` `alignus` `alignui`
-  `incsp` `decsp` `exit`
-  `force_panic` `jmp_panic`
-  `pushlt` `import`
-  `push0` `push1` `push2` `push3` `push4` `push5` `push7` `pushn1`
-  `vstr0` `vstr1` `vstr2` `vstr3` `vstr4` `vstr5` `vstr6` `vstr7`
-  `vldr0` `vldr1` `vldr2` `vldr3` `vldr4` `vldr5` `vldr6` `vldr7`
-  `vldhc` `vldhs` `vldhi` `vldhp` `vldhl` `vldhuc` `vldhus` `vldhui`
-  `vsthc` `vsths` `vsthi` `vsthp` `vsthl` `vsthuc` `vsthus` `vsthui`
-  `c2b` `h2b`
-  `b2c` `b2h`
+    `addc` `addi` `addl` `addp`
+    `adds` `adduc` `addui` `addus`
+    `alignc` `aligni` `alignl` `alignp`
+    `aligns` `alignuc` `alignui` `alignus`
+    `aloadc` `aloadi` `aloadl` `aloadp`
+    `aloads` `aloaduc` `aloadui` `aloadus`
+    `andc` `andi` `andl` `ands`
+    `anduc` `andui` `andus` `astorec`
+    `astorei` `astorel` `astorep` `astores`
+    `astoreuc` `astoreui` `astoreus` `call`
+    `copy` `decsp` `divc` `divi`
+    `divl` `divs` `divuc` `divui`
+    `divus` `dup` `exit` `force_panic`
+    `get0` `get1` `get2` `get3`
+    `get4` `get5` `get6` `get7`
+    `hlt` `hltr` `incsp` `jeq`
+    `jge` `jgt` `jle` `jls`
+    `jmp` `jmp_panic` `jne` `jnz`
+    `jz` `loadc` `loadi` `loadl`
+    `loadp` `loads` `loaduc` `loadui`
+    `loadus` `lshc` `lshi` `lshl`
+    `lshs` `lshuc` `lshui` `lshus`
+    `mulc` `muli` `mull` `muls`
+    `muluc` `mului` `mulus` `nop`
+    `notc` `noti` `notl` `nots`
+    `notuc` `notui` `notus` `orc`
+    `ori` `orl` `ors` `oruc`
+    `orui` `orus` `over` `panic`
+    `pcopy` `pop` `popa` `pushc`
+    `pushi` `pushl` `pushlt` `pushp`
+    `pushs` `pushsp` `pushuc` `pushui`
+    `pushus` `put` `remc` `remi`
+    `reml` `rems` `remuc` `remui`
+    `remus` `ret` `rshc` `rshi`
+    `rshl` `rshs` `rshuc` `rshui`
+    `rshus` `storec` `storei` `storel`
+    `storep` `stores` `storeuc` `storeui`
+    `storeus` `subc` `subi` `subl`
+    `subp` `subs` `subuc` `subui`
+    `subus` `swap` `valoadc` `valoadi`
+    `valoadl` `valoadp` `valoads` `valoaduc`
+    `valoadui` `valoadus` `vastorec` `vastorei`
+    `vastorel` `vastorep` `vastores` `vastoreuc`
+    `vastoreui` `vastoreus` `vget0` `vget1`
+    `vget2` `vget3` `vget4` `vget5`
+    `vget6` `vget7` `vloadc` `vloadi`
+    `vloadl` `vloadp` `vloads` `vloaduc`
+    `vloadui` `vloadus` `vstorec` `vstorei`
+    `vstorel` `vstorep` `vstores` `vstoreuc`
+    `vstoreui` `vstoreus` `vwrite0` `vwrite1`
+    `vwrite2` `vwrite3` `vwrite4` `vwrite5`
+    `vwrite6` `vwrite7` `write0` `write1`
+    `write2` `write3` `write4` `write5`
+    `write6` `write7` `xorc` `xori`
+    `xorl` `xors` `xoruc` `xorui`
+    `xorus`
 
 push-instruction: one of
-  `pushc` `pushs` `pushi` `pushp` `pushl` `pushuc` `pushus` `pushui`
+  `pushi` `pushl` `pushp` `pushs`
+  `pushsp` `pushuc` `pushui`
 
 [Phrase structure grammar]:
 
