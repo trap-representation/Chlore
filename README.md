@@ -13,9 +13,9 @@ import "stdlib.chlore"
 import "io.chlore"
 
 :main
-pushp "Hello, World!\n"
-pushp putstr call
-hlt
+  pushp "Hello, World!\n"
+  pushp putstr call
+  hlt
 ````
 1. Check out more examples in the `examples` directory.
 
