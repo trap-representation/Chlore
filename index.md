@@ -32,9 +32,9 @@ import "stdlib.chlore"
 import "io.chlore"
 
 :main
-pushp "Hello, World!\n"
-pushp putstr call
-hlt
+  pushp "Hello, World!\n"
+  pushp putstr call
+  hlt
 ````
 
 #### A summary of the syntax of Chlore: ####
