@@ -251,10 +251,8 @@ instruction: one of
     `notuc` `notui` `notus` `orc`
     `ori` `orl` `ors` `oruc`
     `orui` `orus` `over` `panic`
-    `pcopy` `pop` `popa` `pushc`
-    `pushi` `pushl` `pushlt` `pushp`
-    `pushs` `pushsp` `pushuc` `pushui`
-    `pushus` `put` `remc` `remi`
+    `pcopy` `pop` `popa` `pushlt`
+    `pushsp` `put` `remc` `remi`
     `reml` `rems` `remuc` `remui`
     `remus` `ret` `rshc` `rshi`
     `rshl` `rshs` `rshuc` `rshui`
