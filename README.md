@@ -6,7 +6,9 @@ Chlore
 
 This is Chlore - a stack based language that's made with a focus on simplicity.
 
-A simple Hello World program written in a standard compliant implementation of Chlore <sup>1</sup>:
+A simple Hello World program written in a standard compliant implementation of Chlore[^1]:
+
+[^1]: Check out more examples in the `examples` directory.
 
 ````
 import "stdlib.chlore"
@@ -17,7 +19,6 @@ import "io.chlore"
   pushp putstr call
   hlt
 ````
-1. Check out more examples in the `examples` directory.
 
 If you're curious about how the language looks like, you can check the `grammar.txt` which contains a summary of the syntax of Chlore.
 
