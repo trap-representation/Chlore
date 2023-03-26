@@ -28,8 +28,8 @@ About everything I do nowadays, which includes, but is not limited to: compiler 
 #### A simple Hello World program written in a standard compliant implementation of Chlore: ####
 
 ````
-import "stdlib.chlore"
-import "io.chlore"
+import "stdlib.chloreh"
+import "io.chloreh"
 
 :main
   pushp "Hello, World!\n"
