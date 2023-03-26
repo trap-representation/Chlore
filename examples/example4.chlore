@@ -2,9 +2,9 @@
   This program calculates the length of the null-terminated string
 /
 
-import "stdlib.chlore"
-import "io.chlore"
-import "string.chlore"
+import "stdlib.chloreh"
+import "io.chloreh"
+import "string.chloreh"
 
 :main
   pushp "Hello, World!\n"

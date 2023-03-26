@@ -2,8 +2,8 @@
   This program writes "Hello, World" to stdout
 /
 
-import "stdlib.chlore"
-import "io.chlore"
+import "stdlib.chloreh"
+import "io.chloreh"
 
 :main
   pushp "Hello, World!\n"

@@ -2,9 +2,9 @@
   This program was made for the "This isn't rocket science" code-golf (code-golf question 91182), though it was never submitted
 /
 
-import "stdlib.chlore"
-import "io.chlore"
-import "stddef.chlore"
+import "stdlib.chloreh"
+import "io.chloreh"
+import "stddef.chloreh"
 
 :main
   pushp getchar call
