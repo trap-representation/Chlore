@@ -11,8 +11,8 @@ A simple Hello World program written in a standard compliant implementation of C
 [^1]: Check out more examples in the `examples` directory.
 
 ````
-import "stdlib.chlore"
-import "io.chlore"
+import "stdlib.chloreh"
+import "io.chloreh"
 
 :main
   pushp "Hello, World!\n"
