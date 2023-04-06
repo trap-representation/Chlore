@@ -26,3 +26,4 @@ import "stddef.chloreh"
       pushp " |_|\n/___\\\n VvV\n"
       pushp putstr call
   hlt
+
