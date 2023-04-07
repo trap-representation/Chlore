@@ -1,8 +1,7 @@
 Chlore
 ----
 
-![Chlore logo](./chlore-logo-github-light.png#gh-light-mode-only)
-![Chlore logo](./chlore-logo-github-dark.png#gh-dark-mode-only)
+![Chlore logo](./chlore-logo.png)
 
 This is Chlore - a stack based language that's made with a focus on simplicity.
 
