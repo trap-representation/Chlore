@@ -1,7 +1,7 @@
 Chlore
 ----
 
-![Chlore logo](./chlore-logo-github-pages.png)
+![Chlore logo](./chlore-logo.png)
 
 This is Chlore - a stack based language that's made with a focus on simplicity.
 
