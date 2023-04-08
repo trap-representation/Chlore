@@ -23,6 +23,11 @@ If you're curious about how the language looks like, you can check the `grammar.
 
 A language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be put here soon.
 
+Cool stuff implemented in Chlore:
+1. [The YET text editor](https://github.com/trap-representation/YET)
+2. [Project Euler](https://github.com/trap-representation/Project-Euler)
+3. [POSIX shell utilities](https://github.com/trap-representation/posix-shell-utilities)
+
 ----
 
 Every source file in this repository is licensed under the GPLv3 license, even if the text of the license is not explicitly placed at the start of the file. For files where the license is not explicitly placed in, modify/use/distribute them the way you would've had the following text been present in the file.
