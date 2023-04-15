@@ -9,4 +9,3 @@ import "io.chloreh"
   pushp "Hello, World!\n"
   pushp putstr call
   hlt
-

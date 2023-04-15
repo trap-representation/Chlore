@@ -44,4 +44,3 @@ import "io.chloreh"
     :continue
       dup pushl MAX_CNT pushp loop jne ;loop until the number is > MAX_CNT
   hlt
-
