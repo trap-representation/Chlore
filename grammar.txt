@@ -10,7 +10,9 @@ token:
   keyword
   punctuator
   identifier
-  constant
+  numeric-constant
+  character-constant
+  string-constant
 
 keyword: one of
     `addc` `addi` `addl` `addp`
@@ -74,10 +76,6 @@ keyword: one of
     `xorl` `xors` `xoruc` `xorui`
     `xorus`
 
-type:
-  `c` `i` `l` `p`
-  `s` `uc` `ui` `us`
-
 decimal-digit: one of
   `0` `1` `2` `3`
   `4` `5` `6` `7`
@@ -129,19 +127,14 @@ numeric-constant:
   binary-constant
   hexadecimal-constant
 
-constant:
-  numeric-constant
-  string-constant
-  char-constant
+character-constant:
+  `'` character-sequence-character (opt) `'`
 
-char-constant:
-  `'` character-sequence-char (opt) `'`
+character-sequence-character:
+  character-character
+  character-character character-sequence-character
 
-character-sequence-char:
-  character-char
-  character-char character-sequence-char
-
-character-char:
+character-character:
   any member of the source character set except the `'`, the `\` character, and the newline character
   escape-sequence
 
@@ -215,12 +208,26 @@ punctuator:
   `-` `+` `$` `.`
   `!`
 
-sign: one of
-  `+` `-`
+[Phrase structure grammar]:
 
-visibility:
-  `hidden`
-  `exposed`
+translation-unit:
+  statement-sequence (opt)
+
+statement-sequence:
+  statement
+  statement statement-sequence
+
+statement:
+  keyword
+  push-statement
+  alignof-statement
+  sizeof-statement
+  set-statement
+  label
+  import-statement
+  struct-definition
+  tagged-expression
+  instruction
 
 instruction: one of
     `addc` `addi` `addl` `addp`
@@ -278,30 +285,9 @@ instruction: one of
     `xorl` `xors` `xoruc` `xorui`
     `xorus`
 
-push-instruction: one of
-  `pushi` `pushl` `pushp` `pushs`
-  `pushsp` `pushuc` `pushui`
-
-[Phrase structure grammar]:
-
-translation-unit:
-  statement-sequence (opt)
-
-statement-sequence:
-  statement
-  statement statement-sequence
-
-statement:
-  keyword
-  push-statement
-  alignof-statement
-  sizeof-statement
-  set-statement
-  label
-  import-statement
-  struct-definition
-  tagged-expression
-  instruction
+type:
+  `c` `i` `l` `p`
+  `s` `uc` `ui` `us`
 
 alignof-statement:
   `alignof` type
@@ -311,16 +297,28 @@ sizeof-statement:
   `sizeof` type
   `sizeof` struct-name
 
+push-instruction: one of
+  `pushi` `pushl` `pushp` `pushs`
+  `pushsp` `pushuc` `pushui`
+
+sign:
+  `+`
+  `-`
+
 push-statement:
   push-instruction sign (opt) constant
   push-instruction sign (opt) symbol
 
 set-statement:
   `set` identifier sign (opt) constant
-  `set` identifier sign (opt) identifier
+  `set` identifier sign (opt) symbol
+
+visibility:
+  `hidden`
+  `exposed`
 
 label:
-  `:` visibility (opt) symbol
+  `:` visibility (opt) identifier
 
 import-statement:
   `import` string-constant
@@ -338,15 +336,15 @@ struct-name:
   identifier
 
 struct-tag-definition:
-  type `:` tag
-  struct-name `:` tag
+  type `:` identifier
+  struct-name `:` identifier
 
 struct-tag-definition-sequence:
   struct-tag-definition
   struct-tag-definition struct-tag-definition-sequence
 
 struct-definition:
-  `struct` struct-name struct-tag-definition-sequence (opt) `!`
+  `struct` identifier struct-tag-definition-sequence (opt) `!`
 
 tag-sequence:
   `.` tag
@@ -354,4 +352,3 @@ tag-sequence:
 
 tagged-expression:
   `+` struct-name tag-sequence (opt)
-
