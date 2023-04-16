@@ -27,7 +27,7 @@ About everything I do nowadays, which includes, but is not limited to: compiler 
 #### Cool stuff implemented in Chlore ####
 
 1. [The YET text editor](https://github.com/trap-representation/YET)
-2. [Project Euler](https://github.com/trap-representation/Project-Euler)
+2. [Solutions to some Project Euler problems](https://github.com/trap-representation/Project-Euler)
 3. [POSIX shell utilities](https://github.com/trap-representation/posix-shell-utilities)
 
 #### A simple Hello World program written in a standard compliant implementation of Chlore: ####
