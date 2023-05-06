@@ -15,7 +15,7 @@ import "alloc2.chloreh"
   ;the top of the stack now has a pointer to the allocated segment
   dup ;dup this so we can free it later
   dup
-  pushui 42 ;this is the value that we're going to store in the heap
+  pushui 42 ;this is the value that we're going to store in the allocated chunk
   swap
   astoreui ;do an aligned store
 
