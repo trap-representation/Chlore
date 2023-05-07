@@ -306,11 +306,15 @@ sign:
   `-`
 
 push-statement:
-  push-instruction sign (opt) constant
+  push-instruction sign (opt) numeric-constant
+  push-instruction sign (opt) character-constant
+  push-instruction sign (opt) string-constant
   push-instruction sign (opt) symbol
 
 set-statement:
-  `set` identifier sign (opt) constant
+  `set` identifier sign (opt) numeric-constant
+  `set` identifier sign (opt) character-constant
+  `set` identifier sign (opt) string-constant
   `set` identifier sign (opt) symbol
 
 visibility:
@@ -340,15 +344,13 @@ struct-tag-definition:
   struct-name `:` identifier
 
 struct-tag-definition-sequence:
-  struct-tag-definition
-  struct-tag-definition struct-tag-definition-sequence
+  struct-tag-definition struct-tag-definition-sequence (opt)
 
 struct-definition:
   `struct` identifier struct-tag-definition-sequence (opt) `!`
 
 tag-sequence:
-  `.` tag
-  `.` tag tag-sequence
+  `.` tag tag-sequence (opt)
 
 tagged-expression:
   `+` struct-name tag-sequence (opt)
