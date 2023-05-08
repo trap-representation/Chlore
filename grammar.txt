@@ -32,49 +32,48 @@ keyword: one of
     `get1` `get2` `get3` `get4`
     `get5` `get6` `get7` `hidden`
     `hlt` `hltr` `i` `import`
-    `include` `incsp` `jeq` `jge`
-    `jgt` `jle` `jls` `jmp`
-    `jmp_panic` `jne` `jnz` `jz`
-    `l` `loadc` `loadi` `loadl`
-    `loadp` `loads` `loaduc` `loadui`
-    `loadus` `lshc` `lshi` `lshl`
-    `lshs` `lshuc` `lshui` `lshus`
-    `mulc` `muli` `mull` `muls`
-    `muluc` `mului` `mulus` `nop`
-    `notc` `noti` `notl` `nots`
-    `notuc` `notui` `notus` `orc`
-    `ori` `orl` `ors` `oruc`
-    `orui` `orus` `over` `p`
-    `panic` `pcopy` `pop` `popa`
-    `pushc` `pushi` `pushl` `pushlt`
-    `pushp` `pushs` `pushsp` `pushuc`
-    `pushui` `pushus` `put` `remc`
-    `remi` `reml` `rems` `remuc`
-    `remui` `remus` `ret` `rshc`
-    `rshi` `rshl` `rshs` `rshuc`
-    `rshui` `rshus` `s` `set`
-    `sizeof` `storec` `storei` `storel`
-    `storep` `stores` `storeuc` `storeui`
-    `storeus` `struct` `subc` `subi`
-    `subl` `subp` `subs` `subuc`
-    `subui` `subus` `swap` `uc`
-    `ui` `us` `valoadc` `valoadi`
-    `valoadl` `valoadp` `valoads` `valoaduc`
-    `valoadui` `valoadus` `vastorec` `vastorei`
-    `vastorel` `vastorep` `vastores` `vastoreuc`
-    `vastoreui` `vastoreus` `vget0` `vget1`
-    `vget2` `vget3` `vget4` `vget5`
-    `vget6` `vget7` `vloadc` `vloadi`
-    `vloadl` `vloadp` `vloads` `vloaduc`
-    `vloadui` `vloadus` `vstorec` `vstorei`
-    `vstorel` `vstorep` `vstores` `vstoreuc`
-    `vstoreui` `vstoreus` `vwrite0` `vwrite1`
-    `vwrite2` `vwrite3` `vwrite4` `vwrite5`
-    `vwrite6` `vwrite7` `write0` `write1`
-    `write2` `write3` `write4` `write5`
-    `write6` `write7` `xorc` `xori`
-    `xorl` `xors` `xoruc` `xorui`
-    `xorus`
+    `incsp` `jeq` `jge` `jgt`
+    `jle` `jls` `jmp` `jmp_panic`
+    `jne` `jnz` `jz` `l`
+    `loadc` `loadi` `loadl` `loadp`
+    `loads` `loaduc` `loadui` `loadus`
+    `lshc` `lshi` `lshl` `lshs`
+    `lshuc` `lshui` `lshus` `mulc`
+    `muli` `mull` `muls` `muluc`
+    `mului` `mulus` `nop` `notc`
+    `noti` `notl` `nots` `notuc`
+    `notui` `notus` `orc` `ori`
+    `orl` `ors` `oruc` `orui`
+    `orus` `over` `p` `panic`
+    `pcopy` `pop` `popa` `pushc`
+    `pushi` `pushl` `pushlt` `pushp`
+    `pushs` `pushsp` `pushuc` `pushui`
+    `pushus` `put` `remc` `remi`
+    `reml` `rems` `remuc` `remui`
+    `remus` `ret` `rshc` `rshi`
+    `rshl` `rshs` `rshuc` `rshui`
+    `rshus` `s` `set` `sizeof`
+    `storec` `storei` `storel` `storep`
+    `stores` `storeuc` `storeui` `storeus`
+    `struct` `subc` `subi` `subl`
+    `subp` `subs` `subuc` `subui`
+    `subus` `swap` `uc` `ui`
+    `us` `valoadc` `valoadi` `valoadl`
+    `valoadp` `valoads` `valoaduc` `valoadui`
+    `valoadus` `vastorec` `vastorei` `vastorel`
+    `vastorep` `vastores` `vastoreuc` `vastoreui`
+    `vastoreus` `vget0` `vget1` `vget2`
+    `vget3` `vget4` `vget5` `vget6`
+    `vget7` `vloadc` `vloadi` `vloadl`
+    `vloadp` `vloads` `vloaduc` `vloadui`
+    `vloadus` `vstorec` `vstorei` `vstorel`
+    `vstorep` `vstores` `vstoreuc` `vstoreui`
+    `vstoreus` `vwrite0` `vwrite1` `vwrite2`
+    `vwrite3` `vwrite4` `vwrite5` `vwrite6`
+    `vwrite7` `write0` `write1` `write2`
+    `write3` `write4` `write5` `write6`
+    `write7` `xorc` `xori` `xorl`
+    `xors` `xoruc` `xorui` `xorus`
 
 decimal-digit: one of
   `0` `1` `2` `3`
@@ -326,9 +325,6 @@ label:
 
 import-statement:
   `import` string-constant
-
-include-statement:
-  `include` string-constant
 
 tag:
   identifier
