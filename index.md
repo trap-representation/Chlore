@@ -3,7 +3,7 @@ Chlore
 
 ![Chlore logo](./chlore-logo.png)
 
-This is Chlore - a stack based language that's made with a focus on simplicity.
+This is Chlore - a stack based language that's made with a focus on simplicity and portability.
 
 #### Why yet another new language? ####
 
