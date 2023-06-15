@@ -7,13 +7,13 @@ This is Chlore - a stack-oriented programming language that's made with a focus 
 
 #### Why yet another new language? ####
 
-1. Most of the modern languages are built with memory-safety in mind, and implementations have to perform a lot of complex operations to "guarantee" that "memory-safety" they promise. But let's be real here - the more complex the implementation is, the more are the chances of subtle bugs to silp right through, and cause all sorts of weird stuff.
+1. Most of the modern languages are built with memory-safety in mind, and implementations have to perform a lot of complex operations to "guarantee" that "memory-safety" they promise. But let's be real here - the more complex the implementation is, the more are the chances of subtle bugs to slip right through, and cause all sorts of weird stuff.
 
     Chlore implementations are *not* required to provide "memory-safety", and its reference implementation is probably one of the simplest compilers you'll find out there.
 
 2. Languages are slowly turning into a bloated mess:
 - Huge standard libraries with "features" to make programmers' lives easier
-- Package managers built right into the language encouraging the use of third-party libraries (which is one of the main causes of security vulnerabilities in softwares, since most programmers don't care to read the source of the library they're using)
+- Package managers built right into the language encouraging the use of third-party libraries (which is one of the main causes of security vulnerabilities in software, since most programmers don't care to read the source of the library they're using)
 - Some languages don't even have any specification
 
    Chlore does not and will *never* have any of these "features". Chlore follows a spec-first approach for the design of the language and it has a standard library that tries to be small.
