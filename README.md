@@ -5,6 +5,11 @@ Chlore
 
 This is Chlore - a stack-oriented programming language that's made with a focus on simplicity.
 
+Philosophy behind the development of Chlore:
+- If it is complicated to define, it is better left undefined
+- Do not specify unnecessary details in the name of "portability"
+- Guarantees are fine, so long as an addition is not expected to summon elephants
+
 A simple Hello World program written in a standard compliant implementation of Chlore[^1]:
 
 [^1]: Check out more examples in the `examples` directory.
