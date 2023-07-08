@@ -3,7 +3,7 @@ Chlore
 
 ![Chlore logo](./chlore-logo.png)
 
-This is Chlore - a stack-oriented programming language that's made with a focus on simplicity and portability.
+This is Chlore - a stack-oriented programming language that's made with a focus on simplicity.
 
 A simple Hello World program written in a standard compliant implementation of Chlore[^1]:
 
