@@ -21,7 +21,8 @@ This is Chlore - a stack-oriented programming language that's made with a focus 
 3. Modern languages aren't simple anymore. Simplicity isn't always proportional to how much a language can make a programmer's life easier. A simple language should be... well, simple. It must not be unnecessarily complicated to define and implement.
 
 #### Philosophy behind the development of Chlore ####
-- If it is complicated to define, it is better left undefined
+- If it takes 10 rereads to interpret it right, it should NOT make it into the language
+- Do not add features just for the sake of it
 - Do not specify unnecessary details in the name of "portability"
 - Guarantees are fine, so long as an addition is not expected to summon elephants
 
