@@ -6,7 +6,8 @@ Chlore
 This is Chlore - a stack-oriented programming language that's made with a focus on simplicity.
 
 Philosophy behind the development of Chlore:
-- If it is complicated to define, it is better left undefined
+- If it takes 10 rereads to interpret it right, it should NOT make it into the language
+- Do not add features just for the sake of it
 - Do not specify unnecessary details in the name of "portability"
 - Guarantees are fine, so long as an addition is not expected to summon elephants
 
