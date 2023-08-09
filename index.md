@@ -48,3 +48,8 @@ import "io.chloreh"
   pushp putstr call
   hlt
 ````
+
+---
+
+1. Check out our [discord](https://discord.gg/5FCpR5eZyp)
+2. Check out our [reddit community](https://www.reddit.com/r/Chlore)
