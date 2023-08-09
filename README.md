@@ -58,5 +58,8 @@ Every source file in this repository is licensed under the GPLv3 license, even i
 
 In case you're distributing the file, please put the aforementioned text at the beginning of the file you're about to distribute.
 
-PS: Check out the Chlore website [here](https://trap-representation.github.io/Chlore/).  
-Join the [discord](https://discord.gg/5FCpR5eZyp).
+---
+
+1. Check out the Chlore programming language's official website [here](https://trap-representation.github.io/Chlore/)
+2. Check out our [discord](https://discord.gg/5FCpR5eZyp)
+3. Check out our [reddit community](https://www.reddit.com/r/Chlore)
