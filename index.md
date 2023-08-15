@@ -30,6 +30,10 @@ This is Chlore - a stack-oriented programming language that's made with a focus 
 
 About everything I do nowadays, which includes, but is not limited to: compiler development, implementing emulators, and sometimes writing my own utilities instead of downloading random stuff off the internet. Heck, even the text editor I use now ([YET](https://github.com/trap-representation/YET)) is written in Chlore.
 
+#### Implementations of Chlore ####
+
+1. [Toc](https://github.com/trap-representation/toc)
+
 #### Cool stuff implemented in Chlore ####
 
 1. [The YET text editor](https://github.com/trap-representation/YET)
