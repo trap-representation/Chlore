@@ -29,6 +29,9 @@ If you're curious about how the language looks like, you can check the `grammar.
 
 A language specification is extremely important for the development of a language, and Chlore has a (WIP) standard too. A link to the standard will be put here soon.
 
+Implementations of Chlore:
+1. [Toc](https://github.com/trap-representation/toc)
+
 Cool stuff implemented in Chlore:
 1. [The YET text editor](https://github.com/trap-representation/YET)
 2. [Solutions to some Project Euler problems](https://github.com/trap-representation/Project-Euler)
