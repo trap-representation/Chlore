@@ -25,4 +25,6 @@ import "stddef.chloreh"
     :quit
       pushp " |_|\n/___\\\n VvV\n"
       pushp putstr call
+
+  pushp phclean call
   hlt

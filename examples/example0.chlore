@@ -3,5 +3,5 @@
 /
 
 :main
-  pushi 42
+  pushc 42
   hltr

@@ -11,4 +11,5 @@ import "string.chloreh"
   pushp strlen call
   pushp putl call
 
+  pushp phclean call
   hlt

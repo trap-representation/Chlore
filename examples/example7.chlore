@@ -6,7 +6,7 @@ import "stdlib.chloreh"
 import "io.chloreh"
 
 :main
-  set n 37
+  set n 33
   pushl n
   pushp fib
   call
@@ -14,6 +14,7 @@ import "io.chloreh"
   pushc '\n'
   pushp putchar call
 
+  pushp phclean call
   hlt
 
 :fib

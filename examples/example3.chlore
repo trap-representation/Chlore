@@ -25,5 +25,5 @@ import "alloc2.chloreh"
 
   pushp flush call ;free the allocated chunk
 
-  pushp mem_close call
+  pushp phclean call
   hlt

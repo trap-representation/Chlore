@@ -11,4 +11,5 @@ import "io.chloreh"
   pushp "%ui is the answer to %t\n"
   pushp putfmt call
 
+  pushp phclean call
   hlt
