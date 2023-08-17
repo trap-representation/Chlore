@@ -21,6 +21,7 @@ import "io.chloreh"
 
 :main
   pushp "Hello, World!\n"
+  pushp phclean call
   pushp putstr call
   hlt
 ````
