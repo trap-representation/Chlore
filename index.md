@@ -50,6 +50,7 @@ import "io.chloreh"
 :main
   pushp "Hello, World!\n"
   pushp putstr call
+  pushp phclean call
   hlt
 ````
 
