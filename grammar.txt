@@ -25,7 +25,9 @@ keyword: one of
     `ands` `anduc` `andui` `andus`
     `astorec` `astorei` `astorel` `astorep`
     `astores` `astoreuc` `astoreui` `astoreus`
-    `c` `call` `copy` `decsp`
+    `c` `call` `ceq` `cge`
+    `cgt` `cle` `cls` `cne`
+    `cnz` `copy` `cz` `decsp`
     `divc` `divi` `divl` `divs`
     `divuc` `divui` `divus` `dup`
     `exit` `exposed` `force_panic` `get0`
@@ -239,7 +241,9 @@ instruction: one of
     `anduc` `andui` `andus` `astorec`
     `astorei` `astorel` `astorep` `astores`
     `astoreuc` `astoreui` `astoreus` `call`
-    `copy` `decsp` `divc` `divi`
+    `ceq` `cge` `cgt` `cle`
+    `cls` `cne` `cnz` `copy`
+    `cz` `decsp` `divc` `divi`
     `divl` `divs` `divuc` `divui`
     `divus` `dup` `exit` `force_panic`
     `get0` `get1` `get2` `get3`
