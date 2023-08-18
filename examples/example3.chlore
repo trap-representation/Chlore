@@ -5,6 +5,7 @@
 import "stdlib.chloreh"
 import "io.chloreh"
 import "alloc2.chloreh"
+import "exit.chloreh"
 
 :main
   pushl 1024 ;we'll allocate a chunk of size 1024 bytes

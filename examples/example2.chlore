@@ -5,6 +5,7 @@
 import "stdlib.chloreh"
 import "io.chloreh"
 import "stddef.chloreh"
+import "exit.chloreh"
 
 :main
   pushp getchar call

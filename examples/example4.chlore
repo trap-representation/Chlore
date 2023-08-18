@@ -5,6 +5,7 @@
 import "stdlib.chloreh"
 import "io.chloreh"
 import "string.chloreh"
+import "exit.chloreh"
 
 :main
   pushp "Hello, World!\n"

@@ -4,6 +4,7 @@
 
 import "stdlib.chloreh"
 import "io.chloreh"
+import "exit.chloreh"
 
 :main
   pushp "the ultimate question of life, the universe, and everything."

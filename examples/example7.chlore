@@ -4,6 +4,7 @@
 
 import "stdlib.chloreh"
 import "io.chloreh"
+import "exit.chloreh"
 
 :main
   set n 33
