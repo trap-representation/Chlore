@@ -26,7 +26,9 @@ keyword: one of
     `astorec` `astorei` `astorel` `astorep`
     `astores` `astoreuc` `astoreui` `astoreus`
     `c` `call` `ceq` `cge`
-    `cgt` `cle` `cls` `cne`
+    `cgt` `cle` `cleq` `clge`
+    `clgt` `clle` `clls` `clne`
+    `clnz` `cls` `clz` `cne`
     `cnz` `copy` `cz` `decsp`
     `divc` `divi` `divl` `divs`
     `divuc` `divui` `divus` `dup`
@@ -242,7 +244,9 @@ instruction: one of
     `astorei` `astorel` `astorep` `astores`
     `astoreuc` `astoreui` `astoreus` `call`
     `ceq` `cge` `cgt` `cle`
-    `cls` `cne` `cnz` `copy`
+    `cleq` `clge` `clgt` `clle`
+    `clls` `clne` `clnz` `cls`
+    `clz` `cne` `cnz` `copy`
     `cz` `decsp` `divc` `divi`
     `divl` `divs` `divuc` `divui`
     `divus` `dup` `exit` `force_panic`
@@ -302,7 +306,7 @@ sizeof-statement:
 
 push-instruction: one of
   `pushi` `pushl` `pushp` `pushs`
-  `pushsp` `pushuc` `pushui`
+  `pushuc` `pushui`
 
 sign:
   `+`
