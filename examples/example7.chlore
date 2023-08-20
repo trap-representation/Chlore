@@ -6,28 +6,24 @@ import "stdlib.chloreh"
 import "io.chloreh"
 import "exit.chloreh"
 
+:fib
+  if(dup pushi 1 ge){
+    ret
+  }
+  dup pushi 1 swap subl pushp fib call
+  swap
+  pushi 2 swap subl pushp fib call
+  addl
+  ret
+
 :main
   set n 33
   pushl n
-  pushp fib
-  call
+  pushp fib call
+
   pushp putl call
   pushc '\n'
   pushp putchar call
 
   pushp phclean call
   hlt
-
-:fib
-  swap
-  dup pushi 1 pushp return jge
-  dup pushi 1 swap subl pushp fib call
-  swap
-  pushi 2 swap subl pushp fib call
-  addl
-  swap
-  ret
-
-  :return
-    swap
-    ret

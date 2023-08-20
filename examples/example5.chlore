@@ -6,44 +6,34 @@ import "stdlib.chloreh"
 import "io.chloreh"
 import "exit.chloreh"
 
+:check_fizz_buzz
+  pushl 1 addl ;increment the number at the top of the stack
+
+  if(dup pushi 15 swap reml zr){
+    pushp "fizz buzz\n"
+    pushp putstr call
+  }
+  else if(dup pushi 3 swap reml zr){
+    pushp "fizz\n"
+    pushp putstr call
+  }
+  else if(dup pushi 5 swap reml zr){
+    pushp "buzz\n"
+    pushp putstr call
+  }
+  else{
+    dup pushp putl call
+    pushc '\n' pushp putchar call
+  }
+
+  if(dup pushl MAX_CNT ne){
+    pushp check_fizz_buzz rcback
+  }
+  ret
+
 :main
   set MAX_CNT 100
-
   pushi 0
-
-  :loop
-    pushl 1 addl ;increment the number at the top of the stack
-
-    dup
-    pushi 15 swap reml ;check if the number is divisible by 15
-    pushp check_fizz jnz ;if not, jump to `check_fizz' to check if it divisible by 3
-    pushp "fizz buzz\n" ;print "fizzbuzz"
-    pushp putstr call
-    pushp continue jmp
-
-    :check_fizz
-      dup
-      pushi 3 swap reml ;check if the number is divisible by 3
-      pushp check_buzz jnz ;if not, jump to `check_buzz' to check if it divisible by 5
-      pushp "fizz\n" ;print "fizz"
-      pushp putstr call
-      pushp continue jmp
-
-      :check_buzz
-        dup
-        pushi 5 swap reml ;check if the number is divisible by 5
-        pushp print_num jnz ;if not, jump to `print_num' to just print the number at the top of the stack
-        pushp "buzz\n" ;print "buzz"
-        pushp putstr call
-        pushp continue jmp
-
-        :print_num
-          dup
-          pushp putl call ;print the number
-          pushc '\n' pushp putchar call ;write the newline character to stdout
-
-    :continue
-      dup pushl MAX_CNT pushp loop jne ;loop until the number is > MAX_CNT
-
+  pushp check_fizz_buzz call
   pushp phclean call
   hlt

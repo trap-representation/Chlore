@@ -7,25 +7,35 @@ import "io.chloreh"
 import "stddef.chloreh"
 import "exit.chloreh"
 
-:main
+:write_rocket_init
   pushp getchar call
   pushp "\n  |\n /_\\\n"
   pushp putstr call
+  ret
 
-  :loop
-    dup pushc '\n' pushp quit jeq ;check for newline
-    dup pushc EOF pushp quit jeq ;check for EOF
+:get_and_write_stuff
+    if(dup pushc '\n' eq){
+      ret
+    }
+    else if(dup pushi EOF eq){
+      ret
+    }
     pushp " |"
     pushp putstr call
     pushp putchar call
     pushp "|\n"
     pushp putstr call
     pushp getchar call
-    pushp loop jmp
+    pushp get_and_write_stuff rcback
 
-    :quit
-      pushp " |_|\n/___\\\n VvV\n"
-      pushp putstr call
+:write_rocket_end
+  pushp " |_|\n/___\\\n VvV\n"
+  pushp putstr call
+  ret
 
+:main
+  pushp write_rocket_init call
+  pushp get_and_write_stuff call
+  pushp write_rocket_end call
   pushp phclean call
   hlt
