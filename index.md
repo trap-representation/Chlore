@@ -48,6 +48,7 @@ About everything I do nowadays, which includes, but is not limited to: compiler 
 ````
 import "stdlib.chloreh"
 import "io.chloreh"
+import "exit.chloreh"
 
 :main
   pushp "Hello, World!\n"
