@@ -18,11 +18,12 @@ A simple Hello World program written in a standard compliant implementation of C
 ````
 import "stdlib.chloreh"
 import "io.chloreh"
+import "exit.chloreh"
 
 :main
   pushp "Hello, World!\n"
-  pushp phclean call
   pushp putstr call
+  pushp phclean call
   hlt
 ````
 
