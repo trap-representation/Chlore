@@ -6,7 +6,9 @@ import "stdlib.chloreh"
 import "io.chloreh"
 import "exit.chloreh"
 
-:check_fizz_buzz
+set MAX_CNT 100
+
+:fizz_buzz
   pushl 1 addl ;increment the number at the top of the stack
 
   if(dup pushi 15 swap reml zr){
@@ -32,8 +34,7 @@ import "exit.chloreh"
   ret
 
 :main
-  set MAX_CNT 100
   pushi 0
-  pushp check_fizz_buzz call
+  pushp fizz_buzz call
   pushp phclean call
   hlt
