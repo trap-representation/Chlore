@@ -26,7 +26,7 @@ import "exit.chloreh"
     pushp "|\n"
     pushp putstr call
     pushp getchar call
-    pushp get_and_write_stuff rcback
+    pushp get_and_write_stuff rcall
 
 :write_rocket_end
   pushp " |_|\n/___\\\n VvV\n"

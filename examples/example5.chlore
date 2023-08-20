@@ -27,7 +27,7 @@ import "exit.chloreh"
   }
 
   if(dup pushl MAX_CNT ne){
-    pushp check_fizz_buzz rcback
+    pushp check_fizz_buzz rcall
   }
   ret
 

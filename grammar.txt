@@ -47,7 +47,7 @@ keyword: one of
     `pushcs` `pushi` `pushl` `pushlt`
     `pushp` `pushpc` `pushs` `pushsp`
     `pushuc` `pushui` `pushus` `put`
-    `rcback` `remc` `remi` `reml`
+    `rcall` `remc` `remi` `reml`
     `rems` `remuc` `remui` `remus`
     `ret` `rshc` `rshi` `rshl`
     `rshs` `rshuc` `rshui` `rshus`
@@ -252,7 +252,7 @@ instruction: one of
     `popa` `pushc` `pushcs` `pushi`
     `pushl` `pushlt` `pushp` `pushpc`
     `pushs` `pushsp` `pushuc` `pushui`
-    `pushus` `put` `rcback` `remc`
+    `pushus` `put` `rcall` `remc`
     `remi` `reml` `rems` `remuc`
     `remui` `remus` `ret` `rshc`
     `rshi` `rshl` `rshs` `rshuc`
