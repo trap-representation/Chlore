@@ -12,6 +12,14 @@ This is Chlore - a stack-oriented programming language that's made with a focus 
 - Do not specify unnecessary details in the name of "portability"
 - Guarantees are fine, so long as an addition is not expected to summon elephants
 
+---
+
+#### Implementations of Chlore ####
+
+1. [Toc](https://github.com/trap-representation/toc)
+
+---
+
 #### A quick introduction to the language ####
 
 NOTE: This introduction does not at all cover the entire language. It is just meant to _introduce_ folks to the language, how it looks like, how some constructs behave, etc. Expect this to be extended in the future. And this goes without saying, this is non-normative, and is not meant to replace the work-in-progress standard.
@@ -233,3 +241,12 @@ struct random_struct {
 ```
 
 The int written to the member "foo" can be loaded with `loadi`, which consumes a pointer to some memory from the top of the stack and reads from that memory an int, that is then pushed on the top of the stack.
+
+---
+
+#### Communities ####
+
+NOTE: All of the following communities adhere to the No Code of Conduct.
+
+1. [Discord](https://discord.gg/5FCpR5eZyp)
+2. [Reddit](https://www.reddit.com/r/Chlore)
