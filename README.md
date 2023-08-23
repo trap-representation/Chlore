@@ -68,5 +68,5 @@ In case you're distributing the file, please put the aforementioned text at the 
 ---
 
 1. Check out the Chlore programming language's official website [here](https://trap-representation.github.io/Chlore/)
-2. Check out our [discord](https://discord.gg/5FCpR5eZyp)
+2. Check out our [discord server](https://discord.gg/5FCpR5eZyp)
 3. Check out our [reddit community](https://www.reddit.com/r/Chlore)
