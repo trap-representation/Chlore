@@ -112,7 +112,7 @@ The size of a structure can be pushed on the top of the stack using a construct 
 sizeof random_struct
 ```
 
-Memory can be allocated by using "aseg" defined in "alloc2.chloreh". We'll try allocating some memory that we'd be able to use to store all the members of the structure "random_struct".
+Memory can be allocated by using "aseg" defined in "alloc2.chloreh". We'll try allocating some memory that we'd be able to use to store values in all the members of the structure "random_struct".
 
 ```
 import "stdlib.chloreh"
