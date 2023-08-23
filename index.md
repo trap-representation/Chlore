@@ -146,7 +146,7 @@ struct random_struct {
 
 :main
   sizeof random_struct
-  if(pushp aseg call push NULL eq){
+  if(pushp aseg call dup push NULL eq){
     pushi 1 hltr
   }
   pushp phclean call
@@ -168,7 +168,7 @@ struct random_struct {
 
 :main
   sizeof random_struct
-  if(pushp aseg call push NULL eq){
+  if(pushp aseg call dup push NULL eq){
     pushi 1 hltr
   }
   pushp flush call
@@ -196,7 +196,7 @@ struct random_struct {
 
 :main
   sizeof random_struct
-  if(pushp aseg call push NULL eq){
+  if(pushp aseg call dup push NULL eq){
     pushi 1 hltr
   }
   pushi 42 over +random_struct.foo addp storei
@@ -221,7 +221,7 @@ struct random_struct {
 
 :main
   sizeof random_struct
-  if(pushp aseg call push NULL eq){
+  if(pushp aseg call dup push NULL eq){
     pushi 1 hltr
   }
   pushi 42 over +random_struct.foo addp storei
