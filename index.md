@@ -45,7 +45,7 @@ A pointer to a symbol designating a label or a string can be pushed on the stack
 
 This pushes a pointer to the string constant "Hello, World!\n" on the top of the stack. To write that to the standard output, we'd need to `call` some symbols set by the standard library.
 
-However, three files have to be `import`ed before that: "stdlib.chloreh", "io.chloreh", and "exit.chloreh". "stdlib.chloreh" sets the symbol "STDLIB_ID" to point to a string constant designating the location of the standard library. "io.chloreh" defines symbols that can be `call`ed to perform input and output operations. "exit.chloreh" sets the "phclean" symbol that, if at least one `call` is made to one of the symbols defined by the standard library, must be `call`ed before the program terminates.
+However, three files have to be `import`ed before that: "stdlib.chloreh", "io.chloreh", and "exit.chloreh". "stdlib.chloreh" sets the symbol "STDLIB_ID" to point to a string constant designating the location of the standard library. "io.chloreh" defines symbols that can be `call`ed to perform input and output operations. "exit.chloreh" sets the "phclean" symbol that, if at least one `call` is made to any of the symbols defined by the standard library, must be `call`ed before the program terminates.
 
 ```
 import "stdlib.chloreh"
