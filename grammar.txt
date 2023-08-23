@@ -4,7 +4,7 @@ This work is licensed under the Creative Commons Attribution-NoDerivatives 4.0 I
 
 A colon (:) following a non-terminal introduces its definition. Terminals are enclosed in backticks (`). Alternative definitions are listed on separate lines, except when prefaced by the words "one of". An optional symbol is indicated by the suffix " (opt)".
 
-----
+---
 
 [Lexical grammar]
 
@@ -201,6 +201,8 @@ punctuator:
   `:` `-` `+` `.`
   `.` `{` `}` `(`
   `)`
+
+---
 
 [Phrase structure grammar]
 
