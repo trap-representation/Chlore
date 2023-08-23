@@ -79,7 +79,7 @@ import "exit.chloreh"
   hlt
 ```
 
-While we are at it, we might as well check whether the write to the standard output was successful. "putstr" sets block0. A block is a kind of storage region; think of them as registers in ISAs. Any standard conforming implementation of Chlore _must_ provide at least 8 blocks. The item in a block can be accessed with the read and write instructions associated with that block. For example, for block0, `write0` consumes the item at the top of the stack and stores that in block0, and `get0` gets the item stored in block0 and pushes that item on the top of the stack.
+While we are at it, we might as well check whether the write to the standard output was successful. "putstr" sets block0. (A block is a kind of storage region. Any standard conforming implementation of Chlore _must_ provide at least 8 blocks. The item in a block can be accessed with the read and write instructions associated with that block. For example, for block0, `write0` consumes the item at the top of the stack and stores that in block0, and `get0` gets the item stored in block0 and pushes that item on the top of the stack.)
 
 After the return from "putstr", block0 contains either the number of bytes successfully written to the standard output, or, on failure, EOF. Since we're checking block0 against EOF, we'll need to `import` "stddef.chloreh", which defines the symbol "EOF".
 
