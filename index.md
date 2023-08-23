@@ -35,7 +35,7 @@ An item of type int can be pushed on top of the stack with `pushi`. So something
 
 would return an exit code of 42 to the execution environment. `hltr` consumes the item at the top of the stack and returns its value to the environment.
 
-A pointer to a symbol designating a label or a string constant can be pushed on the stack with `pushp`.
+A pointer to a symbol designating a label or a string can be pushed on the stack with `pushp`.
 
 ```
 :main
