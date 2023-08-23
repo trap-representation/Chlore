@@ -1,10 +1,12 @@
+This work is licensed under the Creative Commons Attribution-NoDerivatives 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nd/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+
 [Notation]:
 
 A colon (:) following a non-terminal introduces its definition. Terminals are enclosed in backticks (`). Alternative definitions are listed on separate lines, except when prefaced by the words "one of". An optional symbol is indicated by the suffix " (opt)".
 
 ----
 
-[Lexical grammar]:
+[Lexical grammar]
 
 token:
   keyword
@@ -200,7 +202,7 @@ punctuator:
   `.` `{` `}` `(`
   `)`
 
-[Phrase structure grammar]:
+[Phrase structure grammar]
 
 translation-unit:
   statement-sequence (opt)
