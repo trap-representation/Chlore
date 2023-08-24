@@ -31,7 +31,7 @@ During start up, the symbol `main` is `call`ed, which means execution always sta
   hlt
 ```
 
-`hlt` terminates the execution of a program and returns the control to the execution environment. The last instruction evaluated must be one of `hlt`, `hltr`, `panic`, `force_panic`, and `exit`. `hlt` also returns the exit code 0 to the environment.
+`hlt` terminates the execution of a program and returns the control to the execution environment. The last instruction executed must be one of `hlt`, `hltr`, `panic`, `force_panic`, and `exit`. `hlt` also returns the exit code 0 to the environment.
 
 An item of type int can be pushed on top of the stack with `pushi`. So something like
 
@@ -213,9 +213,9 @@ struct random_struct {
   hlt
 ```
 
-When `addp` is evaluated, the item pushed by the construct `+random_struct.foo` must be at the top of the stack and the pointer to the allocated memory just underneath that.
+When `addp` is executed, the item pushed by the construct `+random_struct.foo` must be at the top of the stack and the pointer to the allocated memory just underneath that.
 
-`storei` stores in the storage region pointed to by the top of the stack the item present just underneath that. The number of bytes written to the memory is the value of the item pushed on the top of the stack after the evaluation of the construct `sizeof i`.
+`storei` stores in the storage region pointed to by the top of the stack the item present just underneath that. The number of bytes written to the memory is the value of the item pushed on the top of the stack after the execution of the construct `sizeof i`.
 
 ```
 import "stdlib.chloreh"
