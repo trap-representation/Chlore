@@ -38,7 +38,7 @@ Cool stuff implemented in Chlore:
 1. [The YET text editor](https://github.com/trap-representation/YET) [^2]
 2. [Solutions to some Project Euler problems](https://github.com/trap-representation/Project-Euler) [^2]
 3. [POSIX shell utilities](https://github.com/trap-representation/posix-shell-utilities) [^2]
-4. [The Carsee IRC client](https://github.com/trap-representation/Carsee) [^2]
+4. [The Carsee IRC client](https://github.com/trap-representation/Carsee)
 
 [^2]: This might not work with the latest revision of the language
 
