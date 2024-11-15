@@ -48,5 +48,4 @@ Do whatever you want with the files in `./examples/`. `chlore-logo.png` and `gra
 
 ---
 
-1. Check out the Chlore programming language's official website [here](https://trap-representation.github.io/Chlore/)
-2. Check out the [discord server](https://discord.gg/5FCpR5eZyp)
+Check out the [discord server](https://discord.gg/5FCpR5eZyp)
